@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
   spec.files		= %w[
     lib/mattock/testing/mock-command-line.rb
     lib/mattock/command-line.rb
+    lib/mattock/command-tasks.rb
     lib/mattock/template-host.rb
     lib/mattock/tasklib.rb
     lib/mattock/configurable.rb

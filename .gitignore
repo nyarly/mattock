@@ -2,3 +2,6 @@ _MTN
 .bundle
 *.sw?
 .mtn-ignore
+corundum
+doc/coverage
+doc/Specifications
