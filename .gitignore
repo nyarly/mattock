@@ -1,7 +1,8 @@
-_MTN
+last_run
+.*.sw?
 .bundle
-*.sw?
 .mtn-ignore
+_MTN
 corundum
-doc/coverage
 doc/Specifications
+doc/coverage

@@ -51,3 +51,4 @@ PLATFORMS
 DEPENDENCIES
   corundum
   mattock!
+  rake
