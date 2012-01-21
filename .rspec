@@ -6,4 +6,5 @@
 -I lib
 -I spec_help
 --require spec_helper
+--require simplecov
 --pattern *.rb

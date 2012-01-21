@@ -24,6 +24,9 @@ module Mattock
         end
         default_values.each_pair do |name,value|
           instance.__send__("#{name}=", value)
+          if Configurable === value
+            value.class.set_defaults_on(value)
+          end
         end
       end
 
@@ -90,6 +93,7 @@ module Mattock
 
     def setup_defaults
       self.class.set_defaults_on(self)
+      self
     end
 
     def check_required
@@ -97,6 +101,7 @@ module Mattock
       unless missing.empty?
         raise "Required field#{missing.length > 1 ? "s" : ""} #{missing.join(", ")} unset on #{self.inspect}"
       end
+      self
     end
 
     def setting(name, default_value = nil)
@@ -113,7 +118,9 @@ module Mattock
 
     def required_fields(*names)
       self.class.required_fields(*names)
+      self
     end
+    alias required_field required_fields
 
     class Struct
       include Configurable

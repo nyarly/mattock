@@ -1,16 +1,50 @@
 module Mattock
+  class CommandRunResult
+    def initialize(status, streams)
+      @process_status = status
+      @streams = streams
+    end
+    attr_reader :process_status, :streams
+
+    def stdout
+      @streams[1]
+    end
+
+    def stderr
+      @streams[2]
+    end
+
+    def exit_code
+      @process_status.exitstatus
+    end
+    alias exit_status exit_code
+
+    def succeeded?
+      must_succeed!
+      return true
+    rescue
+      return false
+    end
+
+    def must_succeed!
+      case exit_code
+      when 0
+        return exit_code
+      else
+        fail "Command '#{name}' failed with exit status #{$?.exitstatus}: \n"
+      end
+    end
+  end
+
   class CommandLine
     def initialize(executable, *options)
       @executable = executable
       @options = options
       @redirections = []
-      @exit_status = nil
-      @stdout = nil
       yield self if block_given?
     end
 
     attr_accessor :name, :executable, :options
-    attr_reader :exit_status, :stdout
 
     def name
       @name || executable
@@ -44,41 +78,30 @@ module Mattock
       redirect_from(path, 0)
     end
 
-    def run
-      print command + " " if Rake::verbose
+    def self.execute(command)
       pipe = IO.popen(command)
       pid = pipe.pid
-      Process.wait(pid)
-      @stdout = pipe.read
+      pid, status = Process.wait2(pid)
+      result = CommandRunResult.new(status, {1 => pipe.read})
       pipe.close
-      @exit_status = $?.exitstatus
-      print "=> #@exit_status" if Rake::verbose
-      return @stdout
+      return result
+    end
+
+    def run
+      print command + " " if $verbose
+      result = self.class.execute(command)
+      print "=> #{result.exit_code}" if $verbose
+      return result
     ensure
-      puts if Rake::verbose
+      puts if $verbose
     end
 
     def succeeds?
-      run if @exit_status.nil?
-      succeeded?
-    end
-
-    def succeeded?
-      must_succeed!
-      return true
-    rescue
-      return false
+      run.succeeded?
     end
 
     def must_succeed!
-      case @exit_status
-      when nil
-        fail "Command '#{name}' hasn't completed yet."
-      when 0
-        return @exit_status
-      else
-        fail "Command '#{name}' failed with exit status #{$?.exitstatus}: \n"
-      end
+      run.must_succeed!
     end
   end
 

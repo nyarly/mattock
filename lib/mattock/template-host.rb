@@ -3,7 +3,7 @@ require 'valise'
 
 module Mattock
   module ValiseManager
-    def default_valise(dirs)
+    def default_valise(*dirs)
       Valise::Set.define do
         dirs.each do |dir|
           ro dir

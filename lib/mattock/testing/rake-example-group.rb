@@ -1,3 +1,5 @@
+require 'rake'
+
 module Mattock
   module RakeExampleGroup
     SavedEnvironmentVariables = %w{APPDATA HOME HOMEDRIVE HOMEPATH RAKE_COLUMNS RAKE_SYSTEM RAKEOPT USERPROFILE}

@@ -6,6 +6,7 @@ module Mattock
   class TaskLib < Rake::TaskLib
     include Configurable
 
+    attr_writer :namespace_name
     def self.default_namespace(name)
       setting(:namespace_name, name)
     end

@@ -1,43 +1,26 @@
-require 'mattock/command_line'
+require 'mattock/command-line'
 
 module Mattock
-  module MockCommandLine
-    module ClassMethods
-      def stub_commands
-        @stub_commands ||= {}
+  class MockCommandResult < CommandRunResult
+    def self.create(*args)
+      if args.length == 1
+        args = [args[0], {1 => ""}]
       end
 
-      def stub_commands=(hash)
-        @stub_commands.merge!(hash)
+      if String == args[1]
+        args[1] = {1 => args[1]}
       end
 
-      def mock_commands
-        @mock_commands ||= []
-      end
-
-      def mock_commands=(hash)
-        stub_commands = stub_commands.merge(hash)
-        @mock_commands = mock_commands | hash.keys
-      end
+      return self.new(*args)
     end
 
-    def run
-      if self.class.stub_commands.has_key?(name)
-        return self.class.stub_commands[name]
-      else
-        raise "Unexpected command: #{name}"
-      end
+    def initialize(code, streams)
+      @streams = streams
+      @exit_code = code
     end
-  end
 
+    attr_reader :exit_code, :streams
 
-  module CommandLine
-    def self.mock!(commands = nil)
-      extend MockCommandLine::ClassMethods
-      include MockCommandLine
-      unless commands.nil?
-        stub_commands = commands
-      end
-    end
+    alias exit_status exit_code
   end
 end

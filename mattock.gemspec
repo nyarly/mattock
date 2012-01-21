@@ -26,19 +26,23 @@ Gem::Specification.new do |spec|
   # Do this: y$@"
   # !!find lib bin doc spec spec_help -not -regex '.*\.sw.' -type f 2>/dev/null
   spec.files		= %w[
-    lib/mattock/testing/mock-command-line.rb
     lib/mattock/command-line.rb
-    lib/mattock/command-tasks.rb
+    lib/mattock/command-task.rb
+    lib/mattock/testing/rake-example-group.rb
+    lib/mattock/testing/mock-command-line.rb
     lib/mattock/template-host.rb
+    lib/mattock/remote-command-task.rb
     lib/mattock/tasklib.rb
     lib/mattock/configurable.rb
     lib/mattock.rb
     doc/README
+    doc/Specifications
+    spec/command-line.rb
+    spec/command-task.rb
+    spec/tasklib.rb
+    spec/configurable.rb
     spec_help/spec_helper.rb
     spec_help/gem_test_suite.rb
-    spec_help/ungemmer.rb
-    spec_help/file-sandbox.rb
-
   ]
 
   spec.test_file        = "spec_help/gem_test_suite.rb"
