@@ -1,16 +1,8 @@
-require 'mattock/tasklib'
+require 'mattock/task'
 require 'mattock/command-line'
 
 module Mattock
-  module NeededPredicate
-    def needed_predicate(&block)
-      (class << self; self; end).instance_eval do
-        define_method(:needed?, &block)
-      end
-    end
-  end
-
-  class CommandTask < TaskLib
+  class CommandTask < Task
     setting(:task_name, :run)
     setting(:command)
     setting(:verify_command, nil)
@@ -26,25 +18,15 @@ module Mattock
       cmd
     end
 
-    def command_task
-      @command_task ||=
-        begin
-          task task_name do
-            decorated(command).must_succeed!
-          end
-        end
+    def action
+      decorated(command).must_succeed!
     end
 
-    def define
-      in_namespace do
-        command_task
-        unless verify_command.nil?
-          needed = decorated(verify_command)
-          command_task.extend NeededPredicate
-          command_task.needed_predicate do
-            !needed.succeeds?
-          end
-        end
+    def needed?
+      unless verify_command.nil?
+        !decorated(verify_command).succeeds?
+      else
+        super
       end
     end
   end

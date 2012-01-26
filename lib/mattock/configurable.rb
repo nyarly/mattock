@@ -50,6 +50,19 @@ module Mattock
         return missing
       end
 
+      def copy_settings(from, to)
+        if Configurable > superclass
+          superclass.copy_settings(from, to)
+        end
+        default_values.keys.each do |field|
+          begin
+            to.__send__("#{field}=", from.__send__(field))
+          rescue NoMethodError
+            #shrug it off
+          end
+        end
+      end
+
       def nested(hash=nil)
         obj = Class.new(Struct).new
         obj.settings(hash || {})
@@ -85,10 +98,15 @@ module Mattock
         end
         return self
       end
-    end
 
-    def self.included(mod)
-      mod.extend ClassMethods
+      def included(mod)
+        mod.extend ClassMethods
+      end
+    end
+    extend ClassMethods
+
+    def copy_settings_to(other)
+      self.class.copy_settings(self, other)
     end
 
     def setup_defaults
@@ -99,7 +117,7 @@ module Mattock
     def check_required
       missing = self.class.missing_required_fields_on(self)
       unless missing.empty?
-        raise "Required field#{missing.length > 1 ? "s" : ""} #{missing.join(", ")} unset on #{self.inspect}"
+        raise "Required field#{missing.length > 1 ? "s" : ""} #{missing.map{|field| field.to_s.inspect}.join(", ")} unset on #{self.inspect}"
       end
       self
     end
@@ -121,6 +139,12 @@ module Mattock
       self
     end
     alias required_field required_fields
+
+    def nil_fields(*names)
+      self.class.nil_fields(*names)
+      self
+    end
+    alias nil_field nil_fields
 
     class Struct
       include Configurable
