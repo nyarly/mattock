@@ -19,21 +19,16 @@ describe Mattock::Tasklib do
     TestTaskLib.new
   end
 
+  describe "defines" do
+    subject{ rake }
 
-  it "should define a root task" do
-    rake.should have_task(:test)
-  end
-
-  it "should define a namespaced task" do
-    rake.should have_task("test:task")
+    it{ should have_task(:test) }
+    it{ should have_task("test:task") }
+    it{ should_not have_task("random:tasks")}
   end
 
   it "should make root task depend on namespaced" do
-    rake.lookup(:test).should depend_on("test:task")
-  end
-
-  it "should not define random tasks" do
-    rake.should_not have_task("random:tasks")
+    rake[:test].should depend_on("test:task")
   end
 
   it "should not make namespaced task depend on root task" do

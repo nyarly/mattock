@@ -7,7 +7,6 @@ describe Mattock::RemoteCommandTask do
   let! :remote_task do
     namespace :test do
       Mattock::RemoteCommandTask.new do |t|
-        p t
         t.remote_server.address = "nowhere.com"
         t.command = Mattock::PrereqChain.new do |prereq|
           prereq.add Mattock::CommandLine.new("cd", "a_dir")
@@ -26,16 +25,13 @@ describe Mattock::RemoteCommandTask do
   end
 
   describe "when verification indicates command should proceed" do
+    include Mattock::CommandLineExampleGroup
+
     it "should run both commands" do
-      cmds = [/should_do/, /^ssh.*cd.*ls.*grep.*rubyfiles.txt/]
-      res = [1, 0]
-      Mattock::CommandLine.should_receive(:execute) do |cmd|
-        cmd.should =~ cmds.shift
-        Mattock::MockCommandResult.create(res.shift)
-      end.exactly(2).times
+      expect_command(/should_do/, 1)
+      expect_command(/^ssh.*cd.*ls.*grep.*rubyfiles.txt/, 0)
 
       rake["test:run"].invoke
-      cmds.should == []
     end
   end
 end
