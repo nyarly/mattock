@@ -2,6 +2,10 @@ require 'mattock/command-line'
 require 'mattock/testing/rake-example-group'
 require 'mattock/testing/mock-command-line'
 
+require 'mattock/testing/record-commands'
+
+Mattock::CommandLine.command_recording_path = "/dev/null"
+
 describe Mattock::CommandLine do
   let :commandline do
     Mattock::CommandLine.new('echo', "-n") do |cmd|

@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.0.1"
+  spec.version		= "0.1.0"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -30,10 +30,13 @@ Gem::Specification.new do |spec|
     lib/mattock/command-task.rb
     lib/mattock/testing/rake-example-group.rb
     lib/mattock/testing/mock-command-line.rb
+    lib/mattock/testing/record-commands.rb
     lib/mattock/template-host.rb
     lib/mattock/remote-command-task.rb
     lib/mattock/tasklib.rb
+    lib/mattock/task.rb
     lib/mattock/configurable.rb
+    lib/mattock/cascading-definition.rb
     lib/mattock.rb
     doc/README
     doc/Specifications
