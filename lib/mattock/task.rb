@@ -26,7 +26,7 @@ module Mattock
     end
 
     def define
-      task  =task_class.define_task(*task_args) do
+      task = task_class.define_task(*task_args) do
         action
       end
       copy_settings_to(task)

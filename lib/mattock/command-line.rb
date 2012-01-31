@@ -1,6 +1,7 @@
 module Mattock
   class CommandRunResult
-    def initialize(status, streams)
+    def initialize(command, status, streams)
+      @command = command
       @process_status = status
       @streams = streams
     end
@@ -31,7 +32,7 @@ module Mattock
       when 0
         return exit_code
       else
-        fail "Command '#{name}' failed with exit status #{$?.exitstatus}: \n"
+        fail "Command '#{@command.name}' failed with exit status #{$?.exitstatus}: \n"
       end
     end
   end
@@ -45,6 +46,10 @@ module Mattock
     end
 
     attr_accessor :name, :executable, :options
+
+    def verbose
+      Rake.verbose && Rake.verbose != Rake::FileUtilsExt::DEFAULT
+    end
 
     def name
       @name || executable
@@ -82,18 +87,18 @@ module Mattock
       pipe = IO.popen(command)
       pid = pipe.pid
       pid, status = Process.wait2(pid)
-      result = CommandRunResult.new(status, {1 => pipe.read})
+      result = CommandRunResult.new(command, status, {1 => pipe.read})
       pipe.close
       return result
     end
 
     def run
-      print command + " " if $verbose
+      print command + " " if verbose
       result = self.class.execute(command)
-      print "=> #{result.exit_code}" if $verbose
+      print "=> #{result.exit_code}" if verbose
       return result
     ensure
-      puts if $verbose
+      puts if verbose
     end
 
     def succeeds?

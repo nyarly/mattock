@@ -83,6 +83,10 @@ module Mattock
       end
       alias required_field required_fields
 
+      # @macro [attack] configurable_property
+      #   @method $1
+      #   @return [$2] The default value of $1
+      #   @method $1=
       def setting(name, default_value = RequiredField)
         name = name.to_sym
         attr_accessor(name)
