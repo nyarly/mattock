@@ -32,7 +32,7 @@ module Mattock
       when 0
         return exit_code
       else
-        fail "Command '#{@command.name}' failed with exit status #{$?.exitstatus}: \n"
+        fail "Command #{@command.inspect} failed with exit status #{$?.exitstatus}: \n#{streams.inspect}"
       end
     end
   end
