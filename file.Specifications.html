@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: Specifications
+  
+    &mdash; mattock-0.1.1 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: Specifications</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'>
+<p>Mattock::CommandLine</p>
+
+<pre class="code ruby"><code>should have a name set
+should produce a command string
+should succeed
+should not complain about success
+Mattock::CommandRunResult
+  should have a result code
+  should have stdout</code></pre>
+
+<p>Mattock::CommandLine that fails</p>
+
+<pre class="code ruby"><code>should not succeed
+should raise error if succeed demanded</code></pre>
+
+<p>Mattock::RemoteCommandTask</p>
+
+<pre class="code ruby"><code>when verification indicates command should proceed
+  should run both commands</code></pre>
+
+<p>Mattock::TemplateHost</p>
+
+<pre class="code ruby"><code>should be able to do easy templating</code></pre>
+
+<p>Mattock::TaskLib</p>
+
+<pre class="code ruby"><code>should make root task depend on namespaced
+should not make namespaced task depend on root task
+defines
+  should have task :test
+  should have task &quot;test:task&quot;
+  should not have task &quot;random:tasks&quot;</code></pre>
+
+<p>Mattock::Configurable</p>
+
+<pre class="code ruby"><code>should set defaults
+should complain about unset required fields
+should complain about unset nested required fields
+should not complain when required fields are set</code></pre>
+
+<p>Finished in 0.06128 seconds 19 examples, 0 failures</p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Wed Feb  1 11:54:37 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>
