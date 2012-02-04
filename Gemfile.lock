@@ -1,17 +1,13 @@
 PATH
   remote: .
   specs:
-    mattock (0.1.1)
+    mattock (0.1.2)
       tilt (> 0)
       valise (> 0)
 
-GEM
-  remote: http://judson:hEi4lOra@gems.lrdesign.com/
-  remote: http://gemcutter.org/
-  remote: http://gems.github.com/
+PATH
+  remote: ../corundum/
   specs:
-    archive-tar-minitar (0.5.2)
-    columnize (0.3.6)
     corundum (0.0.9)
       bundler (~> 1.0.0)
       mailfactory (~> 1.4.0)
@@ -22,6 +18,14 @@ GEM
       rspec (>= 2.0)
       simplecov (>= 0.5.4)
       yard
+
+GEM
+  remote: http://judson:hEi4lOra@gems.lrdesign.com/
+  remote: http://gemcutter.org/
+  remote: http://gems.github.com/
+  specs:
+    archive-tar-minitar (0.5.2)
+    columnize (0.3.6)
     diff-lcs (1.1.3)
     json (1.6.5)
     linecache19 (0.5.12)
@@ -66,7 +70,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  corundum
+  corundum!
   mattock!
   rake
   ruby-debug19

@@ -5,5 +5,5 @@ source "http://gems.github.com"
 gem 'ruby-debug19', :platform => :ruby_19
 
 gem 'rake'
-gem 'corundum'
+gem 'corundum', :path => "../corundum/"
 gemspec

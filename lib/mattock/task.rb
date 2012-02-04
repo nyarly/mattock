@@ -40,7 +40,7 @@ module Mattock
     end
 
     def inspect
-      "Mattock::Task"
+      "#{self.class.name}: #{self.task_args.inspect}"
     end
 
     def define

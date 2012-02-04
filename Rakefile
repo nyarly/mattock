@@ -21,6 +21,6 @@ module Corundum
     docs = YARDoc.new(tk)
 
     pages = GithubPages.new(docs)
-    task pages[:assemble_docs] => docs.yardoc_index
+    task pages[:assemble_docs] => docs.entry_point
   end
 end
