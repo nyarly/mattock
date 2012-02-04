@@ -7,3 +7,6 @@ corundum
 doc/Specifications
 doc/coverage
 pkg
+.yardoc/
+yardoc/
+gh-pages/

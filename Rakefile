@@ -19,5 +19,8 @@ module Corundum
     end
     task tk.finished_files.build => vc["is_checked_in"]
     docs = YARDoc.new(tk)
+
+    pages = GithubPages.new(docs)
+    task pages[:assemble_docs] => docs.yardoc_index
   end
 end

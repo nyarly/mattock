@@ -6,12 +6,30 @@ module Mattock
     include CascadingDefinition
 
     setting :task_name
+    setting :task_args
 
-    def action
+    def self.default_taskname(name)
+      setting(:task_name, name)
     end
 
-    def task_args
-      [task_name]
+    def initialize(*args)
+      configs = args.take_while{|arg| Configurable === arg}
+      @extracted_task_args = args[configs.length..-1]
+      if @extracted_task_args.any?{|arg| Configurable === arg}
+        raise "Mattock::Task classes should be created with parent configs, then Rake task args"
+      end
+      super(*configs)
+    end
+
+    def resolve_configuration
+      if @extracted_task_args.empty?
+        self.task_args = [task_name]
+      else
+        self.task_args = @extracted_task_args
+      end
+    end
+
+    def action
     end
 
     def task_class

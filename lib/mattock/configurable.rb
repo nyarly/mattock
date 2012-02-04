@@ -111,6 +111,7 @@ module Mattock
 
     def copy_settings_to(other)
       self.class.copy_settings(self, other)
+      self
     end
 
     def setup_defaults
@@ -124,6 +125,10 @@ module Mattock
         raise "Required field#{missing.length > 1 ? "s" : ""} #{missing.map{|field| field.to_s.inspect}.join(", ")} unset on #{self.inspect}"
       end
       self
+    end
+
+    def unset?(value)
+      value == RequiredField
     end
 
     def setting(name, default_value = nil)
