@@ -18,9 +18,12 @@ module Corundum
       vc.branch = "master"
     end
     task tk.finished_files.build => vc["is_checked_in"]
-    docs = YARDoc.new(tk)
+    yd = YARDoc.new(tk)
+
+    docs = DocumentationAssembly.new(tk, yd, rspec, cov)
 
     pages = GithubPages.new(docs)
-    task pages[:assemble_docs] => docs.entry_point
   end
 end
+
+task :default => [:release, :publish_docs]
