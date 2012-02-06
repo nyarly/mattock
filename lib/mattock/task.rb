@@ -1,15 +1,27 @@
 require 'mattock/cascading-definition'
 require 'rake/task'
+require 'rake/file_task'
 
 module Mattock
-  class Task < Rake::Task
+  # A configurable subclass of Rake::Task, such that you can use a
+  # configuration block to change how a common task behaves, while still
+  # overriding Rake API methods like Task#needed? and Task#timestamp
+
+  module TaskMixin
     include CascadingDefinition
 
     setting :task_name
     setting :task_args
 
-    def self.default_taskname(name)
-      setting(:task_name, name)
+    module ClassMethods
+      def default_taskname(name)
+        setting(:task_name, name)
+      end
+    end
+
+    def self.included(mod)
+      mod.class_eval{ extend ClassMethods }
+      super
     end
 
     def initialize(*args)
@@ -32,6 +44,7 @@ module Mattock
     def action
     end
 
+    # I continue to look for an alternative here.
     def task_class
       return @task_class if @task_class
       @task_class = Class.new(self.class) do
@@ -49,5 +62,13 @@ module Mattock
       end
       copy_settings_to(task)
     end
+  end
+
+  class Task < Rake::Task
+    include TaskMixin
+  end
+
+  class FileTask < Rake::FileTask
+    include TaskMixin
   end
 end
