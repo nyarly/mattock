@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Mattock::CascadingDefinition
+  
+    &mdash; mattock-0.1.3 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Mattock.html" title="Mattock (module)">Mattock</a></span></span>
+     &raquo; 
+    <span class="title">CascadingDefinition</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Mattock::CascadingDefinition
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></dd>
+      
+    
+  
+  
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="TaskLib.html" title="Mattock::TaskLib (class)">TaskLib</a></span>, <span class='object_link'><a href="TaskMixin.html" title="Mattock::TaskMixin (module)">TaskMixin</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/mattock/cascading-definition.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+
+
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Configurable.html#RequiredField-constant" title="Mattock::Configurable::RequiredField (constant)">Mattock::Configurable::RequiredField</a></span></p>
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#confirm_configuration-instance_method" title="#confirm_configuration (instance method)">- (Object) <strong>confirm_configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_configuration-instance_method" title="#default_configuration (instance method)">- (Object) <strong>default_configuration</strong>(*tasklibs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define-instance_method" title="#define (instance method)">- (Object) <strong>define</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (CascadingDefinition) <strong>initialize</strong>(*tasklibs) {|_self| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of CascadingDefinition.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_configuration-instance_method" title="#resolve_configuration (instance method)">- (Object) <strong>resolve_configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Configurable.html#check_required-instance_method" title="Mattock::Configurable#check_required (method)">#check_required</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings_to-instance_method" title="Mattock::Configurable#copy_settings_to (method)">#copy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#nil_fields-instance_method" title="Mattock::Configurable#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable.html#required_fields-instance_method" title="Mattock::Configurable#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable.html#setting-instance_method" title="Mattock::Configurable#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable.html#settings-instance_method" title="Mattock::Configurable#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable.html#setup_defaults-instance_method" title="Mattock::Configurable#setup_defaults (method)">#setup_defaults</a></span>, <span class='object_link'><a href="Configurable.html#unset%3F-instance_method" title="Mattock::Configurable#unset? (method)">#unset?</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable/ClassMethods.html" title="Mattock::Configurable::ClassMethods (module)">Mattock::Configurable::ClassMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#copy_settings-instance_method" title="Mattock::Configurable::ClassMethods#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span></p>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="confirm_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>confirm_configuration</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_confirm_configuration'>confirm_configuration</span>
+  <span class='id identifier rubyid_check_required'>check_required</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>default_configuration</strong>(*tasklibs) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasklibs'>tasklibs</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="define-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Mattock::CascadingDefinition (module)">CascadingDefinition</a></span></tt>) <strong>initialize</strong>(*tasklibs) {|_self| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of CascadingDefinition</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>_self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Yield Parameters:</h3>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>_self</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Mattock::CascadingDefinition (module)">Mattock::CascadingDefinition</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the object that the method was called on</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasklibs'>tasklibs</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_setup_defaults'>setup_defaults</span>
+  <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasklibs'>tasklibs</span><span class='rparen'>)</span>
+
+  <span class='kw'>yield</span> <span class='kw'>self</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+
+  <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+  <span class='id identifier rubyid_confirm_configuration'>confirm_configuration</span>
+
+  <span class='id identifier rubyid_define'>define</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="resolve_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_configuration</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Feb  6 15:20:43 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

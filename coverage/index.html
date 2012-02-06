@@ -1,0 +1,5169 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>Code coverage for Mattock</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script src='./assets/0.5.3/jquery-1.6.2.min.js' type='text/javascript'></script>
+    <script src='./assets/0.5.3/jquery.dataTables.min.js' type='text/javascript'></script>   
+    <script src='./assets/0.5.3/fancybox/jquery.fancybox-1.3.1.pack.js' type='text/javascript'></script>   
+    <script src='./assets/0.5.3/jquery.timeago.js' type='text/javascript'></script>   
+    <script src='./assets/0.5.3/jquery.url.js' type='text/javascript'></script>   
+    <script src='./assets/0.5.3/highlight.pack.js' type='text/javascript'></script>  
+    <script src='./assets/0.5.3/app.js' type='text/javascript'></script>    
+    <link href='./assets/0.5.3/stylesheet.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
+    <link href='./assets/0.5.3/highlight.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
+    <link href='./assets/0.5.3/fancybox/jquery.fancybox-1.3.1.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
+    <link href='./assets/0.5.3/smoothness/jquery-ui-1.8.4.custom.css' media='screen, projection, print' rel='stylesheet' type='text/css'>    
+    <link rel="shortcut icon" type="image/png" href="./assets/0.5.3/favicon_green.png" />
+    <link rel="icon" type="image/png" href="./assets/0.5.3/favicon.png" />
+  </head>
+  
+  <body>
+    <div id="loading">
+      <img src="./assets/0.5.3/loading.gif" alt="loading"/>
+    </div>
+    <div id="wrapper" style="display:none;">
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-02-06T15:20:35-08:00">2012-02-06T15:20:35-08:00</abbr></div>
+      <ul class="group_tabs"></ul>
+
+      <div id="content">
+        <div class="file_list_container" id="AllFiles">
+  <h2>
+    <span class="group_name">All Files</span>
+    (<span class="covered_percent"><span class="green">92.31%</span></span>
+     covered at
+     <span class="covered_strength">
+       <span class="green">
+         2.62
+       </span>
+    </span> hits/line)
+  </h2>
+  <a name="AllFiles"></a>
+  <div>
+    <b>12</b> files in total.
+    <b>442</b> relevant lines. 
+    <span class="green"><b>408</b> lines covered</span> and
+    <span class="red"><b>34</b> lines missed </span>
+  </div>
+  <table class="file_list">
+    <thead>
+      <tr>
+        <th>File</th>
+        <th>% covered</th>
+        <th>Lines</th>
+        <th>Relevant Lines</th>
+        <th>Lines covered</th>
+        <th>Lines missed</th>
+        <th>Avg. Hits / Line</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td class="strong"><a href="#ff1ec41bbd289dd44f158d42bb096896a51c94a4" class="src_link" title="lib/mattock.rb">lib/mattock.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>4</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#a4dd8526c71e3e42410b37403d8cb37f6ca70df4" class="src_link" title="lib/mattock/cascading-definition.rb">lib/mattock/cascading-definition.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>32</td>
+        <td>16</td>
+        <td>16</td>
+        <td>0</td>
+        <td>3.2</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#19e9811ada5819ea8e2c6a644088d4ba8e773a5b" class="src_link" title="lib/mattock/command-line.rb">lib/mattock/command-line.rb</a></td>
+        <td class="green strong">93.33 %</td>
+        <td>162</td>
+        <td>90</td>
+        <td>84</td>
+        <td>6</td>
+        <td>3.2</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#937bd4854d7605194eaf61c021175d6a0f31e6e8" class="src_link" title="lib/mattock/command-task.rb">lib/mattock/command-task.rb</a></td>
+        <td class="yellow strong">84.21 %</td>
+        <td>33</td>
+        <td>19</td>
+        <td>16</td>
+        <td>3</td>
+        <td>1.2</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#151b5abc8f09f0fc2932ac98c07e3b516a518e3e" class="src_link" title="lib/mattock/configurable.rb">lib/mattock/configurable.rb</a></td>
+        <td class="green strong">95.7 %</td>
+        <td>162</td>
+        <td>93</td>
+        <td>89</td>
+        <td>4</td>
+        <td>7.9</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#dbfbe3e96d32b3e7eea8b666117072d5da6e3e60" class="src_link" title="lib/mattock/remote-command-task.rb">lib/mattock/remote-command-task.rb</a></td>
+        <td class="yellow strong">88.89 %</td>
+        <td>30</td>
+        <td>18</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#7cc8f09739f0b95d0fd16321baf73b5d3c6eb35b" class="src_link" title="lib/mattock/task.rb">lib/mattock/task.rb</a></td>
+        <td class="yellow strong">89.74 %</td>
+        <td>74</td>
+        <td>39</td>
+        <td>35</td>
+        <td>4</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#a2c73f0ba96e60116ee8696673802b6ebaddc38c" class="src_link" title="lib/mattock/tasklib.rb">lib/mattock/tasklib.rb</a></td>
+        <td class="green strong">96.77 %</td>
+        <td>57</td>
+        <td>31</td>
+        <td>30</td>
+        <td>1</td>
+        <td>3.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#d473017bbd055a2863ae4f15284c3cc7d86dd38e" class="src_link" title="lib/mattock/template-host.rb">lib/mattock/template-host.rb</a></td>
+        <td class="red strong">63.33 %</td>
+        <td>54</td>
+        <td>30</td>
+        <td>19</td>
+        <td>11</td>
+        <td>0.6</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#d05b479afa4321ddf827a6b5af14020183ee07b9" class="src_link" title="lib/mattock/testing/mock-command-line.rb">lib/mattock/testing/mock-command-line.rb</a></td>
+        <td class="green strong">94.44 %</td>
+        <td>67</td>
+        <td>36</td>
+        <td>34</td>
+        <td>2</td>
+        <td>1.2</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#ba419266ded63c6767eeb8c594191949ebb1b061" class="src_link" title="lib/mattock/testing/rake-example-group.rb">lib/mattock/testing/rake-example-group.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>79</td>
+        <td>44</td>
+        <td>44</td>
+        <td>0</td>
+        <td>5.7</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#b325ca10da29fcd26651ac26205d38639667a9a7" class="src_link" title="lib/mattock/testing/record-commands.rb">lib/mattock/testing/record-commands.rb</a></td>
+        <td class="green strong">95.45 %</td>
+        <td>38</td>
+        <td>22</td>
+        <td>21</td>
+        <td>1</td>
+        <td>1.7</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+        
+      </div>
+    
+      <div id="footer">
+        Generated by <a href="http://github.com/colszowka/simplecov">simplecov</a> v0.5.4 
+        and simplecov-html v0.5.3<br/>
+        using RSpec
+      </div>
+    
+      <div class="source_files">
+      
+        <div class="source_table" id="ff1ec41bbd289dd44f158d42bb096896a51c94a4">
+  <div class="header">
+    <h3>lib/mattock.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/tasklib'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/command-line'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/remote-command-task'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/template-host'</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="a4dd8526c71e3e42410b37403d8cb37f6ca70df4">
+  <div class="header">
+    <h3>lib/mattock/cascading-definition.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>16</b> relevant lines. 
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/configurable'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  module CascadingDefinition</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    include Configurable</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def initialize(*tasklibs)</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="8">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      setup_defaults</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="9">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      default_configuration(*tasklibs)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="11">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      yield self if block_given?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="13">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      resolve_configuration</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="14">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      confirm_configuration</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="16">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      define</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def default_configuration(*tasklibs)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def resolve_configuration</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def confirm_configuration</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="26">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      check_required</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def define</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="19e9811ada5819ea8e2c6a644088d4ba8e773a5b">
+  <div class="header">
+    <h3>lib/mattock/command-line.rb</h3>
+    <h4><span class="green">93.33 %</span> covered</h4>
+    <div>
+      <b>90</b> relevant lines. 
+      <span class="green"><b>84</b> lines covered</span> and
+      <span class="red"><b>6</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class CommandRunResult</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def initialize(command, status, streams)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="4">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      @command = command</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="5">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      @process_status = status</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="6">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      @streams = streams</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    attr_reader :process_status, :streams</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def stdout</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @streams[1]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def stderr</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="15">
+          
+          
+          <code class="ruby">      @streams[2]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def exit_code</code>
+        </li>
+      
+        <li class="covered" data-hits="11" data-linenumber="19">
+          <span class="hits">11</span>
+          
+          <code class="ruby">      @process_status.exitstatus</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    alias exit_status exit_code</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def succeeded?</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="24">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      must_succeed!</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      return true</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">    rescue</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="27">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      return false</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def must_succeed!</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="31">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      case exit_code</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">      when 0</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="33">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        return exit_code</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="35">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        fail &quot;Command #{@command.inspect} failed with exit status #{$?.exitstatus}: \n#{streams.inspect}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="40">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class CommandLine</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def initialize(executable, *options)</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="42">
+          <span class="hits">14</span>
+          
+          <code class="ruby">      @executable = executable</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="43">
+          <span class="hits">14</span>
+          
+          <code class="ruby">      @options = options</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="44">
+          <span class="hits">14</span>
+          
+          <code class="ruby">      @redirections = []</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="45">
+          <span class="hits">14</span>
+          
+          <code class="ruby">      yield self if block_given?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    attr_accessor :name, :executable, :options</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def verbose</code>
+        </li>
+      
+        <li class="covered" data-hits="21" data-linenumber="51">
+          <span class="hits">21</span>
+          
+          <code class="ruby">      Rake.verbose &amp;&amp; Rake.verbose != Rake::FileUtilsExt::DEFAULT</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def name</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @name || executable</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def command</code>
+        </li>
+      
+        <li class="covered" data-hits="12" data-linenumber="59">
+          <span class="hits">12</span>
+          
+          <code class="ruby">      ([executable] + options + @redirections).join(&quot; &quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="62">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def redirect_to(stream, path)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="63">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      @redirections &lt;&lt; &quot;#{stream}&gt;#{path}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="66">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def redirect_from(path, stream)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="67">
+          
+          
+          <code class="ruby">      @redirections &lt;&lt; &quot;#{stream}&lt;#{path}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="70">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def copy_stream_to(from, to)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="71">
+          
+          
+          <code class="ruby">      @redirections &lt;&lt; &quot;#{from}&gt;&amp;#{to}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="74">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def redirect_stdout(path)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="75">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      redirect_to(1, path)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="76">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="77">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="78">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def redirect_stderr(path)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="79">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      redirect_to(2, path)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="80">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="81">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="82">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def redirect_stdin(path)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="83">
+          
+          
+          <code class="ruby">      redirect_from(path, 0)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="84">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="86">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.execute(command)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="87">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      pipe = IO.popen(command)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="88">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      pid = pipe.pid</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="89">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      pid, status = Process.wait2(pid)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="90">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      result = CommandRunResult.new(command, status, {1 =&gt; pipe.read})</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="91">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      pipe.close</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="92">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      return result</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="93">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="95">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def run</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="96">
+          <span class="hits">7</span>
+          
+          <code class="ruby">      print command + &quot; &quot; if verbose</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="97">
+          <span class="hits">7</span>
+          
+          <code class="ruby">      result = self.class.execute(command)</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="98">
+          <span class="hits">7</span>
+          
+          <code class="ruby">      print &quot;=&gt; #{result.exit_code}&quot; if verbose</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="99">
+          <span class="hits">7</span>
+          
+          <code class="ruby">      return result</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="100">
+          
+          
+          <code class="ruby">    ensure</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="101">
+          <span class="hits">7</span>
+          
+          <code class="ruby">      puts if verbose</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="102">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="103">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="104">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def succeeds?</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="105">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      run.succeeded?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="106">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="107">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="108">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def must_succeed!</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="109">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      run.must_succeed!</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="110">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="111">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="112">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="113">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class ShellEscaped &lt; CommandLine</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="114">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def initialize(cmd)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="115">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      @escaped = cmd</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="116">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="117">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="118">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def command</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="119">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      &quot;'&quot; + @escaped.command.gsub(/'/,&quot;\'&quot;) + &quot;'&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="120">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="121">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="122">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def name</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="123">
+          
+          
+          <code class="ruby">      @name || @escaped.name</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="124">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="125">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="126">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="127">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class CommandChain &lt; CommandLine</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="128">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def initialize</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="129">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      @commands = []</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="130">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      yield self if block_given?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="131">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="132">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="133">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    attr_reader :commands</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="134">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="135">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def add(cmd)</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="136">
+          <span class="hits">8</span>
+          
+          <code class="ruby">      yield cmd if block_given?</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="137">
+          <span class="hits">8</span>
+          
+          <code class="ruby">      @commands &lt;&lt; cmd</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="138">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="139">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="140">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def name</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="141">
+          
+          
+          <code class="ruby">      @name || @commands.last.name</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="142">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="143">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="144">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="145">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class WrappingChain &lt; CommandChain</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="146">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def command</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="147">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      @commands.map{|cmd| cmd.command}.join(&quot; -- &quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="148">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="149">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="150">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="151">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class PrereqChain &lt; CommandChain</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="152">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def command</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="153">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      @commands.map{|cmd| cmd.command}.join(&quot; &amp;&amp; &quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="154">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="155">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="156">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="157">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class PipelineChain &lt; CommandChain</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="158">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def command</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="159">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      @commands.map{|cmd| cmd.command}.join(&quot; | &quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="160">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="161">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="162">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="937bd4854d7605194eaf61c021175d6a0f31e6e8">
+  <div class="header">
+    <h3>lib/mattock/command-task.rb</h3>
+    <h4><span class="yellow">84.21 %</span> covered</h4>
+    <div>
+      <b>19</b> relevant lines. 
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/task'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/command-line'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class CommandTask &lt; Task</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    setting(:task_name, :run)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    setting(:command)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    setting(:verify_command, nil)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def verify_command</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="11">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      if @verify_command.respond_to?(:call)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">        @verify_command = @verify_command.call</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="14">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      @verify_command</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def decorated(cmd)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="18">
+          
+          
+          <code class="ruby">      cmd</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def action</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      decorated(command).must_succeed!</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def needed?</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      unless verify_command.nil?</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        !decorated(verify_command).succeeds?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
+          <code class="ruby">        super</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="151b5abc8f09f0fc2932ac98c07e3b516a518e3e">
+  <div class="header">
+    <h3>lib/mattock/configurable.rb</h3>
+    <h4><span class="green">95.7 %</span> covered</h4>
+    <div>
+      <b>93</b> relevant lines. 
+      <span class="green"><b>89</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  module Configurable</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    RequiredField = Object.new</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    class &lt;&lt; RequiredField</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def to_s</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="6">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        &quot;&lt;unset&gt;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def inspect</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="10">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        to_s</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    RequiredField.freeze</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    module ClassMethods</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def default_values</code>
+        </li>
+      
+        <li class="covered" data-hits="99" data-linenumber="18">
+          <span class="hits">99</span>
+          
+          <code class="ruby">        @default_values ||= {}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def set_defaults_on(instance)</code>
+        </li>
+      
+        <li class="covered" data-hits="31" data-linenumber="22">
+          <span class="hits">31</span>
+          
+          <code class="ruby">        if Configurable &gt; superclass</code>
+        </li>
+      
+        <li class="covered" data-hits="16" data-linenumber="23">
+          <span class="hits">16</span>
+          
+          <code class="ruby">          superclass.set_defaults_on(instance)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="31" data-linenumber="25">
+          <span class="hits">31</span>
+          
+          <code class="ruby">        default_values.each_pair do |name,value|</code>
+        </li>
+      
+        <li class="covered" data-hits="42" data-linenumber="26">
+          <span class="hits">42</span>
+          
+          <code class="ruby">          instance.__send__(&quot;#{name}=&quot;, value)</code>
+        </li>
+      
+        <li class="covered" data-hits="42" data-linenumber="27">
+          <span class="hits">42</span>
+          
+          <code class="ruby">          if Configurable === value</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="28">
+          <span class="hits">5</span>
+          
+          <code class="ruby">            value.class.set_defaults_on(value)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def missing_required_fields_on(instance)</code>
+        </li>
+      
+        <li class="covered" data-hits="27" data-linenumber="34">
+          <span class="hits">27</span>
+          
+          <code class="ruby">        missing = []</code>
+        </li>
+      
+        <li class="covered" data-hits="27" data-linenumber="35">
+          <span class="hits">27</span>
+          
+          <code class="ruby">        if Configurable &gt; superclass</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="36">
+          <span class="hits">14</span>
+          
+          <code class="ruby">          missing = superclass.missing_required_fields_on(instance)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="27" data-linenumber="38">
+          <span class="hits">27</span>
+          
+          <code class="ruby">        default_values.each_pair do |name,value|</code>
+        </li>
+      
+        <li class="covered" data-hits="35" data-linenumber="39">
+          <span class="hits">35</span>
+          
+          <code class="ruby">          set_value = instance.__send__(name)</code>
+        </li>
+      
+        <li class="covered" data-hits="35" data-linenumber="40">
+          <span class="hits">35</span>
+          
+          <code class="ruby">          if value == RequiredField and set_value == RequiredField</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="41">
+          <span class="hits">3</span>
+          
+          <code class="ruby">            missing &lt;&lt; name</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="42">
+          <span class="hits">3</span>
+          
+          <code class="ruby">            next</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="covered" data-hits="32" data-linenumber="44">
+          <span class="hits">32</span>
+          
+          <code class="ruby">          if Configurable === set_value</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="45">
+          <span class="hits">4</span>
+          
+          <code class="ruby">            missing += set_value.class.missing_required_fields_on(set_value).map do |field|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="46">
+          <span class="hits">2</span>
+          
+          <code class="ruby">              [name, field].join(&quot;.&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">            end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="27" data-linenumber="50">
+          <span class="hits">27</span>
+          
+          <code class="ruby">        return missing</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="53">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def copy_settings(from, to)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="54">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        if Configurable &gt; superclass</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="55">
+          <span class="hits">2</span>
+          
+          <code class="ruby">          superclass.copy_settings(from, to)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="57">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        default_values.keys.each do |field|</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="58">
+          <span class="hits">7</span>
+          
+          <code class="ruby">          begin</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="59">
+          <span class="hits">7</span>
+          
+          <code class="ruby">            to.__send__(&quot;#{field}=&quot;, from.__send__(field))</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">          rescue NoMethodError</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">            #shrug it off</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="66">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def nested(hash=nil)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="67">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        obj = Class.new(Struct).new</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="68">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        obj.settings(hash || {})</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="69">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        return obj</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="72">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def nil_fields(*names)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="73">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        names.each do |name|</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="74">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          setting(name, nil)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="76">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="77">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      alias nil_field nil_fields</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="79">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def required_fields(*names)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="80">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        names.each do |name|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="81">
+          <span class="hits">2</span>
+          
+          <code class="ruby">          setting(name)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="82">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="83">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="84">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      alias required_field required_fields</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby">      # @macro [attack] configurable_property</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="87">
+          
+          
+          <code class="ruby">      #   @method $1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="88">
+          
+          
+          <code class="ruby">      #   @return [$2] The default value of $1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="89">
+          
+          
+          <code class="ruby">      #   @method $1=</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="90">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def setting(name, default_value = RequiredField)</code>
+        </li>
+      
+        <li class="covered" data-hits="19" data-linenumber="91">
+          <span class="hits">19</span>
+          
+          <code class="ruby">        name = name.to_sym</code>
+        </li>
+      
+        <li class="covered" data-hits="19" data-linenumber="92">
+          <span class="hits">19</span>
+          
+          <code class="ruby">        attr_accessor(name)</code>
+        </li>
+      
+        <li class="covered" data-hits="19" data-linenumber="93">
+          <span class="hits">19</span>
+          
+          <code class="ruby">        if default_values.has_key?(name) and default_values[name] != default_value</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="94">
+          
+          
+          <code class="ruby">          warn &quot;Changing default value of #{self.name}##{name} from #{default_values[name].inspect} to #{default_value.inspect}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="19" data-linenumber="96">
+          <span class="hits">19</span>
+          
+          <code class="ruby">        default_values[name] = default_value</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="97">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="98">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="99">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def settings(hash)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="100">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        hash.each_pair do |name, value|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="101">
+          <span class="hits">2</span>
+          
+          <code class="ruby">          setting(name, value)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="102">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="103">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        return self</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="104">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="105">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="106">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def included(mod)</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="107">
+          <span class="hits">7</span>
+          
+          <code class="ruby">        mod.extend ClassMethods</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="109">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="110">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    extend ClassMethods</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="111">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="112">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def copy_settings_to(other)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="113">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      self.class.copy_settings(self, other)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="114">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      self</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="115">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="116">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="117">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def setup_defaults</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="118">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      self.class.set_defaults_on(self)</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="119">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      self</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="120">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="121">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="122">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def check_required</code>
+        </li>
+      
+        <li class="covered" data-hits="9" data-linenumber="123">
+          <span class="hits">9</span>
+          
+          <code class="ruby">      missing = self.class.missing_required_fields_on(self)</code>
+        </li>
+      
+        <li class="covered" data-hits="9" data-linenumber="124">
+          <span class="hits">9</span>
+          
+          <code class="ruby">      unless missing.empty?</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="125">
+          <span class="hits">5</span>
+          
+          <code class="ruby">        raise &quot;Required field#{missing.length &gt; 1 ? &quot;s&quot; : &quot;&quot;} #{missing.map{|field| field.to_s.inspect}.join(&quot;, &quot;)} unset on #{self.inspect}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="126">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="127">
+          <span class="hits">7</span>
+          
+          <code class="ruby">      self</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="128">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="129">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="130">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def unset?(value)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="131">
+          
+          
+          <code class="ruby">      value == RequiredField</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="132">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="133">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="134">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def setting(name, default_value = nil)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="135">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      self.class.setting(name, default_value)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="136">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      instance_variable_set(&quot;@#{name}&quot;, default_value)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="137">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="138">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="139">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def settings(hash)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="140">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      hash.each_pair do |name, value|</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="141">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        setting(name, value)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="142">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="143">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      return self</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="144">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="145">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="146">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def required_fields(*names)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="147">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      self.class.required_fields(*names)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="148">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      self</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="149">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="150">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    alias required_field required_fields</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="151">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="152">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def nil_fields(*names)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="153">
+          
+          
+          <code class="ruby">      self.class.nil_fields(*names)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="154">
+          
+          
+          <code class="ruby">      self</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="155">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="156">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    alias nil_field nil_fields</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="157">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="158">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    class Struct</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="159">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      include Configurable</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="160">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="161">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="162">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="dbfbe3e96d32b3e7eea8b666117072d5da6e3e60">
+  <div class="header">
+    <h3>lib/mattock/remote-command-task.rb</h3>
+    <h4><span class="yellow">88.89 %</span> covered</h4>
+    <div>
+      <b>18</b> relevant lines. 
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/command-task'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class RemoteCommandTask &lt; CommandTask</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    setting(:remote_server, nested(</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">      :address =&gt; nil,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">      :user =&gt; nil</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">    ))</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    setting(:ssh_options, [])</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    nil_fields(:id_file, :free_arguments)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def decorated(command_on_remote)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="12">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      fail &quot;Need remote server for #{self.class.name}&quot; unless remote_server.address</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="14">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      raise &quot;Empty remote command&quot; if command_on_remote.nil?</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      Mattock::WrappingChain.new do |cmd|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        cmd.add Mattock::CommandLine.new(&quot;ssh&quot;) do |cmd|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="17">
+          <span class="hits">2</span>
+          
+          <code class="ruby">          cmd.options &lt;&lt; &quot;-u #{remote_server.user}&quot; if remote_server.user</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
+          
+          <code class="ruby">          cmd.options &lt;&lt; &quot;-i #{id_file}&quot; if id_file</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="19">
+          <span class="hits">2</span>
+          
+          <code class="ruby">          unless ssh_options.empty?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
+          
+          <code class="ruby">            ssh_options.each do |opt|</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
+          
+          <code class="ruby">              cmd.options &quot;-o #{opt}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">            end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="24">
+          <span class="hits">2</span>
+          
+          <code class="ruby">          cmd.options &lt;&lt; remote_server.address</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="26">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        cmd.add Mattock::ShellEscaped.new(command_on_remote)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="7cc8f09739f0b95d0fd16321baf73b5d3c6eb35b">
+  <div class="header">
+    <h3>lib/mattock/task.rb</h3>
+    <h4><span class="yellow">89.74 %</span> covered</h4>
+    <div>
+      <b>39</b> relevant lines. 
+      <span class="green"><b>35</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/cascading-definition'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'rake/task'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'rake/file_task'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  # A configurable subclass of Rake::Task, such that you can use a</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">  # configuration block to change how a common task behaves, while still</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  # overriding Rake API methods like Task#needed? and Task#timestamp</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  module TaskMixin</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    include CascadingDefinition</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    setting :task_name</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    setting :task_args</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    module ClassMethods</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def default_taskname(name)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="18">
+          
+          
+          <code class="ruby">        setting(:task_name, name)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.included(mod)</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="23">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      mod.class_eval{ extend ClassMethods }</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="24">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      super</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def initialize(*args)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      configs = args.take_while{|arg| Configurable === arg}</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @extracted_task_args = args[configs.length..-1]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      if @extracted_task_args.any?{|arg| Configurable === arg}</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="31">
+          
+          
+          <code class="ruby">        raise &quot;Mattock::Task classes should be created with parent configs, then Rake task args&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      super(*configs)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def resolve_configuration</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      if @extracted_task_args.empty?</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        self.task_args = [task_name]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="40">
+          
+          
+          <code class="ruby">        self.task_args = @extracted_task_args</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def action</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">    # I continue to look for an alternative here.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def task_class</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      return @task_class if @task_class</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @task_class = Class.new(self.class) do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        define_method :initialize, Rake::Task.instance_method(:initialize)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def inspect</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="56">
+          
+          
+          <code class="ruby">      &quot;#{self.class.name}: #{self.task_args.inspect}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def define</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      task = task_class.define_task(*task_args) do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        action</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="63">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      copy_settings_to(task)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="67">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class Task &lt; Rake::Task</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="68">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    include TaskMixin</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="71">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class FileTask &lt; Rake::FileTask</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="72">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    include TaskMixin</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="a2c73f0ba96e60116ee8696673802b6ebaddc38c">
+  <div class="header">
+    <h3>lib/mattock/tasklib.rb</h3>
+    <h4><span class="green">96.77 %</span> covered</h4>
+    <div>
+      <b>31</b> relevant lines. 
+      <span class="green"><b>30</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'rake/tasklib'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/cascading-definition'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class TaskLib &lt; Rake::TaskLib</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    include CascadingDefinition</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    attr_writer :namespace_name</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.default_namespace(name)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      setting(:namespace_name, name)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    attr_reader :tasks</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def initialize(*toolkits)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="16">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      @tasks = []</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="17">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      super</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def task(*args)</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="21">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      a_task = super</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="22">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      @tasks &lt;&lt; a_task</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="23">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      return a_task</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def in_namespace(*tasknames)</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="27">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      if tasknames.empty?</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="28">
+          <span class="hits">5</span>
+          
+          <code class="ruby">        if block_given?</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="29">
+          <span class="hits">5</span>
+          
+          <code class="ruby">          if @namespace_name.nil?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="30">
+          
+          
+          <code class="ruby">            yield</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">          else</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="32">
+          <span class="hits">5</span>
+          
+          <code class="ruby">            namespace @namespace_name do</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="33">
+          <span class="hits">5</span>
+          
+          <code class="ruby">              yield</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">            end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="38">
+          <span class="hits">5</span>
+          
+          <code class="ruby">        tasknames.map do |taskname|</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="39">
+          <span class="hits">5</span>
+          
+          <code class="ruby">          [@namespace_name, taskname].compact.join(&quot;:&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def root_task</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="45">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      @namespace_name || :default</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def default_namespace</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">      nil</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def [](taskname)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="53">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      in_namespace(taskname).first</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  Tasklib = TaskLib #Because I can never remember</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="d473017bbd055a2863ae4f15284c3cc7d86dd38e">
+  <div class="header">
+    <h3>lib/mattock/template-host.rb</h3>
+    <h4><span class="red">63.33 %</span> covered</h4>
+    <div>
+      <b>30</b> relevant lines. 
+      <span class="green"><b>19</b> lines covered</span> and
+      <span class="red"><b>11</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'tilt'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'valise'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  module ValiseManager</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def default_valise(*dirs)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      Valise::Set.define do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        dirs.each do |dir|</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          ro dir</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def rel_dir(base_path = nil, up_to = nil)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="15">
+          
+          
+          <code class="ruby">      base_path ||= /(.*):\d+/.match(caller[0])[1]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">      up_to ||= &quot;lib&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="18">
+          
+          
+          <code class="ruby">      abs_path = File::expand_path(base_path)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="19">
+          
+          
+          <code class="ruby">      base_path = abs_path.split(File::Separator)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
+          
+          <code class="ruby">      until base_path.empty?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
+          
+          <code class="ruby">        unless base_path.last == up_to</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="22">
+          
+          
+          <code class="ruby">          base_path.pop</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">        else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="24">
+          
+          
+          <code class="ruby">          break</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="28">
+          
+          
+          <code class="ruby">      if base_path.empty?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
+          <code class="ruby">        raise &quot;Relative root #{up_to} not found in #{abs_path}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="32">
+          
+          
+          <code class="ruby">      return base_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    module_function :rel_dir, :default_valise</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  module TemplateHost</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.template_cache</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @template_cache ||= Tilt::Cache.new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    attr_accessor :valise</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def render(path, locals=nil)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      template = TemplateHost::template_cache.fetch(path) do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        Tilt.new(path) do |tmpl|</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          valise.find([&quot;templates&quot;] + valise.unpath(tmpl.file)).contents</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      template.render(self, locals)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="d05b479afa4321ddf827a6b5af14020183ee07b9">
+  <div class="header">
+    <h3>lib/mattock/testing/mock-command-line.rb</h3>
+    <h4><span class="green">94.44 %</span> covered</h4>
+    <div>
+      <b>36</b> relevant lines. 
+      <span class="green"><b>34</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/command-line'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class MockCommandResult &lt; CommandRunResult</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.create(*args)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="6">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      if args.length == 1</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="7">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        args = [args[0], {1 =&gt; &quot;&quot;}]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="10">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      if String == args[1]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="11">
+          
+          
+          <code class="ruby">        args[1] = {1 =&gt; args[1]}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="14">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      return self.new(*args)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def initialize(code, streams)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      @streams = streams</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="19">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      @exit_code = code</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    attr_reader :exit_code, :streams</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    alias exit_status exit_code</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  module CommandLineExampleGroup</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.included(group)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      group.class_eval do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        let :pairs do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          []</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        before :each do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          Mattock::CommandLine.should_receive(:execute) do |cmd|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="36">
+          <span class="hits">2</span>
+          
+          <code class="ruby">            pattern, res = pairs.shift</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="37">
+          <span class="hits">2</span>
+          
+          <code class="ruby">            pattern =~ cmd</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="38">
+          <span class="hits">2</span>
+          
+          <code class="ruby">            Mattock::MockCommandResult.create(*res)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">          end.any_number_of_times</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        after :each do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="43">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          pairs.should have_all_been_called</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def expect_command(cmd, *result)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="49">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      pairs &lt;&lt; [cmd, result]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    module Matchers</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="53">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      extend RSpec::Matchers::DSL</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      define :have_all_been_called do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        match do |list|</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          list.empty?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        failure_message_for_should do |list|</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="61">
+          
+          
+          <code class="ruby">          &quot;Expected all commands to be run, but: #{list.map{|item| item[0].source.inspect}.join(&quot;, &quot;)} #{list.length &gt; 1 ? &quot;were&quot; : &quot;was&quot;} not.&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="65">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    include Matchers</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="ba419266ded63c6767eeb8c594191949ebb1b061">
+  <div class="header">
+    <h3>lib/mattock/testing/rake-example-group.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>44</b> relevant lines. 
+      <span class="green"><b>44</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'rake'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  module RakeExampleGroup</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    SavedEnvironmentVariables = %w{APPDATA HOME HOMEDRIVE HOMEPATH RAKE_COLUMNS RAKE_SYSTEM RAKEOPT USERPROFILE}</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    DeletedEnvironmentVariables = %w{RAKE_COLUMNS RAKE_SYSTEM RAKEOPT}</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    include Rake::DSL</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">    #include FileUtils</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    class TaskManager</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      include Rake::TaskManager</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.included(mod)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      mod.class_eval do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        let! :rake do</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="17">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          Rake.application = Rake::Application.new</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="18">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          Rake::TaskManager.record_task_metadata = true</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="19">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          RakeFileUtils.verbose_flag = false</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="20">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          Rake.application</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="23">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        before :each do</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="24">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          ARGV.clear</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="26">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          @original_ENV = {}</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="27">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          SavedEnvironmentVariables.each do |var|</code>
+        </li>
+      
+        <li class="covered" data-hits="48" data-linenumber="28">
+          <span class="hits">48</span>
+          
+          <code class="ruby">            @original_ENV[var] = ENV[var]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="30">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          DeletedEnvironmentVariables.each do |var|</code>
+        </li>
+      
+        <li class="covered" data-hits="18" data-linenumber="31">
+          <span class="hits">18</span>
+          
+          <code class="ruby">            ENV.delete(var)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="36">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        after :each do</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="37">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          SavedEnvironmentVariables.each do |var|</code>
+        </li>
+      
+        <li class="covered" data-hits="48" data-linenumber="38">
+          <span class="hits">48</span>
+          
+          <code class="ruby">            ENV[var]         = @original_ENV[var]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="41">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          if @original_ENV['APPDATA'].nil?</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="42">
+          <span class="hits">6</span>
+          
+          <code class="ruby">            ENV.delete 'APPDATA'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">          end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="46">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        before :each do</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="47">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          @tempdir = File.join &quot;/tmp&quot;, &quot;test_mattock_#{$$}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="49">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          @original_PWD = Dir.pwd</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="50">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          FileUtils.mkdir_p @tempdir</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="51">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          Dir.chdir @tempdir</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="54">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        after :each do</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="55">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          Dir.chdir @original_PWD</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="56">
+          <span class="hits">6</span>
+          
+          <code class="ruby">          FileUtils.rm_rf @tempdir</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    module Matchers</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="62">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      extend RSpec::Matchers::DSL</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="64">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      define :have_task do |name|</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="65">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        match do |rake|</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="66">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          !rake.lookup(&quot;rake:&quot; + name.to_s).nil?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="70">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      define :depend_on do |name|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="71">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        match do |task|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="72">
+          <span class="hits">2</span>
+          
+          <code class="ruby">          task.prerequisites.include?(name)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="76">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="77">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    include Matchers</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="79">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="b325ca10da29fcd26651ac26205d38639667a9a7">
+  <div class="header">
+    <h3>lib/mattock/testing/record-commands.rb</h3>
+    <h4><span class="green">95.45 %</span> covered</h4>
+    <div>
+      <b>22</b> relevant lines. 
+      <span class="green"><b>21</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'mattock/command-line'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Mattock</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class CommandLine</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @@commands = []</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    class &lt;&lt; self</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      alias original_execute execute</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def execute(command)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="10">
+          <span class="hits">5</span>
+          
+          <code class="ruby">        result = original_execute(command)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="11">
+          <span class="hits">5</span>
+          
+          <code class="ruby">        @@commands &lt;&lt; [command, result]</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="12">
+          <span class="hits">5</span>
+          
+          <code class="ruby">        return result</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      attr_accessor :command_recording_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def command_recording_path</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        @command_recording_path ||= ENV['MATTOCK_CMDREC']</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def emit_recording</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        io = $stderr</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        if command_recording_path</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          io = File.open(command_recording_path, &quot;w&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">        else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="26">
+          
+          
+          <code class="ruby">          io.puts &quot;Set MATTOCK_CMDREC to write to a path&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        @@commands.each do |pair|</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="29">
+          <span class="hits">5</span>
+          
+          <code class="ruby">          io.puts &quot;[/#{pair[0]}/, #{[pair[1].exit_code, pair[1].streams].inspect}]&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">at_exit do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  Mattock::CommandLine.emit_recording</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+      </div>
+    </div>
+  </body>
+</html>

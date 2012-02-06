@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Mattock::TaskMixin
+  
+    &mdash; mattock-0.1.3 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Mattock.html" title="Mattock (module)">Mattock</a></span></span>
+     &raquo; 
+    <span class="title">TaskMixin</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Mattock::TaskMixin
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">CascadingDefinition</a></span></dd>
+      
+    
+  
+  
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="FileTask.html" title="Mattock::FileTask (class)">FileTask</a></span>, <span class='object_link'><a href="Task.html" title="Mattock::Task (class)">Task</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/mattock/task.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>A configurable subclass of Rake::Task, such that you can use a
+configuration block to change how a common task behaves, while still
+overriding Rake API methods like Task#needed? and Task#timestamp</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="TaskMixin/ClassMethods.html" title="Mattock::TaskMixin::ClassMethods (module)">ClassMethods</a></span>
+    
+   
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+
+
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Configurable.html#RequiredField-constant" title="Mattock::Configurable::RequiredField (constant)">Configurable::RequiredField</a></span></p>
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#included-class_method" title="included (class method)">+ (Object) <strong>included</strong>(mod) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#action-instance_method" title="#action (instance method)">- (Object) <strong>action</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define-instance_method" title="#define (instance method)">- (Object) <strong>define</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (TaskMixin) <strong>initialize</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of TaskMixin.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_configuration-instance_method" title="#resolve_configuration (instance method)">- (Object) <strong>resolve_configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#task_class-instance_method" title="#task_class (instance method)">- (Object) <strong>task_class</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>I continue to look for an alternative here.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">CascadingDefinition</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="CascadingDefinition.html#confirm_configuration-instance_method" title="Mattock::CascadingDefinition#confirm_configuration (method)">#confirm_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#default_configuration-instance_method" title="Mattock::CascadingDefinition#default_configuration (method)">#default_configuration</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Configurable.html#check_required-instance_method" title="Mattock::Configurable#check_required (method)">#check_required</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings_to-instance_method" title="Mattock::Configurable#copy_settings_to (method)">#copy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#nil_fields-instance_method" title="Mattock::Configurable#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable.html#required_fields-instance_method" title="Mattock::Configurable#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable.html#setting-instance_method" title="Mattock::Configurable#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable.html#settings-instance_method" title="Mattock::Configurable#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable.html#setup_defaults-instance_method" title="Mattock::Configurable#setup_defaults (method)">#setup_defaults</a></span>, <span class='object_link'><a href="Configurable.html#unset%3F-instance_method" title="Mattock::Configurable#unset? (method)">#unset?</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable/ClassMethods.html" title="Mattock::Configurable::ClassMethods (module)">Configurable::ClassMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#copy_settings-instance_method" title="Mattock::Configurable::ClassMethods#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span></p>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="included-class_method">
+  
+    + (<tt>Object</tt>) <strong>included</strong>(mod) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span><span class='lbrace'>{</span> <span class='id identifier rubyid_extend'>extend</span> <span class='const'>ClassMethods</span> <span class='rbrace'>}</span>
+  <span class='kw'>super</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="action-instance_method">
+  
+    - (<tt>Object</tt>) <strong>action</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_action'>action</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="define-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
+  <span class='id identifier rubyid_task'>task</span> <span class='op'>=</span> <span class='id identifier rubyid_task_class'>task_class</span><span class='period'>.</span><span class='id identifier rubyid_define_task'>define_task</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_task_args'>task_args</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_action'>action</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_copy_settings_to'>copy_settings_to</span><span class='lparen'>(</span><span class='id identifier rubyid_task'>task</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Mattock::TaskMixin (module)">TaskMixin</a></span></tt>) <strong>initialize</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of TaskMixin</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_configs'>configs</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_take_while'>take_while</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span> <span class='const'>Configurable</span> <span class='op'>===</span> <span class='id identifier rubyid_arg'>arg</span><span class='rbrace'>}</span>
+  <span class='ivar'>@extracted_task_args</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='id identifier rubyid_configs'>configs</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='ivar'>@extracted_task_args</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span> <span class='const'>Configurable</span> <span class='op'>===</span> <span class='id identifier rubyid_arg'>arg</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Mattock::Task classes should be created with parent configs, then Rake task args</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_configs'>configs</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_args'>task_args</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="resolve_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_configuration</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+  <span class='kw'>if</span> <span class='ivar'>@extracted_task_args</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_args'>task_args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_task_name'>task_name</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_args'>task_args</span> <span class='op'>=</span> <span class='ivar'>@extracted_task_args</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="task_class-instance_method">
+  
+    - (<tt>Object</tt>) <strong>task_class</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>I continue to look for an alternative here.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_task_class'>task_class</span>
+  <span class='kw'>return</span> <span class='ivar'>@task_class</span> <span class='kw'>if</span> <span class='ivar'>@task_class</span>
+  <span class='ivar'>@task_class</span> <span class='op'>=</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_define_method'>define_method</span> <span class='symbol'>:initialize</span><span class='comma'>,</span> <span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='period'>.</span><span class='id identifier rubyid_instance_method'>instance_method</span><span class='lparen'>(</span><span class='symbol'>:initialize</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Feb  6 15:20:42 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>
