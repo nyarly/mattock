@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mattock (0.1.2)
+    mattock (0.1.3)
       tilt (> 0)
       valise (> 0)
 
