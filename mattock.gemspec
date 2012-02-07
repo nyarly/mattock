@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.1.3"
+  spec.version		= "0.2.0"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -13,9 +13,10 @@ Gem::Specification.new do |spec|
   If you survived the pun, you might enjoy this gem.
 
   Features:
-  Extensions to Tasklibs to support powerful deerpaths.
-  A commandline library that supports mocking for tests.
-  A module to support common templating patterns
+
+  * Extensions to Tasklibs to support powerful deerpaths.
+  * A commandline library that supports mocking for tests.
+  * A module to support common templating patterns
 
   EndDescription
 
