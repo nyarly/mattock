@@ -1,3 +1,4 @@
+require 'yard'
 YARD::Templates::Engine.register_template_path File::expand_path("../../../yard_templates", __FILE__)
 
 module Mattock
