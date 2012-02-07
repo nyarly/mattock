@@ -2,7 +2,7 @@ require 'mattock/command-task'
 module Mattock
   class RemoteCommandTask < CommandTask
     setting(:remote_server, nested(
-      :address => nil,
+      :address => "localhost",
       :user => nil
     ))
     setting(:ssh_options, [])

@@ -1,6 +1,8 @@
 require 'corundum'
 require 'corundum/tasklibs'
 
+require 'mattock/yard_extensions'
+
 module Corundum
   tk = Toolkit.new do |tk|
   end
