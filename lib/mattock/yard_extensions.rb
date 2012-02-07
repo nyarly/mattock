@@ -21,7 +21,7 @@ module Mattock
       end
 
       def append_name(sexp, name)
-        prefix = sexp.jump(:ident, :string_content)
+        prefix = sexp.jump(:ident, :tstring_content)
         if prefix == sexp
           raise YARD::Parser::UndocumentableError, sexp.source
         end
@@ -83,9 +83,7 @@ module Mattock
 
       def process
         remapped = statement.parameters(false).first.map do |assoc|
-          new_name =
-            append_name(statement.parameters[0], extract_name(assoc[0]))
-          synthetic_setting(new_name, assoc[1])
+          synthetic_setting(extract_name(assoc[0]), assoc[1])
         end
         parser.process(remapped)
       end
