@@ -113,6 +113,90 @@
   <p class="inherited"><span class='object_link'><a href="Configurable.html#RequiredField-constant" title="Mattock::Configurable::RequiredField (constant)">Mattock::Configurable::RequiredField</a></span></p>
 
 
+  <h2>Instance Settings Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#task_name-instance_method" title="#task_name (instance method)">- (Object) <strong>task_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting task_name.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>:run</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#command-instance_method" title="#command (instance method)">- (Object) <strong>command</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting command.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_command-instance_method" title="#verify_command (instance method)">- (Object) <strong>verify_command</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting verify_command.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nil</code></span>
+  
+</li>
+
+    
+  </ul>
+
+
 
 
 
@@ -170,27 +254,6 @@
   <span class="summary_signature">
     
       <a href="#needed%3F-instance_method" title="#needed? (instance method)">- (Boolean) <strong>needed?</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#verify_command-instance_method" title="#verify_command (instance method)">- (Object) <strong>verify_command</strong> </a>
     
 
     
@@ -383,46 +446,12 @@
 </table>
 </div>
     
-      <div class="method_details ">
-  <p class="signature " id="verify_command-instance_method">
-  
-    - (<tt>Object</tt>) <strong>verify_command</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-10
-11
-12
-13
-14
-15</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-task.rb', line 10</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_verify_command'>verify_command</span>
-  <span class='kw'>if</span> <span class='ivar'>@verify_command</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:call</span><span class='rparen'>)</span>
-    <span class='ivar'>@verify_command</span> <span class='op'>=</span> <span class='ivar'>@verify_command</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span>
-  <span class='kw'>end</span>
-  <span class='ivar'>@verify_command</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Mon Feb  6 15:20:42 2012 by 
+  Generated on Tue Feb  7 01:27:44 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>
