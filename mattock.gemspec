@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.2.0"
+  spec.version		= "0.2.1"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -27,12 +27,16 @@ Gem::Specification.new do |spec|
   # Do this: y$@"
   # !!find lib bin doc spec spec_help -not -regex '.*\.sw.' -type f 2>/dev/null
   spec.files		= %w[
+    yard_templates/default/module/setup.rb
+    yard_templates/default/module/html/setting_summary.erb
+    yard_templates/default/module/html/settings.erb
     lib/mattock/command-line.rb
     lib/mattock/command-task.rb
     lib/mattock/testing/rake-example-group.rb
     lib/mattock/testing/mock-command-line.rb
     lib/mattock/testing/record-commands.rb
     lib/mattock/template-host.rb
+    lib/mattock/yard_extensions.rb
     lib/mattock/remote-command-task.rb
     lib/mattock/tasklib.rb
     lib/mattock/task.rb
