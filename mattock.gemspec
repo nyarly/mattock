@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.2.1"
+  spec.version		= "0.2.2"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
