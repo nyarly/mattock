@@ -49,7 +49,7 @@ Gem::Specification.new do |spec|
     spec/command-task.rb
     spec/tasklib.rb
     spec/configurable.rb
-    spec/yard.rb
+    spec/yard-extensions.rb
     spec/template-host.rb
     spec_help/spec_helper.rb
     spec_help/gem_test_suite.rb
