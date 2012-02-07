@@ -23,14 +23,14 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-02-07T01:44:31-08:00">2012-02-07T01:44:31-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-02-07T03:01:03-08:00">2012-02-07T03:01:03-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">84.14%</span></span>
+    (<span class="covered_percent"><span class="yellow">84.3%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -41,9 +41,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>13</b> files in total.
-    <b>517</b> relevant lines. 
+    <b>516</b> relevant lines. 
     <span class="green"><b>435</b> lines covered</span> and
-    <span class="red"><b>82</b> lines missed </span>
+    <span class="red"><b>81</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -181,11 +181,11 @@
       
       <tr>
         <td class="strong"><a href="#5ebf9c255acafd9365d28923830db32cddfd445a" class="src_link" title="lib/mattock/yard_extensions.rb">lib/mattock/yard_extensions.rb</a></td>
-        <td class="red strong">36.0 %</td>
-        <td>126</td>
-        <td>75</td>
+        <td class="red strong">36.49 %</td>
+        <td>124</td>
+        <td>74</td>
         <td>27</td>
-        <td>48</td>
+        <td>47</td>
         <td>0.4</td>
       </tr>
       
@@ -5176,11 +5176,11 @@
         <div class="source_table" id="5ebf9c255acafd9365d28923830db32cddfd445a">
   <div class="header">
     <h3>lib/mattock/yard_extensions.rb</h3>
-    <h4><span class="red">36.0 %</span> covered</h4>
+    <h4><span class="red">36.49 %</span> covered</h4>
     <div>
-      <b>75</b> relevant lines. 
+      <b>74</b> relevant lines. 
       <span class="green"><b>27</b> lines covered</span> and
-      <span class="red"><b>48</b> lines missed.</span>
+      <span class="red"><b>47</b> lines missed.</span>
     </div>
   </div>
   
@@ -5328,7 +5328,7 @@
         <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">        prefix = sexp.jump(:ident, :string_content)</code>
+          <code class="ruby">        prefix = sexp.jump(:ident, :tstring_content)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="25">
@@ -5700,244 +5700,232 @@
         <li class="missed" data-hits="0" data-linenumber="86">
           
           
-          <code class="ruby">          new_name =</code>
+          <code class="ruby">          synthetic_setting(extract_name(assoc[0]), assoc[1])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="87">
           
           
-          <code class="ruby">            append_name(statement.parameters[0], extract_name(assoc[0]))</code>
+          <code class="ruby">        end</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="88">
           
           
-          <code class="ruby">          synthetic_setting(new_name, assoc[1])</code>
+          <code class="ruby">        parser.process(remapped)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="89">
           
           
-          <code class="ruby">        end</code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="90">
+        <li class="never" data-hits="" data-linenumber="90">
           
           
-          <code class="ruby">        parser.process(remapped)</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="91">
           
           
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="92">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="93">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="94">
+        <li class="covered" data-hits="1" data-linenumber="92">
           <span class="hits">1</span>
           
           <code class="ruby">    class NilFieldsHandler &lt; SettingHandler</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="95">
+        <li class="covered" data-hits="1" data-linenumber="93">
           <span class="hits">1</span>
           
           <code class="ruby">      handles method_call(:nil_field)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="96">
+        <li class="covered" data-hits="1" data-linenumber="94">
           <span class="hits">1</span>
           
           <code class="ruby">      handles method_call(:nil_fields)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="97">
+        <li class="covered" data-hits="1" data-linenumber="95">
           <span class="hits">1</span>
           
           <code class="ruby">      namespace_only</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="98">
+        <li class="never" data-hits="" data-linenumber="96">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="99">
+        <li class="covered" data-hits="1" data-linenumber="97">
           <span class="hits">1</span>
           
           <code class="ruby">      def a_nil</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="100">
+        <li class="missed" data-hits="0" data-linenumber="98">
           
           
           <code class="ruby">        v = s(:kw, nil)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="101">
+        <li class="missed" data-hits="0" data-linenumber="99">
           
           
           <code class="ruby">        v.full_source = &quot;nil&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="102">
+        <li class="missed" data-hits="0" data-linenumber="100">
           
           
           <code class="ruby">        v</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+        <li class="never" data-hits="" data-linenumber="101">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
+        <li class="never" data-hits="" data-linenumber="102">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="105">
+        <li class="covered" data-hits="1" data-linenumber="103">
           <span class="hits">1</span>
           
           <code class="ruby">      def process</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="106">
+        <li class="missed" data-hits="0" data-linenumber="104">
           
           
           <code class="ruby">        remapped = statement.parameters(false).map do |name|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="107">
+        <li class="missed" data-hits="0" data-linenumber="105">
           
           
           <code class="ruby">          synthetic_setting(extract_name(name), a_nil)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="108">
+        <li class="never" data-hits="" data-linenumber="106">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="109">
+        <li class="missed" data-hits="0" data-linenumber="107">
           
           
           <code class="ruby">        parser.process(remapped)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="109">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="110">
           
           
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="111">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="112">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="113">
+        <li class="covered" data-hits="1" data-linenumber="111">
           <span class="hits">1</span>
           
           <code class="ruby">    class RequiredFieldsHandler &lt; SettingHandler</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="114">
+        <li class="covered" data-hits="1" data-linenumber="112">
           <span class="hits">1</span>
           
           <code class="ruby">      handles method_call(:required_field)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="115">
+        <li class="covered" data-hits="1" data-linenumber="113">
           <span class="hits">1</span>
           
           <code class="ruby">      handles method_call(:required_fields)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="116">
+        <li class="covered" data-hits="1" data-linenumber="114">
           <span class="hits">1</span>
           
           <code class="ruby">      namespace_only</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
+        <li class="never" data-hits="" data-linenumber="115">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="118">
+        <li class="covered" data-hits="1" data-linenumber="116">
           <span class="hits">1</span>
           
           <code class="ruby">      def process</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="119">
+        <li class="missed" data-hits="0" data-linenumber="117">
           
           
           <code class="ruby">        remapped = statement.parameters(false).map do |name|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="120">
+        <li class="missed" data-hits="0" data-linenumber="118">
           
           
           <code class="ruby">          synthetic_setting(extract_name(name))</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="121">
+        <li class="never" data-hits="" data-linenumber="119">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="122">
+        <li class="missed" data-hits="0" data-linenumber="120">
           
           
           <code class="ruby">        parser.process(remapped)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="123">
+        <li class="never" data-hits="" data-linenumber="121">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="124">
+        <li class="never" data-hits="" data-linenumber="122">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="125">
+        <li class="never" data-hits="" data-linenumber="123">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="126">
+        <li class="never" data-hits="" data-linenumber="124">
           
           
           <code class="ruby">end</code>
