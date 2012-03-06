@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::YARDExtensions::DefineHandler
   
-    &mdash; mattock-0.2.3 RDoc
+    &mdash; mattock-0.2.6 RDoc
   
 </title>
 
@@ -153,6 +153,27 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#root-instance_method" title="#root (instance method)">- (Object) <strong>root</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -222,17 +243,57 @@
       <pre class="lines">
 
 
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_mattock_defining?'>mattock_defining?</span><span class='lparen'>(</span><span class='id identifier rubyid_namespace'>namespace</span><span class='comma'>,</span> <span class='id identifier rubyid_statement'>statement</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='id identifier rubyid_root'>root</span><span class='lbracket'>[</span><span class='symbol'>:tasklibs</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_namespace'>namespace</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='kw'>__LINE__</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_root'>root</span><span class='comma'>,</span> <span class='id identifier rubyid_root'>root</span><span class='lbracket'>[</span><span class='symbol'>:tasklibs</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_namespace'>namespace</span><span class='lbracket'>[</span><span class='symbol'>:task_definition</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="root-instance_method">
+  
+    - (<tt>Object</tt>) <strong>root</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 20
 21
 22
-23</pre>
+23
+24
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 20</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
-  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_mattock_defining?'>mattock_defining?</span><span class='lparen'>(</span><span class='id identifier rubyid_namespace'>namespace</span><span class='comma'>,</span> <span class='id identifier rubyid_statement'>statement</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_namespace'>namespace</span><span class='lbracket'>[</span><span class='symbol'>:task_definition</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_root'>root</span>
+  <span class='id identifier rubyid_ns'>ns</span> <span class='op'>=</span> <span class='id identifier rubyid_namespace'>namespace</span>
+  <span class='kw'>until</span> <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_root?'>root?</span>
+    <span class='id identifier rubyid_ns'>ns</span> <span class='op'>=</span> <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_namespace'>namespace</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_ns'>ns</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -244,7 +305,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Mar  6 02:51:26 2012 by 
+  Generated on Tue Mar  6 15:59:48 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>

@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::TaskLib
   
-    &mdash; mattock-0.2.3 RDoc
+    &mdash; mattock-0.2.6 RDoc
   
 </title>
 
@@ -98,7 +98,53 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Rake::Tasklib provides a common, well known way to generalize tasks and use
+them in multiple projects.  The way it's used in a Rakefile is something
+like:</p>
 
+<pre class="ruby"><span class="ruby-constant">CoolTask</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">args</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">option_one</span> = <span class="ruby-string">&quot;cool&quot;</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">option_two</span> = <span class="ruby-string">&quot;very&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Typically, the #initialize method for CoolTask yields itself into the block
+(so, 't' in the example) and then runs #define which does the heavy lifting
+to actually create tasks and set them up with dependencies and whatnot.</p>
+
+<p>Rake::Tasklib doesn't really provide much in the way of help or guidance
+about how to do this, though, and everyone winds up having to do a lot of
+the same work.</p>
+
+<p>Mattock::TaskLib provides a base class to build tasklibs on so that you can
+get to what you care about, and get option validation as well.</p>
+
+<p>The convention that's added in Mattock is that Tasklibs are passed to each
+other as arguments, so that behavior can be composed out of modular
+components, a la:</p>
+
+<pre class="ruby"><span class="ruby-identifier">transport</span> = <span class="ruby-constant">HTTPTasks</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">server</span> = <span class="ruby-identifier">http</span>:<span class="ruby-operator">/</span><span class="ruby-regexp">%rmycoolserver.com
+end
+
+UploadTasks.new(transport) do |t|
+  t.dir = &quot;./</span><span class="ruby-identifier">ource_dir</span><span class="ruby-string">&quot;
+end
+</span></pre>
+
+<p>The configuration handling is provided by <span class='object_link'><a href="CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">CascadingDefinition</a></span>, and
+configuration options are built using <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
   <h2>Constant Summary</h2>
   
@@ -197,7 +243,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The namespace this lib's tasks will created within.</p>
+</div></span>
   
 </li>
 
@@ -227,7 +275,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Wraps a single task in lib's namespace.</p>
+</div></span>
   
 </li>
 
@@ -336,7 +386,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Records tasks as they are created.</p>
+</div></span>
   
 </li>
 
@@ -402,13 +454,13 @@
       <pre class="lines">
 
 
-15
-16
-17
-18</pre>
+52
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_toolkits'>toolkits</span><span class='rparen'>)</span>
   <span class='ivar'>@tasks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -471,12 +523,12 @@
       <pre class="lines">
 
 
-8
-9
-10</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_namespace_name='>namespace_name=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@namespace_name</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
@@ -513,12 +565,12 @@
       <pre class="lines">
 
 
-13
-14
-15</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tasks'>tasks</span>
   <span class='ivar'>@tasks</span>
@@ -542,18 +594,30 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The namespace this lib's tasks will created within.  Changeable at
+instatiation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-9
-10
-11</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_namespace'>default_namespace</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_setting'>setting</span><span class='lparen'>(</span><span class='symbol'>:namespace_name</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -576,18 +640,29 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Wraps a single task in lib's namespace</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-52
-53
-54</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_taskname'>taskname</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='id identifier rubyid_taskname'>taskname</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -610,12 +685,12 @@
       <pre class="lines">
 
 
-48
-49
-50</pre>
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_namespace'>default_namespace</span>
   <span class='kw'>nil</span>
@@ -628,36 +703,89 @@
       <div class="method_details ">
   <p class="signature " id="in_namespace-instance_method">
   
-    - (<tt>Object</tt>) <strong>in_namespace</strong>(*tasknames) 
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>in_namespace</strong>(args) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>in_namespace</strong>(&amp;block) </span>
+    
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>Overloads:</h3>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>in_namespace</strong>(args) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>maps the arguments to namespace-prefixed names, for use in Rake dependency
+declaration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>in_namespace</strong>(&amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>wraps the block in a Rake namespace call</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42</pre>
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasknames'>tasknames</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_tasknames'>tasknames</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -694,12 +822,12 @@
       <pre class="lines">
 
 
-44
-45
-46</pre>
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_root_task'>root_task</span>
   <span class='ivar'>@namespace_name</span> <span class='op'>||</span> <span class='symbol'>:default</span>
@@ -716,20 +844,31 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Records tasks as they are created</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-20
-21
-22
-23
-24</pre>
+58
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_task'>task</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_a_task'>a_task</span> <span class='op'>=</span> <span class='kw'>super</span>
@@ -746,7 +885,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Mar  6 02:51:25 2012 by 
+  Generated on Tue Mar  6 15:59:48 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>

@@ -6,7 +6,7 @@
 <title>
   Module: Mattock::CascadingDefinition
   
-    &mdash; mattock-0.2.3 RDoc
+    &mdash; mattock-0.2.6 RDoc
   
 </title>
 
@@ -85,7 +85,36 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Collects shared configuration management behavior for TaskLibs and Tasks</p>
 
+<p>The chain of events in initialize looks like:</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_setup_defaults'>setup_defaults</span>
+<span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasklibs'>tasklibs</span><span class='rparen'>)</span>
+
+<span class='kw'>yield</span> <span class='kw'>self</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+
+<span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+<span class='id identifier rubyid_confirm_configuration'>confirm_configuration</span>
+
+<span class='id identifier rubyid_define'>define</span></code></pre>
+
+<p>Override those methods to adjust how a TaskLib processes its options</p>
+
+<p>The only method not defined here is <span class='object_link'><a href="Configurable.html#setup_defaults-instance_method" title="Mattock::Configurable#setup_defaults (method)">Mattock::Configurable#setup_defaults</a></span></p>
+
+<p>For an overview see <span class='object_link'><a href="TaskLib.html" title="Mattock::TaskLib (class)">TaskLib</a></span></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
   <h2>Rake Tasks Defined</h2>
   <pre class="code ruby">
 </pre>
@@ -131,7 +160,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Last step before definition: confirm that all the configuration settings
+have good values.</p>
+</div></span>
   
 </li>
 
@@ -152,7 +184,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Sets default values for library settings.</p>
+</div></span>
   
 </li>
 
@@ -173,7 +207,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Any useful TaskLib will override this to define tasks, essentially like a
+templated Rakefile snippet.</p>
+</div></span>
   
 </li>
 
@@ -217,7 +254,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Called after the configuration block has been called, so secondary
+configurations can be set up.</p>
+</div></span>
   
 </li>
 
@@ -258,18 +298,32 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Last step before definition: confirm that all the configuration settings
+have good values.  The default ensures that required settings have been
+given values.  Very much shortens the debugging cycle when using TaskLibs
+if this is well written.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-25
-26
-27</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_confirm_configuration'>confirm_configuration</span>
   <span class='id identifier rubyid_check_required'>check_required</span>
@@ -286,17 +340,48 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets default values for library settings</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>tasklibs</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="TaskLib.html" title="Mattock::TaskLib (class)">TaskLib</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Other libs upon which this one depends to set its defaults</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-19
-20</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasklibs'>tasklibs</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -312,17 +397,29 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Any useful TaskLib will override this to define tasks, essentially like a
+templated Rakefile snippet.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-29
-30</pre>
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
 <span class='kw'>end</span></pre>
@@ -388,20 +485,20 @@
       <pre class="lines">
 
 
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17</pre>
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasklibs'>tasklibs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_setup_defaults'>setup_defaults</span>
@@ -426,17 +523,35 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Called after the configuration block has been called, so secondary
+configurations can be set up.  For instance, consider:</p>
+
+<pre class="code ruby"><code><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_command'>command</span> <span class='op'>||=</span> <span class='id identifier rubyid_bin_dir'>bin_dir</span> <span class='op'>+</span> <span class='id identifier rubyid_command_name'>command_name</span></code></pre>
+
+<p>The full path to the command could be set in the configuration block in the
+Rakefile, or if bin_dir and command_name are set, we can put those
+together.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-22
-23</pre>
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
 <span class='kw'>end</span></pre>
@@ -450,7 +565,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Mar  6 02:51:27 2012 by 
+  Generated on Tue Mar  6 15:59:49 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>

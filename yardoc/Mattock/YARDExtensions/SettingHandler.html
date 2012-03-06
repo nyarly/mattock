@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::YARDExtensions::SettingHandler
   
-    &mdash; mattock-0.2.3 RDoc
+    &mdash; mattock-0.2.6 RDoc
   
 </title>
 
@@ -248,17 +248,17 @@
       <pre class="lines">
 
 
-53
-54
-55
-56
-57
-58
-59
-60</pre>
+63
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_append_name'>append_name</span><span class='lparen'>(</span><span class='id identifier rubyid_sexp'>sexp</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_sexp'>sexp</span><span class='period'>.</span><span class='id identifier rubyid_jump'>jump</span><span class='lparen'>(</span><span class='symbol'>:ident</span><span class='comma'>,</span> <span class='symbol'>:tstring_content</span><span class='rparen'>)</span>
@@ -286,19 +286,19 @@
       <pre class="lines">
 
 
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51</pre>
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_extract_name'>extract_name</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span>
@@ -350,18 +350,18 @@
       <pre class="lines">
 
 
-32
-33
-34
-35
-36
-37
-38
-39
-40</pre>
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mattock_configurable?'>mattock_configurable?</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_list'>check_list</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_inheritance_tree'>inheritance_tree</span>
@@ -390,16 +390,6 @@
       <pre class="lines">
 
 
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
 86
 87
 88
@@ -423,10 +413,20 @@
 106
 107
 108
-109</pre>
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_mattock_configurable?'>mattock_configurable?</span><span class='lparen'>(</span><span class='id identifier rubyid_namespace'>namespace</span><span class='rparen'>)</span>
@@ -480,22 +480,22 @@
       <pre class="lines">
 
 
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
 72
 73
-74</pre>
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetic_setting'>synthetic_setting</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:string_literal</span><span class='comma'>,</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:string_content</span><span class='comma'>,</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:tstring_content</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -520,7 +520,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Mar  6 02:51:26 2012 by 
+  Generated on Tue Mar  6 15:59:49 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>
