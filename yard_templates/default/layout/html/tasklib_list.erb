@@ -1,0 +1,9 @@
+<% p object[:tasklibs] %>
+<% if options[:readme] == options[:file] and !object[:tasklibs].nil? %>
+  <h2>Mattock Tasklibs Defined</h2>
+  <ul>
+    <% object[:tasklibs].uniq.each do |tasklib| %>
+      <li><%= link_object(tasklib) %></li>
+    <% end %>
+  </ul>
+<%end%>

@@ -1,4 +1,11 @@
 module Mattock
+  #Handles setting options on objects its mixed into
+  #
+  #Settings can have default values or be required (as opposed to defaulting to
+  #nil).  Settings and their defaults are inherited (and can be overridden) by
+  #subclasses.
+  #
+  #@example (see ClassMethods)
   module Configurable
     RequiredField = Object.new
     class << RequiredField
@@ -12,8 +19,29 @@ module Mattock
     end
     RequiredField.freeze
 
+    #Describes class level DSL & machinery for working with configuration
+    #managment.
+    #
+    #@example Quick example
+    #    class ConfExample
+    #      include Configurable
+    #
+    #      setting :foo
+    #      settings :bar => 1, :baz => 3
+    #      nil_fields :hoo, :ha, :harum
+    #      required_fields :must
+    #
+    #      def initialize
+    #        setup_defaults
+    #      end
+    #    end
+    #
+    #    ce = ConfExample.new
+    #    ce.bar #=> 1
+    #    ce.hoo #=> nil
+    #    ce.hoo = "hallo"
+    #    ce.check_required #=> raises error because :must and :foo aren't set
     module ClassMethods
-
       def default_values
         @default_values ||= {}
       end
@@ -63,12 +91,18 @@ module Mattock
         end
       end
 
+      #Creates an anonymous Configurable - useful in complex setups for nested
+      #settings
+      #@example SSH options
+      #  setting :ssh => nested(:username => "me", :password => nil)
       def nested(hash=nil)
         obj = Class.new(Struct).new
         obj.settings(hash || {})
         return obj
       end
 
+      #Quick list of setting fields with a default value of nil.  Useful
+      #especially with {CascadingDefinition#resolve_configuration}
       def nil_fields(*names)
         names.each do |name|
           setting(name, nil)
@@ -76,6 +110,8 @@ module Mattock
       end
       alias nil_field nil_fields
 
+      #List fields with no default for with a value must be set before
+      #definition.
       def required_fields(*names)
         names.each do |name|
           setting(name)
@@ -83,10 +119,8 @@ module Mattock
       end
       alias required_field required_fields
 
-      # @macro [attack] configurable_property
-      #   @method $1
-      #   @return [$2] The default value of $1
-      #   @method $1=
+      #Defines a setting on this class - much like a attr_accessible call, but
+      #allows for defaults and required settings
       def setting(name, default_value = RequiredField)
         name = name.to_sym
         attr_accessor(name)
@@ -96,6 +130,8 @@ module Mattock
         default_values[name] = default_value
       end
 
+      #@param [Hash] hash Pairs of name/value to be converted into
+      #  setting/default
       def settings(hash)
         hash.each_pair do |name, value|
           setting(name, value)
@@ -107,6 +143,7 @@ module Mattock
         mod.extend ClassMethods
       end
     end
+
     extend ClassMethods
 
     def copy_settings_to(other)
@@ -114,11 +151,15 @@ module Mattock
       self
     end
 
+    #Call during initialize to set default values on settings - if you're using
+    #Configurable outside of Mattock, be sure this gets called.
     def setup_defaults
       self.class.set_defaults_on(self)
       self
     end
 
+    #Checks that all required fields have be set, otherwise raises an error
+    #@raise RuntimeError if any required fields are unset
     def check_required
       missing = self.class.missing_required_fields_on(self)
       unless missing.empty?

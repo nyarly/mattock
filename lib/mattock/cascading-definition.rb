@@ -1,6 +1,25 @@
 require 'mattock/configurable'
 
 module Mattock
+  #Collects shared configuration management behavior for TaskLibs and Tasks
+  #
+  #The chain of events in initialize looks like:
+  #
+  #    setup_defaults
+  #    default_configuration(*tasklibs)
+  #
+  #    yield self if block_given?
+  #
+  #    resolve_configuration
+  #    confirm_configuration
+  #
+  #    define
+  #
+  #Override those methods to adjust how a TaskLib processes its options
+  #
+  #The only method not defined here is {Configurable#setup_defaults}
+  #
+  #For an overview see {TaskLib}
   module CascadingDefinition
     include Configurable
 
@@ -16,16 +35,33 @@ module Mattock
       define
     end
 
+    #@param [TaskLib] tasklibs Other libs upon which this one depends to set
+    #  its defaults
+    #Sets default values for library settings
     def default_configuration(*tasklibs)
     end
 
+    #Called after the configuration block has been called, so secondary
+    #configurations can be set up.  For instance, consider:
+    #
+    #    self.command ||= bin_dir + command_name
+    #
+    #The full path to the command could be set in the configuration block in
+    #the Rakefile, or if bin_dir and command_name are set, we can put those
+    #together.
     def resolve_configuration
     end
 
+    #Last step before definition: confirm that all the configuration settings
+    #have good values.  The default ensures that required settings have been
+    #given values.  Very much shortens the debugging cycle when using TaskLibs
+    #if this is well written.
     def confirm_configuration
       check_required
     end
 
+    #Any useful TaskLib will override this to define tasks, essentially like a
+    #templated Rakefile snippet.
     def define
     end
   end
