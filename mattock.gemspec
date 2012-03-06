@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.2.3"
+  spec.version		= "0.2.4"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
     yard_templates/default/module/setup.rb
     yard_templates/default/module/html/setting_summary.erb
     yard_templates/default/module/html/settings.erb
+    yard_templates/default/module/html/task_definition.erb
     lib/mattock/command-line.rb
     lib/mattock/command-task.rb
     lib/mattock/testing/rake-example-group.rb

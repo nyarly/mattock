@@ -1,5 +1,7 @@
 def init
   super
+  require 'ruby-debug'; debugger
+
   sections.place(:task_definition).after(T('docstring'))
   sections.place(:settings, [:setting_summary]).before(:attribute_summary)
 end
