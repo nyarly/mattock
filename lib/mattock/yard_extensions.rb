@@ -3,11 +3,41 @@ YARD::Templates::Engine.register_template_path File::expand_path("../../../yard_
 
 module Mattock
   module YARDExtensions
+    class DefineHandler < YARD::Handlers::Ruby::Base
+      handles :def
+
+      def mattock_defining?(obj, method)
+        check_list = obj.inheritance_tree
+        until check_list.empty?
+          check_list.each do |co|
+            return true if [:CascadingDefinition, :Configurable, :Tasklib, :TaskLib].include? co.name and method == "define"
+            return true if [:TaskMixin, :Task, :FileTask, :MultiTask].include? co.name and method == "action"
+          end
+          check_list = check_list.find_all{|co| co.respond_to?(:mixins)}.map{|co| co.mixins}.flatten
+        end
+      end
+
+      def process
+        return unless mattock_defining?(namespace, statement[0][0])
+        namespace[:task_definition] = statement[2]
+      end
+    end
+
     class SettingHandler < YARD::Handlers::Ruby::Base
       include YARD::Parser::Ruby
 
       handles method_call(:setting)
       namespace_only
+
+      def mattock_configurable?(obj)
+        check_list = obj.inheritance_tree
+        until check_list.empty?
+          check_list.each do |co|
+            return true if [:CascadingDefinition, :Configurable, :Task, :Tasklib, :TaskLib].include? co.name
+          end
+          check_list = check_list.find_all{|co| co.respond_to?(:mixins)}.map{|co| co.mixins}.flatten
+        end
+      end
 
       def extract_name(obj)
         case obj.type
@@ -44,6 +74,8 @@ module Mattock
       end
 
       def process
+        return unless mattock_configurable?(namespace)
+
         #filter further based on NS === Configurable...
         name = extract_name(statement.parameters.first)
 
@@ -82,6 +114,8 @@ module Mattock
       namespace_only
 
       def process
+        return unless mattock_configurable?(namespace)
+
         remapped = statement.parameters(false).first.map do |assoc|
           synthetic_setting(extract_name(assoc[0]), assoc[1])
         end
@@ -101,6 +135,7 @@ module Mattock
       end
 
       def process
+        return unless mattock_configurable?(namespace)
         remapped = statement.parameters(false).map do |name|
           synthetic_setting(extract_name(name), a_nil)
         end
@@ -114,6 +149,7 @@ module Mattock
       namespace_only
 
       def process
+        return unless mattock_configurable?(namespace)
         remapped = statement.parameters(false).map do |name|
           synthetic_setting(extract_name(name))
         end

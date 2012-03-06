@@ -45,6 +45,10 @@ module Mattock
     end
 
     # I continue to look for an alternative here.
+    # The trouble is that deep inside of define_task, Rake actually
+    # instantiates the Task - so in wanting to be able to override members of
+    # Task, it's hard to get the virtues of CascadingDefinition as well (maybe
+    # the virtues could be had without the actual mixin?)
     def task_class
       return @task_class if @task_class
       @task_class = Class.new(self.class) do
@@ -69,6 +73,14 @@ module Mattock
   end
 
   class FileTask < Rake::FileTask
+    include TaskMixin
+  end
+
+  class FileCreationTask < Rake::FileCreationTask
+    include TaskMixin
+  end
+
+  class MultiTask < Rake::MultiTask
     include TaskMixin
   end
 end

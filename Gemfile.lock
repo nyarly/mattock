@@ -36,6 +36,7 @@ GEM
       rake (>= 0.8.7)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.1.0)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -69,4 +70,5 @@ DEPENDENCIES
   corundum (~> 0.0.1)
   mattock!
   rake
+  redcarpet
   ruby-debug19

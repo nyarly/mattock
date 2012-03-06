@@ -1,0 +1,4 @@
+<% if object[:task_definition] %>
+  <h2>Rake Tasks Defined</h2>
+  <%= html_markup_ruby object[:task_definition].source %>
+<% end %>
