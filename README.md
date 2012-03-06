@@ -35,3 +35,5 @@ process easier.
 One thing that Thor has on Rake is the ease with which templates can be
 rendered to files.  Mattock::TemplateHost makes it easy to render overridable
 templates based on the object it's included into.
+
+For more information, check out http://nyarly.github.com/mattock/
