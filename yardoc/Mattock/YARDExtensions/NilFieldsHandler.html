@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::YARDExtensions::NilFieldsHandler
   
-    &mdash; mattock-0.2.2 RDoc
+    &mdash; mattock-0.2.3 RDoc
   
 </title>
 
@@ -104,6 +104,7 @@
 
 
 
+
   
     <h2>
       Instance Method Summary
@@ -166,7 +167,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="SettingHandler.html" title="Mattock::YARDExtensions::SettingHandler (class)">SettingHandler</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="SettingHandler.html#append_name-instance_method" title="Mattock::YARDExtensions::SettingHandler#append_name (method)">#append_name</a></span>, <span class='object_link'><a href="SettingHandler.html#extract_name-instance_method" title="Mattock::YARDExtensions::SettingHandler#extract_name (method)">#extract_name</a></span>, <span class='object_link'><a href="SettingHandler.html#synthetic_setting-instance_method" title="Mattock::YARDExtensions::SettingHandler#synthetic_setting (method)">#synthetic_setting</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="SettingHandler.html#append_name-instance_method" title="Mattock::YARDExtensions::SettingHandler#append_name (method)">#append_name</a></span>, <span class='object_link'><a href="SettingHandler.html#extract_name-instance_method" title="Mattock::YARDExtensions::SettingHandler#extract_name (method)">#extract_name</a></span>, <span class='object_link'><a href="SettingHandler.html#mattock_configurable%3F-instance_method" title="Mattock::YARDExtensions::SettingHandler#mattock_configurable? (method)">#mattock_configurable?</a></span>, <span class='object_link'><a href="SettingHandler.html#synthetic_setting-instance_method" title="Mattock::YARDExtensions::SettingHandler#synthetic_setting (method)">#synthetic_setting</a></span></p>
 
   
   
@@ -188,14 +189,14 @@
       <pre class="lines">
 
 
-97
-98
-99
-100
-101</pre>
+131
+132
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_a_nil'>a_nil</span>
   <span class='id identifier rubyid_v'>v</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:kw</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -220,17 +221,19 @@
       <pre class="lines">
 
 
-103
-104
-105
-106
-107
-108</pre>
+137
+138
+139
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 137</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_mattock_configurable?'>mattock_configurable?</span><span class='lparen'>(</span><span class='id identifier rubyid_namespace'>namespace</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_remapped'>remapped</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='op'>|</span>
     <span class='id identifier rubyid_synthetic_setting'>synthetic_setting</span><span class='lparen'>(</span><span class='id identifier rubyid_extract_name'>extract_name</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_a_nil'>a_nil</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -246,7 +249,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Feb  7 03:01:11 2012 by 
+  Generated on Tue Mar  6 02:51:27 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>
