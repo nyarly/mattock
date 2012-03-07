@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::YARDExtensions::DefineHandler
   
-    &mdash; mattock-0.2.6 RDoc
+    &mdash; mattock-0.2.8 RDoc
   
 </title>
 
@@ -247,8 +247,7 @@
 29
 30
 31
-32
-33</pre>
+32</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 28</span>
@@ -256,7 +255,6 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_mattock_defining?'>mattock_defining?</span><span class='lparen'>(</span><span class='id identifier rubyid_namespace'>namespace</span><span class='comma'>,</span> <span class='id identifier rubyid_statement'>statement</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_root'>root</span><span class='lbracket'>[</span><span class='symbol'>:tasklibs</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_namespace'>namespace</span>
-  <span class='id identifier rubyid_p'>p</span> <span class='kw'>__LINE__</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_root'>root</span><span class='comma'>,</span> <span class='id identifier rubyid_root'>root</span><span class='lbracket'>[</span><span class='symbol'>:tasklibs</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_namespace'>namespace</span><span class='lbracket'>[</span><span class='symbol'>:task_definition</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -305,7 +303,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Mar  6 15:59:48 2012 by 
+  Generated on Tue Mar  6 17:11:40 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>
