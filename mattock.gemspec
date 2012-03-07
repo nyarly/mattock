@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.2.7"
+  spec.version		= "0.2.8"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   EndDescription
 
   spec.rubyforge_project= spec.name.downcase
-  spec.homepage        = "http://#{spec.rubyforge_project}.rubyforge.org/"
+  spec.homepage        = "http://nyarly.github.com/mattock/"
   spec.required_rubygems_version = Gem::Requirement.new(">= 0") if spec.respond_to? :required_rubygems_version=
 
   # Do this: y$@"
