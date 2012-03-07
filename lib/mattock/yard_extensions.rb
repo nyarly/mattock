@@ -28,7 +28,6 @@ module Mattock
       def process
         return unless mattock_defining?(namespace, statement[0][0])
         (root[:tasklibs] ||= []) << namespace
-        p __LINE__ => [root, root[:tasklibs]]
         namespace[:task_definition] = statement[2]
       end
     end
