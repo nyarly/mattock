@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.2.9"
+  spec.version		= "0.2.10"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -44,6 +44,7 @@ Gem::Specification.new do |spec|
     lib/mattock/tasklib.rb
     lib/mattock/task.rb
     lib/mattock/configurable.rb
+    lib/mattock/configuration-store.rb
     lib/mattock/cascading-definition.rb
     lib/mattock.rb
     doc/README
@@ -52,6 +53,7 @@ Gem::Specification.new do |spec|
     spec/command-task.rb
     spec/tasklib.rb
     spec/configurable.rb
+    spec/configuration-store.rb
     spec/yard-extensions.rb
     spec/template-host.rb
     spec_help/spec_helper.rb
@@ -82,7 +84,7 @@ Gem::Specification.new do |spec|
   spec.rdoc_options	+= %w{--main doc/README }
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} RDoc"]
 
-  spec.add_dependency("valise", "> 0")
+  spec.add_dependency("valise", ">= 0.6")
   spec.add_dependency("tilt", "> 0")
 
   spec.post_install_message = "Another tidy package brought to you by Judson"
