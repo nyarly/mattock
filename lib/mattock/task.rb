@@ -44,11 +44,13 @@ module Mattock
     def action
     end
 
+=begin
     # I continue to look for an alternative here.
     # The trouble is that deep inside of define_task, Rake actually
     # instantiates the Task - so in wanting to be able to override members of
     # Task, it's hard to get the virtues of CascadingDefinition as well (maybe
     # the virtues could be had without the actual mixin?)
+=end
     def task_class
       return @task_class if @task_class
       @task_class = Class.new(self.class) do

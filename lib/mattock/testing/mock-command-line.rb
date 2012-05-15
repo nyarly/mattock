@@ -34,7 +34,7 @@ module Mattock
         before :each do
           Mattock::CommandLine.should_receive(:execute) do |cmd|
             pattern, res = pairs.shift
-            pattern =~ cmd
+            pattern.should =~ cmd
             Mattock::MockCommandResult.create(*res)
           end.any_number_of_times
         end
@@ -46,6 +46,7 @@ module Mattock
     end
 
     def expect_command(cmd, *result)
+      raise ArgumentError, "Regexp expected: not #{cmd.inspect}" unless Regexp === cmd
       pairs << [cmd, result]
     end
 

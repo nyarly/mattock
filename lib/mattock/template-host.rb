@@ -41,10 +41,14 @@ module Mattock
 
     attr_accessor :valise
 
+    def find_template(path)
+      valise.find(["templates"] + valise.unpath(path)).contents
+    end
+
     def render(path, locals=nil)
       template = TemplateHost::template_cache.fetch(path) do
         Tilt.new(path) do |tmpl|
-          valise.find(["templates"] + valise.unpath(tmpl.file)).contents
+          find_template(tmpl.file)
         end
       end
 
