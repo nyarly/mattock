@@ -6,7 +6,7 @@
 <title>
   Module: Mattock::TaskMixin
   
-    &mdash; mattock-0.2.8 RDoc
+    &mdash; mattock-0.2.11 RDoc
   
 </title>
 
@@ -351,7 +351,7 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>I continue to look for an alternative here.</p>
+<p># I continue to look for an alternative here.</p>
 </div></span>
   
 </li>
@@ -471,15 +471,15 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
       <pre class="lines">
 
 
-63
-64
 65
 66
 67
-68</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='id identifier rubyid_task'>task</span> <span class='op'>=</span> <span class='id identifier rubyid_task_class'>task_class</span><span class='period'>.</span><span class='id identifier rubyid_define_task'>define_task</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_task_args'>task_args</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -554,12 +554,12 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
       <pre class="lines">
 
 
-59
-60
-61</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_args'>task_args</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -615,11 +615,12 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
 </p><div class="docstring">
   <div class="discussion">
     
-<p>I continue to look for an alternative here. The trouble is that deep inside
-of define_task, Rake actually instantiates the Task - so in wanting to be
-able to override members of Task, it's hard to get the virtues of
-CascadingDefinition as well (maybe the virtues could be had without the
-actual mixin?)</p>
+<p># I continue to look for an alternative here.</p>
+
+<pre class="code ruby"><code><span class='comment'># The trouble is that deep inside of define_task, Rake actually
+</span><span class='comment'># instantiates the Task - so in wanting to be able to override members of
+</span><span class='comment'># Task, it's hard to get the virtues of CascadingDefinition as well (maybe
+</span><span class='comment'># the virtues could be had without the actual mixin?)</span></code></pre>
 
 
   </div>
@@ -633,15 +634,15 @@ actual mixin?)</p>
       <pre class="lines">
 
 
-52
-53
 54
 55
 56
-57</pre>
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_task_class'>task_class</span>
   <span class='kw'>return</span> <span class='ivar'>@task_class</span> <span class='kw'>if</span> <span class='ivar'>@task_class</span>
@@ -659,9 +660,9 @@ actual mixin?)</p>
 </div>
     
     <div id="footer">
-  Generated on Tue Mar  6 17:11:39 2012 by 
+  Generated on Tue May 15 15:59:16 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.7.5 (ruby-1.9.3).
 </div>
 
   </body>
