@@ -3,13 +3,7 @@ require 'mattock/cascading-definition'
 
 module Mattock
   #Rake::Tasklib provides a common, well known way to generalize tasks and use
-  #them in multiple projects.  The way it's used in a Rakefile is something
-  #like:
-  #
-  #    CoolTask.new(:args) do |t|
-  #      t.option_one = "cool"
-  #      t.option_two = "very"
-  #    end
+  #them in multiple projects.
   #
   #Typically, the #initialize method for CoolTask yields itself into the block
   #(so, 't' in the example) and then runs #define which does the heavy lifting
@@ -24,8 +18,15 @@ module Mattock
   #
   #The convention that's added in Mattock is that Tasklibs are passed to each
   #other as arguments, so that behavior can be composed out of modular
-  #components, a la:
+  #components.
   #
+  #@example
+  #    CoolTask.new(:args) do |t|
+  #      t.option_one = "cool"
+  #      t.option_two = "very"
+  #    end
+  #
+  #@example Composition
   #    transport = HTTPTasks.new do |t|
   #      t.server = http://mycoolserver.com
   #    end

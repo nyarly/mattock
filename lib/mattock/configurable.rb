@@ -5,6 +5,9 @@ module Mattock
   #nil).  Settings and their defaults are inherited (and can be overridden) by
   #subclasses.
   #
+  #Mattock also includes a yard-extension that will document settings of a
+  #Configurable
+  #
   #@example (see ClassMethods)
   module Configurable
     RequiredField = Object.new
@@ -22,7 +25,7 @@ module Mattock
     #Describes class level DSL & machinery for working with configuration
     #managment.
     #
-    #@example Quick example
+    #@example
     #    class ConfExample
     #      include Configurable
     #

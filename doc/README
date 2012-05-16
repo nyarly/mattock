@@ -1,2 +1,53 @@
-== This is a Really Cool Ruby Thing
-=== ( That deserves better documentation than this. )
+== Mattock
+=== A powerful companion to Rake
+
+The goal for Mattock is to be able to build configurable, composable tasklibs
+for Rake quickly, and get validation that they're working properly.
+
+Throughout, the goal has been to lean hard on straight up Ruby, with as little
+metaprogrammitic DSL nonsense as I could get away with.
+
+In fact, basically the only DSL stuff in Mattock are settings for Tasklibs.
+The gory details are in {Mattock::Configurable}.  Inheritable, defaultable,
+verifying, copyable settings.  Nothing you haven't seen done before.
+
+=== Tasklibs
+
+The upshot of Mattock is being able to build Rake Tasklibs so that you can do
+things like:
+
+  tk = Toolkit.new do |tk|
+    tk.file_lists.project = [__FILE__]
+  end
+
+  tk.in_namespace do
+    vc = Git.new(tk) do
+      |vc| vc.branch = "master"
+    end
+    task tk.finished_files.build => vc["is_checked_in"]
+  end
+
+Things of note there: the "Git" tasklib takes the Toolkit tasklib as an
+argument.  Git can pull out settings from Toolkit.  (Conversely, that means as
+these tasklibs are designed, common settings can be pulled up into parent
+tasklibs.)  Libs with related concerns can get hooked together and still remain
+loosely coupled.
+
+Also note that Toolkit has a nested setting - settings can be arranged in
+namespaces, however that makes sense.
+
+{Mattock::TaskLib} also codifies the typical pattern with Rake tasklibs: setup
+default configuration, yield self, confirm configs, define tasks.
+Configuration is held in "settings," which mean defaults are easier to track,
+complex configs can be resolved after setup, and required values automatically
+confirmed.
+
+A nice side effect is that "misconfiguration" - i.e. assigning a
+value to the wrong name - gets caught really quickly, which you come to
+appreciate in complex Rakefiles.
+
+=== Tasks
+
+{Mattock::Task} defines subclasses of Rake tasks - they can do all the
+configuration that Mattock::TaskLib can, but they're just tasks.  Crucially,
+details about whether they're needed can be overriden.  Occasionally handy.
