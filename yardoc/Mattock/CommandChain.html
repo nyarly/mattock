@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::CommandChain
   
-    &mdash; mattock-0.2.11 RDoc
+    &mdash; mattock-0.2.12 RDoc
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (C)</a> &raquo; 
+    <a href="../_index.html">Index (C)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Mattock.html" title="Mattock (module)">Mattock</a></span></span>
      &raquo; 
     <span class="title">CommandChain</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Mattock::CommandChain
   
   
@@ -117,7 +124,10 @@
   </span>
   
   
-    <span class="note title readonly">readonly</span>
+  
+    
+      <span class="note title readonly">readonly</span>
+    
     
   
   
@@ -165,6 +175,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -180,6 +191,7 @@
 
     
   </span>
+  
   
     <span class="note title constructor">constructor</span>
   
@@ -211,6 +223,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -229,19 +242,22 @@
   
   
   
+  
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="CommandLine.html" title="Mattock::CommandLine (class)">CommandLine</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="CommandLine.html#command-instance_method" title="Mattock::CommandLine#command (method)">#command</a></span>, <span class='object_link'><a href="CommandLine.html#copy_stream_to-instance_method" title="Mattock::CommandLine#copy_stream_to (method)">#copy_stream_to</a></span>, <span class='object_link'><a href="CommandLine.html#emit_recording-class_method" title="Mattock::CommandLine.emit_recording (method)">emit_recording</a></span>, <span class='object_link'><a href="CommandLine.html#execute-class_method" title="Mattock::CommandLine.execute (method)">execute</a></span>, <span class='object_link'><a href="CommandLine.html#must_succeed%21-instance_method" title="Mattock::CommandLine#must_succeed! (method)">#must_succeed!</a></span>, <span class='object_link'><a href="CommandLine.html#original_execute-class_method" title="Mattock::CommandLine.original_execute (method)">original_execute</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_from-instance_method" title="Mattock::CommandLine#redirect_from (method)">#redirect_from</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_stderr-instance_method" title="Mattock::CommandLine#redirect_stderr (method)">#redirect_stderr</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_stdin-instance_method" title="Mattock::CommandLine#redirect_stdin (method)">#redirect_stdin</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_stdout-instance_method" title="Mattock::CommandLine#redirect_stdout (method)">#redirect_stdout</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_to-instance_method" title="Mattock::CommandLine#redirect_to (method)">#redirect_to</a></span>, <span class='object_link'><a href="CommandLine.html#run-instance_method" title="Mattock::CommandLine#run (method)">#run</a></span>, <span class='object_link'><a href="CommandLine.html#succeeds%3F-instance_method" title="Mattock::CommandLine#succeeds? (method)">#succeeds?</a></span>, <span class='object_link'><a href="CommandLine.html#verbose-instance_method" title="Mattock::CommandLine#verbose (method)">#verbose</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="Mattock::CommandChain (class)">CommandChain</a></span></tt>) <strong>initialize</strong> {|_self| ... }
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>A new instance of CommandChain</p>
@@ -251,7 +267,7 @@
 </div>
 <div class="tags">
   
-<h3>Yields:</h3>
+<p class="tag_title">Yields:</p>
 <ul class="yield">
   
     <li>
@@ -264,7 +280,7 @@
     </li>
   
 </ul>
-<h3>Yield Parameters:</h3>
+<p class="tag_title">Yield Parameters:</p>
 <ul class="yieldparam">
   
     <li>
@@ -317,13 +333,15 @@
       <span id=""></span>
       <span id="commands-instance_method"></span>
       <div class="method_details first">
-  <p class="signature first" id="commands-instance_method">
+  <h3 class="signature first" id="commands-instance_method">
   
     - (<tt>Object</tt>) <strong>commands</strong>  <span class="extras">(readonly)</span>
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Returns the value of attribute commands</p>
@@ -360,16 +378,18 @@
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="add-instance_method">
+  <h3 class="signature first" id="add-instance_method">
   
     - (<tt>Object</tt>) <strong>add</strong>(cmd) {|cmd| ... }
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 
@@ -377,7 +397,7 @@
 </div>
 <div class="tags">
   
-<h3>Yields:</h3>
+<p class="tag_title">Yields:</p>
 <ul class="yield">
   
     <li>
@@ -415,13 +435,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="name-instance_method">
+  <h3 class="signature " id="name-instance_method">
   
     - (<tt>Object</tt>) <strong>name</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -445,11 +467,11 @@
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue May 15 15:59:17 2012 by 
+  Generated on Wed May 16 00:09:17 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.3).
+  0.8.1 (ruby-1.9.3).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::TaskLib
   
-    &mdash; mattock-0.2.11 RDoc
+    &mdash; mattock-0.2.12 RDoc
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (T)</a> &raquo; 
+    <a href="../_index.html">Index (T)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Mattock.html" title="Mattock (module)">Mattock</a></span></span>
      &raquo; 
     <span class="title">TaskLib</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Mattock::TaskLib
   
   
@@ -172,8 +179,11 @@ configuration options are built using <span class='object_link'><a href="Configu
   </span>
   
   
+  
     
-    <span class="note title writeonly">writeonly</span>
+    
+      <span class="note title writeonly">writeonly</span>
+    
   
   
   
@@ -198,7 +208,10 @@ configuration options are built using <span class='object_link'><a href="Configu
   </span>
   
   
-    <span class="note title readonly">readonly</span>
+  
+    
+      <span class="note title readonly">readonly</span>
+    
     
   
   
@@ -241,6 +254,7 @@ configuration options are built using <span class='object_link'><a href="Configu
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'>
@@ -273,6 +287,7 @@ configuration options are built using <span class='object_link'><a href="Configu
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'>
@@ -290,6 +305,7 @@ configuration options are built using <span class='object_link'><a href="Configu
 
     
   </span>
+  
   
   
   
@@ -317,6 +333,7 @@ configuration options are built using <span class='object_link'><a href="Configu
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -332,6 +349,7 @@ configuration options are built using <span class='object_link'><a href="Configu
 
     
   </span>
+  
   
     <span class="note title constructor">constructor</span>
   
@@ -363,6 +381,7 @@ configuration options are built using <span class='object_link'><a href="Configu
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -378,6 +397,7 @@ configuration options are built using <span class='object_link'><a href="Configu
 
     
   </span>
+  
   
   
   
@@ -404,6 +424,7 @@ configuration options are built using <span class='object_link'><a href="Configu
   
   
   
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">CascadingDefinition</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="CascadingDefinition.html#confirm_configuration-instance_method" title="Mattock::CascadingDefinition#confirm_configuration (method)">#confirm_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#default_configuration-instance_method" title="Mattock::CascadingDefinition#default_configuration (method)">#default_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#define-instance_method" title="Mattock::CascadingDefinition#define (method)">#define</a></span>, <span class='object_link'><a href="CascadingDefinition.html#resolve_configuration-instance_method" title="Mattock::CascadingDefinition#resolve_configuration (method)">#resolve_configuration</a></span></p>
 
@@ -414,9 +435,11 @@ configuration options are built using <span class='object_link'><a href="Configu
   
   
   
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Configurable.html#check_required-instance_method" title="Mattock::Configurable#check_required (method)">#check_required</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings_to-instance_method" title="Mattock::Configurable#copy_settings_to (method)">#copy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#nil_fields-instance_method" title="Mattock::Configurable#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable.html#required_fields-instance_method" title="Mattock::Configurable#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable.html#setting-instance_method" title="Mattock::Configurable#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable.html#settings-instance_method" title="Mattock::Configurable#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable.html#setup_defaults-instance_method" title="Mattock::Configurable#setup_defaults (method)">#setup_defaults</a></span>, <span class='object_link'><a href="Configurable.html#unset%3F-instance_method" title="Mattock::Configurable#unset? (method)">#unset?</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Configurable.html#check_required-instance_method" title="Mattock::Configurable#check_required (method)">#check_required</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings_to-instance_method" title="Mattock::Configurable#copy_settings_to (method)">#copy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#nil_fields-instance_method" title="Mattock::Configurable#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable.html#required_fields-instance_method" title="Mattock::Configurable#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable.html#setting-instance_method" title="Mattock::Configurable#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable.html#settings-instance_method" title="Mattock::Configurable#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable.html#setup_defaults-instance_method" title="Mattock::Configurable#setup_defaults (method)">#setup_defaults</a></span>, <span class='object_link'><a href="Configurable.html#to_hash-instance_method" title="Mattock::Configurable#to_hash (method)">#to_hash</a></span>, <span class='object_link'><a href="Configurable.html#unset%3F-instance_method" title="Mattock::Configurable#unset? (method)">#unset?</a></span></p>
 
+  
   
   
   
@@ -425,19 +448,21 @@ configuration options are built using <span class='object_link'><a href="Configu
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable/ClassMethods.html" title="Mattock::Configurable::ClassMethods (module)">Configurable::ClassMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#copy_settings-instance_method" title="Mattock::Configurable::ClassMethods#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#copy_settings-instance_method" title="Mattock::Configurable::ClassMethods#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#to_hash-instance_method" title="Mattock::Configurable::ClassMethods#to_hash (method)">#to_hash</a></span></p>
 
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="Mattock::TaskLib (class)">TaskLib</a></span></tt>) <strong>initialize</strong>(*toolkits) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>A new instance of TaskLib</p>
@@ -480,13 +505,15 @@ configuration options are built using <span class='object_link'><a href="Configu
       <span id="namespace_name=-instance_method"></span>
       <span id=""></span>
       <div class="method_details first">
-  <p class="signature first" id="namespace_name=-instance_method">
+  <h3 class="signature first" id="namespace_name=-instance_method">
   
     - (<tt>Object</tt>) <strong>namespace_name=</strong>(value)  <span class="extras">(writeonly)</span>
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Sets the attribute namespace_name</p>
@@ -495,7 +522,7 @@ configuration options are built using <span class='object_link'><a href="Configu
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -542,13 +569,15 @@ configuration options are built using <span class='object_link'><a href="Configu
       <span id=""></span>
       <span id="tasks-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="tasks-instance_method">
+  <h3 class="signature " id="tasks-instance_method">
   
     - (<tt>Object</tt>) <strong>tasks</strong>  <span class="extras">(readonly)</span>
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Returns the value of attribute tasks</p>
@@ -585,16 +614,18 @@ configuration options are built using <span class='object_link'><a href="Configu
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="default_namespace-class_method">
+  <h3 class="signature first" id="default_namespace-class_method">
   
     + (<tt>Object</tt>) <strong>default_namespace</strong>(name) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>The namespace this lib's tasks will created within.  Changeable at
@@ -631,16 +662,18 @@ instatiation</p>
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="[]-instance_method">
+  <h3 class="signature first" id="[]-instance_method">
   
     - (<tt>Object</tt>) <strong>[]</strong>(taskname) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Wraps a single task in lib's namespace</p>
@@ -673,13 +706,15 @@ instatiation</p>
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="default_namespace-instance_method">
+  <h3 class="signature " id="default_namespace-instance_method">
   
     - (<tt>Object</tt>) <strong>default_namespace</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -701,7 +736,7 @@ instatiation</p>
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="in_namespace-instance_method">
+  <h3 class="signature " id="in_namespace-instance_method">
   
     
       <span class="overload">- (<tt>Object</tt>) <strong>in_namespace</strong>(args) </span>
@@ -711,7 +746,9 @@ instatiation</p>
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 
@@ -719,7 +756,7 @@ instatiation</p>
 </div>
 <div class="tags">
   
-  <h3>Overloads:</h3>
+  <p class="tag_title">Overloads:</p>
   <ul class="overload">
     
       
@@ -810,13 +847,15 @@ declaration</p>
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="root_task-instance_method">
+  <h3 class="signature " id="root_task-instance_method">
   
     - (<tt>Object</tt>) <strong>root_task</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -838,13 +877,15 @@ declaration</p>
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="task-instance_method">
+  <h3 class="signature " id="task-instance_method">
   
     - (<tt>Object</tt>) <strong>task</strong>(*args) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Records tasks as they are created</p>
@@ -883,11 +924,11 @@ declaration</p>
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue May 15 15:59:17 2012 by 
+  Generated on Wed May 16 00:09:17 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.3).
+  0.8.1 (ruby-1.9.3).
 </div>
 
   </body>

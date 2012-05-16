@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::CommandLine
   
-    &mdash; mattock-0.2.11 RDoc
+    &mdash; mattock-0.2.12 RDoc
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (C)</a> &raquo; 
+    <a href="../_index.html">Index (C)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Mattock.html" title="Mattock (module)">Mattock</a></span></span>
      &raquo; 
     <span class="title">CommandLine</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Mattock::CommandLine
   
   
@@ -129,6 +136,7 @@
   </span>
   
   
+  
     
     
   
@@ -160,6 +168,7 @@
   </span>
   
   
+  
     
     
   
@@ -186,6 +195,7 @@
   </span>
   
   
+  
     
     
   
@@ -210,6 +220,7 @@
 
     
   </span>
+  
   
   
     
@@ -255,6 +266,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -276,6 +288,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -291,6 +304,7 @@
 
     
   </span>
+  
   
   
   
@@ -327,6 +341,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -348,6 +363,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -363,6 +379,7 @@
 
     
   </span>
+  
   
     <span class="note title constructor">constructor</span>
   
@@ -394,6 +411,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -409,6 +427,7 @@
 
     
   </span>
+  
   
   
   
@@ -436,6 +455,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -451,6 +471,7 @@
 
     
   </span>
+  
   
   
   
@@ -478,6 +499,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -493,6 +515,7 @@
 
     
   </span>
+  
   
   
   
@@ -520,6 +543,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -535,6 +559,7 @@
 
     
   </span>
+  
   
   
   
@@ -562,6 +587,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -576,13 +602,15 @@
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="Mattock::CommandLine (class)">CommandLine</a></span></tt>) <strong>initialize</strong>(executable, *options) {|_self| ... }
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>A new instance of CommandLine</p>
@@ -592,7 +620,7 @@
 </div>
 <div class="tags">
   
-<h3>Yields:</h3>
+<p class="tag_title">Yields:</p>
 <ul class="yield">
   
     <li>
@@ -605,7 +633,7 @@
     </li>
   
 </ul>
-<h3>Yield Parameters:</h3>
+<p class="tag_title">Yield Parameters:</p>
 <ul class="yieldparam">
   
     <li>
@@ -662,13 +690,15 @@
       <span id="command_recording_path=-class_method"></span>
       <span id="command_recording_path-class_method"></span>
       <div class="method_details first">
-  <p class="signature first" id="command_recording_path-class_method">
+  <h3 class="signature first" id="command_recording_path-class_method">
   
     + (<tt>Object</tt>) <strong>command_recording_path</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Returns the value of attribute command_recording_path</p>
@@ -693,7 +723,7 @@
       <pre class="code"><span class="info file"># File 'lib/mattock/testing/record-commands.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_command_recording_path'>command_recording_path</span>
-  <span class='ivar'>@command_recording_path</span> <span class='op'>||=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MATTOCK_CMDREC</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@command_recording_path</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -709,13 +739,15 @@
       <span id="executable=-instance_method"></span>
       <span id="executable-instance_method"></span>
       <div class="method_details first">
-  <p class="signature first" id="executable-instance_method">
+  <h3 class="signature first" id="executable-instance_method">
   
     - (<tt>Object</tt>) <strong>executable</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Returns the value of attribute executable</p>
@@ -751,13 +783,15 @@
       <span id="name=-instance_method"></span>
       <span id="name-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="name-instance_method">
+  <h3 class="signature " id="name-instance_method">
   
     - (<tt>Object</tt>) <strong>name</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Returns the value of attribute name</p>
@@ -782,7 +816,7 @@
       <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
-  <span class='ivar'>@name</span> <span class='op'>||</span> <span class='id identifier rubyid_executable'>executable</span>
+  <span class='ivar'>@name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -793,13 +827,15 @@
       <span id="options=-instance_method"></span>
       <span id="options-instance_method"></span>
       <div class="method_details ">
-  <p class="signature " id="options-instance_method">
+  <h3 class="signature " id="options-instance_method">
   
     - (<tt>Object</tt>) <strong>options</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Returns the value of attribute options</p>
@@ -836,16 +872,18 @@
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="emit_recording-class_method">
+  <h3 class="signature first" id="emit_recording-class_method">
   
     + (<tt>Object</tt>) <strong>emit_recording</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -883,13 +921,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="execute-class_method">
+  <h3 class="signature " id="execute-class_method">
   
     + (<tt>Object</tt>) <strong>execute</strong>(command) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -899,14 +939,20 @@
 87
 88
 89
-90</pre>
+90
+91
+92
+93</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 86</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_original_execute'>original_execute</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
-  <span class='cvar'>@@commands</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_pipe'>pipe</span> <span class='op'>=</span> <span class='const'>IO</span><span class='period'>.</span><span class='id identifier rubyid_popen'>popen</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_pid'>pid</span> <span class='op'>=</span> <span class='id identifier rubyid_pipe'>pipe</span><span class='period'>.</span><span class='id identifier rubyid_pid'>pid</span>
+  <span class='id identifier rubyid_pid'>pid</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_wait2'>wait2</span><span class='lparen'>(</span><span class='id identifier rubyid_pid'>pid</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>CommandRunResult</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='int'>1</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_pipe'>pipe</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_pipe'>pipe</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -915,13 +961,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="original_execute-class_method">
+  <h3 class="signature " id="original_execute-class_method">
   
     + (<tt>Object</tt>) <strong>original_execute</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -956,16 +1004,18 @@
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="command-instance_method">
+  <h3 class="signature first" id="command-instance_method">
   
     - (<tt>Object</tt>) <strong>command</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -987,13 +1037,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="copy_stream_to-instance_method">
+  <h3 class="signature " id="copy_stream_to-instance_method">
   
     - (<tt>Object</tt>) <strong>copy_stream_to</strong>(from, to) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1015,13 +1067,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="must_succeed!-instance_method">
+  <h3 class="signature " id="must_succeed!-instance_method">
   
     - (<tt>Object</tt>) <strong>must_succeed!</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1043,13 +1097,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="redirect_from-instance_method">
+  <h3 class="signature " id="redirect_from-instance_method">
   
     - (<tt>Object</tt>) <strong>redirect_from</strong>(path, stream) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1071,13 +1127,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="redirect_stderr-instance_method">
+  <h3 class="signature " id="redirect_stderr-instance_method">
   
     - (<tt>Object</tt>) <strong>redirect_stderr</strong>(path) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1099,13 +1157,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="redirect_stdin-instance_method">
+  <h3 class="signature " id="redirect_stdin-instance_method">
   
     - (<tt>Object</tt>) <strong>redirect_stdin</strong>(path) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1127,13 +1187,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="redirect_stdout-instance_method">
+  <h3 class="signature " id="redirect_stdout-instance_method">
   
     - (<tt>Object</tt>) <strong>redirect_stdout</strong>(path) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1155,13 +1217,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="redirect_to-instance_method">
+  <h3 class="signature " id="redirect_to-instance_method">
   
     - (<tt>Object</tt>) <strong>redirect_to</strong>(stream, path) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1183,13 +1247,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="run-instance_method">
+  <h3 class="signature " id="run-instance_method">
   
     - (<tt>Object</tt>) <strong>run</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1221,13 +1287,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="succeeds?-instance_method">
+  <h3 class="signature " id="succeeds?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>succeeds?</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 
@@ -1235,7 +1303,7 @@
 </div>
 <div class="tags">
   
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -1271,13 +1339,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="verbose-instance_method">
+  <h3 class="signature " id="verbose-instance_method">
   
     - (<tt>Object</tt>) <strong>verbose</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1301,11 +1371,11 @@
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue May 15 15:59:17 2012 by 
+  Generated on Wed May 16 00:09:17 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.3).
+  0.8.1 (ruby-1.9.3).
 </div>
 
   </body>
