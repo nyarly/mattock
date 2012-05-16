@@ -1,6 +1,4 @@
-source "http://judson:hEi4lOra@gems.lrdesign.com"
-source "http://gemcutter.org"
-source "http://gems.github.com"
+source :rubygems
 
 gem 'ruby-debug19', :platform => :ruby_19
 
