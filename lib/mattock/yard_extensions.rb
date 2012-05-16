@@ -13,7 +13,7 @@ module Mattock
             return true if [:CascadingDefinition, :Configurable, :Tasklib, :TaskLib].include? co.name and method == "define"
             return true if [:TaskMixin, :Task, :FileTask, :MultiTask].include? co.name and method == "action"
           end
-          check_list = check_list.find_all{|co| co.respond_to?(:mixins)}.map{|co| co.mixins}.flatten
+          check_list = (check_list.find_all{|co| co.respond_to?(:mixins)}||[]).map{|co| co.mixins}.flatten
         end
       end
 
@@ -90,7 +90,7 @@ module Mattock
 
         value = statement.parameters(false)[1]
         if !value.nil? and value.type == :fcall and value.jump(:ident)[0] == "nested"
-          remapped = value.parameters(false).first.map do |assoc|
+          remapped = (value.parameters.first||[]).map do |assoc|
             new_name =
                 append_name(statement.parameters[0], extract_name(assoc[0]))
             synthetic_setting(new_name, assoc[1])

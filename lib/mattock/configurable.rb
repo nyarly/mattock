@@ -91,6 +91,20 @@ module Mattock
         end
       end
 
+      def to_hash(obj)
+        hash = if Configurable > superclass
+                 superclass.to_hash(obj)
+               else
+                 {}
+               end
+        hash.merge( Hash[default_values.keys.zip(default_values.keys.map{|key|
+          begin
+            obj.__send__(key)
+          rescue NoMethodError
+          end
+        }).to_a])
+      end
+
       #Creates an anonymous Configurable - useful in complex setups for nested
       #settings
       #@example SSH options
@@ -149,6 +163,10 @@ module Mattock
     def copy_settings_to(other)
       self.class.copy_settings(self, other)
       self
+    end
+
+    def to_hash
+      self.class.to_hash(self)
     end
 
     #Call during initialize to set default values on settings - if you're using

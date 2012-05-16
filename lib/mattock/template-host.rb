@@ -42,17 +42,38 @@ module Mattock
     attr_accessor :valise
 
     def find_template(path)
-      valise.find(["templates"] + valise.unpath(path)).contents
+      valise.find(["templates"] + valise.unpath(path))
     end
 
-    def render(path, locals=nil)
+    def template_contents(path)
+      find_template(path).contents
+    end
+
+    def template_path(path)
+      find_template(path).full_path
+    end
+
+    def render(path, template_options = nil)
       template = TemplateHost::template_cache.fetch(path) do
-        Tilt.new(path) do |tmpl|
-          find_template(tmpl.file)
+        Tilt.new(path, template_options || {}) do |tmpl|
+          template_contents(tmpl.file)
         end
       end
 
-      template.render(self, locals)
+      template.render(self)
+    end
+  end
+
+  module TemplateTaskLib
+    include TemplateHost
+
+    def template_task(template_source, destination_path, template_options = nil)
+      file template_path(template_source)
+      file destination_path => template_path(template_source) do
+        File::open(destination_path, "w") do |file|
+          file.write(render(template_source, template_options))
+        end
+      end
     end
   end
 end
