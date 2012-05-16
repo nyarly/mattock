@@ -62,9 +62,63 @@
     <iframe id="search_frame"></iframe>
 
     <div id="content"><div id='filecontents'>
-<h2 id="label-This+is+a+Really+Cool+Ruby+Thing">This is a Really Cool Ruby Thing</h2>
+<h2 id="label-Mattock">Mattock</h2>
 
-<h3 id="label-%28+That+deserves+better+documentation+than+this.+%29">( That deserves better documentation than this. )</h3>
+<h3 id="label-A+powerful+companion+to+Rake">A powerful companion to Rake</h3>
+
+<p>The goal for Mattock is to be able to build configurable, composable
+tasklibs for Rake quickly, and get validation that they’re working
+properly.</p>
+
+<p>Throughout, the goal has been to lean hard on straight up Ruby, with as
+little metaprogrammitic DSL nonsense as I could get away with.</p>
+
+<p>In fact, basically the only DSL stuff in Mattock are settings for Tasklibs.
+The gory details are in <span class='object_link'><a href="Mattock/Configurable.html" title="Mattock::Configurable (module)">Mattock::Configurable</a></span>.  Inheritable, defaultable,
+verifying, copyable settings.  Nothing you haven’t seen done before.</p>
+
+<h3 id="label-Tasklibs">Tasklibs</h3>
+
+<p>The upshot of Mattock is being able to build Rake Tasklibs so that you can
+do things like:</p>
+
+<pre class="ruby"><span class="ruby-identifier">tk</span> = <span class="ruby-constant">Toolkit</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tk</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">tk</span>.<span class="ruby-identifier">file_lists</span>.<span class="ruby-identifier">project</span> = [<span class="ruby-keyword">__FILE__</span>]
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">tk</span>.<span class="ruby-identifier">in_namespace</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">vc</span> = <span class="ruby-constant">Git</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tk</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-operator">|</span><span class="ruby-identifier">vc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">vc</span>.<span class="ruby-identifier">branch</span> = <span class="ruby-string">&quot;master&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-identifier">tk</span>.<span class="ruby-identifier">finished_files</span>.<span class="ruby-identifier">build</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">vc</span>[<span class="ruby-string">&quot;is_checked_in&quot;</span>]
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Things of note there: the “Git” tasklib takes the Toolkit tasklib as an
+argument.  Git can pull out settings from Toolkit.  (Conversely, that means
+as these tasklibs are designed, common settings can be pulled up into
+parent tasklibs.)  Libs with related concerns can get hooked together and
+still remain loosely coupled.</p>
+
+<p>Also note that Toolkit has a nested setting - settings can be arranged in
+namespaces, however that makes sense.</p>
+
+<p><span class='object_link'><a href="Mattock/TaskLib.html" title="Mattock::TaskLib (class)">Mattock::TaskLib</a></span> also codifies the typical pattern with Rake tasklibs:
+setup default configuration, yield self, confirm configs, define tasks.
+Configuration is held in “settings,” which mean defaults are easier to
+track, complex configs can be resolved after setup, and required values
+automatically confirmed.</p>
+
+<p>A nice side effect is that “misconfiguration” - i.e. assigning a value to
+the wrong name - gets caught really quickly, which you come to appreciate
+in complex Rakefiles.</p>
+
+<h3 id="label-Tasks">Tasks</h3>
+
+<p><span class='object_link'><a href="Mattock/Task.html" title="Mattock::Task (class)">Mattock::Task</a></span> defines subclasses of Rake tasks - they can do all the
+configuration that Mattock::TaskLib can, but they’re just tasks. 
+Crucially, details about whether they’re needed can be overriden. 
+Occasionally handy.</p>
 </div>
   <h2>Mattock Tasklibs Defined</h2>
   <ul>
@@ -82,7 +136,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed May 16 00:09:16 2012 by
+  Generated on Wed May 16 00:41:56 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.3).
 </div>
