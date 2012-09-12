@@ -64,7 +64,7 @@ module Mattock
 
     def define
       task = task_class.define_task(*task_args) do
-        action
+        task.action
       end
       copy_settings_to(task)
     end
