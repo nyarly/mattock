@@ -9,6 +9,7 @@ module Mattock
 
   module TaskMixin
     include CascadingDefinition
+    include DeferredDefinition
 
     setting :task_name
     setting :task_args
@@ -20,8 +21,11 @@ module Mattock
     end
 
     def self.included(mod)
-      mod.class_eval{ extend ClassMethods }
       super
+      mod.class_eval do
+        extend ClassMethods
+        DeferredDefinition.add_settings(self)
+      end
     end
 
     def initialize(*args)
@@ -44,17 +48,29 @@ module Mattock
     def action
     end
 
+
+    module ChildTask
+      attr_accessor :source_task
+      def inspect
+        "From: " + source_task.inspect
+      end
+    end
+
 =begin
     # I continue to look for an alternative here.
     # The trouble is that deep inside of define_task, Rake actually
     # instantiates the Task - so in wanting to be able to override members of
     # Task, it's hard to get the virtues of CascadingDefinition as well (maybe
     # the virtues could be had without the actual mixin?)
+    #
+    # So, what we're doing is to dynamically create a child class and then
+    # carry forward the Rake::Task#initialize
 =end
     def task_class
       return @task_class if @task_class
       @task_class = Class.new(self.class) do
         define_method :initialize, Rake::Task.instance_method(:initialize)
+        include ChildTask
       end
     end
 
@@ -64,8 +80,10 @@ module Mattock
 
     def define
       task = task_class.define_task(*task_args) do
+        finalize_configuration
         task.action
       end
+      task.source_task = self
       copy_settings_to(task)
     end
   end

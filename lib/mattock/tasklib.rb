@@ -62,6 +62,11 @@ module Mattock
       return a_task
     end
 
+    def bracket_task(before, name, after)
+      task self[name] => before
+      task after => self[name]
+    end
+
     #@overload in_namespace(args)
     #  maps the arguments to namespace-prefixed names, for use in Rake
     #  dependency declaration

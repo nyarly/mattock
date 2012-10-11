@@ -32,12 +32,32 @@ module Mattock
       when 0
         return exit_code
       else
-        fail "Command #{@command.inspect} failed with exit status #{$?.exitstatus}: \n#{streams.inspect}"
+        fail "Command #{@command.inspect} failed with exit status #{exit_code}: \n#{streams.inspect}"
       end
     end
   end
 
   class CommandLine
+    def self.define_chain_op(opname, klass)
+      define_method(opname) do |other|
+        unless CommandLine === other
+          other = CommandLine.new(*[*other])
+        end
+        chain = nil
+        if klass === self
+          chain = self
+        else
+          chain = klass.new
+          chain.add(self)
+        end
+        chain.add(other)
+      end
+    end
+
+    def self.define_op(opname)
+      CommandLine.define_chain_op(opname, self)
+    end
+
     def initialize(executable, *options)
       @executable = executable
       @options = options
@@ -110,6 +130,12 @@ module Mattock
     end
   end
 
+  module CommandLineDSL
+    def cmd(*args)
+      CommandLine.new(*args)
+    end
+  end
+
   class ShellEscaped < CommandLine
     def initialize(cmd)
       @escaped = cmd
@@ -135,6 +161,7 @@ module Mattock
     def add(cmd)
       yield cmd if block_given?
       @commands << cmd
+      self
     end
 
     def name
@@ -143,18 +170,24 @@ module Mattock
   end
 
   class WrappingChain < CommandChain
+    define_op('-')
+
     def command
       @commands.map{|cmd| cmd.command}.join(" -- ")
     end
   end
 
   class PrereqChain < CommandChain
+    define_op('&&')
+
     def command
       @commands.map{|cmd| cmd.command}.join(" && ")
     end
   end
 
   class PipelineChain < CommandChain
+    define_op('|')
+
     def command
       @commands.map{|cmd| cmd.command}.join(" | ")
     end

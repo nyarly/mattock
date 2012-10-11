@@ -50,12 +50,18 @@ module Mattock
     def initialize(app_name, library_default_dir = nil)
       @app_name = app_name
       @valise = Valise::Set.define do
-        rw "~/.#{@app_name}"
+        rw "~/.#{app_name}"
+        rw "~/.mattock/#{app_name}"
         rw "~/.mattock"
-        rw "/usr/share/#{@app_name}"
+
+        rw "/usr/share/#{app_name}"
+        rw "/usr/share/mattock/#{app_name}"
         rw "/usr/share/mattock"
-        rw "/etc/#{@app_name}"
+
+        rw "/etc/#{app_name}"
+        rw "/etc/mattock/#{app_name}"
         rw "/etc/mattock"
+
         ro library_default_dir unless library_default_dir.nil?
         ro from_here("default_configuration")
 
@@ -67,6 +73,12 @@ module Mattock
 
     attr_reader :loaded, :valise
 
+    #Add special file handling for a particular file
+    def register_file(name, type, merge)
+      @valise.add_handler(name, type, merge)
+    end
+
+    #Add a search path to look for configuration files
     def register_search_path(from_file)
       directory = File::expand_path("../.#{@app_name}", from_file)
       @valise.prepend_search_root(Valise::SearchRoot.new(directory))

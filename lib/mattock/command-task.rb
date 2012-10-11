@@ -3,9 +3,11 @@ require 'mattock/command-line'
 
 module Mattock
   class CommandTask < Task
+    include CommandLineDSL
+
     setting(:task_name, :run)
-    setting(:command)
-    setting(:verify_command, nil)
+    runtime_setting(:verify_command, nil)
+    runtime_setting(:command)
 
     def verify_command
       if @verify_command.respond_to?(:call)
@@ -14,8 +16,8 @@ module Mattock
       @verify_command
     end
 
-    def decorated(cmd)
-      cmd
+    def decorated(command)
+      command
     end
 
     def action
@@ -23,6 +25,7 @@ module Mattock
     end
 
     def needed?
+      finalize_configuration
       unless verify_command.nil?
         !decorated(verify_command).succeeds?
       else

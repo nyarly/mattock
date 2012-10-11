@@ -10,8 +10,7 @@ module Mattock
   #
   #@example (see ClassMethods)
   module Configurable
-    RequiredField = Object.new
-    class << RequiredField
+    class RequiredField
       def to_s
         "<unset>"
       end
@@ -19,8 +18,64 @@ module Mattock
       def inspect
         to_s
       end
+
+      def required_on?(host)
+        true
+      end
+
+      def self.instance
+        @instane ||= self.new
+      end
     end
-    RequiredField.freeze
+
+    class RuntimeRequiredField < RequiredField
+      def required_on?(host)
+        if host.responds_to?(:runtime?) and !host.runtime?
+          return false
+        else
+          return true
+        end
+      end
+    end
+
+    class DecoratedValue
+      def initialize(value)
+        @value = value
+      end
+
+      def value
+        begin
+          value = real_value
+        end while DecoratedValue === value
+        value
+      end
+
+      def real_value
+        @value
+      end
+    end
+
+    class ProxyValue < DecoratedValue
+      def initialize(source, name)
+        @source, @name = source, name
+      end
+
+      def real_value
+        @source.__send__(@name)
+      end
+    end
+
+    class ProxyDecorator
+      def initialize(configurable)
+        @configurable = configurable
+      end
+
+      def method_missing(name, *args, &block)
+        super unless block.nil? and args.empty?
+        super unless @configurable.responds_to?(name)
+        return ProxyValue.new(@configurable, name)
+      end
+    end
 
     #Describes class level DSL & machinery for working with configuration
     #managment.
@@ -68,7 +123,7 @@ module Mattock
         end
         default_values.each_pair do |name,value|
           set_value = instance.__send__(name)
-          if value == RequiredField and set_value == RequiredField
+          if RequiredField === set_value and set_value.required_on?(instance)
             missing << name
             next
           end
@@ -87,7 +142,13 @@ module Mattock
         end
         default_values.keys.each do |field|
           begin
-            to.__send__("#{field}=", from.__send__(field))
+            value =
+              if block_given?
+                yield(from, field)
+              else
+                from.__send__(field)
+              end
+            to.__send__("#{field}=", value)
           rescue NoMethodError
             #shrug it off
           end
@@ -138,13 +199,31 @@ module Mattock
 
       #Defines a setting on this class - much like a attr_accessible call, but
       #allows for defaults and required settings
-      def setting(name, default_value = RequiredField)
+      def setting(name, default_value = RequiredField.instance)
         name = name.to_sym
-        attr_accessor(name)
+        attr_writer(name)
+        define_method(name) do
+          value = instance_variable_get("@#{name}")
+          if DecoratedValue === value
+            value = value.value
+          end
+          value
+        end
         if default_values.has_key?(name) and default_values[name] != default_value
           warn "Changing default value of #{self.name}##{name} from #{default_values[name].inspect} to #{default_value.inspect}"
         end
         default_values[name] = default_value
+      end
+
+      def runtime_required_fields(*names)
+        names.each do |name|
+          setting(name, RuntimeRequiredField.instance)
+        end
+      end
+      alias runtime_required_field runtime_required_fields
+
+      def runtime_setting(name, default_value = RuntimeRequiredField.instance)
+        setting(name, default_value)
       end
 
       #@param [Hash] hash Pairs of name/value to be converted into
@@ -155,6 +234,7 @@ module Mattock
         end
         return self
       end
+      alias runtime_settings settings
 
       def included(mod)
         mod.extend ClassMethods
@@ -166,6 +246,12 @@ module Mattock
     def copy_settings_to(other)
       self.class.copy_settings(self, other)
       self
+    end
+
+    def copy_proxy_settings_to(other)
+      self.class.copy_settings(self, other) do |source, name|
+        ProxyValue.new(source, name)
+      end
     end
 
     def to_hash
@@ -189,8 +275,12 @@ module Mattock
       self
     end
 
+    def proxy_value
+      ProxyDecorator.new(selfj)
+    end
+
     def unset?(value)
-      value == RequiredField
+      RequiredField === value
     end
 
     def setting(name, default_value = nil)

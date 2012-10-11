@@ -68,18 +68,21 @@ module Mattock
         "#{prefix[0]}.#{name}"
       end
 
+      def setting_method_name
+        "setting"
+      end
+
       def synthetic_setting(name, value=nil)
         args = s( s(:string_literal, s(:string_content, s(:tstring_content, name))))
         args << value unless value.nil?
         args << false
-        new_call = s(:fcall, s(:ident, "setting"), s(:arg_paren, args))
+        new_call = s(:fcall, s(:ident, setting_method_name), s(:arg_paren, args))
         new_call.line_range = (1..1)
         new_call.traverse do |node|
           node.full_source ||= ""
         end
-        new_call.full_source = "setting('#{name}'#{value.nil? ? "" : ", #{value.source}"})"
+        new_call.full_source = "#{setting_method_name}('#{name}'#{value.nil? ? "" : ", #{value.source}"})"
         new_call
-
       end
 
       def process
@@ -147,6 +150,24 @@ module Mattock
         return unless mattock_configurable?(namespace)
         remapped = statement.parameters(false).map do |name|
           synthetic_setting(extract_name(name), a_nil)
+        end
+        parser.process(remapped)
+      end
+    end
+
+    class RuntimeRequiredFieldsHandler < SettingHandler
+      handles method_call(:runtime_required_field)
+      handles method_call(:runtime_required_fields)
+      namespace_only
+
+      def setting_method_name
+        "runtime_setting"
+      end
+
+      def process
+        return unless mattock_configurable?(namespace)
+        remapped = statement.parameters(false).map do |name|
+          synthetic_setting(extract_name(name))
         end
         parser.process(remapped)
       end

@@ -46,6 +46,22 @@ describe Mattock::CommandLine do
   end
 end
 
+describe Mattock::CommandLineDSL do
+  include described_class
+
+  let :command do
+    cmd("sudo") - ["gem", "install", "bundler"]
+  end
+
+  it "should define commands" do
+    command.should be_an_instance_of(Mattock::WrappingChain)
+    command.should have(2).commands
+    command.commands[0].should be_an_instance_of(Mattock::CommandLine)
+    command.commands[1].should be_an_instance_of(Mattock::CommandLine)
+    command.command.should == "sudo -- gem install bundler"
+  end
+end
+
 describe Mattock::CommandLine, "that fails" do
   let :commandline do
     Mattock::CommandLine.new("false")

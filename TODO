@@ -1,1 +1,5 @@
 Trouble with using yard-extensions outside of Mattock or when Mattock is Gemfiled in with :path - suspect that there's trouble crossing the Proxy boudary somehow?
+
+Consider adding a "guess" for Configurable (c.f. Corundum's Git tasklib guessing branch)
+
+Consider a DSL for CommandLine - something like `sh "command"` or `sh ["command", "arg"]` and ops for | && - => Pipe Prereq Wrapping

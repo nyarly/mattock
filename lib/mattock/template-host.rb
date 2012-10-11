@@ -60,7 +60,12 @@ module Mattock
         end
       end
 
-      template.render(self)
+      locals = {}
+      if block_given?
+        yield locals
+      end
+
+      template.render(self, locals)
     end
   end
 

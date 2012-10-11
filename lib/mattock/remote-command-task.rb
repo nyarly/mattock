@@ -1,7 +1,7 @@
 require 'mattock/command-task'
 module Mattock
   class RemoteCommandTask < CommandTask
-    setting(:remote_server, nested(
+    runtime_setting(:remote_server, nested(
       :address => "localhost",
       :user => nil
     ))

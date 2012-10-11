@@ -24,6 +24,7 @@ module Mattock
     include Configurable
 
     def initialize(*tasklibs)
+      @runtime = false
       setup_defaults
       default_configuration(*tasklibs)
 
@@ -34,6 +35,7 @@ module Mattock
 
       define
     end
+
 
     #@param [TaskLib] tasklibs Other libs upon which this one depends to set
     #  its defaults
@@ -60,9 +62,42 @@ module Mattock
       check_required
     end
 
+
     #Any useful TaskLib will override this to define tasks, essentially like a
     #templated Rakefile snippet.
     def define
+    end
+  end
+
+  module DeferredDefinition
+    def self.add_settings(mod)
+      mod.setting(:configuration_block, proc{})
+    end
+
+    def initialize(*args, &block)
+      @runtime = false
+      @finalized = false
+      super
+    end
+
+    def runtime_definition(&block)
+      self.configuration_block = block
+    end
+
+    def runtime?
+      !!@runtime
+    end
+
+    def resolve_runtime_configuration
+    end
+
+    def finalize_configuration
+      return if @finalized
+      @runtime = true
+      configuration_block[self]
+      resolve_runtime_configuration
+      confirm_configuration
+      @finalized = true
     end
   end
 end
