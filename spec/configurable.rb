@@ -1,3 +1,5 @@
+require 'mattock'
+
 describe Mattock::Configurable do
   class TestSuperStruct
     include Mattock::Configurable
@@ -20,6 +22,12 @@ describe Mattock::Configurable do
     subject.two.a.should == "a"
     subject.three.should == 3
     subject.five.should be_nil
+  end
+
+  it "#to_hash" do
+    hash = subject.to_hash
+    hash[:one].should == 1
+    hash[:two][:a].should == "a"
   end
 
   it "should complain about unset required fields" do

@@ -10,6 +10,23 @@ module Mattock
   #
   #@example (see ClassMethods)
   module Configurable
+    class FieldMetadata
+      attr_accessor :name, :default_value
+
+      def initialize(name, value)
+        @name = name
+        @default_value = value
+      end
+
+      def writer_method
+        "#{name}="
+      end
+
+      def reader_method
+        name
+      end
+    end
+
     class RequiredField
       def to_s
         "<unset>"
@@ -42,10 +59,6 @@ module Mattock
     end
 
     class DecoratedValue
-      def initialize(value)
-        @value = value
-      end
-
       def value
         begin
           value = real_value
@@ -56,19 +69,15 @@ module Mattock
       def inspect
         "#{self.class.name.split(':').last}: #{value}"
       end
-
-      def real_value
-        @value
-      end
     end
 
     class ProxyValue < DecoratedValue
-      def initialize(source, name)
-        @source, @name = source, name
+      def initialize(source, field)
+        @source, @field = source, field
       end
 
       def real_value
-        @source.__send__(@name)
+        @source.__send__(@field.reader_method)
       end
     end
 
@@ -80,7 +89,7 @@ module Mattock
       def method_missing(name, *args, &block)
         super unless block.nil? and args.empty?
         super unless @configurable.respond_to?(name)
-        return ProxyValue.new(@configurable, name)
+        return ProxyValue.new(@configurable, @configurable.class.field_metadata(name))
       end
     end
 
@@ -108,73 +117,16 @@ module Mattock
     #    ce.check_required #=> raises error because :must and :foo aren't set
     module ClassMethods
       def default_values
-        @default_values ||= {}
+        @default_values ||= []
       end
 
-      def set_defaults_on(instance)
-        if Configurable > superclass
-          superclass.set_defaults_on(instance)
+      def field_metadata(name)
+        field = default_values.find{|field| field.name == name}
+        if field.nil? and Configurable > superclass
+          superclass.field_metadata(name)
+        else
+          field
         end
-        default_values.each_pair do |name,value|
-          instance.__send__("#{name}=", value)
-          if Configurable === value
-            value.class.set_defaults_on(value)
-          end
-        end
-      end
-
-      def missing_required_fields_on(instance)
-        missing = []
-        if Configurable > superclass
-          missing = superclass.missing_required_fields_on(instance)
-        end
-        default_values.each_pair do |name,value|
-          set_value = instance.__send__(name)
-
-          if RequiredField === set_value and set_value.required_on?(instance)
-            missing << name
-            next
-          end
-          if Configurable === set_value
-            missing += set_value.class.missing_required_fields_on(set_value).map do |field|
-              [name, field].join(".")
-            end
-          end
-        end
-        return missing
-      end
-
-      def copy_settings(from, to, &block)
-        if Configurable > superclass
-          superclass.copy_settings(from, to, &block)
-        end
-        default_values.keys.each do |field|
-          begin
-            value =
-              if block_given?
-                yield(from, field)
-              else
-                from.__send__(field)
-              end
-            to.__send__("#{field}=", value)
-          rescue NoMethodError
-            #shrug it off
-          end
-        end
-      end
-
-      def to_hash(obj)
-        hash = if Configurable > superclass
-                 superclass.to_hash(obj)
-               else
-                 {}
-               end
-        hash.merge( Hash[default_values.keys.zip(default_values.keys.map{|key|
-          begin
-            obj.__send__(key)
-          rescue NoMethodError
-          end
-        }).to_a])
       end
 
       #Creates an anonymous Configurable - useful in complex setups for nested
@@ -209,20 +161,23 @@ module Mattock
       #allows for defaults and required settings
       def setting(name, default_value = RequiredField.instance)
         name = name.to_sym
+        metadata = FieldMetadata.new(name, default_value)
+
         attr_writer(name)
-        define_method(name) do
+        define_method(metadata.reader_method) do
           value = instance_variable_get("@#{name}")
           if DecoratedValue === value
             value = value.value
           end
           value
         end
-        if default_values.has_key?(name) and default_values[name] != default_value
+
+        if existing = default_values.find{|field| field.name == name} and existing.default_value != default_value
           warn "Changing default value of #{self.name}##{name} from #{default_values[name].inspect} to #{default_value.inspect}"
           source_line = caller.drop_while{|line| /#{__FILE__}/ =~ line}.first
           warn "  (at: #{source_line})"
         end
-        default_values[name] = default_value
+        default_values << metadata
       end
 
       def runtime_required_fields(*names)
@@ -246,6 +201,80 @@ module Mattock
       end
       alias runtime_settings settings
 
+      def set_defaults_on(instance)
+        if Configurable > superclass
+          superclass.set_defaults_on(instance)
+        end
+        default_values.each do |field|
+          instance.__send__(field.writer_method, field.default_value)
+          if Configurable === (value = field.default_value)
+            value.class.set_defaults_on(value)
+          end
+        end
+      end
+
+      def missing_required_fields_on(instance)
+        missing = []
+        if Configurable > superclass
+          missing = superclass.missing_required_fields_on(instance)
+        end
+        default_values.each do |field|
+          set_value = instance.__send__(field.reader_method)
+
+          case set_value
+          when RequiredField
+            missing << name if set_value.required_on?(instance)
+          when Configurable
+            missing += set_value.class.missing_required_fields_on(set_value).map do |field|
+              [name, field].join(".")
+            end
+          end
+        end
+        return missing
+      end
+
+      def copy_settings(from, to, &block)
+        if Configurable > superclass
+          superclass.copy_settings(from, to, &block)
+        end
+        default_values.each do |field|
+          begin
+            value =
+              if block_given?
+                yield(from, field)
+              else
+                from.__send__(field.reader_method)
+              end
+            to.__send__(field.writer_method, value)
+          rescue NoMethodError
+            #shrug it off
+          end
+        end
+      end
+
+      def to_hash(obj)
+        hash = if Configurable > superclass
+                 superclass.to_hash(obj)
+               else
+                 {}
+               end
+        hash.merge( Hash[default_values.map{|field|
+          begin
+            value = obj.__send__(field.reader_method)
+            value =
+              case value
+              when Configurable
+                value.to_hash
+              else
+                value
+              end
+            [field.name, value]
+          rescue NoMethodError
+          end
+        }])
+      end
+
+
       def included(mod)
         mod.extend ClassMethods
       end
@@ -259,8 +288,8 @@ module Mattock
     end
 
     def proxy_settings_to(other)
-      self.class.copy_settings(self, other) do |source, name|
-        ProxyValue.new(source, name)
+      self.class.copy_settings(self, other) do |source, field|
+        ProxyValue.new(source, field)
       end
     end
 
