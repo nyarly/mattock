@@ -16,6 +16,26 @@ module Mattock
       def initialize(name, value)
         @name = name
         @default_value = value
+        @copiable = true
+        @proxiable = true
+      end
+
+      def copiable?
+        !!@copiable
+      end
+
+      def dont_copy
+        @copiable = false
+        self
+      end
+
+      def proxiable?
+        !!@proxiable
+      end
+
+      def dont_proxy
+        @proxiable = false
+        self
       end
 
       def writer_method
@@ -41,7 +61,7 @@ module Mattock
       end
 
       def self.instance
-        @instane ||= self.new
+        @instance ||= self.new
       end
     end
 
@@ -49,6 +69,7 @@ module Mattock
       def to_s
         "<unset:runtime>"
       end
+
       def required_on?(host)
         if host.respond_to?(:runtime?) and !host.runtime?
           return false
@@ -93,6 +114,56 @@ module Mattock
       end
     end
 
+    class FieldProcessor
+      def initialize(source)
+        @source = source
+        @field_names = filter(source.class.field_names)
+      end
+      attr_accessor :field_names
+      attr_reader :source
+
+      def filter(field_names)
+        field_names.find_all do |name|
+          source.class.field_metadata(name).copiable?
+        end
+      end
+
+      def value(field)
+        source.__send__(field.reader_method)
+      end
+
+      def to(target)
+        field_names.each do |name|
+          field = source.class.field_metadata(name)
+          target.__send__(field.writer_method, value(field))
+        end
+      end
+    end
+
+    class SettingsCopier < FieldProcessor
+      def filter(field_names)
+        field_names.find_all do |name|
+          source.class.field_metadata(name).copiable?
+        end
+      end
+
+      def value(field)
+        source.__send__(field.reader_method)
+      end
+    end
+
+    class SettingsProxier < FieldProcessor
+      def filter(field_names)
+        field_names.find_all do |name|
+          source.class.field_metadata(name).proxiable?
+        end
+      end
+
+      def value(field)
+        ProxyValue.new(source, field)
+      end
+    end
+
     #Describes class level DSL & machinery for working with configuration
     #managment.
     #
@@ -118,6 +189,15 @@ module Mattock
     module ClassMethods
       def default_values
         @default_values ||= []
+      end
+
+      def field_names
+        names = default_values.map{|field| field.name}
+        if Configurable > superclass
+          names | superclass.field_names
+        else
+          names
+        end
       end
 
       def field_metadata(name)
@@ -178,6 +258,7 @@ module Mattock
           warn "  (at: #{source_line})"
         end
         default_values << metadata
+        metadata
       end
 
       def runtime_required_fields(*names)
@@ -282,15 +363,21 @@ module Mattock
 
     extend ClassMethods
 
+    def copy_settings
+      SettingsCopier.new(self)
+    end
+
     def copy_settings_to(other)
-      self.class.copy_settings(self, other)
+      copy_settings.to(other)
       self
     end
 
+    def proxy_settings
+      SettingsProxier.new(self)
+    end
+
     def proxy_settings_to(other)
-      self.class.copy_settings(self, other) do |source, field|
-        ProxyValue.new(source, field)
-      end
+      proxy_settings.to(other)
     end
 
     def to_hash

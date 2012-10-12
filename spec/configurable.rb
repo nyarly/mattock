@@ -50,4 +50,49 @@ describe Mattock::Configurable do
       subject.check_required
     end.to_not raise_error
   end
+
+  describe "copying settings" do
+    class LeftStruct
+      include Mattock::Configurable
+
+      setting(:normal, 1)
+      setting(:no_copy, 2).dont_copy
+      setting(:no_proxy, 3).dont_proxy
+      setting(:no_nothing, 4).dont_copy.dont_proxy
+    end
+
+    class RightStruct
+      include Mattock::Configurable
+
+      required_fields(:normal, :no_copy, :no_proxy, :no_nothing)
+    end
+
+    let :left do
+      LeftStruct.new.setup_defaults
+    end
+
+    let :right do
+      RightStruct.new.setup_defaults
+    end
+
+    it "should not copy no_copy" do
+      left.copy_settings.to(right)
+      right.unset?(right.normal).should be_false
+      right.normal.should == 1
+      right.unset?(right.no_copy).should be_true
+      right.unset?(right.no_proxy).should be_false
+      right.no_proxy.should == 3
+      right.unset?(right.no_nothing).should be_true
+    end
+
+    it "should not proxy no_proxy" do
+      left.proxy_settings.to(right)
+      right.unset?(right.normal).should be_false
+      right.normal.should == 1
+      right.unset?(right.no_copy).should be_false
+      right.no_copy.should == 2
+      right.unset?(right.no_proxy).should be_true
+      right.unset?(right.no_nothing).should be_true
+    end
+  end
 end
