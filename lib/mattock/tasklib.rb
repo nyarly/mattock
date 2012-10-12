@@ -43,7 +43,7 @@ module Mattock
     attr_writer :namespace_name
 
     #The namespace this lib's tasks will created within.  Changeable at
-    #instatiation
+    #instantiation
     def self.default_namespace(name)
       setting(:namespace_name, name)
     end
@@ -65,6 +65,13 @@ module Mattock
     def bracket_task(before, name, after)
       task self[name] => before
       task after => self[name]
+    end
+
+    def task_spine(*list)
+      task list.first
+      list.each_cons(2) do |first, second|
+        task second => first
+      end
     end
 
     #@overload in_namespace(args)

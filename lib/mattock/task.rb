@@ -51,6 +51,11 @@ module Mattock
 
     module ChildTask
       attr_accessor :source_task
+
+      def unset_defaults_guard
+        source_task.unset_defaults_guard
+      end
+
       def inspect
         "From: " + source_task.inspect
       end

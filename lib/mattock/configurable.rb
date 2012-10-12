@@ -29,8 +29,11 @@ module Mattock
     end
 
     class RuntimeRequiredField < RequiredField
+      def to_s
+        "<unset:runtime>"
+      end
       def required_on?(host)
-        if host.responds_to?(:runtime?) and !host.runtime?
+        if host.respond_to?(:runtime?) and !host.runtime?
           return false
         else
           return true
@@ -48,6 +51,10 @@ module Mattock
           value = real_value
         end while DecoratedValue === value
         value
+      end
+
+      def inspect
+        "#{self.class.name.split(':').last}: #{value}"
       end
 
       def real_value
@@ -72,7 +79,7 @@ module Mattock
 
       def method_missing(name, *args, &block)
         super unless block.nil? and args.empty?
-        super unless @configurable.responds_to?(name)
+        super unless @configurable.respond_to?(name)
         return ProxyValue.new(@configurable, name)
       end
     end
@@ -123,6 +130,7 @@ module Mattock
         end
         default_values.each_pair do |name,value|
           set_value = instance.__send__(name)
+
           if RequiredField === set_value and set_value.required_on?(instance)
             missing << name
             next
@@ -136,9 +144,9 @@ module Mattock
         return missing
       end
 
-      def copy_settings(from, to)
+      def copy_settings(from, to, &block)
         if Configurable > superclass
-          superclass.copy_settings(from, to)
+          superclass.copy_settings(from, to, &block)
         end
         default_values.keys.each do |field|
           begin
@@ -211,6 +219,8 @@ module Mattock
         end
         if default_values.has_key?(name) and default_values[name] != default_value
           warn "Changing default value of #{self.name}##{name} from #{default_values[name].inspect} to #{default_value.inspect}"
+          source_line = caller.drop_while{|line| /#{__FILE__}/ =~ line}.first
+          warn "  (at: #{source_line})"
         end
         default_values[name] = default_value
       end
@@ -248,7 +258,7 @@ module Mattock
       self
     end
 
-    def copy_proxy_settings_to(other)
+    def proxy_settings_to(other)
       self.class.copy_settings(self, other) do |source, name|
         ProxyValue.new(source, name)
       end
@@ -258,9 +268,16 @@ module Mattock
       self.class.to_hash(self)
     end
 
+    def unset_defaults_guard
+      raise "Tried to check required settings before running setup_defaults"
+    end
+
     #Call during initialize to set default values on settings - if you're using
     #Configurable outside of Mattock, be sure this gets called.
     def setup_defaults
+      def self.unset_defaults_guard
+      end
+
       self.class.set_defaults_on(self)
       self
     end
@@ -268,6 +285,7 @@ module Mattock
     #Checks that all required fields have be set, otherwise raises an error
     #@raise RuntimeError if any required fields are unset
     def check_required
+      unset_defaults_guard
       missing = self.class.missing_required_fields_on(self)
       unless missing.empty?
         raise "Required field#{missing.length > 1 ? "s" : ""} #{missing.map{|field| field.to_s.inspect}.join(", ")} unset on #{self.inspect}"
@@ -276,11 +294,18 @@ module Mattock
     end
 
     def proxy_value
-      ProxyDecorator.new(selfj)
+      ProxyDecorator.new(self)
     end
 
     def unset?(value)
       RequiredField === value
+    end
+
+    def fail_unless_set(name)
+      if unset?(__send__(name))
+        raise "Required field #{name} unset"
+      end
+      true
     end
 
     def setting(name, default_value = nil)
