@@ -59,6 +59,7 @@ describe Mattock::Configurable do
       setting(:no_copy, 2).dont_copy
       setting(:no_proxy, 3).dont_proxy
       setting(:no_nothing, 4).dont_copy.dont_proxy
+      setting(:not_on_target, 5)
     end
 
     class RightStruct

@@ -135,6 +135,7 @@ module Mattock
       def to(target)
         field_names.each do |name|
           field = source.class.field_metadata(name)
+          next unless target.respond_to?(field.writer_method)
           target.__send__(field.writer_method, value(field))
         end
       end
