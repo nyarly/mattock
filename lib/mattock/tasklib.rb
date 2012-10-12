@@ -45,7 +45,7 @@ module Mattock
     #The namespace this lib's tasks will created within.  Changeable at
     #instantiation
     def self.default_namespace(name)
-      setting(:namespace_name, name)
+      setting(:namespace_name, name).dont_copy
     end
 
     attr_reader :tasks
