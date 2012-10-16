@@ -9,7 +9,7 @@ describe Mattock::Configurable do
   end
 
   class TestStruct < TestSuperStruct
-    settings(:one => 1, :two => nested(:a => "a").required_field(:b))
+    settings(:one => 1, :two => nested(:a => "a"){ required_field(:b)} )
     nil_field(:five)
   end
 
@@ -32,6 +32,7 @@ describe Mattock::Configurable do
 
   it "should complain about unset required fields" do
     expect do
+      p subject
       subject.check_required
     end.to raise_error
   end
@@ -56,9 +57,9 @@ describe Mattock::Configurable do
       include Mattock::Configurable
 
       setting(:normal, 1)
-      setting(:no_copy, 2).dont_copy
-      setting(:no_proxy, 3).dont_proxy
-      setting(:no_nothing, 4).dont_copy.dont_proxy
+      setting(:no_copy, 2).isnt(:copiable)
+      setting(:no_proxy, 3).isnt(:proxiable)
+      setting(:no_nothing, 4).isnt(:copiable).isnt(:proxiable)
       setting(:not_on_target, 5)
     end
 

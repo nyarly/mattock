@@ -76,7 +76,11 @@ module Mattock
     end
 
     def command
-      ([executable] + options + @redirections).join(" ")
+      ([executable] + options_composition + @redirections).join(" ")
+    end
+
+    def options_composition
+      options
     end
 
     def redirect_to(stream, path)

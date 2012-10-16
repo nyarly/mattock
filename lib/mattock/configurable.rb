@@ -13,29 +13,58 @@ module Mattock
     class FieldMetadata
       attr_accessor :name, :default_value
 
+      DEFAULT_PROPERTIES = {
+        :copiable => true,
+        :proxiable => true,
+        :required => false,
+        :runtime => false,
+        :defaulting => true,
+      }
       def initialize(name, value)
         @name = name
         @default_value = value
-        @copiable = true
-        @proxiable = true
+        @properties = DEFAULT_PROPERTIES.clone
       end
 
-      def copiable?
-        !!@copiable
+      def inspect
+        set_props = DEFAULT_PROPERTIES.keys.find_all do |prop|
+          @properties[prop]
+        end
+        "Field: #{name}: #{default_value.inspect} #{set_props.inspect}"
       end
 
-      def dont_copy
-        @copiable = false
+      def validate_property_name(name)
+        unless DEFAULT_PROPERTIES.has_key?(name)
+          raise "Invalid field property #{name.inspect} - valid are: #{DEFAULT_PROPERTIES.keys.inspect}"
+        end
+      end
+
+      def is?(property)
+        validate_property_name(property)
+        @properties[property]
+      end
+
+      def is_not?(property)
+        validate_property_name(property)
+        !@properties[property]
+      end
+      alias isnt? is_not?
+
+      def is(property)
+        validate_property_name(property)
+        @properties[property] = true
         self
       end
 
-      def proxiable?
-        !!@proxiable
-      end
-
-      def dont_proxy
-        @proxiable = false
+      def is_not(property)
+        validate_property_name(property)
+        @properties[property] = false
         self
+      end
+      alias isnt is_not
+
+      def ivar_name
+        "@#{name}"
       end
 
       def writer_method
@@ -45,60 +74,62 @@ module Mattock
       def reader_method
         name
       end
-    end
 
-    class RequiredField
-      def to_s
-        "<unset>"
+      def immediate_value_on(instance)
+        instance.instance_variable_get(ivar_name)
       end
 
-      def inspect
-        to_s
-      end
-
-      def required_on?(host)
-        true
-      end
-
-      def self.instance
-        @instance ||= self.new
-      end
-    end
-
-    class RuntimeRequiredField < RequiredField
-      def to_s
-        "<unset:runtime>"
-      end
-
-      def required_on?(host)
-        if host.respond_to?(:runtime?) and !host.runtime?
-          return false
+      def value_on(instance)
+        value = immediate_value_on(instance)
+        if ProxyValue === value
+          value.field.value_on(value.source)
         else
-          return true
+          value
+        end
+      end
+
+      def set_on?(instance)
+        return false unless instance.instance_variable_defined?(ivar_name)
+        value = immediate_value_on(instance)
+        if ProxyValue === value
+          value.field.set_on?(value.source)
+        else
+          true
+        end
+      end
+
+      def unset_on?(instance)
+        !set_on?(instance)
+      end
+
+      def missing_on?(instance)
+        return false unless is?(:required)
+        if instance.respond_to?(:runtime?) and !instance.runtime?
+          return runtime_missing_on?(instance)
+        else
+          return !set_on?(instance)
+        end
+      end
+
+      def runtime_missing_on?(instance)
+        return false if is?(:runtime)
+        value = immediate_value_on(instance)
+        if ProxyValue === value
+          value.field.runtime_missing_on?(value.source)
+        else
+          true
         end
       end
     end
 
-    class DecoratedValue
-      def value
-        begin
-          value = real_value
-        end while DecoratedValue === value
-        value
-      end
-
-      def inspect
-        "#{self.class.name.split(':').last}: #{value}"
-      end
-    end
-
-    class ProxyValue < DecoratedValue
+    class ProxyValue
       def initialize(source, field)
         @source, @field = source, field
       end
+      attr_reader :source, :field
 
-      def real_value
-        @source.__send__(@field.reader_method)
+      def inspect
+        "#{self.class.name.split(':').last}: #{value}"
       end
     end
 
@@ -122,9 +153,13 @@ module Mattock
       attr_accessor :field_names
       attr_reader :source
 
+      def filter_attribute
+        raise NotImplementedError
+      end
+
       def filter(field_names)
         field_names.find_all do |name|
-          source.class.field_metadata(name).copiable?
+          source.class.field_metadata(name).is?(filter_attribute)
         end
       end
 
@@ -142,22 +177,18 @@ module Mattock
     end
 
     class SettingsCopier < FieldProcessor
-      def filter(field_names)
-        field_names.find_all do |name|
-          source.class.field_metadata(name).copiable?
-        end
+      def filter_attribute
+        :copiable
       end
 
       def value(field)
-        source.__send__(field.reader_method)
+        field.immediate_value_on(source)
       end
     end
 
     class SettingsProxier < FieldProcessor
-      def filter(field_names)
-        field_names.find_all do |name|
-          source.class.field_metadata(name).proxiable?
-        end
+      def filter_attribute
+        :proxiable
       end
 
       def value(field)
@@ -214,10 +245,13 @@ module Mattock
       #settings
       #@example SSH options
       #  setting :ssh => nested(:username => "me", :password => nil)
-      def nested(hash=nil)
-        obj = Class.new(Struct).new
-        obj.settings(hash || {})
-        return obj
+      def nested(hash=nil, &block)
+        nested = Class.new(Struct)
+        nested.settings(hash || {})
+        if block_given?
+          nested.instance_eval(&block)
+        end
+        return nested
       end
 
       #Quick list of setting fields with a default value of nil.  Useful
@@ -238,25 +272,28 @@ module Mattock
       end
       alias required_field required_fields
 
+      RequiredField = Object.new.freeze
+
       #Defines a setting on this class - much like a attr_accessible call, but
       #allows for defaults and required settings
-      def setting(name, default_value = RequiredField.instance)
+      def setting(name, default_value = RequiredField)
         name = name.to_sym
-        metadata = FieldMetadata.new(name, default_value)
+        metadata =
+          if default_value == RequiredField
+            FieldMetadata.new(name, nil).is(:required).isnt(:defaulting)
+          else
+            FieldMetadata.new(name, default_value)
+          end
 
         attr_writer(name)
         define_method(metadata.reader_method) do
-          value = instance_variable_get("@#{name}")
-          if DecoratedValue === value
-            value = value.value
-          end
-          value
+          value = metadata.value_on(self)
         end
 
         if existing = default_values.find{|field| field.name == name} and existing.default_value != default_value
-          warn "Changing default value of #{self.name}##{name} from #{default_values[name].inspect} to #{default_value.inspect}"
           source_line = caller.drop_while{|line| /#{__FILE__}/ =~ line}.first
-          warn "  (at: #{source_line})"
+          warn "Changing default value of #{self.name}##{name} from #{default_values[name].inspect} to #{default_value.inspect}"
+            "  (at: #{source_line})"
         end
         default_values << metadata
         metadata
@@ -264,13 +301,13 @@ module Mattock
 
       def runtime_required_fields(*names)
         names.each do |name|
-          setting(name, RuntimeRequiredField.instance)
+          runtime_setting(name)
         end
       end
       alias runtime_required_field runtime_required_fields
 
-      def runtime_setting(name, default_value = RuntimeRequiredField.instance)
-        setting(name, default_value)
+      def runtime_setting(name, default_value = RequiredField)
+        setting(name, default_value).is(:runtime)
       end
 
       #@param [Hash] hash Pairs of name/value to be converted into
@@ -288,10 +325,13 @@ module Mattock
           superclass.set_defaults_on(instance)
         end
         default_values.each do |field|
-          instance.__send__(field.writer_method, field.default_value)
-          if Configurable === (value = field.default_value)
+          next unless field.is? :defaulting
+          value = field.default_value
+          if Module === value and Configurable > value
+            value = value.new
             value.class.set_defaults_on(value)
           end
+          instance.__send__(field.writer_method, value)
         end
       end
 
@@ -301,14 +341,14 @@ module Mattock
           missing = superclass.missing_required_fields_on(instance)
         end
         default_values.each do |field|
-          set_value = instance.__send__(field.reader_method)
-
-          case set_value
-          when RequiredField
-            missing << name if set_value.required_on?(instance)
-          when Configurable
-            missing += set_value.class.missing_required_fields_on(set_value).map do |field|
-              [name, field].join(".")
+          if field.missing_on?(instance)
+            missing << field.name
+          else
+            set_value = instance.__send__(field.reader_method)
+            if Configurable === set_value
+              missing += set_value.class.missing_required_fields_on(set_value).map do |field|
+                [name, field].join(".")
+              end
             end
           end
         end
@@ -327,6 +367,9 @@ module Mattock
               else
                 from.__send__(field.reader_method)
               end
+            if Configurable === value
+              value = value.clone
+            end
             to.__send__(field.writer_method, value)
           rescue NoMethodError
             #shrug it off
@@ -414,40 +457,21 @@ module Mattock
       ProxyDecorator.new(self)
     end
 
+    #XXX deprecate
     def unset?(value)
-      RequiredField === value
+      value.nil?
+    end
+
+    def field_unset?(name)
+      self.class.field_metadata(name).unset_on?(self)
     end
 
     def fail_unless_set(name)
-      if unset?(__send__(name))
-        raise "Required field #{name} unset"
+      if self.class.field_metadata(name).unset_on?(self)
+        raise "Assertion failed: Field #{name} unset"
       end
       true
     end
-
-    def setting(name, default_value = nil)
-      self.class.setting(name, default_value)
-      instance_variable_set("@#{name}", default_value)
-    end
-
-    def settings(hash)
-      hash.each_pair do |name, value|
-        setting(name, value)
-      end
-      return self
-    end
-
-    def required_fields(*names)
-      self.class.required_fields(*names)
-      self
-    end
-    alias required_field required_fields
-
-    def nil_fields(*names)
-      self.class.nil_fields(*names)
-      self
-    end
-    alias nil_field nil_fields
 
     class Struct
       include Configurable

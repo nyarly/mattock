@@ -42,16 +42,17 @@ describe "A two-step chain of proxy settings, that target a runtime required set
   let :tail do
     TestTailStruct.new.tap do |tail|
       tail.value = middle.proxy_value.value
+
     end
   end
 
   describe "when the setting is left unset at runtime" do
     it "should not complain about unset settings at define time" do
-      expect do
+      #expect do
         head.check_required
         middle.check_required
         tail.check_required
-      end.not_to raise_error
+      #end.not_to raise_error
     end
 
     it "should complain about unset settings on head at runtime" do
