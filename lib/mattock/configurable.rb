@@ -91,6 +91,8 @@ module Mattock
       def set_on?(instance)
         return false unless instance.instance_variable_defined?(ivar_name)
         value = immediate_value_on(instance)
+        if name == :destination_path
+        end
         if ProxyValue === value
           value.field.set_on?(value.source)
         else
@@ -113,11 +115,12 @@ module Mattock
 
       def runtime_missing_on?(instance)
         return false if is?(:runtime)
+        return true unless instance.instance_variable_defined?(ivar_name)
         value = immediate_value_on(instance)
         if ProxyValue === value
           value.field.runtime_missing_on?(value.source)
         else
-          true
+          false
         end
       end
     end
@@ -260,6 +263,7 @@ module Mattock
         names.each do |name|
           setting(name, nil)
         end
+        self
       end
       alias nil_field nil_fields
 
@@ -269,6 +273,7 @@ module Mattock
         names.each do |name|
           setting(name)
         end
+        self
       end
       alias required_field required_fields
 
@@ -292,7 +297,7 @@ module Mattock
 
         if existing = default_values.find{|field| field.name == name} and existing.default_value != default_value
           source_line = caller.drop_while{|line| /#{__FILE__}/ =~ line}.first
-          warn "Changing default value of #{self.name}##{name} from #{default_values[name].inspect} to #{default_value.inspect}"
+          warn "Changing default value of #{self.name}##{name} from #{existing.default_value.inspect} to #{default_value.inspect}"
             "  (at: #{source_line})"
         end
         default_values << metadata
@@ -303,6 +308,7 @@ module Mattock
         names.each do |name|
           runtime_setting(name)
         end
+        self
       end
       alias runtime_required_field runtime_required_fields
 

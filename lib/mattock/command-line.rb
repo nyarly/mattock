@@ -182,7 +182,7 @@ module Mattock
   end
 
   class PrereqChain < CommandChain
-    define_op('&&')
+    define_op('&')
 
     def command
       @commands.map{|cmd| cmd.command}.join(" && ")

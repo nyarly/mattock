@@ -49,16 +49,46 @@ end
 describe Mattock::CommandLineDSL do
   include described_class
 
-  let :command do
-    cmd("sudo") - ["gem", "install", "bundler"]
+  describe "using the - operator" do
+    let :command do
+      cmd("sudo") - ["gem", "install", "bundler"]
+    end
+
+    it "should define commands" do
+      command.should be_an_instance_of(Mattock::WrappingChain)
+      command.should have(2).commands
+      command.commands[0].should be_an_instance_of(Mattock::CommandLine)
+      command.commands[1].should be_an_instance_of(Mattock::CommandLine)
+      command.command.should == "sudo -- gem install bundler"
+    end
   end
 
-  it "should define commands" do
-    command.should be_an_instance_of(Mattock::WrappingChain)
-    command.should have(2).commands
-    command.commands[0].should be_an_instance_of(Mattock::CommandLine)
-    command.commands[1].should be_an_instance_of(Mattock::CommandLine)
-    command.command.should == "sudo -- gem install bundler"
+  describe "using the | operator" do
+    let :command do
+      cmd("cat", "/etc/passwd") | ["grep", "root"]
+    end
+
+    it "should define commands" do
+      command.should be_an_instance_of(Mattock::PipelineChain)
+      command.should have(2).commands
+      command.commands[0].should be_an_instance_of(Mattock::CommandLine)
+      command.commands[1].should be_an_instance_of(Mattock::CommandLine)
+      command.command.should == "cat /etc/passwd | grep root"
+    end
+  end
+
+  describe "using the && operator" do
+    let :command do
+      cmd("cd", "/tmp/trash") & %w{rm -rf *}
+    end
+
+    it "should define commands" do
+      command.should be_an_instance_of(Mattock::PrereqChain)
+      command.should have(2).commands
+      command.commands[0].should be_an_instance_of(Mattock::CommandLine)
+      command.commands[1].should be_an_instance_of(Mattock::CommandLine)
+      command.command.should == "cd /tmp/trash && rm -rf *"
+    end
   end
 end
 

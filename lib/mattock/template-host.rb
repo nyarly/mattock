@@ -26,12 +26,13 @@ module Mattock
       end
 
       if base_path.empty?
-        raise "Relative root #{up_to} not found in #{abs_path}"
+        raise "Relative root #{up_to.inspect} not found in #{abs_path.inspect}"
       end
 
       return base_path
     end
     module_function :rel_dir, :default_valise
+    public :rel_dir, :default_valise
   end
 
   module TemplateHost

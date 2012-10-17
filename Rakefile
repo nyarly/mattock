@@ -11,9 +11,12 @@ module Corundum
 
   tk.in_namespace do
     sanity = GemspecSanity.new(tk)
+    debug_kruft = QuestionableContent.new(tk) do |dbg|
+      dbg.words = %w{p pry binding.pry debugger}
+    end
     rspec = RSpec.new(tk)
     cov = SimpleCov.new(tk, rspec) do |cov|
-      cov.threshold = 70
+      cov.threshold = 80
     end
     gem = GemBuilding.new(tk)
     cutter = GemCutter.new(tk,gem)
