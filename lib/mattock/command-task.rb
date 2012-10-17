@@ -4,6 +4,7 @@ require 'mattock/command-line'
 module Mattock
   class CommandTask < Task
     include CommandLineDSL
+    extend CommandLineDSL
 
     setting(:task_name, :run)
     runtime_setting(:verify_command, nil)
