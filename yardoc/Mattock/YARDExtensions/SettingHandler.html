@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::YARDExtensions::SettingHandler
   
-    &mdash; mattock-0.2.12 RDoc
+    &mdash; mattock-0.3.0 RDoc
   
 </title>
 
@@ -108,7 +108,7 @@
 
 <div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="NilFieldsHandler.html" title="Mattock::YARDExtensions::NilFieldsHandler (class)">NilFieldsHandler</a></span>, <span class='object_link'><a href="RequiredFieldsHandler.html" title="Mattock::YARDExtensions::RequiredFieldsHandler (class)">RequiredFieldsHandler</a></span>, <span class='object_link'><a href="SettingsHandler.html" title="Mattock::YARDExtensions::SettingsHandler (class)">SettingsHandler</a></span></p>
+  <p class="children"><span class='object_link'><a href="NilFieldsHandler.html" title="Mattock::YARDExtensions::NilFieldsHandler (class)">NilFieldsHandler</a></span>, <span class='object_link'><a href="RequiredFieldsHandler.html" title="Mattock::YARDExtensions::RequiredFieldsHandler (class)">RequiredFieldsHandler</a></span>, <span class='object_link'><a href="RuntimeRequiredFieldsHandler.html" title="Mattock::YARDExtensions::RuntimeRequiredFieldsHandler (class)">RuntimeRequiredFieldsHandler</a></span>, <span class='object_link'><a href="SettingsHandler.html" title="Mattock::YARDExtensions::SettingsHandler (class)">SettingsHandler</a></span></p>
 </div>
 
 
@@ -196,6 +196,28 @@
   <span class="summary_signature">
     
       <a href="#process-instance_method" title="#process (instance method)">- (Object) <strong>process</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setting_method_name-instance_method" title="#setting_method_name (instance method)">- (Object) <strong>setting_method_name</strong> </a>
     
 
     
@@ -410,9 +432,6 @@
       <pre class="lines">
 
 
-85
-86
-87
 88
 89
 90
@@ -443,10 +462,13 @@
 115
 116
 117
-118</pre>
+118
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_mattock_configurable?'>mattock_configurable?</span><span class='lparen'>(</span><span class='id identifier rubyid_namespace'>namespace</span><span class='rparen'>)</span>
@@ -488,6 +510,36 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="setting_method_name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>setting_method_name</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 71</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setting_method_name'>setting_method_name</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>setting</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="synthetic_setting-instance_method">
   
     - (<tt>Object</tt>) <strong>synthetic_setting</strong>(name, value = nil) 
@@ -502,10 +554,6 @@
       <pre class="lines">
 
 
-71
-72
-73
-74
 75
 76
 77
@@ -514,23 +562,25 @@
 80
 81
 82
-83</pre>
+83
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/yard_extensions.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_synthetic_setting'>synthetic_setting</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:string_literal</span><span class='comma'>,</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:string_content</span><span class='comma'>,</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:tstring_content</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_args'>args</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_value'>value</span> <span class='kw'>unless</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='id identifier rubyid_args'>args</span> <span class='op'>&lt;&lt;</span> <span class='kw'>false</span>
-  <span class='id identifier rubyid_new_call'>new_call</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:fcall</span><span class='comma'>,</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:ident</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>setting</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:arg_paren</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new_call'>new_call</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:fcall</span><span class='comma'>,</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:ident</span><span class='comma'>,</span> <span class='id identifier rubyid_setting_method_name'>setting_method_name</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_s'>s</span><span class='lparen'>(</span><span class='symbol'>:arg_paren</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_new_call'>new_call</span><span class='period'>.</span><span class='id identifier rubyid_line_range'>line_range</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='int'>1</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_new_call'>new_call</span><span class='period'>.</span><span class='id identifier rubyid_traverse'>traverse</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span>
     <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_full_source'>full_source</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_new_call'>new_call</span><span class='period'>.</span><span class='id identifier rubyid_full_source'>full_source</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>setting('</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_new_call'>new_call</span><span class='period'>.</span><span class='id identifier rubyid_full_source'>full_source</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_setting_method_name'>setting_method_name</span><span class='rbrace'>}</span><span class='tstring_content'>('</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_new_call'>new_call</span>
-
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -542,7 +592,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed May 16 00:41:58 2012 by
+  Generated on Wed Oct 17 09:15:06 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.3).
 </div>

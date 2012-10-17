@@ -6,7 +6,7 @@
 <title>
   Module: Mattock::TemplateHost
   
-    &mdash; mattock-0.2.12 RDoc
+    &mdash; mattock-0.3.0 RDoc
   
 </title>
 
@@ -292,12 +292,12 @@
       <pre class="lines">
 
 
-42
 43
-44</pre>
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valise'>valise</span>
   <span class='ivar'>@valise</span>
@@ -329,12 +329,12 @@
       <pre class="lines">
 
 
-38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_template_cache'>template_cache</span>
   <span class='ivar'>@template_cache</span> <span class='op'>||=</span> <span class='const'>Tilt</span><span class='op'>::</span><span class='const'>Cache</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -365,12 +365,12 @@
       <pre class="lines">
 
 
-44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_template'>find_template</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_valise'>valise</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>templates</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_valise'>valise</span><span class='period'>.</span><span class='id identifier rubyid_unpath'>unpath</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -395,7 +395,6 @@
       <pre class="lines">
 
 
-56
 57
 58
 59
@@ -403,10 +402,16 @@
 61
 62
 63
-64</pre>
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_template_options'>template_options</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_template'>template</span> <span class='op'>=</span> <span class='const'>TemplateHost</span><span class='op'>::</span><span class='id identifier rubyid_template_cache'>template_cache</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -415,7 +420,12 @@
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_template'>template</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_locals'>locals</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+    <span class='kw'>yield</span> <span class='id identifier rubyid_locals'>locals</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_template'>template</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_locals'>locals</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -437,12 +447,12 @@
       <pre class="lines">
 
 
-48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_template_contents'>template_contents</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_find_template'>find_template</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_contents'>contents</span>
@@ -467,12 +477,12 @@
       <pre class="lines">
 
 
-52
 53
-54</pre>
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_template_path'>template_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_find_template'>find_template</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_full_path'>full_path</span>
@@ -487,7 +497,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed May 16 00:41:57 2012 by
+  Generated on Wed Oct 17 09:15:04 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.3).
 </div>

@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::FileCreationTask
   
-    &mdash; mattock-0.2.12 RDoc
+    &mdash; mattock-0.3.0 RDoc
   
 </title>
 
@@ -107,16 +107,13 @@
 
 
 
-  <h2>Constant Summary</h2>
-  
-
 
 
   <h2>Constant Summary</h2>
   
   <h3 class="inherited">Constants included
-     from <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Configurable.html#RequiredField-constant" title="Mattock::Configurable::RequiredField (constant)">Configurable::RequiredField</a></span></p>
+     from <span class='object_link'><a href="Configurable/ClassMethods.html" title="Mattock::Configurable::ClassMethods (module)">Configurable::ClassMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#RequiredField-constant" title="Mattock::Configurable::ClassMethods::RequiredField (constant)">Configurable::ClassMethods::RequiredField</a></span></p>
 
 
 
@@ -143,6 +140,17 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="DeferredDefinition.html" title="Mattock::DeferredDefinition (module)">DeferredDefinition</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="DeferredDefinition.html#add_settings-class_method" title="Mattock::DeferredDefinition.add_settings (method)">add_settings</a></span>, <span class='object_link'><a href="DeferredDefinition.html#finalize_configuration-instance_method" title="Mattock::DeferredDefinition#finalize_configuration (method)">#finalize_configuration</a></span>, <span class='object_link'><a href="DeferredDefinition.html#initialize-instance_method" title="Mattock::DeferredDefinition#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="DeferredDefinition.html#resolve_runtime_configuration-instance_method" title="Mattock::DeferredDefinition#resolve_runtime_configuration (method)">#resolve_runtime_configuration</a></span>, <span class='object_link'><a href="DeferredDefinition.html#runtime%3F-instance_method" title="Mattock::DeferredDefinition#runtime? (method)">#runtime?</a></span>, <span class='object_link'><a href="DeferredDefinition.html#runtime_definition-instance_method" title="Mattock::DeferredDefinition#runtime_definition (method)">#runtime_definition</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">CascadingDefinition</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="CascadingDefinition.html#confirm_configuration-instance_method" title="Mattock::CascadingDefinition#confirm_configuration (method)">#confirm_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#default_configuration-instance_method" title="Mattock::CascadingDefinition#default_configuration (method)">#default_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#define-instance_method" title="Mattock::CascadingDefinition#define (method)">#define</a></span>, <span class='object_link'><a href="CascadingDefinition.html#initialize-instance_method" title="Mattock::CascadingDefinition#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="CascadingDefinition.html#resolve_configuration-instance_method" title="Mattock::CascadingDefinition#resolve_configuration (method)">#resolve_configuration</a></span></p>
 
@@ -155,7 +163,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Configurable.html#check_required-instance_method" title="Mattock::Configurable#check_required (method)">#check_required</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings_to-instance_method" title="Mattock::Configurable#copy_settings_to (method)">#copy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#nil_fields-instance_method" title="Mattock::Configurable#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable.html#required_fields-instance_method" title="Mattock::Configurable#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable.html#setting-instance_method" title="Mattock::Configurable#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable.html#settings-instance_method" title="Mattock::Configurable#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable.html#setup_defaults-instance_method" title="Mattock::Configurable#setup_defaults (method)">#setup_defaults</a></span>, <span class='object_link'><a href="Configurable.html#to_hash-instance_method" title="Mattock::Configurable#to_hash (method)">#to_hash</a></span>, <span class='object_link'><a href="Configurable.html#unset%3F-instance_method" title="Mattock::Configurable#unset? (method)">#unset?</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Configurable.html#check_required-instance_method" title="Mattock::Configurable#check_required (method)">#check_required</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings-instance_method" title="Mattock::Configurable#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings_to-instance_method" title="Mattock::Configurable#copy_settings_to (method)">#copy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#fail_unless_set-instance_method" title="Mattock::Configurable#fail_unless_set (method)">#fail_unless_set</a></span>, <span class='object_link'><a href="Configurable.html#field_unset%3F-instance_method" title="Mattock::Configurable#field_unset? (method)">#field_unset?</a></span>, <span class='object_link'><a href="Configurable.html#proxy_settings-instance_method" title="Mattock::Configurable#proxy_settings (method)">#proxy_settings</a></span>, <span class='object_link'><a href="Configurable.html#proxy_settings_to-instance_method" title="Mattock::Configurable#proxy_settings_to (method)">#proxy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#proxy_value-instance_method" title="Mattock::Configurable#proxy_value (method)">#proxy_value</a></span>, <span class='object_link'><a href="Configurable.html#setup_defaults-instance_method" title="Mattock::Configurable#setup_defaults (method)">#setup_defaults</a></span>, <span class='object_link'><a href="Configurable.html#to_hash-instance_method" title="Mattock::Configurable#to_hash (method)">#to_hash</a></span>, <span class='object_link'><a href="Configurable.html#unset%3F-instance_method" title="Mattock::Configurable#unset? (method)">#unset?</a></span>, <span class='object_link'><a href="Configurable.html#unset_defaults_guard-instance_method" title="Mattock::Configurable#unset_defaults_guard (method)">#unset_defaults_guard</a></span>, <span class='object_link'><a href="Configurable.html#unset_defaults_guard-class_method" title="Mattock::Configurable.unset_defaults_guard (method)">unset_defaults_guard</a></span></p>
 
   
   
@@ -166,7 +174,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable/ClassMethods.html" title="Mattock::Configurable::ClassMethods (module)">Configurable::ClassMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#copy_settings-instance_method" title="Mattock::Configurable::ClassMethods#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#to_hash-instance_method" title="Mattock::Configurable::ClassMethods#to_hash (method)">#to_hash</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#copy_settings-instance_method" title="Mattock::Configurable::ClassMethods#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_metadata-instance_method" title="Mattock::Configurable::ClassMethods#field_metadata (method)">#field_metadata</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_names-instance_method" title="Mattock::Configurable::ClassMethods#field_names (method)">#field_names</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_required_fields-instance_method" title="Mattock::Configurable::ClassMethods#runtime_required_fields (method)">#runtime_required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_setting-instance_method" title="Mattock::Configurable::ClassMethods#runtime_setting (method)">#runtime_setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#to_hash-instance_method" title="Mattock::Configurable::ClassMethods#to_hash (method)">#to_hash</a></span></p>
 
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
@@ -179,7 +187,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed May 16 00:41:57 2012 by
+  Generated on Wed Oct 17 09:15:05 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.3).
 </div>

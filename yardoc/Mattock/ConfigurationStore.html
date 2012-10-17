@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::ConfigurationStore
   
-    &mdash; mattock-0.2.12 RDoc
+    &mdash; mattock-0.3.0 RDoc
   
 </title>
 
@@ -281,6 +281,30 @@ href="http://filename">config.loaded</a></p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#register_file-instance_method" title="#register_file (instance method)">- (Object) <strong>register_file</strong>(name, type, merge) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add special file handling for a particular file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#register_search_path-instance_method" title="#register_search_path (instance method)">- (Object) <strong>register_search_path</strong>(from_file) </a>
     
 
@@ -295,7 +319,9 @@ href="http://filename">config.loaded</a></p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Add a search path to look for configuration files.</p>
+</div></span>
   
 </li>
 
@@ -409,7 +435,13 @@ module</p>
 63
 64
 65
-66</pre>
+66
+67
+68
+69
+70
+71
+72</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 50</span>
@@ -417,12 +449,18 @@ module</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_app_name'>app_name</span><span class='comma'>,</span> <span class='id identifier rubyid_library_default_dir'>library_default_dir</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@app_name</span> <span class='op'>=</span> <span class='id identifier rubyid_app_name'>app_name</span>
   <span class='ivar'>@valise</span> <span class='op'>=</span> <span class='const'>Valise</span><span class='op'>::</span><span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>~/.</span><span class='embexpr_beg'>#{</span><span class='ivar'>@app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>~/.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>~/.mattock/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>~/.mattock</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/usr/share/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/usr/share/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/usr/share/mattock/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/usr/share/mattock</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/etc/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/etc/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/etc/mattock/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_app_name'>app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_rw'>rw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/etc/mattock</span><span class='tstring_end'>&quot;</span></span>
+
     <span class='id identifier rubyid_ro'>ro</span> <span class='id identifier rubyid_library_default_dir'>library_default_dir</span> <span class='kw'>unless</span> <span class='id identifier rubyid_library_default_dir'>library_default_dir</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_ro'>ro</span> <span class='id identifier rubyid_from_here'>from_here</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default_configuration</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 
@@ -470,12 +508,12 @@ module</p>
       <pre class="lines">
 
 
-68
-69
-70</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_loaded'>loaded</span>
   <span class='ivar'>@loaded</span>
@@ -514,12 +552,12 @@ module</p>
       <pre class="lines">
 
 
-68
-69
-70</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valise'>valise</span>
   <span class='ivar'>@valise</span>
@@ -537,7 +575,48 @@ module</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="register_search_path-instance_method">
+  <h3 class="signature first" id="register_file-instance_method">
+  
+    - (<tt>Object</tt>) <strong>register_file</strong>(name, type, merge) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Add special file handling for a particular file</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_register_file'>register_file</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_merge'>merge</span><span class='rparen'>)</span>
+  <span class='ivar'>@valise</span><span class='period'>.</span><span class='id identifier rubyid_add_handler'>add_handler</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_merge'>merge</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="register_search_path-instance_method">
   
     - (<tt>Object</tt>) <strong>register_search_path</strong>(from_file) 
   
@@ -545,20 +624,31 @@ module</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Add a search path to look for configuration files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-70
-71
-72
-73
-74</pre>
+82
+83
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register_search_path'>register_search_path</span><span class='lparen'>(</span><span class='id identifier rubyid_from_file'>from_file</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_directory'>directory</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../.</span><span class='embexpr_beg'>#{</span><span class='ivar'>@app_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_from_file'>from_file</span><span class='rparen'>)</span>
@@ -585,12 +675,12 @@ module</p>
       <pre class="lines">
 
 
-76
-77
-78</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configuration-store.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_preferences'>user_preferences</span>
   <span class='id identifier rubyid_loaded'>loaded</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>preferences.yaml</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -605,7 +695,7 @@ module</p>
 </div>
 
     <div id="footer">
-  Generated on Wed May 16 00:41:59 2012 by
+  Generated on Wed Oct 17 09:15:07 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.3).
 </div>

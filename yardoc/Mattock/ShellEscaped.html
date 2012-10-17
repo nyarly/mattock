@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::ShellEscaped
   
-    &mdash; mattock-0.2.12 RDoc
+    &mdash; mattock-0.3.0 RDoc
   
 </title>
 
@@ -206,7 +206,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="CommandLine.html" title="Mattock::CommandLine (class)">CommandLine</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="CommandLine.html#copy_stream_to-instance_method" title="Mattock::CommandLine#copy_stream_to (method)">#copy_stream_to</a></span>, <span class='object_link'><a href="CommandLine.html#emit_recording-class_method" title="Mattock::CommandLine.emit_recording (method)">emit_recording</a></span>, <span class='object_link'><a href="CommandLine.html#execute-class_method" title="Mattock::CommandLine.execute (method)">execute</a></span>, <span class='object_link'><a href="CommandLine.html#must_succeed%21-instance_method" title="Mattock::CommandLine#must_succeed! (method)">#must_succeed!</a></span>, <span class='object_link'><a href="CommandLine.html#original_execute-class_method" title="Mattock::CommandLine.original_execute (method)">original_execute</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_from-instance_method" title="Mattock::CommandLine#redirect_from (method)">#redirect_from</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_stderr-instance_method" title="Mattock::CommandLine#redirect_stderr (method)">#redirect_stderr</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_stdin-instance_method" title="Mattock::CommandLine#redirect_stdin (method)">#redirect_stdin</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_stdout-instance_method" title="Mattock::CommandLine#redirect_stdout (method)">#redirect_stdout</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_to-instance_method" title="Mattock::CommandLine#redirect_to (method)">#redirect_to</a></span>, <span class='object_link'><a href="CommandLine.html#run-instance_method" title="Mattock::CommandLine#run (method)">#run</a></span>, <span class='object_link'><a href="CommandLine.html#succeeds%3F-instance_method" title="Mattock::CommandLine#succeeds? (method)">#succeeds?</a></span>, <span class='object_link'><a href="CommandLine.html#verbose-instance_method" title="Mattock::CommandLine#verbose (method)">#verbose</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="CommandLine.html#copy_stream_to-instance_method" title="Mattock::CommandLine#copy_stream_to (method)">#copy_stream_to</a></span>, <span class='object_link'><a href="CommandLine.html#define_chain_op-class_method" title="Mattock::CommandLine.define_chain_op (method)">define_chain_op</a></span>, <span class='object_link'><a href="CommandLine.html#define_op-class_method" title="Mattock::CommandLine.define_op (method)">define_op</a></span>, <span class='object_link'><a href="CommandLine.html#emit_recording-class_method" title="Mattock::CommandLine.emit_recording (method)">emit_recording</a></span>, <span class='object_link'><a href="CommandLine.html#execute-class_method" title="Mattock::CommandLine.execute (method)">execute</a></span>, <span class='object_link'><a href="CommandLine.html#must_succeed%21-instance_method" title="Mattock::CommandLine#must_succeed! (method)">#must_succeed!</a></span>, <span class='object_link'><a href="CommandLine.html#options_composition-instance_method" title="Mattock::CommandLine#options_composition (method)">#options_composition</a></span>, <span class='object_link'><a href="CommandLine.html#original_execute-class_method" title="Mattock::CommandLine.original_execute (method)">original_execute</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_from-instance_method" title="Mattock::CommandLine#redirect_from (method)">#redirect_from</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_stderr-instance_method" title="Mattock::CommandLine#redirect_stderr (method)">#redirect_stderr</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_stdin-instance_method" title="Mattock::CommandLine#redirect_stdin (method)">#redirect_stdin</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_stdout-instance_method" title="Mattock::CommandLine#redirect_stdout (method)">#redirect_stdout</a></span>, <span class='object_link'><a href="CommandLine.html#redirect_to-instance_method" title="Mattock::CommandLine#redirect_to (method)">#redirect_to</a></span>, <span class='object_link'><a href="CommandLine.html#run-instance_method" title="Mattock::CommandLine#run (method)">#run</a></span>, <span class='object_link'><a href="CommandLine.html#succeeds%3F-instance_method" title="Mattock::CommandLine#succeeds? (method)">#succeeds?</a></span>, <span class='object_link'><a href="CommandLine.html#verbose-instance_method" title="Mattock::CommandLine#verbose (method)">#verbose</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -236,12 +236,12 @@
       <pre class="lines">
 
 
-114
-115
-116</pre>
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 144</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span>
   <span class='ivar'>@escaped</span> <span class='op'>=</span> <span class='id identifier rubyid_cmd'>cmd</span>
@@ -273,12 +273,12 @@
       <pre class="lines">
 
 
-118
-119
-120</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_command'>command</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='ivar'>@escaped</span><span class='period'>.</span><span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>'</span><span class='regexp_end'>/</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\'</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
@@ -303,12 +303,12 @@
       <pre class="lines">
 
 
-122
-123
-124</pre>
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span> <span class='op'>||</span> <span class='ivar'>@escaped</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
@@ -323,7 +323,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed May 16 00:41:58 2012 by
+  Generated on Wed Oct 17 09:15:06 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.3).
 </div>
