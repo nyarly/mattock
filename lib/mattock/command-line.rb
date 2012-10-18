@@ -62,10 +62,11 @@ module Mattock
       @executable = executable
       @options = options
       @redirections = []
+      @env = {}
       yield self if block_given?
     end
 
-    attr_accessor :name, :executable, :options
+    attr_accessor :name, :executable, :options, :env
 
     def verbose
       Rake.verbose && Rake.verbose != Rake::FileUtilsExt::DEFAULT
@@ -76,7 +77,13 @@ module Mattock
     end
 
     def command
-      ([executable] + options_composition + @redirections).join(" ")
+      (set_env + [executable] + options_composition + @redirections).join(" ")
+    end
+
+    def set_env
+      @env.map do |key, value|
+        [key, value].join("=")
+      end
     end
 
     def options_composition
@@ -135,8 +142,8 @@ module Mattock
   end
 
   module CommandLineDSL
-    def cmd(*args)
-      CommandLine.new(*args)
+    def cmd(*args, &block)
+      CommandLine.new(*args, &block)
     end
   end
 

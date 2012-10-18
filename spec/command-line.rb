@@ -77,7 +77,7 @@ describe Mattock::CommandLineDSL do
     end
   end
 
-  describe "using the && operator" do
+  describe "using the & operator" do
     let :command do
       cmd("cd", "/tmp/trash") & %w{rm -rf *}
     end

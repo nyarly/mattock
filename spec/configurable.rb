@@ -32,7 +32,6 @@ describe Mattock::Configurable do
 
   it "should complain about unset required fields" do
     expect do
-      p subject
       subject.check_required
     end.to raise_error
   end

@@ -45,6 +45,7 @@ module Mattock
       end
     end
 
+    #XXX This could probably just be a direct wrapper on #should_receive...
     def expect_command(cmd, *result)
       raise ArgumentError, "Regexp expected: not #{cmd.inspect}" unless Regexp === cmd
       pairs << [cmd, result]
