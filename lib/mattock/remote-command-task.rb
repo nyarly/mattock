@@ -10,6 +10,7 @@ module Mattock
     runtime_setting(:remote_target)
 
     def resolve_runtime_configuration
+      super
       self.remote_target ||= [remote_server.user, remote_server.address].compact.join('@') unless remote_server.address.nil?
     end
 

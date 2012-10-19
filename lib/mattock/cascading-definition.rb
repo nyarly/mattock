@@ -26,21 +26,38 @@ module Mattock
     def initialize(*tasklibs)
       @runtime = false
       setup_defaults
-      default_configuration(*tasklibs)
 
-      yield self if block_given?
+      confirm_steps(:default_configuration, :resolve_configuration, :confirm_configuration) do
+        default_configuration(*tasklibs)
 
-      resolve_configuration
-      confirm_configuration
+        yield self if block_given?
+
+        resolve_configuration
+        confirm_configuration
+      end
 
       define
     end
 
+    def confirm_steps(*steps)
+      @steps = steps
+      yield
+      unless @steps.empty?
+        #Otherwise, it's very easy to forget the 'super' statement and leave
+        #essential configuration out.  The result is really confusing
+        raise "#{self.class.name} didn't run superclass step#{@steps.length == 1 ? "" : "s"}: #{@steps.inspect} (put a 'super' in appropriate methods)"
+      end
+    end
+
+    def confirm_step(step)
+      @steps.delete(step)
+    end
 
     #@param [TaskLib] tasklibs Other libs upon which this one depends to set
     #  its defaults
     #Sets default values for library settings
     def default_configuration(*tasklibs)
+      confirm_step(:default_configuration)
     end
 
     #Called after the configuration block has been called, so secondary
@@ -52,6 +69,7 @@ module Mattock
     #the Rakefile, or if bin_dir and command_name are set, we can put those
     #together.
     def resolve_configuration
+      confirm_step(:resolve_configuration)
     end
 
     #Last step before definition: confirm that all the configuration settings
@@ -59,6 +77,7 @@ module Mattock
     #given values.  Very much shortens the debugging cycle when using TaskLibs
     #if this is well written.
     def confirm_configuration
+      confirm_step(:confirm_configuration)
       check_required
     end
 
@@ -88,16 +107,19 @@ module Mattock
       !!@runtime
     end
 
-    def resolve_runtime_configuration
-    end
-
     def finalize_configuration
       return if @finalized
       @runtime = true
       configuration_block[self]
-      resolve_runtime_configuration
-      confirm_configuration
+      confirm_steps(:resolve_runtime_configuration, :confirm_configuration) do
+        resolve_runtime_configuration
+        confirm_configuration
+      end
       @finalized = true
+    end
+
+    def resolve_runtime_configuration
+      confirm_step(:resolve_runtime_configuration)
     end
   end
 end

@@ -25,6 +25,7 @@ module Mattock
   end
 
   module CommandLineExampleGroup
+=begin
     def self.included(group)
       group.class_eval do
         let :pairs do
@@ -44,13 +45,15 @@ module Mattock
         end
       end
     end
+=end
 
     #XXX This could probably just be a direct wrapper on #should_receive...
     def expect_command(cmd, *result)
       raise ArgumentError, "Regexp expected: not #{cmd.inspect}" unless Regexp === cmd
-      pairs << [cmd, result]
+      Mattock::CommandLine.should_receive(:execute).with(cmd).ordered.and_return(MockCommandResult.create(*result))
     end
 
+=begin
     module Matchers
       extend RSpec::Matchers::DSL
 
@@ -65,5 +68,6 @@ module Mattock
       end
     end
     include Matchers
+=end
   end
 end

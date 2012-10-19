@@ -38,6 +38,7 @@ module Mattock
     end
 
     def resolve_configuration
+      super
       if @extracted_task_args.empty?
         self.task_args = [task_name]
       else

@@ -11,14 +11,19 @@ module Mattock
     runtime_setting(:command)
 
     def resolve_runtime_configuration
+      super
       #If there's a second troublesome command, this becomes a class-level
       #array
       if not verify_command.nil? and verify_command.name == "bundle"
-        warn "Verify command is 'bundle' - this sometimes has unexpected results.  Consider BundleCommandTask"
+        unless BundleCommandTask === self
+          warn "Verify command is 'bundle' - this sometimes has unexpected results.  Consider BundleCommandTask"
+        end
       end
 
       if command.name == "bundle"
-        warn "Command is 'bundle' - this sometimes has unexpected results.  Consider BundleCommandTask"
+        unless BundleCommandTask === self
+          warn "Command is 'bundle' - this sometimes has unexpected results.  Consider BundleCommandTask"
+        end
       end
     end
 

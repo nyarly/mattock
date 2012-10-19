@@ -67,6 +67,7 @@ module Mattock
     end
 
     attr_accessor :name, :executable, :options, :env
+    attr_reader :redirections
 
     def verbose
       Rake.verbose && Rake.verbose != Rake::FileUtilsExt::DEFAULT
@@ -114,6 +115,11 @@ module Mattock
       redirect_from(path, 0)
     end
 
+    #XXX The more I look at this, the more it should be an explicit pipe and
+    #swpan, with options e.g. to redirect stdout/err to the parent
+    #If I wasn't worried about writing my own limited shell, I'd say e.g.
+    #Pipeline would be an explicit chain of pipes... which is probably as
+    #originally intended :/
     def self.execute(command)
       pipe = IO.popen(command)
       pid = pipe.pid
