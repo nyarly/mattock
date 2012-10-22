@@ -31,12 +31,22 @@ module Mattock
       end
     end
 
+    def self.included(group)
+      group.before :each do
+        @original_execute = Mattock::CommandLine.instance_method(:execute)
+        unless MockingExecute > Mattock::CommandLine
+          Mattock::CommandLine.send(:include, MockingExecute)
+        end
+        Mattock::CommandLine.send(:remove_method, :execute)
+      end
+
+      group.after :each do
+        Mattock::CommandLine.send(:define_method, :execute, @original_execute)
+      end
+    end
+
     #XXX This could probably just be a direct wrapper on #should_receive...
     def expect_command(cmd, *result)
-      unless MockingExecute > Mattock::CommandLine
-        Mattock::CommandLine.send(:remove_method, :execute)
-        Mattock::CommandLine.send(:include, MockingExecute)
-      end
       raise ArgumentError, "Regexp expected: not #{cmd.inspect}" unless Regexp === cmd
       Mattock::CommandLine.should_receive(:execute, :expected_from => caller(1)[0]).with(cmd).ordered.and_return(MockCommandResult.create(*result))
     end
