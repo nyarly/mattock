@@ -25,49 +25,20 @@ module Mattock
   end
 
   module CommandLineExampleGroup
-=begin
-    def self.included(group)
-      group.class_eval do
-        let :pairs do
-          []
-        end
-
-        before :each do
-          Mattock::CommandLine.should_receive(:execute) do |cmd|
-            pattern, res = pairs.shift
-            pattern.should =~ cmd
-            Mattock::MockCommandResult.create(*res)
-          end.any_number_of_times
-        end
-
-        after :each do
-          pairs.should have_all_been_called
-        end
+    module MockingExecute
+      def execute
+        Mattock::CommandLine.execute(command)
       end
     end
-=end
 
     #XXX This could probably just be a direct wrapper on #should_receive...
     def expect_command(cmd, *result)
-      raise ArgumentError, "Regexp expected: not #{cmd.inspect}" unless Regexp === cmd
-      Mattock::CommandLine.should_receive(:execute).with(cmd).ordered.and_return(MockCommandResult.create(*result))
-    end
-
-=begin
-    module Matchers
-      extend RSpec::Matchers::DSL
-
-      define :have_all_been_called do
-        match do |list|
-          list.empty?
-        end
-
-        failure_message_for_should do |list|
-          "Expected all commands to be run, but: #{list.map{|item| item[0].source.inspect}.join(", ")} #{list.length > 1 ? "were" : "was"} not."
-        end
+      unless MockingExecute > Mattock::CommandLine
+        Mattock::CommandLine.send(:remove_method, :execute)
+        Mattock::CommandLine.send(:include, MockingExecute)
       end
+      raise ArgumentError, "Regexp expected: not #{cmd.inspect}" unless Regexp === cmd
+      Mattock::CommandLine.should_receive(:execute, :expected_from => caller(1)[0]).with(cmd).ordered.and_return(MockCommandResult.create(*result))
     end
-    include Matchers
-=end
   end
 end

@@ -27,12 +27,16 @@ module Mattock
       return false
     end
 
+    def format_streams
+      "stdout:\n#{stdout}\n\nstderr:\n#{stderr}\n\n"
+    end
+
     def must_succeed!
       case exit_code
       when 0
         return exit_code
       else
-        fail "Command #{@command.inspect} failed with exit status #{exit_code}: \n#{streams.inspect}"
+        fail "Command #{@command.inspect} failed with exit status #{exit_code}: \n#{format_streams}"
       end
     end
   end
@@ -115,23 +119,31 @@ module Mattock
       redirect_from(path, 0)
     end
 
-    #XXX The more I look at this, the more it should be an explicit pipe and
-    #swpan, with options e.g. to redirect stdout/err to the parent
     #If I wasn't worried about writing my own limited shell, I'd say e.g.
     #Pipeline would be an explicit chain of pipes... which is probably as
     #originally intended :/
-    def self.execute(command)
-      pipe = IO.popen(command)
-      pid = pipe.pid
+    def execute
+      host_stdout, cmd_stdout = IO.pipe
+      host_stderr, cmd_stderr = IO.pipe
+
+      pid = Process.spawn(command, :out => cmd_stdout, :err => cmd_stderr)
+      cmd_stdout.close
+      cmd_stderr.close
+
       pid, status = Process.wait2(pid)
-      result = CommandRunResult.new(command, status, {1 => pipe.read})
-      pipe.close
+
+      stdout = host_stdout.read
+      stderr = host_stderr.read
+      result = CommandRunResult.new(command, status, {1 => stdout, 2 => stderr})
+      host_stdout.close
+      host_stderr.close
+
       return result
     end
 
     def run
       print command + " " if verbose
-      result = self.class.execute(command)
+      result = execute
       print "=> #{result.exit_code}" if verbose
       return result
     ensure

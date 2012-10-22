@@ -1,6 +1,9 @@
 require 'mattock/cascading-definition'
+require 'singleton' #Rake fails to require this properly
 require 'rake/task'
 require 'rake/file_task'
+require 'rake/file_creation_task'
+require 'rake/multi_task'
 
 module Mattock
   # A configurable subclass of Rake::Task, such that you can use a
@@ -87,10 +90,11 @@ module Mattock
     def define
       task = task_class.define_task(*task_args) do
         finalize_configuration
+        copy_settings_to(task)
         task.action
       end
-      task.source_task = self
       copy_settings_to(task)
+      task.source_task = self
     end
   end
 

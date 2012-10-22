@@ -3,15 +3,15 @@ require 'mattock/command-line'
 module Mattock
   class CommandLine
     @@commands = []
+    alias original_execute execute
+
+    def execute
+      result = original_execute
+      @@commands << [command, result]
+      return result
+    end
+
     class << self
-      alias original_execute execute
-
-      def execute(command)
-        result = original_execute(command)
-        @@commands << [command, result]
-        return result
-      end
-
       attr_accessor :command_recording_path
 
       def command_recording_path
