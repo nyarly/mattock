@@ -24,12 +24,19 @@ module Mattock
     alias exit_status exit_code
   end
 
+  class CommandLine
+    def self.execute(*args)
+      fail "Command line executed in specs without 'expect_command' or 'expect_some_commands'"
+    end
+  end
+
   module CommandLineExampleGroup
     module MockingExecute
       def execute
         Mattock::CommandLine.execute(command)
       end
     end
+
 
     def self.included(group)
       group.before :each do
@@ -45,9 +52,14 @@ module Mattock
       end
     end
 
-    #XXX This could probably just be a direct wrapper on #should_receive...
+    #Registers indifference as to exactly what commands get called
+    def expect_some_commands
+      Mattock::CommandLine.should_receive(:execute).any_number_of_times.and_return(MockCommandResult.create(0))
+    end
+
+    #Registers an expectation about a command being run - expectations are
+    #ordered
     def expect_command(cmd, *result)
-      raise ArgumentError, "Regexp expected: not #{cmd.inspect}" unless Regexp === cmd
       Mattock::CommandLine.should_receive(:execute, :expected_from => caller(1)[0]).with(cmd).ordered.and_return(MockCommandResult.create(*result))
     end
   end

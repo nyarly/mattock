@@ -46,6 +46,59 @@ describe Mattock::CommandLine do
   end
 end
 
+describe Mattock::CommandLine, "setting environment variables" do
+  let :commandline do
+    Mattock::CommandLine.new("env") do |cmd|
+      cmd.env["TEST_ENV"] = "indubitably"
+    end
+  end
+
+  let :result do
+    commandline.run
+  end
+
+  it "should succeed" do
+    result.succeeded?.should be_true
+  end
+
+  it "should alter the command's environment variables" do
+    result.stdout.should =~ /TEST_ENV.*indubitably/
+  end
+
+end
+
+describe Mattock::PipelineChain do
+  let :commandline do
+    Mattock::PipelineChain.new do |chain|
+      chain.add Mattock::CommandLine.new("env")
+      chain.add Mattock::CommandLine.new("cat") do |cmd|
+        cmd.env["TEST_ENV"] = "indubitably"
+      end
+    end
+  end
+
+  let :result do
+    commandline.run
+  end
+
+  it "should produce the right command" do
+    commandline.command.should == 'env | cat'
+  end
+
+  it "should produce a runnable command with format_string" do
+    commandline.string_format.should == 'TEST_ENV=indubitably env | cat'
+  end
+
+  it "should succeed" do
+    result.succeeded?.should be_true
+  end
+
+  it "should alter the command's environment variables" do
+    result.stdout.should =~ /TEST_ENV.*indubitably/
+  end
+end
+
+
 describe Mattock::CommandLineDSL do
   include described_class
 

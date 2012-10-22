@@ -73,6 +73,8 @@ module Mattock
     attr_accessor :name, :executable, :options, :env
     attr_reader :redirections
 
+    alias_method :command_environment, :env
+
     def verbose
       Rake.verbose && Rake.verbose != Rake::FileUtilsExt::DEFAULT
     end
@@ -82,13 +84,13 @@ module Mattock
     end
 
     def command
-      (set_env + [executable] + options_composition + @redirections).join(" ")
+      ([executable] + options_composition + @redirections).join(" ")
     end
 
-    def set_env
-      @env.map do |key, value|
+    def string_format
+      command_environment.map do |key, value|
         [key, value].join("=")
-      end
+      end.join(" ") + " " + command
     end
 
     def options_composition
@@ -126,7 +128,7 @@ module Mattock
       host_stdout, cmd_stdout = IO.pipe
       host_stderr, cmd_stderr = IO.pipe
 
-      pid = Process.spawn(command, :out => cmd_stdout, :err => cmd_stderr)
+      pid = Process.spawn(command_environment, command, :out => cmd_stdout, :err => cmd_stderr)
       cmd_stdout.close
       cmd_stderr.close
 
@@ -182,7 +184,7 @@ module Mattock
   class CommandChain < CommandLine
     def initialize
       @commands = []
-      yield self if block_given?
+      super(nil)
     end
 
     attr_reader :commands
@@ -191,6 +193,14 @@ module Mattock
       yield cmd if block_given?
       @commands << cmd
       self
+    end
+
+    #Honestly this is sub-optimal - biggest driver for considering the
+    #mini-shell approach here.
+    def command_environment
+      @commands.reverse.inject({}) do |env, command|
+        env.merge(command.command_environment)
+      end
     end
 
     def name
