@@ -144,7 +144,7 @@ module Mattock
     end
 
     def run
-      print command + " " if verbose
+      print string_format + " " if verbose
       result = execute
       print "=> #{result.exit_code}" if verbose
       return result
@@ -165,6 +165,10 @@ module Mattock
     def cmd(*args, &block)
       CommandLine.new(*args, &block)
     end
+
+    def escaped_command(*args, &block)
+      ShellEscaped.new(CommandLine.new(*args, &block))
+    end
   end
 
   class ShellEscaped < CommandLine
@@ -173,7 +177,11 @@ module Mattock
     end
 
     def command
-      "'" + @escaped.command.gsub(/'/,"\'") + "'"
+      "'" + @escaped.string_format.gsub(/'/,"\'") + "'"
+    end
+
+    def command_environment
+      {}
     end
 
     def name
