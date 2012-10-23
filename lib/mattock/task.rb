@@ -87,17 +87,23 @@ module Mattock
       "#{self.class.name}: #{self.task_args.inspect}"
     end
 
+    attr_accessor :rake_task
     def define
-      task = task_class.define_task(*task_args) do
+      self.rake_task = task_class.define_task(*task_args) do
         finalize_configuration
-        copy_settings_to(task)
-        task.action
+        copy_settings_to(rake_task)
+        rake_task.action
       end
-      copy_settings_to(task)
-      task.source_task = self
+      copy_settings_to(rake_task)
+      rake_task.source_task = self
     end
   end
 
+  #I'm having misgivings about this design choice.  Rightly, this is probably a
+  #"Task Definer" that knows what class to ::define_task and then mixin a
+  #module to handle the original purpose of being able to override e.g.
+  ##needed?  There's a lot of client code that relies on this pattern now,
+  #though.
   class Task < Rake::Task
     include TaskMixin
   end

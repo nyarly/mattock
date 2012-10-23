@@ -121,10 +121,7 @@ module Mattock
       redirect_from(path, 0)
     end
 
-    #If I wasn't worried about writing my own limited shell, I'd say e.g.
-    #Pipeline would be an explicit chain of pipes... which is probably as
-    #originally intended :/
-    def execute
+    def spawn_process
       host_stdout, cmd_stdout = IO.pipe
       host_stderr, cmd_stderr = IO.pipe
 
@@ -132,6 +129,10 @@ module Mattock
       cmd_stdout.close
       cmd_stderr.close
 
+      return pid, host_stdout, host_stderr
+    end
+
+    def collect_result(pid, host_stdout, host_stderr)
       pid, status = Process.wait2(pid)
 
       stdout = host_stdout.read
@@ -143,10 +144,27 @@ module Mattock
       return result
     end
 
+    #If I wasn't worried about writing my own limited shell, I'd say e.g.
+    #Pipeline would be an explicit chain of pipes... which is probably as
+    #originally intended :/
+    def execute
+      collect_result(*spawn_process)
+    end
+
+    def background
+      pid, out, err = spawn_process
+      at_exit do
+        kill_process(pid)
+      end
+      Process.detach(pid)
+      return pid
+    end
+
     def run
       print string_format + " " if verbose
       result = execute
-      print "=> #{result.exit_code}" if verbose
+      puts "=> #{result.exit_code}" if verbose
+      puts result.format_streams if verbose
       return result
     ensure
       puts if verbose
@@ -186,6 +204,10 @@ module Mattock
 
     def name
       @name || @escaped.name
+    end
+
+    def to_s
+      command
     end
   end
 
