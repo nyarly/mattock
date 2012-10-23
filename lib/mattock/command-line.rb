@@ -155,9 +155,18 @@ module Mattock
       pid, out, err = spawn_process
       at_exit do
         kill_process(pid)
+        Process.detach(pid)
       end
-      Process.detach(pid)
-      return pid
+      return pid, out, err
+    end
+
+    def kill_process(pid)
+      Process.kill("INT", pid)
+    end
+
+    def complete(pid, out, err)
+      kill_process(pid)
+      collect_result(pid, out, err)
     end
 
     def run
