@@ -170,9 +170,9 @@ module Mattock
     end
 
     def run
-      print string_format + " " if verbose
+      print string_format + " "
       result = execute
-      puts "=> #{result.exit_code}" if verbose
+      puts "=> #{result.exit_code}"
       puts result.format_streams if verbose
       return result
     ensure
