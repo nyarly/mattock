@@ -28,7 +28,7 @@ module Mattock
     end
 
     def format_streams
-      "stdout:\n#{stdout}\n\nstderr:\n#{stderr}\n\n"
+      "stdout:#{stdout.empty? ? "[empty]\n" : "\n#{stdout}"}stderr:#{stderr.empty? ? "[empty]\n" : "\n#{stderr}"}---"
     end
 
     def must_succeed!
@@ -88,9 +88,9 @@ module Mattock
     end
 
     def string_format
-      command_environment.map do |key, value|
+      (command_environment.map do |key, value|
         [key, value].join("=")
-      end.join(" ") + " " + command
+      end + [command]).join(" ")
     end
 
     def options_composition

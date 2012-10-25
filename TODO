@@ -2,4 +2,12 @@ Trouble with using yard-extensions outside of Mattock or when Mattock is Gemfile
 
 Consider adding a "guess" for Configurable (c.f. Corundum's Git tasklib guessing branch)
 
-Consider a DSL for CommandLine - something like `sh "command"` or `sh ["command", "arg"]` and ops for | && - => Pipe Prereq Wrapping
+Bug: SSH commands hang if they need a password...  stdin handling?
+Bug: BundleCommandTask needs a needed? method - Gemfile younger than Gemfile.lock or files in gem directories
+
+Feature: Tasklibs with a "default_sublib" setting - delete entries you don't want and replace?
+(Only if documented and easy to discover...  maybe printed on Rake#verbose...)
+
+Feature: Unpack task - depends on target files, so skipped until archive newer
+
+Feature: CommandLine - streaming output - connect stdout/stderr to parent's
