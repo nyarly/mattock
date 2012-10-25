@@ -2,15 +2,10 @@ require 'mattock/command-task'
 
 module Mattock
   class BundleCommandTask < CommandTask
-    class BundleEnvCleaner < CommandLine
-      def initialize(original)
-        @original = original
-      end
-
-      def run
-        original_env = ENV.to_hash
-        if defined? Bundler
-          %w{
+    def cleaned_env
+      env = {}
+      if defined? Bundler
+        %w{
             BUNDLER_EDITOR
             BUNDLE_APP_CONFIG
             BUNDLE_BIN_PATH
@@ -28,26 +23,17 @@ module Mattock
             RB_USER_INSTALL
             RUBYOPT
             VISUAL
-          }.each do |bundler_varname|
-            begin
-              ENV[bundler_varname] = Bundler::ORIGINAL_ENV.fetch(bundler_varname)
-            rescue KeyError
-              ENV.delete(bundler_varname)
-            end
-          end
+        }.each do |bundler_varname|
+          env[bundler_varname] = Bundler::ORIGINAL_ENV[bundler_varname]
         end
-        %w{
-          BUNDLE_GEMFILE
-        }
-
-        @original.run
-      ensure
-        ENV.replace(original_env)
       end
+      env["BUNDLE_GEMFILE"] = nil
+      env
     end
 
     def decorated(command)
-      BundleEnvCleaner.new(command)
+      command.command_environment.merge!(cleaned_env)
+      command
     end
   end
 end

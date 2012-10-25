@@ -224,6 +224,7 @@ module Mattock
   class CommandChain < CommandLine
     def initialize
       @commands = []
+      @command_environment = {}
       super(nil)
     end
 
@@ -238,7 +239,7 @@ module Mattock
     #Honestly this is sub-optimal - biggest driver for considering the
     #mini-shell approach here.
     def command_environment
-      @commands.reverse.inject({}) do |env, command|
+      @command_environment = @commands.reverse.inject(@command_environment) do |env, command|
         env.merge(command.command_environment)
       end
     end
