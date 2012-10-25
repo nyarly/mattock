@@ -5,18 +5,11 @@ PATH
       tilt (> 0)
       valise (>= 0.6)
 
-GEM
-  remote: http://rubygems.org/
+PATH
+  remote: ../corundum
   specs:
-    archive-tar-minitar (0.5.2)
-    chunky_png (1.2.6)
-    columnize (0.3.6)
-    compass (0.12.2)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
-    corundum (0.0.23)
-      bundler (>= 1.1.0)
+    corundum (0.0.24)
+      bundler
       compass (>= 0.12.1)
       mailfactory (~> 1.4.0)
       mattock (>= 0.3.0)
@@ -27,6 +20,17 @@ GEM
       sass (>= 3.1)
       simplecov (>= 0.5.4)
       yard
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    archive-tar-minitar (0.5.2)
+    chunky_png (1.2.6)
+    columnize (0.3.6)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
     diff-lcs (1.1.3)
     fssm (0.2.9)
     json (1.7.5)
@@ -74,7 +78,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  corundum (~> 0.0.1)
+  corundum!
   mattock!
   rake
   redcarpet
