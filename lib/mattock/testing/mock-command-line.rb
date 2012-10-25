@@ -31,6 +31,7 @@ module Mattock
   end
 
   module CommandLineExampleGroup
+    include CommandLineDSL
     module MockingExecute
       def execute
         Mattock::CommandLine.execute(command)
