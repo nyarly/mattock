@@ -28,7 +28,8 @@ module Mattock
     end
 
     def format_streams
-      "stdout:#{stdout.empty? ? "[empty]\n" : "\n#{stdout}"}stderr:#{stderr.empty? ? "[empty]\n" : "\n#{stderr}"}---"
+      "stdout:#{stdout.nil? || stdout.empty? ? "[empty]\n" : "\n#{stdout}"}" +
+      "stderr:#{stderr.nil? || stderr.empty? ? "[empty]\n" : "\n#{stderr}"}---"
     end
 
     def must_succeed!
