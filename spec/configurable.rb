@@ -51,6 +51,46 @@ describe Mattock::Configurable do
     end.to_not raise_error
   end
 
+  describe "multiple instances" do
+    class MultiSource
+      include Mattock::Configurable
+
+      setting :one, 1
+      setting :nest, nested{
+        setting :two, 2
+      }
+    end
+
+    let :first do
+      MultiSource.new.setup_defaults
+    end
+
+    let :second do
+      MultiSource.new.setup_defaults
+    end
+
+    before :each do
+      first.one = "one"
+      first.nest.two = "two"
+      second
+    end
+
+    it "should not have any validation errors" do
+      expect do
+        first.check_required
+        second.check_required
+      end.not_to raise_error
+    end
+
+    it "should accurately reflect settings" do
+      first.one.should == "one"
+      second.one.should == 1
+
+      first.nest.two.should == "two"
+      second.nest.two.should == 2
+    end
+  end
+
   describe "copying settings" do
     class LeftStruct
       include Mattock::Configurable

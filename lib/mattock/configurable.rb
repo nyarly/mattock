@@ -132,7 +132,7 @@ module Mattock
       attr_reader :source, :field
 
       def inspect
-        "#{self.class.name.split(':').last}: #{value}"
+        "#{self.class.name.split(':').last}: #{source}.#{field}"
       end
     end
 
