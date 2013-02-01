@@ -10,6 +10,7 @@ describe Mattock::RemoteCommandTask do
   let! :remote_task do
     namespace :test do
       Mattock::RemoteCommandTask.new do |t|
+        p :config
         t.remote_server.address = "nowhere.com"
         t.command = Mattock::PrereqChain.new do |prereq|
           prereq.add Mattock::CommandLine.new("cd", "a_dir")

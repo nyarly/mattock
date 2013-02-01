@@ -37,7 +37,7 @@ module Mattock
   #
   #The configuration handling is provided by {CascadingDefinition}, and
   #configuration options are built using {Configurable}
-  class TaskLib < Rake::TaskLib
+  class TaskLib < ::Rake::TaskLib
     include CascadingDefinition
 
     attr_writer :namespace_name
@@ -50,9 +50,9 @@ module Mattock
 
     attr_reader :tasks
 
-    def initialize(*toolkits)
+    def initialize(*toolkits, &block)
       @tasks = []
-      super
+      setup_cascade(*toolkits, &block)
     end
 
     #Records tasks as they are created
@@ -62,11 +62,18 @@ module Mattock
       return a_task
     end
 
+    #Shorthand for
+    #  task name => before
+    #  task after => name
+    #Which ensures that if "after" is ever invoked,
+    #the execution will be before, name, then after
     def bracket_task(before, name, after)
       task self[name] => before
       task after => self[name]
     end
 
+    #Builds a series of tasks in a sequence - the idea is that
+    #dependant tasklibs can depend on stages of a larger process
     def task_spine(*list)
       task list.first
       list.each_cons(2) do |first, second|

@@ -77,7 +77,7 @@ module Mattock
     alias_method :command_environment, :env
 
     def verbose
-      Rake.verbose && Rake.verbose != Rake::FileUtilsExt::DEFAULT
+      ::Rake.verbose && ::Rake.verbose != ::Rake::FileUtilsExt::DEFAULT
     end
 
     def name
@@ -136,13 +136,31 @@ module Mattock
     def collect_result(pid, host_stdout, host_stderr)
       pid, status = Process.wait2(pid)
 
-      stdout = host_stdout.read
-      stderr = host_stderr.read
+      stdout = consume_buffer(host_stdout)
+      stderr = consume_buffer(host_stderr)
       result = CommandRunResult.new(command, status, {1 => stdout, 2 => stderr})
       host_stdout.close
       host_stderr.close
 
       return result
+    end
+
+    #Gets all the data out of buffer, even if somehow it doesn't have an EOF
+    #Escpecially useful for programs (e.g. ssh) that sometime set their stderr
+    #to O_NONBLOCK
+    def consume_buffer(io)
+      accumulate = []
+      waits = 3
+      begin
+        while chunk = io.read_nonblock(4096)
+          accumulate << chunk
+        end
+      rescue IO::WaitReadable => ex
+        retry if (waits -= 1) > 0
+      end
+      return accumulate.join
+    rescue EOFError
+      return accumulate.join
     end
 
     #If I wasn't worried about writing my own limited shell, I'd say e.g.
@@ -152,11 +170,20 @@ module Mattock
       collect_result(*spawn_process)
     end
 
+    #Run a command in the background.  The command can survive the caller
+    def spin_off
+      pid, out, err = spawn_process
+      Process.detach(pid)
+      return pid, out, err
+    end
+
+    #Run a command in parallel with the parent process - will kill it if it
+    #outlasts us
     def background
       pid, out, err = spawn_process
+      Process.detach(pid)
       at_exit do
         kill_process(pid)
-        Process.detach(pid)
       end
       return pid, out, err
     end

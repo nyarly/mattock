@@ -4,20 +4,20 @@ module Mattock
   module RakeExampleGroup
     SavedEnvironmentVariables = %w{APPDATA HOME HOMEDRIVE HOMEPATH RAKE_COLUMNS RAKE_SYSTEM RAKEOPT USERPROFILE}
     DeletedEnvironmentVariables = %w{RAKE_COLUMNS RAKE_SYSTEM RAKEOPT}
-    include Rake::DSL
+    include ::Rake::DSL
     #include FileUtils
 
     class TaskManager
-      include Rake::TaskManager
+      include ::Rake::TaskManager
     end
 
     def self.included(mod)
       mod.class_eval do
         let! :rake do
-          Rake.application = Rake::Application.new
-          Rake::TaskManager.record_task_metadata = true
+          ::Rake.application = ::Rake::Application.new
+          ::Rake::TaskManager.record_task_metadata = true
           RakeFileUtils.verbose_flag = false
-          Rake.application
+          ::Rake.application
         end
 
         before :each do

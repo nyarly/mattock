@@ -10,6 +10,15 @@ module Mattock
   #
   #@example (see ClassMethods)
   module Configurable
+    class Exception < ::StandardError
+    end
+
+    class NoDefaultValue < Exception
+      def initialize(field_name, klass)
+        super("No default value for field #{field_name} on class #{klass.name}")
+      end
+    end
+
     class FieldMetadata
       attr_accessor :name, :default_value
 
@@ -132,7 +141,7 @@ module Mattock
       attr_reader :source, :field
 
       def inspect
-        "#{self.class.name.split(':').last}: #{source}.#{field}"
+        "#{self.class.name.split(':').last}: #{source.class.name}.#{field.inspect}"
       end
     end
 
@@ -222,6 +231,13 @@ module Mattock
     #    ce.hoo = "hallo"
     #    ce.check_required #=> raises error because :must and :foo aren't set
     module ClassMethods
+      def inspect_instance(instance, indent="")
+        field_names.map do |name|
+          meta = field_metadata(name)
+          "#{indent}#{meta.inspect} => #{meta.immediate_value_on(instance).inspect}(#{meta.value_on(instance).inspect})"
+        end.join("\n")
+      end
+
       def default_values
         @default_values ||= []
       end
@@ -242,6 +258,13 @@ module Mattock
         else
           field
         end
+      end
+
+      #@raises NoDefaultValue
+      def default_value_for(name)
+        field = field_metadata(name)
+        raise NoDefaultValue.new(name,self) unless field.is?(:defaulting)
+        return field.default_value
       end
 
       #Creates an anonymous Configurable - useful in complex setups for nested
@@ -297,8 +320,8 @@ module Mattock
 
         if existing = default_values.find{|field| field.name == name} and existing.default_value != default_value
           source_line = caller.drop_while{|line| /#{__FILE__}/ =~ line}.first
-          warn "Changing default value of #{self.name}##{name} from #{existing.default_value.inspect} to #{default_value.inspect}"
-            "  (at: #{source_line})"
+            warn "Changing default value of #{self.name}##{name} from #{existing.default_value.inspect} to #{default_value.inspect}"
+          "  (at: #{source_line})"
         end
         default_values << metadata
         metadata
@@ -412,6 +435,64 @@ module Mattock
     end
 
     extend ClassMethods
+
+    module DirectoryStructure
+      module ClassMethods
+        RequiredField = ::Mattock::Configurable::ClassMethods::RequiredField
+
+        attr_accessor :path_heirarchy
+        attr_accessor :path_fields
+
+        def dir(field_name, *args)
+          rel_path = RequiredField
+          if String === args.first
+            rel_path = args.shift
+          end
+          parent_field = path(field_name, rel_path)
+          self.path_heirarchy += args.map do |child_field|
+            [parent_field, child_field]
+          end
+          return parent_field
+        end
+
+        def path(field_name, rel_path=RequiredField)
+          field = setting(field_name, nested{
+            required_field :absolute_path
+            setting :relative_path, rel_path
+          })
+          path_fields << field
+          return field
+        end
+      end
+
+      def self.included(sub)
+        sub.extend ClassMethods
+        sub.path_heirarchy = []
+        sub.path_fields = []
+      end
+
+      def resolve_paths
+        missing_relatives = []
+        self.class.path_heirarchy.reverse.each do |parent_field, child_field|
+          child = child_field.value_on(self)
+          next unless child.field_unset?(:absolute_path)
+          if child.field_unset?(:relative_path)
+            missing_relatives << child_field
+            next
+          end
+          parent = parent_field.value_on(self)
+          child.absolute_path = File::join(parent.absolute_path, child.relative_path)
+        end
+        unless missing_relatives.empty?
+          raise "Required field#{missing_relatives.length == 1 ? "" : "s"} #{missing_relatives.map{|field| "#{field.name}.relative_path".inspect}.join(", ")} unset on #{self.inspect}"
+        end
+        self.class.path_fields.each do |field|
+          value = field.value_on(self)
+          next unless value.field_unset?(:relative_path)
+          value.relative_path = value.absolute_path
+        end
+      end
+    end
 
     def copy_settings
       SettingsCopier.new(self)

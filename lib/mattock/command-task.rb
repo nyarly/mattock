@@ -2,13 +2,15 @@ require 'mattock/task'
 require 'mattock/command-line'
 
 module Mattock
-  class CommandTask < Task
+  module CommandTaskMixin
     include CommandLineDSL
-    extend CommandLineDSL
 
-    setting(:task_name, :run)
-    runtime_setting(:verify_command, nil)
-    runtime_setting(:command)
+    def self.included(sub)
+      sub.extend CommandLineDSL
+      sub.setting(:task_name, :run)
+      sub.runtime_setting(:verify_command, nil)
+      sub.runtime_setting(:command)
+    end
 
     def resolve_runtime_configuration
       super
@@ -38,17 +40,33 @@ module Mattock
       command
     end
 
-    def action
+    def action(args)
       decorated(command).must_succeed!
     end
 
     def needed?
       finalize_configuration
-      unless verify_command.nil?
-        !decorated(verify_command).succeeds?
-      else
+      if verify_command.nil?
         super
+      else
+        !decorated(verify_command).succeeds?
       end
     end
+  end
+
+  class Rake::CommandTask < Rake::Task
+    include CommandTaskMixin
+  end
+
+  class Rake::FileCommandTask < Rake::FileTask
+    include CommandTaskMixin
+  end
+
+  class CommandTask < DeprecatedTaskAPI
+    def target_class; Rake::CommandTask; end
+  end
+
+  class FileCommandTask < DeprecatedTaskAPI
+    def target_class; Rake::FileCommandTask; end
   end
 end

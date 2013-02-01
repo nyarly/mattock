@@ -23,12 +23,12 @@ module Mattock
   module CascadingDefinition
     include Configurable
 
-    def initialize(*tasklibs)
+    def setup_cascade(*other_definitions)
       @runtime = false
       setup_defaults
 
       confirm_steps(:default_configuration, :resolve_configuration, :confirm_configuration) do
-        default_configuration(*tasklibs)
+        default_configuration(*other_definitions)
 
         yield self if block_given?
 
@@ -93,10 +93,9 @@ module Mattock
       mod.setting(:configuration_block, proc{})
     end
 
-    def initialize(*args, &block)
+    def setup_deferred
       @runtime = false
       @finalized = false
-      super
     end
 
     def runtime_definition(&block)

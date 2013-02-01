@@ -51,6 +51,73 @@ describe Mattock::Configurable do
     end.to_not raise_error
   end
 
+  describe "with DirectoryStructure" do
+    class DirectoryThing
+      include Mattock::Configurable
+      include DirectoryStructure
+
+      dir(:ephemeral_mountpoint,
+          dir(:bundle_workdir, "bundle_workdir",
+              path(:bundle_manifest),
+              path(:credentials_archive, "aws-creds.tar.gz"),
+              dir(:credentials_dir, "aws-creds",
+                  path(:private_key_file, "pk.pem"),
+                  path(:certificate_file, "cert.pem")
+                 )
+             )
+         )
+    end
+
+    def subject
+      DirectoryThing.new.tap do |thing|
+        thing.setup_defaults
+      end
+    end
+
+    it "should complain about missing fields" do
+      expect do
+        subject.check_required
+      end.to raise_error /Required field/
+    end
+
+    describe "with root path configured, but missing a relative path" do
+      def subject
+        DirectoryThing.new.tap do |thing|
+          thing.setup_defaults
+          thing.ephemeral_mountpoint.absolute_path = "/tmp"
+          thing.resolve_paths
+        end
+      end
+
+      it "should complain about missing fields" do
+        expect do
+          subject.check_required
+        end.to raise_error /Required field/
+      end
+    end
+
+    describe "with required paths configured" do
+      def subject
+        DirectoryThing.new.tap do |thing|
+          thing.setup_defaults
+          thing.ephemeral_mountpoint.absolute_path = "/tmp"
+          thing.bundle_manifest.relative_path = "image.manifest.xml"
+          thing.resolve_paths
+        end
+      end
+
+      it "should not complain about required fields" do
+        expect do
+          subject.check_required
+        end.not_to raise_error
+      end
+
+      its("certificate_file.absolute_path"){ should == "/tmp/bundle_workdir/aws-creds/cert.pem" }
+      its("bundle_manifest.absolute_path"){ should == "/tmp/bundle_workdir/image.manifest.xml" }
+      its("credentials_dir.absolute_path"){ should == "/tmp/bundle_workdir/aws-creds" }
+    end
+  end
+
   describe "multiple instances" do
     class MultiSource
       include Mattock::Configurable
