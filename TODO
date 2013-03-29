@@ -13,3 +13,5 @@ Feature: Tasklibs with a "default_sublib" setting - delete entries you don't wan
 Feature: Unpack task - depends on target files, so skipped until archive newer
 
 Feature: CommandLine - streaming output - connect stdout/stderr to parent's
+
+DirectoryStructure and Valise are related - would be nice e.g. to use a Valise as the "root" for a DirStrct and populate files that way

@@ -1,7 +1,7 @@
 source :rubygems
 
-gem 'ruby-debug19', :platform => :ruby_19
 
+gem 'fuubar'
 gem 'redcarpet'
 gem 'rake'
 gemspec

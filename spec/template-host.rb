@@ -9,9 +9,7 @@ describe Mattock::TemplateHost do
   end
 
   it "should be able to do easy templating" do
-    template_host.valise = Mattock::ValiseManager.default_valise("spec_help")
+    template_host.templates_are_in(Mattock::ValiseManager.default_valise("spec_help"))
     template_host.render("test.erb").should == "Templated: A test value\n"
-
   end
-
 end

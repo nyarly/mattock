@@ -7,7 +7,6 @@ module Mattock
 
     def self.included(sub)
       sub.extend CommandLineDSL
-      sub.setting(:task_name, :run)
       sub.runtime_setting(:verify_command, nil)
       sub.runtime_setting(:command)
     end
@@ -56,10 +55,18 @@ module Mattock
 
   class Rake::CommandTask < Rake::Task
     include CommandTaskMixin
+    setting :task_name, :run
   end
 
   class Rake::FileCommandTask < Rake::FileTask
     include CommandTaskMixin
+
+    setting :target_path
+
+    def resolve_configuration
+      super
+      self.target_path ||= task_name
+    end
   end
 
   class CommandTask < DeprecatedTaskAPI
