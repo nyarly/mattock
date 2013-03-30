@@ -6,7 +6,7 @@
 <title>
   Module: Mattock::CommandLineExampleGroup
   
-    &mdash; mattock-0.3.0 RDoc
+    &mdash; mattock-0.4.0 RDoc
   
 </title>
 
@@ -76,7 +76,7 @@
   
     
       <dt class="r1">Includes:</dt>
-      <dd class="r1"><span class='object_link'><a href="CommandLineExampleGroup/Matchers.html" title="Mattock::CommandLineExampleGroup::Matchers (module)">Matchers</a></span></dd>
+      <dd class="r1"><span class='object_link'><a href="CommandLineDSL.html" title="Mattock::CommandLineDSL (module)">CommandLineDSL</a></span></dd>
       
     
   
@@ -93,7 +93,7 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="CommandLineExampleGroup/Matchers.html" title="Mattock::CommandLineExampleGroup::Matchers (module)">Matchers</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="CommandLineExampleGroup/MockingExecute.html" title="Mattock::CommandLineExampleGroup::MockingExecute (module)">MockingExecute</a></span>
     
   
     
@@ -163,7 +163,34 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Registers an expectation about a command being run - expectations are
+ordered.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_some_commands-instance_method" title="#expect_some_commands (instance method)">- (Object) <strong>expect_some_commands</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Registers indifference as to exactly what commands get called.</p>
+</div></span>
   
 </li>
 
@@ -179,6 +206,10 @@
   
   
   
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="CommandLineDSL.html" title="Mattock::CommandLineDSL (module)">CommandLineDSL</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="CommandLineDSL.html#cmd-instance_method" title="Mattock::CommandLineDSL#cmd (method)">#cmd</a></span>, <span class='object_link'><a href="CommandLineDSL.html#escaped_command-instance_method" title="Mattock::CommandLineDSL#escaped_command (method)">#escaped_command</a></span></p>
+
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
@@ -199,46 +230,34 @@
       <pre class="lines">
 
 
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
 42
 43
 44
 45
-46</pre>
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/testing/mock-command-line.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/testing/mock-command-line.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_group'>group</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_group'>group</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_let'>let</span> <span class='symbol'>:pairs</span> <span class='kw'>do</span>
-      <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_group'>group</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span> <span class='symbol'>:each</span> <span class='kw'>do</span>
+    <span class='ivar'>@original_execute</span> <span class='op'>=</span> <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_instance_method'>instance_method</span><span class='lparen'>(</span><span class='symbol'>:execute</span><span class='rparen'>)</span>
+    <span class='kw'>unless</span> <span class='const'>MockingExecute</span> <span class='op'>&gt;</span> <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span>
+      <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'>MockingExecute</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
+    <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:remove_method</span><span class='comma'>,</span> <span class='symbol'>:execute</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_before'>before</span> <span class='symbol'>:each</span> <span class='kw'>do</span>
-      <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:execute</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cmd'>cmd</span><span class='op'>|</span>
-        <span class='id identifier rubyid_pattern'>pattern</span><span class='comma'>,</span> <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='id identifier rubyid_pairs'>pairs</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span>
-        <span class='id identifier rubyid_pattern'>pattern</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='op'>=~</span> <span class='id identifier rubyid_cmd'>cmd</span>
-        <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>MockCommandResult</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_res'>res</span><span class='rparen'>)</span>
-      <span class='kw'>end</span><span class='period'>.</span><span class='id identifier rubyid_any_number_of_times'>any_number_of_times</span>
-    <span class='kw'>end</span>
-
-    <span class='id identifier rubyid_after'>after</span> <span class='symbol'>:each</span> <span class='kw'>do</span>
-      <span class='id identifier rubyid_pairs'>pairs</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_have_all_been_called'>have_all_been_called</span>
-    <span class='kw'>end</span>
+  <span class='id identifier rubyid_group'>group</span><span class='period'>.</span><span class='id identifier rubyid_after'>after</span> <span class='symbol'>:each</span> <span class='kw'>do</span>
+    <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='symbol'>:execute</span><span class='comma'>,</span> <span class='ivar'>@original_execute</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -264,24 +283,14 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Registers an expectation about a command being run - expectations are
+ordered</p>
+
 
   </div>
 </div>
 <div class="tags">
   
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ArgumentError</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
 
 </div><table class="source_code">
   <tr>
@@ -289,17 +298,56 @@
       <pre class="lines">
 
 
-48
-49
-50
-51</pre>
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/testing/mock-command-line.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/testing/mock-command-line.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expect_command'>expect_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Regexp expected: not </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cmd'>cmd</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'>Regexp</span> <span class='op'>===</span> <span class='id identifier rubyid_cmd'>cmd</span>
-  <span class='id identifier rubyid_pairs'>pairs</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span><span class='rbracket'>]</span>
+  <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:execute</span><span class='comma'>,</span> <span class='symbol'>:expected_from</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_caller'>caller</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ordered'>ordered</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='const'>MockCommandResult</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect_some_commands-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expect_some_commands</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Registers indifference as to exactly what commands get called</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/testing/mock-command-line.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expect_some_commands'>expect_some_commands</span>
+  <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:execute</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_any_number_of_times'>any_number_of_times</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='const'>MockCommandResult</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -311,9 +359,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 09:15:05 2012 by
+  Generated on Fri Mar 29 18:08:40 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.3).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

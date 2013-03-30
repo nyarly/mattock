@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <title>
   File: README
   
-    &mdash; mattock-0.3.0 RDoc
+    &mdash; mattock-0.4.0 RDoc
   
 </title>
 
@@ -67,7 +67,7 @@
 <h3 id="label-A+powerful+companion+to+Rake">A powerful companion to Rake</h3>
 
 <p>The goal for Mattock is to be able to build configurable, composable
-tasklibs for Rake quickly, and get validation that they’re working
+tasklibs for Rake quickly, and get validation that they're working
 properly.</p>
 
 <p>Throughout, the goal has been to lean hard on straight up Ruby, with as
@@ -75,7 +75,7 @@ little metaprogrammitic DSL nonsense as I could get away with.</p>
 
 <p>In fact, basically the only DSL stuff in Mattock are settings for Tasklibs.
 The gory details are in <span class='object_link'><a href="Mattock/Configurable.html" title="Mattock::Configurable (module)">Mattock::Configurable</a></span>.  Inheritable, defaultable,
-verifying, copyable settings.  Nothing you haven’t seen done before.</p>
+verifying, copyable settings.  Nothing you haven't seen done before.</p>
 
 <h3 id="label-Tasklibs">Tasklibs</h3>
 
@@ -94,7 +94,7 @@ do things like:</p>
 <span class="ruby-keyword">end</span>
 </pre>
 
-<p>Things of note there: the “Git” tasklib takes the Toolkit tasklib as an
+<p>Things of note there: the "Git" tasklib takes the Toolkit tasklib as an
 argument.  Git can pull out settings from Toolkit.  (Conversely, that means
 as these tasklibs are designed, common settings can be pulled up into
 parent tasklibs.)  Libs with related concerns can get hooked together and
@@ -105,27 +105,23 @@ namespaces, however that makes sense.</p>
 
 <p><span class='object_link'><a href="Mattock/TaskLib.html" title="Mattock::TaskLib (class)">Mattock::TaskLib</a></span> also codifies the typical pattern with Rake tasklibs:
 setup default configuration, yield self, confirm configs, define tasks.
-Configuration is held in “settings,” which mean defaults are easier to
+Configuration is held in "settings," which mean defaults are easier to
 track, complex configs can be resolved after setup, and required values
 automatically confirmed.</p>
 
-<p>A nice side effect is that “misconfiguration” - i.e. assigning a value to
+<p>A nice side effect is that "misconfiguration" - i.e. assigning a value to
 the wrong name - gets caught really quickly, which you come to appreciate
 in complex Rakefiles.</p>
 
 <h3 id="label-Tasks">Tasks</h3>
 
 <p><span class='object_link'><a href="Mattock/Task.html" title="Mattock::Task (class)">Mattock::Task</a></span> defines subclasses of Rake tasks - they can do all the
-configuration that Mattock::TaskLib can, but they’re just tasks. 
-Crucially, details about whether they’re needed can be overriden. 
+configuration that Mattock::TaskLib can, but they're just tasks. 
+Crucially, details about whether they're needed can be overriden. 
 Occasionally handy.</p>
 </div>
   <h2>Mattock Tasklibs Defined</h2>
   <ul>
-    
-      <li><span class='object_link'><a href="Mattock/TaskMixin.html" title="Mattock::TaskMixin (module)">Mattock::TaskMixin</a></span></li>
-    
-      <li><span class='object_link'><a href="Mattock/CommandTask.html" title="Mattock::CommandTask (class)">Mattock::CommandTask</a></span></li>
     
       <li><span class='object_link'><a href="Mattock/CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">Mattock::CascadingDefinition</a></span></li>
     
@@ -136,9 +132,9 @@ Occasionally handy.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 09:15:04 2012 by
+  Generated on Fri Mar 29 18:08:40 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.3).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Module: Mattock::TemplateTaskLib
   
-    &mdash; mattock-0.3.0 RDoc
+    &mdash; mattock-0.4.0 RDoc
   
 </title>
 
@@ -145,7 +145,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="TemplateHost.html" title="Mattock::TemplateHost (module)">TemplateHost</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="TemplateHost.html#find_template-instance_method" title="Mattock::TemplateHost#find_template (method)">#find_template</a></span>, <span class='object_link'><a href="TemplateHost.html#render-instance_method" title="Mattock::TemplateHost#render (method)">#render</a></span>, <span class='object_link'><a href="TemplateHost.html#template_cache-class_method" title="Mattock::TemplateHost.template_cache (method)">template_cache</a></span>, <span class='object_link'><a href="TemplateHost.html#template_contents-instance_method" title="Mattock::TemplateHost#template_contents (method)">#template_contents</a></span>, <span class='object_link'><a href="TemplateHost.html#template_path-instance_method" title="Mattock::TemplateHost#template_path (method)">#template_path</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="TemplateHost.html#find_template-instance_method" title="Mattock::TemplateHost#find_template (method)">#find_template</a></span>, <span class='object_link'><a href="TemplateHost.html#render-instance_method" title="Mattock::TemplateHost#render (method)">#render</a></span>, <span class='object_link'><a href="TemplateHost.html#template-instance_method" title="Mattock::TemplateHost#template (method)">#template</a></span>, <span class='object_link'><a href="TemplateHost.html#template_path-instance_method" title="Mattock::TemplateHost#template_path (method)">#template_path</a></span>, <span class='object_link'><a href="TemplateHost.html#templates_are_in-instance_method" title="Mattock::TemplateHost#templates_are_in (method)">#templates_are_in</a></span></p>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -167,23 +167,31 @@
       <pre class="lines">
 
 
-76
-77
-78
-79
-80
-81
-82
-83</pre>
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/template-host.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_template_task'>template_task</span><span class='lparen'>(</span><span class='id identifier rubyid_template_source'>template_source</span><span class='comma'>,</span> <span class='id identifier rubyid_destination_path'>destination_path</span><span class='comma'>,</span> <span class='id identifier rubyid_template_options'>template_options</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_template_options'>template_options</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_valise'>valise</span><span class='period'>.</span><span class='id identifier rubyid_add_serialization_handler'>add_serialization_handler</span><span class='lparen'>(</span><span class='id identifier rubyid_template_source'>template_source</span><span class='comma'>,</span> <span class='symbol'>:tilt</span><span class='comma'>,</span> <span class='symbol'>:template_options</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_template_options'>template_options</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
   <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_template_path'>template_path</span><span class='lparen'>(</span><span class='id identifier rubyid_template_source'>template_source</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_destination_path'>destination_path</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_template_path'>template_path</span><span class='lparen'>(</span><span class='id identifier rubyid_template_source'>template_source</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_destination_path'>destination_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
-      <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_template_source'>template_source</span><span class='comma'>,</span> <span class='id identifier rubyid_template_options'>template_options</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_template_source'>template_source</span><span class='rparen'>)</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -197,9 +205,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 09:15:04 2012 by
+  Generated on Fri Mar 29 18:08:41 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.3).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Module: Mattock::RakeExampleGroup
   
-    &mdash; mattock-0.3.0 RDoc
+    &mdash; mattock-0.4.0 RDoc
   
 </title>
 
@@ -241,10 +241,10 @@
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_let!'>let!</span> <span class='symbol'>:rake</span> <span class='kw'>do</span>
-      <span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span> <span class='op'>=</span> <span class='const'>Rake</span><span class='op'>::</span><span class='const'>Application</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-      <span class='const'>Rake</span><span class='op'>::</span><span class='const'>TaskManager</span><span class='period'>.</span><span class='id identifier rubyid_record_task_metadata'>record_task_metadata</span> <span class='op'>=</span> <span class='kw'>true</span>
+      <span class='op'>::</span><span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Application</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+      <span class='op'>::</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>TaskManager</span><span class='period'>.</span><span class='id identifier rubyid_record_task_metadata'>record_task_metadata</span> <span class='op'>=</span> <span class='kw'>true</span>
       <span class='const'>RakeFileUtils</span><span class='period'>.</span><span class='id identifier rubyid_verbose_flag'>verbose_flag</span> <span class='op'>=</span> <span class='kw'>false</span>
-      <span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span>
+      <span class='op'>::</span><span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span>
     <span class='kw'>end</span>
 
     <span class='id identifier rubyid_before'>before</span> <span class='symbol'>:each</span> <span class='kw'>do</span>
@@ -294,9 +294,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 09:15:05 2012 by
+  Generated on Fri Mar 29 18:08:40 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.3).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

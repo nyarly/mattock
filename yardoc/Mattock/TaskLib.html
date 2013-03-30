@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::TaskLib
   
-    &mdash; mattock-0.3.0 RDoc
+    &mdash; mattock-0.4.0 RDoc
   
 </title>
 
@@ -319,7 +319,9 @@ end</pre>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Shorthand for.</p>
+</div></span>
   
 </li>
 
@@ -371,7 +373,7 @@ end</pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (TaskLib) <strong>initialize</strong>(*toolkits) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (TaskLib) <strong>initialize</strong>(*toolkits, &amp;block) </a>
     
 
     
@@ -457,7 +459,10 @@ end</pre>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Builds a series of tasks in a sequence - the idea is that dependant
+tasklibs can depend on stages of a larger process.</p>
+</div></span>
   
 </li>
 
@@ -475,7 +480,7 @@ end</pre>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">CascadingDefinition</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="CascadingDefinition.html#confirm_configuration-instance_method" title="Mattock::CascadingDefinition#confirm_configuration (method)">#confirm_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#default_configuration-instance_method" title="Mattock::CascadingDefinition#default_configuration (method)">#default_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#define-instance_method" title="Mattock::CascadingDefinition#define (method)">#define</a></span>, <span class='object_link'><a href="CascadingDefinition.html#resolve_configuration-instance_method" title="Mattock::CascadingDefinition#resolve_configuration (method)">#resolve_configuration</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="CascadingDefinition.html#confirm_configuration-instance_method" title="Mattock::CascadingDefinition#confirm_configuration (method)">#confirm_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#confirm_step-instance_method" title="Mattock::CascadingDefinition#confirm_step (method)">#confirm_step</a></span>, <span class='object_link'><a href="CascadingDefinition.html#confirm_steps-instance_method" title="Mattock::CascadingDefinition#confirm_steps (method)">#confirm_steps</a></span>, <span class='object_link'><a href="CascadingDefinition.html#default_configuration-instance_method" title="Mattock::CascadingDefinition#default_configuration (method)">#default_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#define-instance_method" title="Mattock::CascadingDefinition#define (method)">#define</a></span>, <span class='object_link'><a href="CascadingDefinition.html#resolve_configuration-instance_method" title="Mattock::CascadingDefinition#resolve_configuration (method)">#resolve_configuration</a></span>, <span class='object_link'><a href="CascadingDefinition.html#setup_cascade-instance_method" title="Mattock::CascadingDefinition#setup_cascade (method)">#setup_cascade</a></span></p>
 
   
   
@@ -497,7 +502,7 @@ end</pre>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable/ClassMethods.html" title="Mattock::Configurable::ClassMethods (module)">Configurable::ClassMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#copy_settings-instance_method" title="Mattock::Configurable::ClassMethods#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_metadata-instance_method" title="Mattock::Configurable::ClassMethods#field_metadata (method)">#field_metadata</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_names-instance_method" title="Mattock::Configurable::ClassMethods#field_names (method)">#field_names</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_required_fields-instance_method" title="Mattock::Configurable::ClassMethods#runtime_required_fields (method)">#runtime_required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_setting-instance_method" title="Mattock::Configurable::ClassMethods#runtime_setting (method)">#runtime_setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#to_hash-instance_method" title="Mattock::Configurable::ClassMethods#to_hash (method)">#to_hash</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#copy_settings-instance_method" title="Mattock::Configurable::ClassMethods#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_value_for-instance_method" title="Mattock::Configurable::ClassMethods#default_value_for (method)">#default_value_for</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_metadata-instance_method" title="Mattock::Configurable::ClassMethods#field_metadata (method)">#field_metadata</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_names-instance_method" title="Mattock::Configurable::ClassMethods#field_names (method)">#field_names</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#inspect_instance-instance_method" title="Mattock::Configurable::ClassMethods#inspect_instance (method)">#inspect_instance</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_required_fields-instance_method" title="Mattock::Configurable::ClassMethods#runtime_required_fields (method)">#runtime_required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_setting-instance_method" title="Mattock::Configurable::ClassMethods#runtime_setting (method)">#runtime_setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#to_hash-instance_method" title="Mattock::Configurable::ClassMethods#to_hash (method)">#to_hash</a></span></p>
 
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
@@ -505,7 +510,7 @@ end</pre>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Mattock::TaskLib (class)">TaskLib</a></span></tt>) <strong>initialize</strong>(*toolkits) 
+    - (<tt><span class='object_link'><a href="" title="Mattock::TaskLib (class)">TaskLib</a></span></tt>) <strong>initialize</strong>(*toolkits, &amp;block) 
   
 
   
@@ -536,9 +541,9 @@ end</pre>
     <td>
       <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 53</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_toolkits'>toolkits</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_toolkits'>toolkits</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@tasks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='kw'>super</span>
+  <span class='id identifier rubyid_setup_cascade'>setup_cascade</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_toolkits'>toolkits</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -551,7 +556,6 @@ end</pre>
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="namespace_name=-instance_method"></span>
       <span id=""></span>
       <div class="method_details first">
   <h3 class="signature first" id="namespace_name=-instance_method">
@@ -616,7 +620,6 @@ end</pre>
     
       
       <span id=""></span>
-      <span id="tasks-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="tasks-instance_method">
   
@@ -739,12 +742,12 @@ instantiation</p>
       <pre class="lines">
 
 
-109
-110
-111</pre>
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_taskname'>taskname</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='id identifier rubyid_taskname'>taskname</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -763,19 +766,37 @@ instantiation</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shorthand for</p>
+
+<pre class="ruby"><span class="ruby-identifier">task</span> <span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">before</span>
+<span class="ruby-identifier">task</span> <span class="ruby-identifier">after</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>
+</pre>
+
+<p>Which ensures that if "after" is ever invoked, the execution will be
+before, name, then after</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-65
-66
-67
-68</pre>
+70
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bracket_task'>bracket_task</span><span class='lparen'>(</span><span class='id identifier rubyid_before'>before</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_after'>after</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_task'>task</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_before'>before</span>
@@ -801,12 +822,12 @@ instantiation</p>
       <pre class="lines">
 
 
-104
-105
-106</pre>
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_namespace'>default_namespace</span>
   <span class='kw'>nil</span>
@@ -884,13 +905,6 @@ declaration</p>
       <pre class="lines">
 
 
-82
-83
-84
-85
-86
-87
-88
 89
 90
 91
@@ -900,10 +914,17 @@ declaration</p>
 95
 96
 97
-98</pre>
+98
+99
+100
+101
+102
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasknames'>tasknames</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_tasknames'>tasknames</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -942,12 +963,12 @@ declaration</p>
       <pre class="lines">
 
 
-100
-101
-102</pre>
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_root_task'>root_task</span>
   <span class='ivar'>@namespace_name</span> <span class='op'>||</span> <span class='symbol'>:default</span>
@@ -1011,21 +1032,33 @@ declaration</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Builds a series of tasks in a sequence - the idea is that dependant
+tasklibs can depend on stages of a larger process</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-70
-71
-72
-73
-74
-75</pre>
+77
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/tasklib.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_task_spine'>task_spine</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_list'>list</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_list'>list</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -1043,9 +1076,9 @@ declaration</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 09:15:05 2012 by
+  Generated on Fri Mar 29 18:08:43 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.3).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

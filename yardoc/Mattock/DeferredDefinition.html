@@ -6,7 +6,7 @@
 <title>
   Module: Mattock::DeferredDefinition
   
-    &mdash; mattock-0.3.0 RDoc
+    &mdash; mattock-0.4.0 RDoc
   
 </title>
 
@@ -78,7 +78,7 @@
   
   
     <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="TaskMixin.html" title="Mattock::TaskMixin (module)">TaskMixin</a></span></dd>
+    <dd class="r1"><span class='object_link'><a href="ConfigurableTask.html" title="Mattock::ConfigurableTask (module)">ConfigurableTask</a></span></dd>
     
   
   
@@ -161,30 +161,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (DeferredDefinition) <strong>initialize</strong>(*args, &amp;block) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of DeferredDefinition.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#resolve_runtime_configuration-instance_method" title="#resolve_runtime_configuration (instance method)">- (Object) <strong>resolve_runtime_configuration</strong> </a>
     
 
@@ -248,6 +224,28 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_deferred-instance_method" title="#setup_deferred (instance method)">- (Object) <strong>setup_deferred</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -272,12 +270,12 @@
       <pre class="lines">
 
 
-73
-74
-75</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_settings'>add_settings</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_setting'>setting</span><span class='lparen'>(</span><span class='symbol'>:configuration_block</span><span class='comma'>,</span> <span class='id identifier rubyid_proc'>proc</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -308,70 +306,29 @@
       <pre class="lines">
 
 
-94
-95
-96
-97
-98
-99
-100
-101</pre>
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_finalize_configuration'>finalize_configuration</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@finalized</span>
   <span class='ivar'>@runtime</span> <span class='op'>=</span> <span class='kw'>true</span>
   <span class='id identifier rubyid_configuration_block'>configuration_block</span><span class='lbracket'>[</span><span class='kw'>self</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_resolve_runtime_configuration'>resolve_runtime_configuration</span>
-  <span class='id identifier rubyid_confirm_configuration'>confirm_configuration</span>
+  <span class='id identifier rubyid_confirm_steps'>confirm_steps</span><span class='lparen'>(</span><span class='symbol'>:resolve_runtime_configuration</span><span class='comma'>,</span> <span class='symbol'>:confirm_configuration</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_resolve_runtime_configuration'>resolve_runtime_configuration</span>
+    <span class='id identifier rubyid_confirm_configuration'>confirm_configuration</span>
+  <span class='kw'>end</span>
   <span class='ivar'>@finalized</span> <span class='op'>=</span> <span class='kw'>true</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="initialize-instance_method">
-  
-    - (<tt><span class='object_link'><a href="" title="Mattock::DeferredDefinition (module)">DeferredDefinition</a></span></tt>) <strong>initialize</strong>(*args, &amp;block) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>A new instance of DeferredDefinition</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-77
-78
-79
-80
-81</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 77</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='ivar'>@runtime</span> <span class='op'>=</span> <span class='kw'>false</span>
-  <span class='ivar'>@finalized</span> <span class='op'>=</span> <span class='kw'>false</span>
-  <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -393,13 +350,15 @@
       <pre class="lines">
 
 
-91
-92</pre>
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_runtime_configuration'>resolve_runtime_configuration</span>
+  <span class='id identifier rubyid_confirm_step'>confirm_step</span><span class='lparen'>(</span><span class='symbol'>:resolve_runtime_configuration</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -443,12 +402,12 @@
       <pre class="lines">
 
 
-87
-88
-89</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_runtime?'>runtime?</span>
   <span class='op'>!</span><span class='op'>!</span><span class='ivar'>@runtime</span>
@@ -473,15 +432,47 @@
       <pre class="lines">
 
 
-83
-84
-85</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_runtime_definition'>runtime_definition</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configuration_block'>configuration_block</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup_deferred-instance_method">
+  
+    - (<tt>Object</tt>) <strong>setup_deferred</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/cascading-definition.rb', line 96</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup_deferred'>setup_deferred</span>
+  <span class='ivar'>@runtime</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@finalized</span> <span class='op'>=</span> <span class='kw'>false</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -493,9 +484,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 09:15:04 2012 by
+  Generated on Fri Mar 29 18:08:41 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.3).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

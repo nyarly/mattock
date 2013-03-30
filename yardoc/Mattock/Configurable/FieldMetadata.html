@@ -6,7 +6,7 @@
 <title>
   Class: Mattock::Configurable::FieldMetadata
   
-    &mdash; mattock-0.3.0 RDoc
+    &mdash; mattock-0.4.0 RDoc
   
 </title>
 
@@ -585,14 +585,14 @@
       <pre class="lines">
 
 
-23
-24
-25
-26
-27</pre>
+32
+33
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span>
@@ -611,7 +611,6 @@
     
       
       <span id="default_value=-instance_method"></span>
-      <span id="default_value-instance_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="default_value-instance_method">
   
@@ -638,12 +637,12 @@
       <pre class="lines">
 
 
-14
-15
-16</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_value'>default_value</span>
   <span class='ivar'>@default_value</span>
@@ -655,7 +654,6 @@
     
       
       <span id="name=-instance_method"></span>
-      <span id="name-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="name-instance_method">
   
@@ -682,12 +680,12 @@
       <pre class="lines">
 
 
-14
-15
-16</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -719,12 +717,12 @@
       <pre class="lines">
 
 
-78
-79
-80</pre>
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_immediate_value_on'>immediate_value_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_get'>instance_variable_get</span><span class='lparen'>(</span><span class='id identifier rubyid_ivar_name'>ivar_name</span><span class='rparen'>)</span>
@@ -749,15 +747,15 @@
       <pre class="lines">
 
 
-29
-30
-31
-32
-33
-34</pre>
+38
+39
+40
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='id identifier rubyid_set_props'>set_props</span> <span class='op'>=</span> <span class='const'>DEFAULT_PROPERTIES</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_find_all'>find_all</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prop'>prop</span><span class='op'>|</span>
@@ -785,14 +783,14 @@
       <pre class="lines">
 
 
-53
-54
-55
-56
-57</pre>
+62
+63
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is'>is</span><span class='lparen'>(</span><span class='id identifier rubyid_property'>property</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_validate_property_name'>validate_property_name</span><span class='lparen'>(</span><span class='id identifier rubyid_property'>property</span><span class='rparen'>)</span>
@@ -841,13 +839,13 @@
       <pre class="lines">
 
 
-42
-43
-44
-45</pre>
+51
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is?'>is?</span><span class='lparen'>(</span><span class='id identifier rubyid_property'>property</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_validate_property_name'>validate_property_name</span><span class='lparen'>(</span><span class='id identifier rubyid_property'>property</span><span class='rparen'>)</span>
@@ -877,14 +875,14 @@
       <pre class="lines">
 
 
-59
-60
-61
-62
-63</pre>
+68
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_not'>is_not</span><span class='lparen'>(</span><span class='id identifier rubyid_property'>property</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_validate_property_name'>validate_property_name</span><span class='lparen'>(</span><span class='id identifier rubyid_property'>property</span><span class='rparen'>)</span>
@@ -937,13 +935,13 @@
       <pre class="lines">
 
 
-47
-48
-49
-50</pre>
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_not?'>is_not?</span><span class='lparen'>(</span><span class='id identifier rubyid_property'>property</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_validate_property_name'>validate_property_name</span><span class='lparen'>(</span><span class='id identifier rubyid_property'>property</span><span class='rparen'>)</span>
@@ -969,12 +967,12 @@
       <pre class="lines">
 
 
-66
-67
-68</pre>
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ivar_name'>ivar_name</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1021,17 +1019,17 @@
       <pre class="lines">
 
 
-107
-108
-109
-110
-111
-112
-113
-114</pre>
+116
+117
+118
+119
+120
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_missing_on?'>missing_on?</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_is?'>is?</span><span class='lparen'>(</span><span class='symbol'>:required</span><span class='rparen'>)</span>
@@ -1061,12 +1059,12 @@
       <pre class="lines">
 
 
-74
-75
-76</pre>
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reader_method'>reader_method</span>
   <span class='id identifier rubyid_name'>name</span>
@@ -1113,19 +1111,19 @@
       <pre class="lines">
 
 
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125</pre>
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_runtime_missing_on?'>runtime_missing_on?</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_is?'>is?</span><span class='lparen'>(</span><span class='symbol'>:runtime</span><span class='rparen'>)</span>
@@ -1179,20 +1177,20 @@
       <pre class="lines">
 
 
-91
-92
-93
-94
-95
-96
-97
-98
-99
 100
-101</pre>
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_on?'>set_on?</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_defined?'>instance_variable_defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_ivar_name'>ivar_name</span><span class='rparen'>)</span>
@@ -1247,12 +1245,12 @@
       <pre class="lines">
 
 
-103
-104
-105</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unset_on?'>unset_on?</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
   <span class='op'>!</span><span class='id identifier rubyid_set_on?'>set_on?</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
@@ -1277,14 +1275,14 @@
       <pre class="lines">
 
 
-36
-37
-38
-39
-40</pre>
+45
+46
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_property_name'>validate_property_name</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='const'>DEFAULT_PROPERTIES</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -1311,17 +1309,17 @@
       <pre class="lines">
 
 
-82
-83
-84
-85
-86
-87
-88
-89</pre>
+91
+92
+93
+94
+95
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value_on'>value_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_immediate_value_on'>immediate_value_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
@@ -1351,12 +1349,12 @@
       <pre class="lines">
 
 
-70
-71
-72</pre>
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_writer_method'>writer_method</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span>
@@ -1371,9 +1369,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 09:15:05 2012 by
+  Generated on Fri Mar 29 18:08:44 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.3).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

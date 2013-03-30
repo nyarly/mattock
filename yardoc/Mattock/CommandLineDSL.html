@@ -6,7 +6,7 @@
 <title>
   Module: Mattock::CommandLineDSL
   
-    &mdash; mattock-0.3.0 RDoc
+    &mdash; mattock-0.4.0 RDoc
   
 </title>
 
@@ -78,7 +78,7 @@
   
   
     <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="CommandTask.html" title="Mattock::CommandTask (class)">CommandTask</a></span>, <span class='object_link'><a href="CommandTask.html" title="Mattock::CommandTask (class)">CommandTask</a></span></dd>
+    <dd class="r1"><span class='object_link'><a href="CommandLineExampleGroup.html" title="Mattock::CommandLineExampleGroup (module)">CommandLineExampleGroup</a></span>, <span class='object_link'><a href="CommandTaskMixin.html" title="Mattock::CommandTaskMixin (module)">CommandTaskMixin</a></span></dd>
     
   
   
@@ -108,7 +108,29 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#cmd-instance_method" title="#cmd (instance method)">- (Object) <strong>cmd</strong>(*args) </a>
+      <a href="#cmd-instance_method" title="#cmd (instance method)">- (Object) <strong>cmd</strong>(*args, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escaped_command-instance_method" title="#escaped_command (instance method)">- (Object) <strong>escaped_command</strong>(*args, &amp;block) </a>
     
 
     
@@ -139,7 +161,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="cmd-instance_method">
   
-    - (<tt>Object</tt>) <strong>cmd</strong>(*args) 
+    - (<tt>Object</tt>) <strong>cmd</strong>(*args, &amp;block) 
   
 
   
@@ -151,15 +173,45 @@
       <pre class="lines">
 
 
-138
-139
-140</pre>
+220
+221
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 220</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_cmd'>cmd</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_cmd'>cmd</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="escaped_command-instance_method">
+  
+    - (<tt>Object</tt>) <strong>escaped_command</strong>(*args, &amp;block) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+224
+225
+226</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 224</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_escaped_command'>escaped_command</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='const'>ShellEscaped</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -171,9 +223,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 09:15:04 2012 by
+  Generated on Fri Mar 29 18:08:40 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.3).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>
