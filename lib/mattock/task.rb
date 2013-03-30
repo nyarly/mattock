@@ -82,7 +82,7 @@ module Mattock
     end
 
     def initialize(*args, &block)
-      self.class.deprecated "#{self.class.name}.new(...) is deprecated - instead use #{target_class.name}.define_task(...)"
+      self.class.deprecated "#{self.class.name}.new(...) is deprecated - instead use #{target_class.name}.define_task(...)\n  (from #{caller[0]})"
       target_class.define_task(*args, &block)
     end
   end

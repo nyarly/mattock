@@ -30,6 +30,10 @@ module Mattock
       find_template(path).contents
     end
 
+    def template_path(path)
+      find_template(path).full_path
+    end
+
     def render(path)
       locals = {}
       if block_given?

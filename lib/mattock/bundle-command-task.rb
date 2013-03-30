@@ -1,7 +1,7 @@
 require 'mattock/command-task'
 
 module Mattock
-  class BundleCommandTask < CommandTask
+  class BundleCommandTask < Rake::CommandTask
     def cleaned_env
       env = {}
       if defined? Bundler

@@ -9,8 +9,7 @@ describe Mattock::RemoteCommandTask do
 
   let! :remote_task do
     namespace :test do
-      Mattock::RemoteCommandTask.new do |t|
-        p :config
+      Mattock::Rake::RemoteCommandTask.define_task do |t|
         t.remote_server.address = "nowhere.com"
         t.command = Mattock::PrereqChain.new do |prereq|
           prereq.add Mattock::CommandLine.new("cd", "a_dir")
@@ -43,7 +42,7 @@ describe Mattock::BundleCommandTask do
   include Mattock::CommandLineExampleGroup
 
   let! :bundle_task do
-    Mattock::BundleCommandTask.new(:bundle_test) do |t|
+    Mattock::BundleCommandTask.define_task(:bundle_test) do |t|
       t.command = cmd("bundle", "install", "--standalone")
     end
   end
