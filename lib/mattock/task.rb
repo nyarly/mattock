@@ -46,6 +46,7 @@ module Mattock
 
           yield(t) if block_given?
         end
+        return task
       end
     end
 
