@@ -67,8 +67,8 @@ module Mattock
     #  task after => name
     #Which ensures that if "after" is ever invoked,
     #the execution will be before, name, then after
-    def bracket_task(before, name, after)
-      task self[name] => before
+    def bracket_task(before, name, after, &block)
+      task self[name] => before, &block
       task after => self[name]
     end
 

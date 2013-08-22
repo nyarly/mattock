@@ -320,8 +320,7 @@ module Mattock
 
         if existing = default_values.find{|field| field.name == name} and existing.default_value != default_value
           source_line = caller.drop_while{|line| /#{__FILE__}/ =~ line}.first
-            warn "Changing default value of #{self.name}##{name} from #{existing.default_value.inspect} to #{default_value.inspect}"
-          "  (at: #{source_line})"
+            warn "Changing default value of #{self.name}##{name} from #{existing.default_value.inspect} to #{default_value.inspect} (at: #{source_line})"
         end
         default_values << metadata
         metadata
