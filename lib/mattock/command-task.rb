@@ -43,12 +43,16 @@ module Mattock
       decorated(command).must_succeed!
     end
 
+    def check_verification_command
+      !decorated(verify_command).succeeds?
+    end
+
     def needed?
       finalize_configuration
       if verify_command.nil?
         super
       else
-        !decorated(verify_command).succeeds?
+        check_verification_command
       end
     end
   end

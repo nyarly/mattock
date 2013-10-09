@@ -14,6 +14,7 @@ module Mattock
     public :rel_dir, :default_valise
   end
 
+  #@deprecated Use {Valise::Set#templates} instead
   module TemplateHost
     attr_accessor :valise
 
@@ -44,9 +45,11 @@ module Mattock
     end
   end
 
+  #@deprecated Use {Valise::Set#templates} instead
   module TemplateTaskLib
     include TemplateHost
 
+    #@deprecated Use {Valise::Set#templates} instead
     def template_task(template_source, destination_path, template_options = nil)
       unless template_options.nil?
         valise.add_serialization_handler(template_source, :tilt, :template_options => template_options)

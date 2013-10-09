@@ -27,6 +27,10 @@ describe Mattock::RemoteCommandTask do
     end
   end
 
+  it "should inspect cleanly" do
+    rake["test:run"].inspect.should be_a(String)
+  end
+
   describe "when verification indicates command should proceed" do
     it "should run both commands" do
       expect_command(/should_do/, 1)

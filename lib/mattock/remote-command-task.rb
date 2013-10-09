@@ -2,18 +2,15 @@ require 'mattock/command-task'
 module Mattock
   module Rake
     class RemoteCommandTask < CommandTask
-      runtime_setting(:remote_server, nested(
-        :address => nil,
-        :user => nil
-      ))
-      setting(:ssh_options, [])
-      nil_fields(:id_file, :free_arguments)
-      runtime_setting(:remote_target)
+      setting(:remote_server, nested{
+        setting :address
+        setting :port, 22
+        setting :user, nil
+      })
 
-      def resolve_runtime_configuration
-        super
-        self.remote_target ||= [remote_server.user, remote_server.address].compact.join('@') unless remote_server.address.nil?
-      end
+      setting(:ssh_options, [])
+      setting(:verbose, 0)
+      nil_fields(:id_file, :free_arguments)
 
       def ssh_option(name, value)
         ssh_options << "\"#{name}=#{value}\""
@@ -26,12 +23,16 @@ module Mattock
         Mattock::WrappingChain.new do |cmd|
           cmd.add Mattock::CommandLine.new("ssh") do |cmd|
             cmd.options << "-i #{id_file}" if id_file
+            cmd.options << "-l #{remote_server.user}" unless remote_server.user.nil?
+            cmd.options << remote_server.address
+            cmd.options << "-p #{remote_server.port}"
+            cmd.options << "-n"
+            cmd.options << "-#{'v'*verbose}" if verbose > 0
             unless ssh_options.empty?
               ssh_options.each do |opt|
                 cmd.options << "-o #{opt}"
               end
             end
-            cmd.options << remote_target
           end
           cmd.add Mattock::ShellEscaped.new(command_on_remote)
         end

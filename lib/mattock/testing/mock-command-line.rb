@@ -1,7 +1,7 @@
 require 'mattock/command-line'
 
 module Mattock
-  class MockCommandResult < CommandRunResult
+  class MockCommandResult < CommandLine::CommandRunResult
     def self.create(*args)
       if args.length == 1
         args = [args[0], {1 => ""}]

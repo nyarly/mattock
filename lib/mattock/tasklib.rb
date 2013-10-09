@@ -39,6 +39,7 @@ module Mattock
   #configuration options are built using {Configurable}
   class TaskLib < ::Rake::TaskLib
     include CascadingDefinition
+    include Configurable::DirectoryStructure
 
     attr_writer :namespace_name
 
@@ -110,6 +111,25 @@ module Mattock
 
     def default_namespace
       nil
+    end
+
+    #Default define defines some tasks related to debugging Rakefiles -
+    #subclasses can get these just by remembering to call 'super' in their
+    #define
+    def define
+      debug_settings_task
+    end
+
+    def debug_settings_task
+      in_namespace do
+        task :debug_settings do
+          require 'pp'
+          puts self.class.name
+          pp self.to_hash
+        end
+      end
+
+      task :debug_settings => self[:debug_settings]
     end
 
     #Wraps a single task in lib's namespace

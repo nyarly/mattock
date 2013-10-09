@@ -13,6 +13,7 @@ module Mattock
     include Configurable
     include CascadingDefinition
     include DeferredDefinition
+    include Configurable::DirectoryStructure
 
     module ClassMethods
       def default_taskname(name)
@@ -35,6 +36,9 @@ module Mattock
           task.action(args)
         end
 
+        #XXX ?? Dilemma: this prevents an existing task action from being
+        #enriched with this one, but not v/v - it also doesn't prevent double
+        #-definition of this task...
         unless self === task
           raise "Task already defined for #{task.name} - attempted to redefine with #{self.name}"
         end
@@ -53,6 +57,7 @@ module Mattock
     def self.included(sub)
       sub.extend ClassMethods
       Configurable.included(sub)
+      Configurable::DirectoryStructure.included(sub)
       DeferredDefinition.add_settings(sub)
     end
 

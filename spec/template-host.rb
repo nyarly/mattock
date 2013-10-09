@@ -9,7 +9,7 @@ describe Mattock::TemplateHost do
   end
 
   it "should handle relative paths nicely" do
-    Mattock::ValiseManager.rel_dir(__FILE__, "spec").should =~ /.*spec$/
+    Mattock::ValiseManager.rel_dir(__FILE__, "spec").to_s.should =~ /.*spec$/
   end
 
   it "should be able to do easy templating" do

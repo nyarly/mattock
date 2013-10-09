@@ -1,47 +1,6 @@
+require 'mattock/command-line/command-run-result'
+
 module Mattock
-  class CommandRunResult
-    def initialize(command, status, streams)
-      @command = command
-      @process_status = status
-      @streams = streams
-    end
-    attr_reader :process_status, :streams
-
-    def stdout
-      @streams[1]
-    end
-
-    def stderr
-      @streams[2]
-    end
-
-    def exit_code
-      @process_status.exitstatus
-    end
-    alias exit_status exit_code
-
-    def succeeded?
-      must_succeed!
-      return true
-    rescue
-      return false
-    end
-
-    def format_streams
-      "stdout:#{stdout.nil? || stdout.empty? ? "[empty]\n" : "\n#{stdout}"}" +
-      "stderr:#{stderr.nil? || stderr.empty? ? "[empty]\n" : "\n#{stderr}"}---"
-    end
-
-    def must_succeed!
-      case exit_code
-      when 0
-        return exit_code
-      else
-        fail "Command #{@command.inspect} failed with exit status #{exit_code}: \n#{format_streams}"
-      end
-    end
-  end
-
   class CommandLine
     def self.define_chain_op(opname, klass)
       define_method(opname) do |other|
@@ -75,6 +34,11 @@ module Mattock
     attr_reader :redirections
 
     alias_method :command_environment, :env
+
+    def set_env(name, value)
+      command_environment[name] = value
+      return self
+    end
 
     def verbose
       ::Rake.verbose && ::Rake.verbose != ::Rake::FileUtilsExt::DEFAULT
@@ -122,6 +86,12 @@ module Mattock
       redirect_from(path, 0)
     end
 
+    def replace_us
+      puts "Ceding execution to: "
+      puts string_format
+      Process.exec(command_environment, command)
+    end
+
     def spawn_process
       host_stdout, cmd_stdout = IO.pipe
       host_stderr, cmd_stderr = IO.pipe
@@ -134,33 +104,10 @@ module Mattock
     end
 
     def collect_result(pid, host_stdout, host_stderr)
-      pid, status = Process.wait2(pid)
-
-      stdout = consume_buffer(host_stdout)
-      stderr = consume_buffer(host_stderr)
-      result = CommandRunResult.new(command, status, {1 => stdout, 2 => stderr})
-      host_stdout.close
-      host_stderr.close
-
+      result = CommandRunResult.new(pid, self)
+      result.streams = {1 => host_stdout, 2 => host_stderr}
+      result.wait
       return result
-    end
-
-    #Gets all the data out of buffer, even if somehow it doesn't have an EOF
-    #Escpecially useful for programs (e.g. ssh) that sometime set their stderr
-    #to O_NONBLOCK
-    def consume_buffer(io)
-      accumulate = []
-      waits = 3
-      begin
-        while chunk = io.read_nonblock(4096)
-          accumulate << chunk
-        end
-      rescue IO::WaitReadable => ex
-        retry if (waits -= 1) > 0
-      end
-      return accumulate.join
-    rescue EOFError
-      return accumulate.join
     end
 
     #If I wasn't worried about writing my own limited shell, I'd say e.g.

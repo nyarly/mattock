@@ -6,11 +6,16 @@ describe Mattock::Configurable do
 
     setting(:three, 3)
     required_field(:four)
+    required_field(:override)
   end
 
   class TestStruct < TestSuperStruct
     settings(:one => 1, :two => nested(:a => "a"){ required_field(:b)} )
     nil_field(:five)
+
+    def override
+      17
+    end
   end
 
   subject do
@@ -49,6 +54,11 @@ describe Mattock::Configurable do
     expect do
       subject.check_required
     end.to_not raise_error
+    subject.override.should == 17
+  end
+
+  it "should inspect cleanly" do
+    subject.inspect.should be_a(String)
   end
 
   describe "with DirectoryStructure" do
@@ -66,6 +76,10 @@ describe Mattock::Configurable do
                  )
              )
          )
+
+      dir(:next_to_me, "rainbow", dir(:in_there, "a_place", path(:nearby, "a.file")))
+
+      path(:loose_path, "here")
     end
 
     def subject
@@ -78,6 +92,10 @@ describe Mattock::Configurable do
       expect do
         subject.check_required
       end.to raise_error /Required field/
+    end
+
+    it "should inspect cleanly" do
+      subject.inspect.should be_a(String)
     end
 
     describe "with root path configured, but missing a relative path" do
@@ -111,6 +129,9 @@ describe Mattock::Configurable do
           subject.check_required
         end.not_to raise_error
       end
+
+      its("nearby.absolute_path"){ should =~ %r"rainbow/a_place/a.file$"}
+      its("nearby.absolute_path"){ should =~ %r"^#{subject.absolute_path}"}
 
       its("certificate_file.absolute_path"){ should == "/tmp/bundle_workdir/aws-creds/cert.pem" }
       its("bundle_manifest.absolute_path"){ should == "/tmp/bundle_workdir/image.manifest.xml" }
@@ -184,7 +205,7 @@ describe Mattock::Configurable do
     end
 
     it "should not copy no_copy" do
-      left.copy_settings.to(right)
+      left.copy_settings_to(right)
       right.unset?(right.normal).should be_false
       right.normal.should == 1
       right.unset?(right.no_copy).should be_true

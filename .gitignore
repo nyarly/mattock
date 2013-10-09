@@ -11,3 +11,5 @@ pkg
 yardoc/
 gh-pages/
 .sass-cache/
+.cadre/
+errors.err

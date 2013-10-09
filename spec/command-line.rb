@@ -31,7 +31,7 @@ describe Mattock::CommandLine do
     end.to_not raise_error
   end
 
-  describe Mattock::CommandRunResult do
+  describe Mattock::CommandLine::CommandRunResult do
     let :result do
       commandline.run
     end
