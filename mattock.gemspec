@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
     yard_templates/default/layout/html/setup.rb
     yard_templates/default/layout/html/tasklib_list.erb
     lib/mattock/command-line.rb
+    lib/mattock/command-line/command-run-result.rb
     lib/mattock/command-task.rb
     lib/mattock/testing/rake-example-group.rb
     lib/mattock/testing/mock-command-line.rb
@@ -45,6 +46,12 @@ Gem::Specification.new do |spec|
     lib/mattock/tasklib.rb
     lib/mattock/task.rb
     lib/mattock/configurable.rb
+    lib/mattock/configurable/field-processor.rb
+    lib/mattock/configurable/proxy-value.rb
+    lib/mattock/configurable/instance-methods.rb
+    lib/mattock/configurable/class-methods.rb
+    lib/mattock/configurable/directory-structure.rb
+    lib/mattock/configurable/field-metadata.rb
     lib/mattock/configuration-store.rb
     lib/mattock/cascading-definition.rb
     lib/mattock.rb

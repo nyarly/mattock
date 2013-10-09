@@ -25,7 +25,7 @@ module Mattock
             cmd.options << "-i #{id_file}" if id_file
             cmd.options << "-l #{remote_server.user}" unless remote_server.user.nil?
             cmd.options << remote_server.address
-            cmd.options << "-p #{remote_server.port}"
+            cmd.options << "-p #{remote_server.port}" #ok
             cmd.options << "-n"
             cmd.options << "-#{'v'*verbose}" if verbose > 0
             unless ssh_options.empty?
