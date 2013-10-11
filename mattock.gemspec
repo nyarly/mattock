@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.5.2"
+  spec.version		= "0.5.3"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -92,6 +92,7 @@ Gem::Specification.new do |spec|
   spec.rdoc_options	+= %w{--main doc/README }
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} RDoc"]
 
+  spec.add_dependency("rake", "~> 10.0")
   spec.add_dependency("valise", ">= 0.9.1")
   spec.add_dependency("tilt", "> 0")
 
