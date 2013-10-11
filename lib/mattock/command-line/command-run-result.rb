@@ -113,7 +113,7 @@ module Mattock
             begin
               while chunk = io.read_nonblock(4096)
                 if @buffered_echo.nil?
-                  puts chunk
+                  print chunk
                 else
                   @buffered_echo << chunk
                 end
