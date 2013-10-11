@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'corundum'
+gem 'corundum', :path => "../corundum"
 gem 'fuubar'
 gem 'redcarpet'
 gem 'rake'

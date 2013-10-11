@@ -1,9 +1,24 @@
 PATH
   remote: .
   specs:
-    mattock (0.5.0)
+    mattock (0.5.1)
       tilt (> 0)
       valise (>= 0.9.1)
+
+PATH
+  remote: ../corundum
+  specs:
+    corundum (0.1.2)
+      bundler
+      compass (>= 0.12.1)
+      mailfactory (~> 1.4.0)
+      mattock (>= 0.4.0)
+      nokogiri
+      rdoc
+      rspec (>= 2.0)
+      sass (>= 3.1)
+      simplecov (>= 0.5.4)
+      yard
 
 GEM
   remote: http://rubygems.org/
@@ -17,18 +32,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    corundum (0.1.0)
-      bundler
-      compass (>= 0.12.1)
-      mailfactory (~> 1.4.0)
-      mattock (>= 0.4.0)
-      nokogiri
-      rake-rubygems (>= 0.2.0)
-      rdoc
-      rspec (>= 2.0)
-      sass (>= 3.1)
-      simplecov (>= 0.5.4)
-      yard
     diff-lcs (1.2.4)
     fssm (0.2.10)
     fuubar (1.0.0)
@@ -44,8 +47,6 @@ GEM
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     rake (10.1.0)
-    rake-rubygems (0.2.0)
-      rake (>= 0.8.7)
     rdoc (4.0.1)
       json (~> 1.4)
     redcarpet (2.1.1)
@@ -74,7 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   cadre
-  corundum
+  corundum!
   fuubar
   mattock!
   rake
