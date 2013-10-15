@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.5.3"
+  spec.version		= "0.6.0"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -45,6 +45,7 @@ Gem::Specification.new do |spec|
     lib/mattock/bundle-command-task.rb
     lib/mattock/tasklib.rb
     lib/mattock/task.rb
+    lib/mattock/template-task.rb
     lib/mattock/configurable.rb
     lib/mattock/configurable/field-processor.rb
     lib/mattock/configurable/proxy-value.rb

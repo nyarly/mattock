@@ -13,6 +13,14 @@ module Mattock
 
     def self.included(mod)
       mod.class_eval do
+        before :each do
+          @tempdir = File.join "/tmp", "test_mattock_#{$$}"
+
+          @original_PWD = Dir.pwd
+          FileUtils.mkdir_p @tempdir
+          Dir.chdir @tempdir
+        end
+
         let! :rake do
           ::Rake.application = ::Rake::Application.new
           ::Rake::TaskManager.record_task_metadata = true
@@ -41,14 +49,6 @@ module Mattock
           if @original_ENV['APPDATA'].nil?
             ENV.delete 'APPDATA'
           end
-        end
-
-        before :each do
-          @tempdir = File.join "/tmp", "test_mattock_#{$$}"
-
-          @original_PWD = Dir.pwd
-          FileUtils.mkdir_p @tempdir
-          Dir.chdir @tempdir
         end
 
         after :each do

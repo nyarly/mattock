@@ -1,3 +1,5 @@
+require 'rake'
+
 module Mattock
   module Configurable
     class MissingRelativePaths < Exception; end

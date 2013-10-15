@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mattock (0.5.3)
+    mattock (0.6.0)
       rake (~> 10.0)
       tilt (> 0)
       valise (>= 0.9.1)
@@ -9,11 +9,11 @@ PATH
 PATH
   remote: ../corundum
   specs:
-    corundum (0.1.2)
+    corundum (0.1.3)
       bundler
       compass (>= 0.12.1)
       mailfactory (~> 1.4.0)
-      mattock (>= 0.4.0)
+      mattock (~> 0.5)
       nokogiri
       rdoc
       rspec (>= 2.0)

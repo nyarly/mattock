@@ -59,10 +59,9 @@ module Mattock
       Configurable.included(sub)
       Configurable::DirectoryStructure.included(sub)
       DeferredDefinition.add_settings(sub)
+      sub.setting :task_name
+      sub.setting :task_args
     end
-
-    setting :task_name
-    setting :task_args
 
     attr_accessor :base_task
 

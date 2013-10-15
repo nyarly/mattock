@@ -1,3 +1,5 @@
+
+
 Bug: Default values-by-reference (Hash, Array, ...) are reused.
 
 Trouble with using yard-extensions outside of Mattock or when Mattock is Gemfiled in with :path - suspect that there's trouble crossing the Proxy boudary somehow?
@@ -7,8 +9,22 @@ Consider adding a "guess" for Configurable (c.f. Corundum's Git tasklib guessing
 Bug: SSH commands hang if they need a password...  stdin handling?
 Bug: BundleCommandTask needs a needed? method - Gemfile younger than Gemfile.lock or files in gem directories
 
+Feature: Consider updating cascading configurable: copy_settings_to is such a
+default now, so breaking out a "copy them" as a default might be useful...
+  - default impl of #default_configuration could be:
+    args.each copy_settings_to(self); @cascades_from = args; prepare_configuration()
+    (prepare is the skeleton method)
+  - one other thing would be to do a #get_settings_from(other)
+    so that you could override from copy_ to proxy_
+
+Design decision: explicitly not making proxy_ the default. Can be much more
+flexible, but because a dynamic behavior, it can be more confusing
+
+Feature: ENV triggered config debug mode, where every value set, copy, or proxy
+is logged
+
 Feature: Tasklibs with a "default_sublib" setting - delete entries you don't want and replace?
-(Only if documented and easy to discover...  maybe printed on Rake#verbose...)
+(Only if documented and easy to discover...  maybe printed on Rake#verbose...) Used as a skeleton for things like Corundum where there are 5+ normal Tasklibs in use
 
 Feature: Unpack task - depends on target files, so skipped until archive newer
 
