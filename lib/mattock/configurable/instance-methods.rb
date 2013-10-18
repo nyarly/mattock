@@ -1,5 +1,10 @@
 module Mattock
   module Configurable
+    def initialize_copy(original)
+      super
+      original.copy_settings_to(self)
+    end
+
     def copy_settings
       SettingsCopier.new(self)
     end

@@ -1,4 +1,5 @@
 require 'rspec'
+require 'rspec/core/formatters/base_formatter'
 require 'file-sandbox'
 require 'cadre/rspec'
 

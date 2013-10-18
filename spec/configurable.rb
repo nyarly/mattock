@@ -183,7 +183,10 @@ describe Mattock::Configurable do
     class LeftStruct
       include Mattock::Configurable
 
-      setting(:normal, 1)
+      setting(:normal, "1")
+      setting(:nested, nested{
+        setting :value, "2"
+      })
       setting(:no_copy, 2).isnt(:copiable)
       setting(:no_proxy, 3).isnt(:proxiable)
       setting(:no_nothing, 4).isnt(:copiable).isnt(:proxiable)
@@ -193,7 +196,7 @@ describe Mattock::Configurable do
     class RightStruct
       include Mattock::Configurable
 
-      required_fields(:normal, :no_copy, :no_proxy, :no_nothing)
+      required_fields(:normal, :nested, :no_copy, :no_proxy, :no_nothing)
     end
 
     let :left do
@@ -204,10 +207,19 @@ describe Mattock::Configurable do
       RightStruct.new.setup_defaults
     end
 
+    it "should make copies not references" do
+      left.copy_settings_to(right)
+      right.normal.should == left.normal
+      right.normal.should_not equal(left.normal)
+      right.nested.value.should == left.nested.value
+      right.nested.should_not equal(left.nested)
+      right.nested.value.should_not equal left.nested.value
+    end
+
     it "should not copy no_copy" do
       left.copy_settings_to(right)
       right.unset?(right.normal).should be_false
-      right.normal.should == 1
+      right.normal.should == "1"
       right.unset?(right.no_copy).should be_true
       right.unset?(right.no_proxy).should be_false
       right.no_proxy.should == 3
@@ -217,7 +229,7 @@ describe Mattock::Configurable do
     it "should not proxy no_proxy" do
       left.proxy_settings.to(right)
       right.unset?(right.normal).should be_false
-      right.normal.should == 1
+      right.normal.should == "1"
       right.unset?(right.no_copy).should be_false
       right.no_copy.should == 2
       right.unset?(right.no_proxy).should be_true

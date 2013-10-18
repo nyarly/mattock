@@ -4,5 +4,5 @@ gem 'corundum', :path => "../corundum"
 gem 'fuubar'
 gem 'redcarpet'
 gem 'rake'
-gem 'cadre'
+gem 'cadre', :path => "../cadre"
 gemspec

@@ -8,18 +8,10 @@ module Mattock
       attr_accessor :field_names
       attr_reader :source
 
-      def filter_attribute
-        raise NotImplementedError
-      end
-
       def filter(field_names)
         field_names.find_all do |name|
           source.class.field_metadata(name).is?(filter_attribute)
         end
-      end
-
-      def value(field)
-        source.__send__(field.reader_method)
       end
 
       def to(target)
@@ -37,7 +29,21 @@ module Mattock
       end
 
       def value(field)
-        field.immediate_value_on(source)
+        value = field.immediate_value_on(source)
+        case value
+        when Numeric, NilClass, TrueClass, FalseClass
+          value
+        else
+          if value.class == BasicObject
+            value
+          elsif value.respond_to?(:dup)
+            value.dup
+          elsif value.respond_to?(:clone)
+            value.clone
+          else
+            value
+          end
+        end
       end
     end
 
