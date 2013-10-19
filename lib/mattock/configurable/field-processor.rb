@@ -14,10 +14,14 @@ module Mattock
         end
       end
 
+      def can_process(field, target)
+        target.respond_to?(field.writer_method)
+      end
+
       def to(target)
         field_names.each do |name|
           field = source.class.field_metadata(name)
-          next unless target.respond_to?(field.writer_method)
+          next unless can_process(field, target)
           target.__send__(field.writer_method, value(field))
         end
       end
@@ -28,22 +32,12 @@ module Mattock
         :copiable
       end
 
+      def can_process(field, target)
+        super and not( field.unset_on?(source) and field.unset_on?(target) )
+      end
+
       def value(field)
-        value = field.immediate_value_on(source)
-        case value
-        when Numeric, NilClass, TrueClass, FalseClass
-          value
-        else
-          if value.class == BasicObject
-            value
-          elsif value.respond_to?(:dup)
-            value.dup
-          elsif value.respond_to?(:clone)
-            value.clone
-          else
-            value
-          end
-        end
+        return field.copy_from(source)
       end
     end
 

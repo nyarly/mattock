@@ -1,7 +1,6 @@
 module Mattock
   module Configurable
     def initialize_copy(original)
-      super
       original.copy_settings_to(self)
     end
 
@@ -57,6 +56,7 @@ module Mattock
 
     #XXX deprecate
     def unset?(value)
+      warn "#unset? is deprecated - use field_unset? instead"
       value.nil?
     end
 

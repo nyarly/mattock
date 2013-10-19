@@ -146,11 +146,7 @@ module Mattock
         end
         default_values.each do |field|
           next unless field.is? :defaulting
-          value = field.default_value
-          if Module === value and Configurable > value
-            value = value.new
-            value.class.set_defaults_on(value)
-          end
+          value = field.build_default_value
           instance.__send__(field.writer_method, value)
         end
       end

@@ -18,6 +18,11 @@ module Mattock
         setting :absolute_path
         setting :relative_path
 
+        alias abspath absolute_path
+        alias relpath relative_path
+
+        #No #path - ambiguous whether that would be abspath or pathname
+
         def initialize(rel_path)
           self.relative_path = rel_path unless rel_path == Configurable::RequiredField
         end
@@ -32,14 +37,20 @@ module Mattock
         end
         alias path_name pathname
 
+        if (false)
         def inspect
           "<path: #{
-            if unset?(:absolute_path)
-              "<<?>>/#{relative_path.inspect}"
+            if field_unset?(:absolute_path)
+              if field_unset?(:relative_path)
+                "<<?>>"
+              else
+                "?/#{relative_path}"
+              end
             else
               absolute_path.inspect
             end
           }>"
+        end
         end
       end
 

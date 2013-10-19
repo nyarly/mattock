@@ -82,6 +82,30 @@ describe Mattock::Configurable do
       path(:loose_path, "here")
     end
 
+    describe "distinctness" do
+      let :one do
+        DirectoryThing.new.tap do |thing|
+          thing.setup_defaults
+        end
+      end
+
+      let :other do
+        DirectoryThing.new.tap do |thing|
+          thing.setup_defaults
+        end
+      end
+
+      it "should have same values" do
+        one.bundle_workdir.relative_path.should == other.bundle_workdir.relative_path
+      end
+
+      it "should have different actual objects" do
+        one.bundle_workdir.relative_path.should_not equal other.bundle_workdir.relative_path
+        one.bundle_workdir.should_not equal other.bundle_workdir
+      end
+
+    end
+
     def subject
       DirectoryThing.new.tap do |thing|
         thing.setup_defaults
@@ -218,22 +242,22 @@ describe Mattock::Configurable do
 
     it "should not copy no_copy" do
       left.copy_settings_to(right)
-      right.unset?(right.normal).should be_false
+      right.field_unset?(:normal).should be_false
       right.normal.should == "1"
-      right.unset?(right.no_copy).should be_true
-      right.unset?(right.no_proxy).should be_false
+      right.field_unset?(:no_copy).should be_true
+      right.field_unset?(:no_proxy).should be_false
       right.no_proxy.should == 3
-      right.unset?(right.no_nothing).should be_true
+      right.field_unset?(:no_nothing).should be_true
     end
 
     it "should not proxy no_proxy" do
       left.proxy_settings.to(right)
-      right.unset?(right.normal).should be_false
+      right.field_unset?(:normal).should be_false
       right.normal.should == "1"
-      right.unset?(right.no_copy).should be_false
+      right.field_unset?(:no_copy).should be_false
       right.no_copy.should == 2
-      right.unset?(right.no_proxy).should be_true
-      right.unset?(right.no_nothing).should be_true
+      right.field_unset?(:no_proxy).should be_true
+      right.field_unset?(:no_nothing).should be_true
     end
   end
 end

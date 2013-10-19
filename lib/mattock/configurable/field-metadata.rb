@@ -72,6 +72,38 @@ module Mattock
         name
       end
 
+      def copy_from(instance)
+        return if unset_on?(instance)
+        copy_value(immediate_value_on(instance))
+      end
+
+      def build_default_value
+        if Module === @default_value and Configurable > @default_value
+          value = @default_value.new
+          value.class.set_defaults_on(value)
+          value
+        else
+          copy_value(@default_value)
+        end
+      end
+
+      def copy_value(value)
+        case value
+        when Symbol, Numeric, NilClass, TrueClass, FalseClass
+          value
+        else
+          if value.class == BasicObject
+            value
+          elsif value.respond_to?(:dup)
+            value.dup
+          elsif value.respond_to?(:clone)
+            value.clone
+          else
+            value
+          end
+        end
+      end
+
       def immediate_value_on(instance)
         instance.instance_variable_get(ivar_name)
         #instance.__send__(reader_method)
