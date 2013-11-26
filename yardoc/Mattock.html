@@ -6,13 +6,13 @@
 <title>
   Module: Mattock
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -80,7 +80,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/mattock/command-line.rb<span class="defines">,<br />
-  lib/mattock/command-task.rb,<br /> lib/mattock/testing/rake-example-group.rb,<br /> lib/mattock/testing/mock-command-line.rb,<br /> lib/mattock/testing/record-commands.rb,<br /> lib/mattock/template-host.rb,<br /> lib/mattock/yard_extensions.rb,<br /> lib/mattock/remote-command-task.rb,<br /> lib/mattock/bundle-command-task.rb,<br /> lib/mattock/tasklib.rb,<br /> lib/mattock/task.rb,<br /> lib/mattock/configurable.rb,<br /> lib/mattock/configuration-store.rb,<br /> lib/mattock/cascading-definition.rb</span>
+  lib/mattock/command-line/command-run-result.rb,<br /> lib/mattock/command-task.rb,<br /> lib/mattock/testing/rake-example-group.rb,<br /> lib/mattock/testing/mock-command-line.rb,<br /> lib/mattock/testing/record-commands.rb,<br /> lib/mattock/template-host.rb,<br /> lib/mattock/yard_extensions.rb,<br /> lib/mattock/remote-command-task.rb,<br /> lib/mattock/bundle-command-task.rb,<br /> lib/mattock/tasklib.rb,<br /> lib/mattock/task.rb,<br /> lib/mattock/template-task.rb,<br /> lib/mattock/configurable.rb,<br /> lib/mattock/configurable/field-processor.rb,<br /> lib/mattock/configurable/proxy-value.rb,<br /> lib/mattock/configurable/instance-methods.rb,<br /> lib/mattock/configurable/class-methods.rb,<br /> lib/mattock/configurable/directory-structure.rb,<br /> lib/mattock/configurable/field-metadata.rb,<br /> lib/mattock/configuration-store.rb,<br /> lib/mattock/cascading-definition.rb</span>
 </dd>
   
 </dl>
@@ -95,7 +95,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Mattock/BundleCommandTask.html" title="Mattock::BundleCommandTask (class)">BundleCommandTask</a></span>, <span class='object_link'><a href="Mattock/CommandChain.html" title="Mattock::CommandChain (class)">CommandChain</a></span>, <span class='object_link'><a href="Mattock/CommandLine.html" title="Mattock::CommandLine (class)">CommandLine</a></span>, <span class='object_link'><a href="Mattock/CommandRunResult.html" title="Mattock::CommandRunResult (class)">CommandRunResult</a></span>, <span class='object_link'><a href="Mattock/CommandTask.html" title="Mattock::CommandTask (class)">CommandTask</a></span>, <span class='object_link'><a href="Mattock/ConfigurationStore.html" title="Mattock::ConfigurationStore (class)">ConfigurationStore</a></span>, <span class='object_link'><a href="Mattock/DeprecatedTaskAPI.html" title="Mattock::DeprecatedTaskAPI (class)">DeprecatedTaskAPI</a></span>, <span class='object_link'><a href="Mattock/FileCommandTask.html" title="Mattock::FileCommandTask (class)">FileCommandTask</a></span>, <span class='object_link'><a href="Mattock/FileTask.html" title="Mattock::FileTask (class)">FileTask</a></span>, <span class='object_link'><a href="Mattock/MockCommandResult.html" title="Mattock::MockCommandResult (class)">MockCommandResult</a></span>, <span class='object_link'><a href="Mattock/PipelineChain.html" title="Mattock::PipelineChain (class)">PipelineChain</a></span>, <span class='object_link'><a href="Mattock/PrereqChain.html" title="Mattock::PrereqChain (class)">PrereqChain</a></span>, <span class='object_link'><a href="Mattock/RemoteCommandTask.html" title="Mattock::RemoteCommandTask (class)">RemoteCommandTask</a></span>, <span class='object_link'><a href="Mattock/ShellEscaped.html" title="Mattock::ShellEscaped (class)">ShellEscaped</a></span>, <span class='object_link'><a href="Mattock/Task.html" title="Mattock::Task (class)">Task</a></span>, <span class='object_link'><a href="Mattock/TaskLib.html" title="Mattock::TaskLib (class)">TaskLib</a></span>, <span class='object_link'><a href="Mattock/WrappingChain.html" title="Mattock::WrappingChain (class)">WrappingChain</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Mattock/BundleCommandTask.html" title="Mattock::BundleCommandTask (class)">BundleCommandTask</a></span>, <span class='object_link'><a href="Mattock/CommandChain.html" title="Mattock::CommandChain (class)">CommandChain</a></span>, <span class='object_link'><a href="Mattock/CommandLine.html" title="Mattock::CommandLine (class)">CommandLine</a></span>, <span class='object_link'><a href="Mattock/CommandTask.html" title="Mattock::CommandTask (class)">CommandTask</a></span>, <span class='object_link'><a href="Mattock/ConfigurationStore.html" title="Mattock::ConfigurationStore (class)">ConfigurationStore</a></span>, <span class='object_link'><a href="Mattock/DeprecatedTaskAPI.html" title="Mattock::DeprecatedTaskAPI (class)">DeprecatedTaskAPI</a></span>, <span class='object_link'><a href="Mattock/FileCommandTask.html" title="Mattock::FileCommandTask (class)">FileCommandTask</a></span>, <span class='object_link'><a href="Mattock/FileTask.html" title="Mattock::FileTask (class)">FileTask</a></span>, <span class='object_link'><a href="Mattock/MockCommandResult.html" title="Mattock::MockCommandResult (class)">MockCommandResult</a></span>, <span class='object_link'><a href="Mattock/PipelineChain.html" title="Mattock::PipelineChain (class)">PipelineChain</a></span>, <span class='object_link'><a href="Mattock/PrereqChain.html" title="Mattock::PrereqChain (class)">PrereqChain</a></span>, <span class='object_link'><a href="Mattock/RemoteCommandTask.html" title="Mattock::RemoteCommandTask (class)">RemoteCommandTask</a></span>, <span class='object_link'><a href="Mattock/ShellEscaped.html" title="Mattock::ShellEscaped (class)">ShellEscaped</a></span>, <span class='object_link'><a href="Mattock/Task.html" title="Mattock::Task (class)">Task</a></span>, <span class='object_link'><a href="Mattock/TaskLib.html" title="Mattock::TaskLib (class)">TaskLib</a></span>, <span class='object_link'><a href="Mattock/TemplateTask.html" title="Mattock::TemplateTask (class)">TemplateTask</a></span>, <span class='object_link'><a href="Mattock/WrappingChain.html" title="Mattock::WrappingChain (class)">WrappingChain</a></span>
     
   
 </p>
@@ -135,9 +135,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:40 2013 by
+  Generated on Tue Nov 26 00:40:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

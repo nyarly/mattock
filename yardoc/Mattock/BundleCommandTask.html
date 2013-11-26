@@ -6,13 +6,13 @@
 <title>
   Class: Mattock::BundleCommandTask
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -214,7 +214,16 @@
 29
 30
 31
-32</pre>
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/mattock/bundle-command-task.rb', line 5</span>
@@ -223,28 +232,37 @@
   <span class='id identifier rubyid_env'>env</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='kw'>if</span> <span class='kw'>defined?</span> <span class='const'>Bundler</span>
     <span class='qwords_beg'>%w{
-</span><span class='tstring_content'>        BUNDLER_EDITOR</span><span class='words_sep'>
-</span><span class='tstring_content'>        BUNDLE_APP_CONFIG</span><span class='words_sep'>
-</span><span class='tstring_content'>        BUNDLE_BIN_PATH</span><span class='words_sep'>
-</span><span class='tstring_content'>        BUNDLE_CONFIG</span><span class='words_sep'>
-</span><span class='tstring_content'>        BUNDLE_PATH</span><span class='words_sep'>
-</span><span class='tstring_content'>        BUNDLE_SPEC_RUN</span><span class='words_sep'>
-</span><span class='tstring_content'>        DEBUG</span><span class='words_sep'>
-</span><span class='tstring_content'>        DEBUG_RESOLVER</span><span class='words_sep'>
-</span><span class='tstring_content'>        EDITOR</span><span class='words_sep'>
-</span><span class='tstring_content'>        GEM_HOME</span><span class='words_sep'>
-</span><span class='tstring_content'>        GEM_PATH</span><span class='words_sep'>
-</span><span class='tstring_content'>        MANPAGER</span><span class='words_sep'>
-</span><span class='tstring_content'>        PAGER</span><span class='words_sep'>
-</span><span class='tstring_content'>        PATH</span><span class='words_sep'>
-</span><span class='tstring_content'>        RB_USER_INSTALL</span><span class='words_sep'>
-</span><span class='tstring_content'>        RUBYOPT</span><span class='words_sep'>
-</span><span class='tstring_content'>        VISUAL</span><span class='words_sep'>
+</span><span class='tstring_content'>      BUNDLER_EDITOR</span><span class='words_sep'>
+</span><span class='tstring_content'>      BUNDLE_APP_CONFIG</span><span class='words_sep'>
+</span><span class='tstring_content'>      BUNDLE_CONFIG</span><span class='words_sep'>
+</span><span class='tstring_content'>      BUNDLE_PATH</span><span class='words_sep'>
+</span><span class='tstring_content'>      BUNDLE_SPEC_RUN</span><span class='words_sep'>
+</span><span class='tstring_content'>      DEBUG</span><span class='words_sep'>
+</span><span class='tstring_content'>      DEBUG_RESOLVER</span><span class='words_sep'>
+</span><span class='tstring_content'>      EDITOR</span><span class='words_sep'>
+</span><span class='tstring_content'>      GEM_HOME</span><span class='words_sep'>
+</span><span class='tstring_content'>      GEM_PATH</span><span class='words_sep'>
+</span><span class='tstring_content'>      MANPAGER</span><span class='words_sep'>
+</span><span class='tstring_content'>      PAGER</span><span class='words_sep'>
+</span><span class='tstring_content'>      PATH</span><span class='words_sep'>
+</span><span class='tstring_content'>      RB_USER_INSTALL</span><span class='words_sep'>
+</span><span class='tstring_content'>      RUBYOPT</span><span class='words_sep'>
+</span><span class='tstring_content'>      VISUAL</span><span class='words_sep'>
+</span><span class='tstring_content'>      bundle_bin</span><span class='words_sep'>
+</span><span class='tstring_content'>      bundle_dir</span><span class='words_sep'>
 </span><span class='tstring_end'>    }</span></span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_bundler_varname'>bundler_varname</span><span class='op'>|</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='id identifier rubyid_bundler_varname'>bundler_varname</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='const'>Bundler</span><span class='op'>::</span><span class='const'>ORIGINAL_ENV</span><span class='lbracket'>[</span><span class='id identifier rubyid_bundler_varname'>bundler_varname</span><span class='rbracket'>]</span>
       <span class='id identifier rubyid_env'>env</span><span class='lbracket'>[</span><span class='id identifier rubyid_bundler_varname'>bundler_varname</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Bundler</span><span class='op'>::</span><span class='const'>ORIGINAL_ENV</span><span class='lbracket'>[</span><span class='id identifier rubyid_bundler_varname'>bundler_varname</span><span class='rbracket'>]</span>
     <span class='kw'>end</span>
+    <span class='qwords_beg'>%w{
+</span><span class='tstring_content'>      bundle_bin</span><span class='words_sep'>
+</span><span class='tstring_content'>      bundle_dir</span><span class='words_sep'>
+</span><span class='tstring_content'>      BUNDLE_BIN_PATH</span><span class='words_sep'>
+</span><span class='tstring_content'>      BUNDLE_GEMFILE</span><span class='words_sep'>
+</span><span class='tstring_end'>    }</span></span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_bundler_varname'>bundler_varname</span><span class='op'>|</span>
+      <span class='id identifier rubyid_env'>env</span><span class='lbracket'>[</span><span class='id identifier rubyid_bundler_varname'>bundler_varname</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_env'>env</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>BUNDLE_GEMFILE</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='id identifier rubyid_env'>env</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -267,13 +285,13 @@
       <pre class="lines">
 
 
-34
-35
-36
-37</pre>
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/bundle-command-task.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/bundle-command-task.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decorated'>decorated</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_command_environment'>command_environment</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_cleaned_env'>cleaned_env</span><span class='rparen'>)</span>
@@ -289,9 +307,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:43 2013 by
+  Generated on Tue Nov 26 00:40:44 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

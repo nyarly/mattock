@@ -6,13 +6,13 @@
 <title>
   Class: Mattock::CommandLine
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -95,7 +95,7 @@
   
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/mattock/command-line.rb<span class="defines">,<br />
-  lib/mattock/testing/mock-command-line.rb,<br /> lib/mattock/testing/record-commands.rb</span>
+  lib/mattock/command-line/command-run-result.rb,<br /> lib/mattock/testing/mock-command-line.rb,<br /> lib/mattock/testing/record-commands.rb</span>
 </dd>
   
 </dl>
@@ -106,6 +106,16 @@
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="CommandChain.html" title="Mattock::CommandChain (class)">CommandChain</a></span>, <span class='object_link'><a href="ShellEscaped.html" title="Mattock::ShellEscaped (class)">ShellEscaped</a></span></p>
 </div>
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="CommandLine/CommandRunResult.html" title="Mattock::CommandLine::CommandRunResult (class)">CommandRunResult</a></span>
+    
+  
+</p>
 
   <h2>Constant Summary</h2>
   
@@ -148,6 +158,33 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns the value of attribute command_recording_path.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#output_stream-class_method" title="output_stream (class method)">+ (Object) <strong>output_stream</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute output_stream.</p>
 </div></span>
   
 </li>
@@ -263,6 +300,33 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns the value of attribute options.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#output_stream-instance_method" title="#output_stream (instance method)">- (Object) <strong>output_stream</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute output_stream.</p>
 </div></span>
   
 </li>
@@ -494,32 +558,6 @@ outlasts us.</p>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#consume_buffer-instance_method" title="#consume_buffer (instance method)">- (Object) <strong>consume_buffer</strong>(io) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Gets all the data out of buffer, even if somehow it doesn't have an EOF
-Escpecially useful for programs (e.g. ssh) that sometime set their stderr
-to O_NONBLOCK.</p>
-</div></span>
   
 </li>
 
@@ -799,7 +837,73 @@ to O_NONBLOCK.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#replace_us-instance_method" title="#replace_us (instance method)">- (Object) <strong>replace_us</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#report-instance_method" title="#report (instance method)">- (Object) <strong>report</strong>(message, newline = true) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#run-instance_method" title="#run (instance method)">- (Object) <strong>run</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_env-instance_method" title="#set_env (instance method)">- (Object) <strong>set_env</strong>(name, value) </a>
     
 
     
@@ -948,7 +1052,7 @@ to O_NONBLOCK.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>A new instance of CommandLine</p>
+<p>Returns a new instance of CommandLine</p>
 
 
   </div>
@@ -995,18 +1099,20 @@ to O_NONBLOCK.</p>
       <pre class="lines">
 
 
-66
-67
-68
-69
-70
-71
-72</pre>
+29
+30
+31
+32
+33
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_executable'>executable</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='ivar'>@output_stream</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_output_stream'>output_stream</span> <span class='op'>||</span> <span class='gvar'>$stderr</span>
   <span class='ivar'>@executable</span> <span class='op'>=</span> <span class='id identifier rubyid_executable'>executable</span>
   <span class='ivar'>@options</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span>
   <span class='ivar'>@redirections</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1066,6 +1172,49 @@ to O_NONBLOCK.</p>
 </table>
 </div>
     
+      
+      <span id="output_stream=-class_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="output_stream-class_method">
+  
+    + (<tt>Object</tt>) <strong>output_stream</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute output_stream</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_output_stream'>output_stream</span>
+  <span class='ivar'>@output_stream</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
   <div id="instance_attr_details" class="attr_details">
@@ -1103,12 +1252,12 @@ to O_NONBLOCK.</p>
       <pre class="lines">
 
 
-74
-75
-76</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_env'>env</span>
   <span class='ivar'>@env</span>
@@ -1146,12 +1295,12 @@ to O_NONBLOCK.</p>
       <pre class="lines">
 
 
-74
-75
-76</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_executable'>executable</span>
   <span class='ivar'>@executable</span>
@@ -1189,12 +1338,12 @@ to O_NONBLOCK.</p>
       <pre class="lines">
 
 
-74
-75
-76</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -1232,15 +1381,58 @@ to O_NONBLOCK.</p>
       <pre class="lines">
 
 
-74
-75
-76</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span>
   <span class='ivar'>@options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="output_stream=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="output_stream-instance_method">
+  
+    - (<tt>Object</tt>) <strong>output_stream</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute output_stream</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_output_stream'>output_stream</span>
+  <span class='ivar'>@output_stream</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1275,12 +1467,12 @@ to O_NONBLOCK.</p>
       <pre class="lines">
 
 
-75
-76
-77</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_redirections'>redirections</span>
   <span class='ivar'>@redirections</span>
@@ -1312,26 +1504,26 @@ to O_NONBLOCK.</p>
       <pre class="lines">
 
 
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60</pre>
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 6</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_define_chain_op'>define_chain_op</span><span class='lparen'>(</span><span class='id identifier rubyid_opname'>opname</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_define_chain_op'>define_chain_op</span><span class='lparen'>(</span><span class='id identifier rubyid_opname'>opname</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='id identifier rubyid_opname'>opname</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_other'>other</span><span class='op'>|</span>
     <span class='kw'>unless</span> <span class='const'>CommandLine</span> <span class='op'>===</span> <span class='id identifier rubyid_other'>other</span>
       <span class='id identifier rubyid_other'>other</span> <span class='op'>=</span> <span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_other'>other</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -1366,14 +1558,14 @@ to O_NONBLOCK.</p>
       <pre class="lines">
 
 
-62
-63
-64</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 22</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_define_op'>define_op</span><span class='lparen'>(</span><span class='id identifier rubyid_opname'>opname</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_define_op'>define_op</span><span class='lparen'>(</span><span class='id identifier rubyid_opname'>opname</span><span class='rparen'>)</span>
   <span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_define_chain_op'>define_chain_op</span><span class='lparen'>(</span><span class='id identifier rubyid_opname'>opname</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1490,17 +1682,17 @@ outlasts us</p>
       <pre class="lines">
 
 
-182
-183
-184
-185
-186
-187
-188
-189</pre>
+134
+135
+136
+137
+138
+139
+140
+141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_background'>background</span>
   <span class='id identifier rubyid_pid'>pid</span><span class='comma'>,</span> <span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='id identifier rubyid_err'>err</span> <span class='op'>=</span> <span class='id identifier rubyid_spawn_process'>spawn_process</span>
@@ -1530,30 +1722,20 @@ outlasts us</p>
       <pre class="lines">
 
 
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146</pre>
+111
+112
+113
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_collect_result'>collect_result</span><span class='lparen'>(</span><span class='id identifier rubyid_pid'>pid</span><span class='comma'>,</span> <span class='id identifier rubyid_host_stdout'>host_stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_host_stderr'>host_stderr</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_pid'>pid</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_wait2'>wait2</span><span class='lparen'>(</span><span class='id identifier rubyid_pid'>pid</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_stdout'>stdout</span> <span class='op'>=</span> <span class='id identifier rubyid_consume_buffer'>consume_buffer</span><span class='lparen'>(</span><span class='id identifier rubyid_host_stdout'>host_stdout</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_stderr'>stderr</span> <span class='op'>=</span> <span class='id identifier rubyid_consume_buffer'>consume_buffer</span><span class='lparen'>(</span><span class='id identifier rubyid_host_stderr'>host_stderr</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>CommandRunResult</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='int'>1</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='int'>2</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_stderr'>stderr</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_host_stdout'>host_stdout</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
-  <span class='id identifier rubyid_host_stderr'>host_stderr</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
-
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>CommandRunResult</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_pid'>pid</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_streams'>streams</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='int'>1</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_host_stdout'>host_stdout</span><span class='comma'>,</span> <span class='int'>2</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_host_stderr'>host_stderr</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_wait'>wait</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1576,12 +1758,12 @@ outlasts us</p>
       <pre class="lines">
 
 
-87
-88
-89</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_command'>command</span>
   <span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_executable'>executable</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_options_composition'>options_composition</span> <span class='op'>+</span> <span class='ivar'>@redirections</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1606,82 +1788,17 @@ outlasts us</p>
       <pre class="lines">
 
 
-195
-196
-197
-198</pre>
+147
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_complete'>complete</span><span class='lparen'>(</span><span class='id identifier rubyid_pid'>pid</span><span class='comma'>,</span> <span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='id identifier rubyid_err'>err</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_kill_process'>kill_process</span><span class='lparen'>(</span><span class='id identifier rubyid_pid'>pid</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_collect_result'>collect_result</span><span class='lparen'>(</span><span class='id identifier rubyid_pid'>pid</span><span class='comma'>,</span> <span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='id identifier rubyid_err'>err</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="consume_buffer-instance_method">
-  
-    - (<tt>Object</tt>) <strong>consume_buffer</strong>(io) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Gets all the data out of buffer, even if somehow it doesn't have an EOF
-Escpecially useful for programs (e.g. ssh) that sometime set their stderr
-to O_NONBLOCK</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 151</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_consume_buffer'>consume_buffer</span><span class='lparen'>(</span><span class='id identifier rubyid_io'>io</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_accumulate'>accumulate</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_waits'>waits</span> <span class='op'>=</span> <span class='int'>3</span>
-  <span class='kw'>begin</span>
-    <span class='kw'>while</span> <span class='id identifier rubyid_chunk'>chunk</span> <span class='op'>=</span> <span class='id identifier rubyid_io'>io</span><span class='period'>.</span><span class='id identifier rubyid_read_nonblock'>read_nonblock</span><span class='lparen'>(</span><span class='int'>4096</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_accumulate'>accumulate</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_chunk'>chunk</span>
-    <span class='kw'>end</span>
-  <span class='kw'>rescue</span> <span class='const'>IO</span><span class='op'>::</span><span class='const'>WaitReadable</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ex'>ex</span>
-    <span class='kw'>retry</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_waits'>waits</span> <span class='op'>-=</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>&gt;</span> <span class='int'>0</span>
-  <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_accumulate'>accumulate</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
-<span class='kw'>rescue</span> <span class='const'>EOFError</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_accumulate'>accumulate</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1703,12 +1820,12 @@ to O_NONBLOCK</p>
       <pre class="lines">
 
 
-109
-110
-111</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_copy_stream_to'>copy_stream_to</span><span class='lparen'>(</span><span class='id identifier rubyid_from'>from</span><span class='comma'>,</span> <span class='id identifier rubyid_to'>to</span><span class='rparen'>)</span>
   <span class='ivar'>@redirections</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_from'>from</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;&amp;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_to'>to</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1746,12 +1863,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-169
-170
-171</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execute'>execute</span>
   <span class='id identifier rubyid_collect_result'>collect_result</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_spawn_process'>spawn_process</span><span class='rparen'>)</span>
@@ -1776,12 +1893,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-191
-192
-193</pre>
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 191</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kill_process'>kill_process</span><span class='lparen'>(</span><span class='id identifier rubyid_pid'>pid</span><span class='rparen'>)</span>
   <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_kill'>kill</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INT</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_pid'>pid</span><span class='rparen'>)</span>
@@ -1806,12 +1923,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-214
-215
-216</pre>
+170
+171
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_must_succeed!'>must_succeed!</span>
   <span class='id identifier rubyid_run'>run</span><span class='period'>.</span><span class='id identifier rubyid_must_succeed!'>must_succeed!</span>
@@ -1836,12 +1953,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-97
-98
-99</pre>
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_options_composition'>options_composition</span>
   <span class='id identifier rubyid_options'>options</span>
@@ -1909,12 +2026,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-105
-106
-107</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_redirect_from'>redirect_from</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_stream'>stream</span><span class='rparen'>)</span>
   <span class='ivar'>@redirections</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stream'>stream</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1939,12 +2056,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-117
-118
-119</pre>
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_redirect_stderr'>redirect_stderr</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -1969,12 +2086,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-121
-122
-123</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_redirect_stdin'>redirect_stdin</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_redirect_from'>redirect_from</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
@@ -1999,12 +2116,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-113
-114
-115</pre>
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_redirect_stdout'>redirect_stdout</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -2029,15 +2146,79 @@ originally intended :/</p>
       <pre class="lines">
 
 
-101
-102
-103</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='id identifier rubyid_stream'>stream</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='ivar'>@redirections</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stream'>stream</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="replace_us-instance_method">
+  
+    - (<tt>Object</tt>) <strong>replace_us</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_replace_us'>replace_us</span>
+  <span class='id identifier rubyid_output_steeam'>output_steeam</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ceding execution to: </span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output_stream'>output_stream</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_string_format'>string_format</span>
+  <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_exec'>exec</span><span class='lparen'>(</span><span class='id identifier rubyid_command_environment'>command_environment</span><span class='comma'>,</span> <span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="report-instance_method">
+  
+    - (<tt>Object</tt>) <strong>report</strong>(message, newline = true) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_report'>report</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_newline'>newline</span><span class='op'>=</span><span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_output_stream'>output_stream</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_newline'>newline</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2059,27 +2240,59 @@ originally intended :/</p>
       <pre class="lines">
 
 
-200
-201
-202
-203
-204
-205
-206
-207
-208</pre>
+156
+157
+158
+159
+160
+161
+162
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 200</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
-  <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_string_format'>string_format</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_report'>report</span> <span class='id identifier rubyid_string_format'>string_format</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>false</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_execute'>execute</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=&gt; </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_exit_code'>exit_code</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_format_streams'>format_streams</span> <span class='kw'>if</span> <span class='id identifier rubyid_verbose'>verbose</span>
+  <span class='id identifier rubyid_report'>report</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=&gt; </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_exit_code'>exit_code</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_report'>report</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_format_streams'>format_streams</span> <span class='kw'>if</span> <span class='id identifier rubyid_verbose'>verbose</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
 <span class='kw'>ensure</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='kw'>if</span> <span class='id identifier rubyid_verbose'>verbose</span>
+  <span class='id identifier rubyid_report'>report</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_verbose'>verbose</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_env-instance_method">
+  
+    - (<tt>Object</tt>) <strong>set_env</strong>(name, value) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_env'>set_env</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_command_environment'>command_environment</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+  <span class='kw'>return</span> <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2101,19 +2314,19 @@ originally intended :/</p>
       <pre class="lines">
 
 
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134</pre>
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_spawn_process'>spawn_process</span>
   <span class='id identifier rubyid_host_stdout'>host_stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_cmd_stdout'>cmd_stdout</span> <span class='op'>=</span> <span class='const'>IO</span><span class='period'>.</span><span class='id identifier rubyid_pipe'>pipe</span>
@@ -2156,14 +2369,14 @@ originally intended :/</p>
       <pre class="lines">
 
 
-174
-175
-176
-177
-178</pre>
+126
+127
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 174</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_spin_off'>spin_off</span>
   <span class='id identifier rubyid_pid'>pid</span><span class='comma'>,</span> <span class='id identifier rubyid_out'>out</span><span class='comma'>,</span> <span class='id identifier rubyid_err'>err</span> <span class='op'>=</span> <span class='id identifier rubyid_spawn_process'>spawn_process</span>
@@ -2190,14 +2403,14 @@ originally intended :/</p>
       <pre class="lines">
 
 
-91
-92
-93
-94
-95</pre>
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_string_format'>string_format</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_command_environment'>command_environment</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
@@ -2246,12 +2459,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-210
-211
-212</pre>
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_succeeds?'>succeeds?</span>
   <span class='id identifier rubyid_run'>run</span><span class='period'>.</span><span class='id identifier rubyid_succeeded?'>succeeded?</span>
@@ -2276,12 +2489,12 @@ originally intended :/</p>
       <pre class="lines">
 
 
-79
-80
-81</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-line.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_verbose'>verbose</span>
   <span class='op'>::</span><span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_verbose'>verbose</span> <span class='op'>&amp;&amp;</span> <span class='op'>::</span><span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_verbose'>verbose</span> <span class='op'>!=</span> <span class='op'>::</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>FileUtilsExt</span><span class='op'>::</span><span class='const'>DEFAULT</span>
@@ -2296,9 +2509,9 @@ originally intended :/</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:41 2013 by
+  Generated on Tue Nov 26 00:40:43 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

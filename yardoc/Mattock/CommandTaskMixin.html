@@ -6,13 +6,13 @@
 <title>
   Module: Mattock::CommandTaskMixin
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -144,6 +144,28 @@
   <span class="summary_signature">
     
       <a href="#action-instance_method" title="#action (instance method)">- (Object) <strong>action</strong>(args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check_verification_command-instance_method" title="#check_verification_command (instance method)">- (Object) <strong>check_verification_command</strong> </a>
     
 
     
@@ -341,6 +363,36 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="check_verification_command-instance_method">
+  
+    - (<tt>Object</tt>) <strong>check_verification_command</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-task.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_check_verification_command'>check_verification_command</span>
+  <span class='op'>!</span><span class='id identifier rubyid_decorated'>decorated</span><span class='lparen'>(</span><span class='id identifier rubyid_verify_command'>verify_command</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_succeeds?'>succeeds?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="decorated-instance_method">
   
     - (<tt>Object</tt>) <strong>decorated</strong>(command) 
@@ -407,24 +459,24 @@
       <pre class="lines">
 
 
-46
-47
-48
-49
 50
 51
 52
-53</pre>
+53
+54
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/command-task.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/command-task.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_needed?'>needed?</span>
   <span class='id identifier rubyid_finalize_configuration'>finalize_configuration</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_verify_command'>verify_command</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='kw'>super</span>
   <span class='kw'>else</span>
-    <span class='op'>!</span><span class='id identifier rubyid_decorated'>decorated</span><span class='lparen'>(</span><span class='id identifier rubyid_verify_command'>verify_command</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_succeeds?'>succeeds?</span>
+    <span class='id identifier rubyid_check_verification_command'>check_verification_command</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -529,9 +581,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:40 2013 by
+  Generated on Tue Nov 26 00:40:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

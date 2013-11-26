@@ -6,13 +6,13 @@
 <title>
   Module: Mattock::Configurable::DirectoryStructure::ClassMethods
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -79,7 +79,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/mattock/configurable.rb</dd>
+    <dd class="r1 last">lib/mattock/configurable/directory-structure.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -93,7 +93,7 @@
         <dt id="RequiredField-constant" class="">RequiredField =
           
         </dt>
-        <dd><pre class="code"><span class='op'>::</span><span class='const'>Mattock</span><span class='op'>::</span><span class='const'>Configurable</span><span class='op'>::</span><span class='const'>ClassMethods</span><span class='op'>::</span><span class='const'>RequiredField</span></pre></dd>
+        <dd><pre class="code"><span class='const'>Configurable</span><span class='op'>::</span><span class='const'>RequiredField</span></pre></dd>
       
     </dl>
   
@@ -104,33 +104,6 @@
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
   <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#path_fields-instance_method" title="#path_fields (instance method)">- (Object) <strong>path_fields</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute path_fields.</p>
-</div></span>
-  
-</li>
-
     
       <li class="public ">
   <span class="summary_signature">
@@ -152,9 +125,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute path_heirarchy.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -216,6 +187,94 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_fields-instance_method" title="#path_fields (instance method)">- (Object) <strong>path_fields</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_path_on-instance_method" title="#resolve_path_on (instance method)">- (Object) <strong>resolve_path_on</strong>(instance, parent, child_field, missing_relatives) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_paths_on-instance_method" title="#resolve_paths_on (instance method)">- (Object) <strong>resolve_paths_on</strong>(instance) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#root_paths-instance_method" title="#root_paths (instance method)">- (Object) <strong>root_paths</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -224,52 +283,9 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="path_fields=-instance_method"></span>
-      <div class="method_details first">
-  <h3 class="signature first" id="path_fields-instance_method">
-  
-    - (<tt>Object</tt>) <strong>path_fields</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute path_fields</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-444
-445
-446</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 444</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_path_fields'>path_fields</span>
-  <span class='ivar'>@path_fields</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
       <span id="path_heirarchy=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="path_heirarchy-instance_method">
+      <div class="method_details first">
+  <h3 class="signature first" id="path_heirarchy-instance_method">
   
     - (<tt>Object</tt>) <strong>path_heirarchy</strong> 
   
@@ -277,32 +293,21 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute path_heirarchy</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-443
-444
-445</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 443</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/directory-structure.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path_heirarchy'>path_heirarchy</span>
-  <span class='ivar'>@path_heirarchy</span>
+  <span class='ivar'>@path_heirarchy</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -331,20 +336,22 @@
       <pre class="lines">
 
 
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456</pre>
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 446</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/directory-structure.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dir'>dir</span><span class='lparen'>(</span><span class='id identifier rubyid_field_name'>field_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rel_path'>rel_path</span> <span class='op'>=</span> <span class='const'>RequiredField</span>
@@ -352,6 +359,8 @@
     <span class='id identifier rubyid_rel_path'>rel_path</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_parent_field'>parent_field</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_field_name'>field_name</span><span class='comma'>,</span> <span class='id identifier rubyid_rel_path'>rel_path</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_root_paths'>root_paths</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_parent_field'>parent_field</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_path_heirarchy'>path_heirarchy</span> <span class='op'>+=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_child_field'>child_field</span><span class='op'>|</span>
     <span class='lbracket'>[</span><span class='id identifier rubyid_parent_field'>parent_field</span><span class='comma'>,</span> <span class='id identifier rubyid_child_field'>child_field</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
@@ -377,25 +386,217 @@
       <pre class="lines">
 
 
-458
-459
-460
-461
-462
-463
-464
-465</pre>
+87
+88
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 458</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/directory-structure.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_field_name'>field_name</span><span class='comma'>,</span> <span class='id identifier rubyid_rel_path'>rel_path</span><span class='op'>=</span><span class='const'>RequiredField</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_field'>field</span> <span class='op'>=</span> <span class='id identifier rubyid_setting'>setting</span><span class='lparen'>(</span><span class='id identifier rubyid_field_name'>field_name</span><span class='comma'>,</span> <span class='id identifier rubyid_nested'>nested</span><span class='lbrace'>{</span>
-    <span class='id identifier rubyid_required_field'>required_field</span> <span class='symbol'>:absolute_path</span>
-    <span class='id identifier rubyid_setting'>setting</span> <span class='symbol'>:relative_path</span><span class='comma'>,</span> <span class='id identifier rubyid_rel_path'>rel_path</span>
-  <span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_field'>field</span> <span class='op'>=</span> <span class='id identifier rubyid_setting'>setting</span><span class='lparen'>(</span><span class='id identifier rubyid_field_name'>field_name</span><span class='comma'>,</span> <span class='const'>StructurePath</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_rel_path'>rel_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_root_paths'>root_paths</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_field'>field</span>
   <span class='id identifier rubyid_path_fields'>path_fields</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_field'>field</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_field'>field</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="path_fields-instance_method">
+  
+    - (<tt>Object</tt>) <strong>path_fields</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/directory-structure.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_path_fields'>path_fields</span>
+  <span class='ivar'>@path_fields</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="resolve_path_on-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_path_on</strong>(instance, parent, child_field, missing_relatives) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/directory-structure.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resolve_path_on'>resolve_path_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='comma'>,</span> <span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_child_field'>child_field</span><span class='comma'>,</span> <span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_child'>child</span> <span class='op'>=</span> <span class='id identifier rubyid_child_field'>child_field</span><span class='period'>.</span><span class='id identifier rubyid_value_on'>value_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_child'>child</span><span class='period'>.</span><span class='id identifier rubyid_field_unset?'>field_unset?</span><span class='lparen'>(</span><span class='symbol'>:absolute_path</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_child'>child</span><span class='period'>.</span><span class='id identifier rubyid_field_unset?'>field_unset?</span><span class='lparen'>(</span><span class='symbol'>:relative_path</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_missing_relatives'>missing_relatives</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_child_field'>child_field</span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_child'>child</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span><span class='comma'>,</span> <span class='id identifier rubyid_child'>child</span><span class='period'>.</span><span class='id identifier rubyid_relative_path'>relative_path</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="resolve_paths_on-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_paths_on</strong>(instance) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/directory-structure.rb', line 104</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resolve_paths_on'>resolve_paths_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_superclass_exception'>superclass_exception</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_superclass'>superclass</span> <span class='op'>&lt;</span> <span class='const'>DirectoryStructure</span>
+    <span class='kw'>begin</span>
+    <span class='id identifier rubyid_superclass'>superclass</span><span class='period'>.</span><span class='id identifier rubyid_resolve_paths_on'>resolve_paths_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='const'>MissingRelativePaths</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_mrp'>mrp</span>
+      <span class='id identifier rubyid_superclass_exception'>superclass_exception</span> <span class='op'>=</span> <span class='id identifier rubyid_mrp'>mrp</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_missing_relatives'>missing_relatives</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='lparen'>(</span><span class='id identifier rubyid_root_paths'>root_paths</span> <span class='op'>-</span> <span class='id identifier rubyid_path_heirarchy'>path_heirarchy</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_child'>child</span><span class='op'>|</span> <span class='id identifier rubyid_child'>child</span> <span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span>
+    <span class='id identifier rubyid_resolve_path_on'>resolve_path_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='comma'>,</span> <span class='id identifier rubyid_instance'>instance</span><span class='comma'>,</span> <span class='id identifier rubyid_field'>field</span><span class='comma'>,</span> <span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_path_heirarchy'>path_heirarchy</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_parent_field'>parent_field</span><span class='comma'>,</span> <span class='id identifier rubyid_child_field'>child_field</span><span class='op'>|</span>
+    <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='id identifier rubyid_parent_field'>parent_field</span><span class='period'>.</span><span class='id identifier rubyid_value_on'>value_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_resolve_path_on'>resolve_path_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='comma'>,</span> <span class='id identifier rubyid_parent'>parent</span><span class='comma'>,</span> <span class='id identifier rubyid_child_field'>child_field</span><span class='comma'>,</span> <span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>case</span> <span class='lbracket'>[</span><span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='comma'>,</span> <span class='id identifier rubyid_superclass_exception'>superclass_exception</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='id identifier rubyid_superclass_exception'>superclass_exception</span>
+  <span class='kw'>when</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>MissingRelativePaths</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Required field</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>.relative_path</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'> unset on </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>when</span> <span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>MissingRelativePaths</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Required field</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>.relative_path</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'> unset on </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_superclass_exception'>superclass_exception</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_path_fields'>path_fields</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span>
+    <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_value_on'>value_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_field_unset?'>field_unset?</span><span class='lparen'>(</span><span class='symbol'>:relative_path</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_relative_path'>relative_path</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="root_paths-instance_method">
+  
+    - (<tt>Object</tt>) <strong>root_paths</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/directory-structure.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_root_paths'>root_paths</span>
+  <span class='ivar'>@root_paths</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -407,9 +608,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:41 2013 by
+  Generated on Tue Nov 26 00:40:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

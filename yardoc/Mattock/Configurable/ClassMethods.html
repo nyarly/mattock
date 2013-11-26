@@ -6,13 +6,13 @@
 <title>
   Module: Mattock::Configurable::ClassMethods
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -83,7 +83,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/mattock/configurable.rb</dd>
+    <dd class="r2 last">lib/mattock/configurable/class-methods.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -103,7 +103,7 @@ managment.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><span class='kw'>class</span> <span class='const'>ConfExample</span>
+      <pre class="example code"><code><span class='kw'>class</span> <span class='const'>ConfExample</span>
   <span class='id identifier rubyid_include'>include</span> <span class='const'>Configurable</span>
 
   <span class='id identifier rubyid_setting'>setting</span> <span class='symbol'>:foo</span>
@@ -120,24 +120,12 @@ managment.</p>
 <span class='id identifier rubyid_ce'>ce</span><span class='period'>.</span><span class='id identifier rubyid_bar'>bar</span> <span class='comment'>#=&gt; 1
 </span><span class='id identifier rubyid_ce'>ce</span><span class='period'>.</span><span class='id identifier rubyid_hoo'>hoo</span> <span class='comment'>#=&gt; nil
 </span><span class='id identifier rubyid_ce'>ce</span><span class='period'>.</span><span class='id identifier rubyid_hoo'>hoo</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hallo</span><span class='tstring_end'>&quot;</span></span>
-<span class='id identifier rubyid_ce'>ce</span><span class='period'>.</span><span class='id identifier rubyid_check_required'>check_required</span> <span class='comment'>#=&gt; raises error because :must and :foo aren't set</span></pre>
+<span class='id identifier rubyid_ce'>ce</span><span class='period'>.</span><span class='id identifier rubyid_check_required'>check_required</span> <span class='comment'>#=&gt; raises error because :must and :foo aren't set</span></code></pre>
     
   </div>
 
 
 </div>
-
-  <h2>Constant Summary</h2>
-  
-    <dl class="constants">
-      
-        <dt id="RequiredField-constant" class="">RequiredField =
-          
-        </dt>
-        <dd><pre class="code"><span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
-    </dl>
-  
 
 
 
@@ -153,28 +141,6 @@ managment.</p>
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#copy_settings-instance_method" title="#copy_settings (instance method)">- (Object) <strong>copy_settings</strong>(from, to, &amp;block) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -556,73 +522,7 @@ allows for defaults and required settings.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="copy_settings-instance_method">
-  
-    - (<tt>Object</tt>) <strong>copy_settings</strong>(from, to, &amp;block) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-387
-388
-389
-390
-391
-392
-393
-394
-395
-396
-397
-398
-399
-400
-401
-402
-403
-404
-405
-406
-407</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 387</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_copy_settings'>copy_settings</span><span class='lparen'>(</span><span class='id identifier rubyid_from'>from</span><span class='comma'>,</span> <span class='id identifier rubyid_to'>to</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='const'>Configurable</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_superclass'>superclass</span>
-    <span class='id identifier rubyid_superclass'>superclass</span><span class='period'>.</span><span class='id identifier rubyid_copy_settings'>copy_settings</span><span class='lparen'>(</span><span class='id identifier rubyid_from'>from</span><span class='comma'>,</span> <span class='id identifier rubyid_to'>to</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_default_values'>default_values</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span>
-    <span class='kw'>begin</span>
-      <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
-          <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_from'>from</span><span class='comma'>,</span> <span class='id identifier rubyid_field'>field</span><span class='rparen'>)</span>
-        <span class='kw'>else</span>
-          <span class='id identifier rubyid_from'>from</span><span class='period'>.</span><span class='id identifier rubyid___send__'>__send__</span><span class='lparen'>(</span><span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_reader_method'>reader_method</span><span class='rparen'>)</span>
-        <span class='kw'>end</span>
-      <span class='kw'>if</span> <span class='const'>Configurable</span> <span class='op'>===</span> <span class='id identifier rubyid_value'>value</span>
-        <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
-      <span class='kw'>end</span>
-      <span class='id identifier rubyid_to'>to</span><span class='period'>.</span><span class='id identifier rubyid___send__'>__send__</span><span class='lparen'>(</span><span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_writer_method'>writer_method</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-    <span class='kw'>rescue</span> <span class='const'>NoMethodError</span>
-      <span class='comment'>#shrug it off
-</span>    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="default_value_for-instance_method">
+  <h3 class="signature first" id="default_value_for-instance_method">
   
     - (<tt>Object</tt>) <strong>default_value_for</strong>(name) 
   
@@ -658,14 +558,14 @@ allows for defaults and required settings.</p>
       <pre class="lines">
 
 
-264
-265
-266
-267
-268</pre>
+58
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 264</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_value_for'>default_value_for</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_field'>field</span> <span class='op'>=</span> <span class='id identifier rubyid_field_metadata'>field_metadata</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -692,12 +592,12 @@ allows for defaults and required settings.</p>
       <pre class="lines">
 
 
-241
-242
-243</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 241</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_values'>default_values</span>
   <span class='ivar'>@default_values</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -722,17 +622,17 @@ allows for defaults and required settings.</p>
       <pre class="lines">
 
 
-254
-255
-256
-257
-258
-259
-260
-261</pre>
+48
+49
+50
+51
+52
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 254</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_field_metadata'>field_metadata</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_field'>field</span> <span class='op'>=</span> <span class='id identifier rubyid_default_values'>default_values</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span>
@@ -762,17 +662,17 @@ allows for defaults and required settings.</p>
       <pre class="lines">
 
 
-245
-246
-247
-248
-249
-250
-251
-252</pre>
+39
+40
+41
+42
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 245</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_field_names'>field_names</span>
   <span class='id identifier rubyid_names'>names</span> <span class='op'>=</span> <span class='id identifier rubyid_default_values'>default_values</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span>
@@ -802,12 +702,12 @@ allows for defaults and required settings.</p>
       <pre class="lines">
 
 
-432
-433
-434</pre>
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 432</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 197</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='const'>ClassMethods</span>
@@ -832,20 +732,20 @@ allows for defaults and required settings.</p>
       <pre class="lines">
 
 
-234
-235
-236
-237
-238
-239</pre>
+28
+29
+30
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 234</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect_instance'>inspect_instance</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_field_names'>field_names</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='op'>|</span>
     <span class='id identifier rubyid_meta'>meta</span> <span class='op'>=</span> <span class='id identifier rubyid_field_metadata'>field_metadata</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_indent'>indent</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_meta'>meta</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> =&gt; </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_meta'>meta</span><span class='period'>.</span><span class='id identifier rubyid_immediate_value_on'>immediate_value_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_meta'>meta</span><span class='period'>.</span><span class='id identifier rubyid_value_on'>value_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_indent'>indent</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_meta'>meta</span><span class='period'>.</span><span class='id identifier rubyid_inspect_on'>inspect_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='comma'>,</span> <span class='id identifier rubyid_indent'>indent</span> <span class='op'>*</span> <span class='int'>2</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -868,28 +768,28 @@ allows for defaults and required settings.</p>
       <pre class="lines">
 
 
-367
-368
-369
-370
-371
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381
-382
-383
-384
-385</pre>
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 367</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 154</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_missing_required_fields_on'>missing_required_fields_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_missing'>missing</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -902,8 +802,8 @@ allows for defaults and required settings.</p>
     <span class='kw'>else</span>
       <span class='id identifier rubyid_set_value'>set_value</span> <span class='op'>=</span> <span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid___send__'>__send__</span><span class='lparen'>(</span><span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_reader_method'>reader_method</span><span class='rparen'>)</span>
       <span class='kw'>if</span> <span class='const'>Configurable</span> <span class='op'>===</span> <span class='id identifier rubyid_set_value'>set_value</span>
-        <span class='id identifier rubyid_missing'>missing</span> <span class='op'>+=</span> <span class='id identifier rubyid_set_value'>set_value</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_missing_required_fields_on'>missing_required_fields_on</span><span class='lparen'>(</span><span class='id identifier rubyid_set_value'>set_value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span>
-          <span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_field'>field</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_missing'>missing</span> <span class='op'>+=</span> <span class='id identifier rubyid_set_value'>set_value</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_missing_required_fields_on'>missing_required_fields_on</span><span class='lparen'>(</span><span class='id identifier rubyid_set_value'>set_value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_sub_field'>sub_field</span><span class='op'>|</span>
+          <span class='lbracket'>[</span><span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_field'>sub_field</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
@@ -943,7 +843,7 @@ settings</p>
 <p>SSH options</p>
 </div></p>
       
-      <pre class="example code"><span class='id identifier rubyid_setting'>setting</span> <span class='symbol'>:ssh</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_nested'>nested</span><span class='lparen'>(</span><span class='symbol'>:username</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>me</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:password</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='rparen'>)</span></pre>
+      <pre class="example code"><code><span class='id identifier rubyid_setting'>setting</span> <span class='symbol'>:ssh</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_nested'>nested</span><span class='lparen'>(</span><span class='symbol'>:username</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>me</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:password</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='rparen'>)</span></code></pre>
     
   </div>
 
@@ -954,17 +854,17 @@ settings</p>
       <pre class="lines">
 
 
-274
-275
-276
-277
-278
-279
-280
-281</pre>
+68
+69
+70
+71
+72
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 274</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nested'>nested</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_nested'>nested</span> <span class='op'>=</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Struct</span><span class='rparen'>)</span>
@@ -1010,15 +910,15 @@ especially with <span class='object_link'><a href="../CascadingDefinition.html#r
       <pre class="lines">
 
 
-285
-286
-287
-288
-289
-290</pre>
+79
+80
+81
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 285</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nil_fields'>nil_fields</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_names'>names</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_names'>names</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='op'>|</span>
@@ -1061,15 +961,15 @@ especially with <span class='object_link'><a href="../CascadingDefinition.html#r
       <pre class="lines">
 
 
-295
-296
-297
-298
-299
-300</pre>
+89
+90
+91
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 295</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_required_fields'>required_fields</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_names'>names</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_names'>names</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='op'>|</span>
@@ -1101,15 +1001,15 @@ especially with <span class='object_link'><a href="../CascadingDefinition.html#r
       <pre class="lines">
 
 
-330
-331
-332
-333
-334
-335</pre>
+121
+122
+123
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 330</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_runtime_required_fields'>runtime_required_fields</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_names'>names</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_names'>names</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='op'>|</span>
@@ -1137,12 +1037,12 @@ especially with <span class='object_link'><a href="../CascadingDefinition.html#r
       <pre class="lines">
 
 
-338
-339
-340</pre>
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 338</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_runtime_setting'>runtime_setting</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_default_value'>default_value</span> <span class='op'>=</span> <span class='const'>RequiredField</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_setting'>setting</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_default_value'>default_value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_is'>is</span><span class='lparen'>(</span><span class='symbol'>:runtime</span><span class='rparen'>)</span>
@@ -1167,23 +1067,19 @@ especially with <span class='object_link'><a href="../CascadingDefinition.html#r
       <pre class="lines">
 
 
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365</pre>
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 352</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_defaults_on'>set_defaults_on</span><span class='lparen'>(</span><span class='id identifier rubyid_instance'>instance</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='const'>Configurable</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_superclass'>superclass</span>
@@ -1191,11 +1087,7 @@ especially with <span class='object_link'><a href="../CascadingDefinition.html#r
   <span class='kw'>end</span>
   <span class='id identifier rubyid_default_values'>default_values</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span>
     <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_is?'>is?</span> <span class='symbol'>:defaulting</span>
-    <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_default_value'>default_value</span>
-    <span class='kw'>if</span> <span class='const'>Module</span> <span class='op'>===</span> <span class='id identifier rubyid_value'>value</span> <span class='kw'>and</span> <span class='const'>Configurable</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_value'>value</span>
-      <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-      <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_set_defaults_on'>set_defaults_on</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+    <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_build_default_value'>build_default_value</span>
     <span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid___send__'>__send__</span><span class='lparen'>(</span><span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_writer_method'>writer_method</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -1231,31 +1123,30 @@ allows for defaults and required settings</p>
       <pre class="lines">
 
 
-307
-308
-309
-310
-311
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328</pre>
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 307</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_setting'>setting</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_default_value'>default_value</span> <span class='op'>=</span> <span class='const'>RequiredField</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
@@ -1273,8 +1164,7 @@ allows for defaults and required settings</p>
 
   <span class='kw'>if</span> <span class='id identifier rubyid_existing'>existing</span> <span class='op'>=</span> <span class='id identifier rubyid_default_values'>default_values</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span> <span class='kw'>and</span> <span class='id identifier rubyid_existing'>existing</span><span class='period'>.</span><span class='id identifier rubyid_default_value'>default_value</span> <span class='op'>!=</span> <span class='id identifier rubyid_default_value'>default_value</span>
     <span class='id identifier rubyid_source_line'>source_line</span> <span class='op'>=</span> <span class='id identifier rubyid_caller'>caller</span><span class='period'>.</span><span class='id identifier rubyid_drop_while'>drop_while</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='embexpr_beg'>#{</span><span class='kw'>__FILE__</span><span class='rbrace'>}</span><span class='regexp_end'>/</span></span> <span class='op'>=~</span> <span class='id identifier rubyid_line'>line</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
-      <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Changing default value of </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> from </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_existing'>existing</span><span class='period'>.</span><span class='id identifier rubyid_default_value'>default_value</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_default_value'>default_value</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  (at: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_source_line'>source_line</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Changing default value of </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>#</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> from </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_existing'>existing</span><span class='period'>.</span><span class='id identifier rubyid_default_value'>default_value</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_default_value'>default_value</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> (at: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_source_line'>source_line</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_default_values'>default_values</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='id identifier rubyid_metadata'>metadata</span>
@@ -1332,15 +1222,15 @@ allows for defaults and required settings</p>
       <pre class="lines">
 
 
-344
-345
-346
-347
-348
-349</pre>
+135
+136
+137
+138
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 344</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_settings'>settings</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
@@ -1368,30 +1258,30 @@ allows for defaults and required settings</p>
       <pre class="lines">
 
 
-409
-410
-411
-412
-413
-414
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429</pre>
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 409</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/class-methods.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_hash'>to_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='const'>Configurable</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_superclass'>superclass</span>
@@ -1424,9 +1314,9 @@ allows for defaults and required settings</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:41 2013 by
+  Generated on Tue Nov 26 00:40:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

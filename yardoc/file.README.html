@@ -6,13 +6,13 @@
 <title>
   File: README
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -82,17 +82,17 @@ verifying, copyable settings.  Nothing you haven't seen done before.</p>
 <p>The upshot of Mattock is being able to build Rake Tasklibs so that you can
 do things like:</p>
 
-<pre class="ruby"><span class="ruby-identifier">tk</span> = <span class="ruby-constant">Toolkit</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tk</span><span class="ruby-operator">|</span>
-  <span class="ruby-identifier">tk</span>.<span class="ruby-identifier">file_lists</span>.<span class="ruby-identifier">project</span> = [<span class="ruby-keyword">__FILE__</span>]
-<span class="ruby-keyword">end</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_tk'>tk</span> <span class='op'>=</span> <span class='const'>Toolkit</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_tk'>tk</span><span class='op'>|</span>
+  <span class='id identifier rubyid_tk'>tk</span><span class='period'>.</span><span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>__FILE__</span><span class='rbracket'>]</span>
+<span class='kw'>end</span>
 
-<span class="ruby-identifier">tk</span>.<span class="ruby-identifier">in_namespace</span> <span class="ruby-keyword">do</span>
-  <span class="ruby-identifier">vc</span> = <span class="ruby-constant">Git</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tk</span>) <span class="ruby-keyword">do</span>
-    <span class="ruby-operator">|</span><span class="ruby-identifier">vc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">vc</span>.<span class="ruby-identifier">branch</span> = <span class="ruby-string">&quot;master&quot;</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">task</span> <span class="ruby-identifier">tk</span>.<span class="ruby-identifier">finished_files</span>.<span class="ruby-identifier">build</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">vc</span>[<span class="ruby-string">&quot;is_checked_in&quot;</span>]
-<span class="ruby-keyword">end</span>
-</pre>
+<span class='id identifier rubyid_tk'>tk</span><span class='period'>.</span><span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_vc'>vc</span> <span class='op'>=</span> <span class='const'>Git</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='op'>|</span><span class='id identifier rubyid_vc'>vc</span><span class='op'>|</span> <span class='id identifier rubyid_vc'>vc</span><span class='period'>.</span><span class='id identifier rubyid_branch'>branch</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>master</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_tk'>tk</span><span class='period'>.</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_vc'>vc</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is_checked_in</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span>
+</code></pre>
 
 <p>Things of note there: the "Git" tasklib takes the Toolkit tasklib as an
 argument.  Git can pull out settings from Toolkit.  (Conversely, that means
@@ -123,6 +123,10 @@ Occasionally handy.</p>
   <h2>Mattock Tasklibs Defined</h2>
   <ul>
     
+      <li><span class='object_link'><a href="Mattock/TaskLib.html" title="Mattock::TaskLib (class)">Mattock::TaskLib</a></span></li>
+    
+      <li><span class='object_link'><a href="Mattock/TemplateTask.html" title="Mattock::TemplateTask (class)">Mattock::TemplateTask</a></span></li>
+    
       <li><span class='object_link'><a href="Mattock/CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">Mattock::CascadingDefinition</a></span></li>
     
   </ul>
@@ -132,9 +136,9 @@ Occasionally handy.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:40 2013 by
+  Generated on Tue Nov 26 00:40:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

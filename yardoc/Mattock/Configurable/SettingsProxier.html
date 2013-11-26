@@ -6,13 +6,13 @@
 <title>
   Class: Mattock::Configurable::SettingsProxier
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -96,7 +96,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/mattock/configurable.rb</dd>
+    <dd class="r2 last">lib/mattock/configurable/field-processor.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -180,7 +180,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="FieldProcessor.html" title="Mattock::Configurable::FieldProcessor (class)">FieldProcessor</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="FieldProcessor.html#filter-instance_method" title="Mattock::Configurable::FieldProcessor#filter (method)">#filter</a></span>, <span class='object_link'><a href="FieldProcessor.html#initialize-instance_method" title="Mattock::Configurable::FieldProcessor#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="FieldProcessor.html#to-instance_method" title="Mattock::Configurable::FieldProcessor#to (method)">#to</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="FieldProcessor.html#can_process-instance_method" title="Mattock::Configurable::FieldProcessor#can_process (method)">#can_process</a></span>, <span class='object_link'><a href="FieldProcessor.html#filter-instance_method" title="Mattock::Configurable::FieldProcessor#filter (method)">#filter</a></span>, <span class='object_link'><a href="FieldProcessor.html#initialize-instance_method" title="Mattock::Configurable::FieldProcessor#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="FieldProcessor.html#to-instance_method" title="Mattock::Configurable::FieldProcessor#to (method)">#to</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -208,12 +208,12 @@
       <pre class="lines">
 
 
-202
-203
-204</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/field-processor.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filter_attribute'>filter_attribute</span>
   <span class='symbol'>:proxiable</span>
@@ -238,12 +238,12 @@
       <pre class="lines">
 
 
-206
-207
-208</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/field-processor.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value'>value</span><span class='lparen'>(</span><span class='id identifier rubyid_field'>field</span><span class='rparen'>)</span>
   <span class='const'>ProxyValue</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_field'>field</span><span class='rparen'>)</span>
@@ -258,9 +258,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:44 2013 by
+  Generated on Tue Nov 26 00:40:44 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

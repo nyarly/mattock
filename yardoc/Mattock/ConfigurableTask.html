@@ -6,13 +6,13 @@
 <title>
   Module: Mattock::ConfigurableTask
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -76,7 +76,7 @@
   
     
       <dt class="r1">Includes:</dt>
-      <dd class="r1"><span class='object_link'><a href="CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">CascadingDefinition</a></span>, <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span>, <span class='object_link'><a href="DeferredDefinition.html" title="Mattock::DeferredDefinition (module)">DeferredDefinition</a></span></dd>
+      <dd class="r1"><span class='object_link'><a href="CascadingDefinition.html" title="Mattock::CascadingDefinition (module)">CascadingDefinition</a></span>, <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span>, <span class='object_link'><a href="Configurable/DirectoryStructure.html" title="Mattock::Configurable::DirectoryStructure (module)">Mattock::Configurable::DirectoryStructure</a></span>, <span class='object_link'><a href="DeferredDefinition.html" title="Mattock::DeferredDefinition (module)">DeferredDefinition</a></span></dd>
       
     
   
@@ -117,71 +117,17 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
   
 </p>
 
+  <h2>Constant Summary</h2>
+  
+
 
 
   <h2>Constant Summary</h2>
   
   <h3 class="inherited">Constants included
-     from <span class='object_link'><a href="Configurable/ClassMethods.html" title="Mattock::Configurable::ClassMethods (module)">Mattock::Configurable::ClassMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#RequiredField-constant" title="Mattock::Configurable::ClassMethods::RequiredField (constant)">Mattock::Configurable::ClassMethods::RequiredField</a></span></p>
+     from <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Configurable.html#RequiredField-constant" title="Mattock::Configurable::RequiredField (constant)">Mattock::Configurable::RequiredField</a></span></p>
 
-
-  <h2>Instance Settings Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#task_name-instance_method" title="#task_name (instance method)">- (Object) <strong>task_name</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The value of setting task_name.</p>
-</div></span>
-  
-  
-    <span class="summary_desc"><em>This setting must have a value set</em></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#task_args-instance_method" title="#task_args (instance method)">- (Object) <strong>task_args</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The value of setting task_args.</p>
-</div></span>
-  
-  
-    <span class="summary_desc"><em>This setting must have a value set</em></span>
-  
-</li>
-
-    
-  </ul>
 
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
@@ -336,6 +282,17 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable/DirectoryStructure.html" title="Mattock::Configurable::DirectoryStructure (module)">Mattock::Configurable::DirectoryStructure</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Configurable/DirectoryStructure.html#resolve_paths-instance_method" title="Mattock::Configurable::DirectoryStructure#resolve_paths (method)">#resolve_paths</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="DeferredDefinition.html" title="Mattock::DeferredDefinition (module)">DeferredDefinition</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="DeferredDefinition.html#add_settings-class_method" title="Mattock::DeferredDefinition.add_settings (method)">add_settings</a></span>, <span class='object_link'><a href="DeferredDefinition.html#finalize_configuration-instance_method" title="Mattock::DeferredDefinition#finalize_configuration (method)">#finalize_configuration</a></span>, <span class='object_link'><a href="DeferredDefinition.html#resolve_runtime_configuration-instance_method" title="Mattock::DeferredDefinition#resolve_runtime_configuration (method)">#resolve_runtime_configuration</a></span>, <span class='object_link'><a href="DeferredDefinition.html#runtime%3F-instance_method" title="Mattock::DeferredDefinition#runtime? (method)">#runtime?</a></span>, <span class='object_link'><a href="DeferredDefinition.html#runtime_definition-instance_method" title="Mattock::DeferredDefinition#runtime_definition (method)">#runtime_definition</a></span>, <span class='object_link'><a href="DeferredDefinition.html#setup_deferred-instance_method" title="Mattock::DeferredDefinition#setup_deferred (method)">#setup_deferred</a></span></p>
 
@@ -359,7 +316,7 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable.html" title="Mattock::Configurable (module)">Configurable</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Configurable.html#check_required-instance_method" title="Mattock::Configurable#check_required (method)">#check_required</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings-instance_method" title="Mattock::Configurable#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings_to-instance_method" title="Mattock::Configurable#copy_settings_to (method)">#copy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#fail_unless_set-instance_method" title="Mattock::Configurable#fail_unless_set (method)">#fail_unless_set</a></span>, <span class='object_link'><a href="Configurable.html#field_unset%3F-instance_method" title="Mattock::Configurable#field_unset? (method)">#field_unset?</a></span>, <span class='object_link'><a href="Configurable.html#proxy_settings-instance_method" title="Mattock::Configurable#proxy_settings (method)">#proxy_settings</a></span>, <span class='object_link'><a href="Configurable.html#proxy_settings_to-instance_method" title="Mattock::Configurable#proxy_settings_to (method)">#proxy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#proxy_value-instance_method" title="Mattock::Configurable#proxy_value (method)">#proxy_value</a></span>, <span class='object_link'><a href="Configurable.html#setup_defaults-instance_method" title="Mattock::Configurable#setup_defaults (method)">#setup_defaults</a></span>, <span class='object_link'><a href="Configurable.html#to_hash-instance_method" title="Mattock::Configurable#to_hash (method)">#to_hash</a></span>, <span class='object_link'><a href="Configurable.html#unset%3F-instance_method" title="Mattock::Configurable#unset? (method)">#unset?</a></span>, <span class='object_link'><a href="Configurable.html#unset_defaults_guard-instance_method" title="Mattock::Configurable#unset_defaults_guard (method)">#unset_defaults_guard</a></span>, <span class='object_link'><a href="Configurable.html#unset_defaults_guard-class_method" title="Mattock::Configurable.unset_defaults_guard (method)">unset_defaults_guard</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Configurable.html#check_required-instance_method" title="Mattock::Configurable#check_required (method)">#check_required</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings-instance_method" title="Mattock::Configurable#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable.html#copy_settings_to-instance_method" title="Mattock::Configurable#copy_settings_to (method)">#copy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#fail_unless_set-instance_method" title="Mattock::Configurable#fail_unless_set (method)">#fail_unless_set</a></span>, <span class='object_link'><a href="Configurable.html#field_unset%3F-instance_method" title="Mattock::Configurable#field_unset? (method)">#field_unset?</a></span>, <span class='object_link'><a href="Configurable.html#initialize_copy-instance_method" title="Mattock::Configurable#initialize_copy (method)">#initialize_copy</a></span>, <span class='object_link'><a href="Configurable.html#proxy_settings-instance_method" title="Mattock::Configurable#proxy_settings (method)">#proxy_settings</a></span>, <span class='object_link'><a href="Configurable.html#proxy_settings_to-instance_method" title="Mattock::Configurable#proxy_settings_to (method)">#proxy_settings_to</a></span>, <span class='object_link'><a href="Configurable.html#proxy_value-instance_method" title="Mattock::Configurable#proxy_value (method)">#proxy_value</a></span>, <span class='object_link'><a href="Configurable.html#setup_defaults-instance_method" title="Mattock::Configurable#setup_defaults (method)">#setup_defaults</a></span>, <span class='object_link'><a href="Configurable.html#to_hash-instance_method" title="Mattock::Configurable#to_hash (method)">#to_hash</a></span>, <span class='object_link'><a href="Configurable.html#unset%3F-instance_method" title="Mattock::Configurable#unset? (method)">#unset?</a></span>, <span class='object_link'><a href="Configurable.html#unset_defaults_guard-class_method" title="Mattock::Configurable.unset_defaults_guard (method)">unset_defaults_guard</a></span>, <span class='object_link'><a href="Configurable.html#unset_defaults_guard-instance_method" title="Mattock::Configurable#unset_defaults_guard (method)">#unset_defaults_guard</a></span></p>
 
   
   
@@ -370,7 +327,7 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Configurable/ClassMethods.html" title="Mattock::Configurable::ClassMethods (module)">Mattock::Configurable::ClassMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#copy_settings-instance_method" title="Mattock::Configurable::ClassMethods#copy_settings (method)">#copy_settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_value_for-instance_method" title="Mattock::Configurable::ClassMethods#default_value_for (method)">#default_value_for</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_metadata-instance_method" title="Mattock::Configurable::ClassMethods#field_metadata (method)">#field_metadata</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_names-instance_method" title="Mattock::Configurable::ClassMethods#field_names (method)">#field_names</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#inspect_instance-instance_method" title="Mattock::Configurable::ClassMethods#inspect_instance (method)">#inspect_instance</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_required_fields-instance_method" title="Mattock::Configurable::ClassMethods#runtime_required_fields (method)">#runtime_required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_setting-instance_method" title="Mattock::Configurable::ClassMethods#runtime_setting (method)">#runtime_setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#to_hash-instance_method" title="Mattock::Configurable::ClassMethods#to_hash (method)">#to_hash</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Configurable/ClassMethods.html#default_value_for-instance_method" title="Mattock::Configurable::ClassMethods#default_value_for (method)">#default_value_for</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#default_values-instance_method" title="Mattock::Configurable::ClassMethods#default_values (method)">#default_values</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_metadata-instance_method" title="Mattock::Configurable::ClassMethods#field_metadata (method)">#field_metadata</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#field_names-instance_method" title="Mattock::Configurable::ClassMethods#field_names (method)">#field_names</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#included-instance_method" title="Mattock::Configurable::ClassMethods#included (method)">#included</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#inspect_instance-instance_method" title="Mattock::Configurable::ClassMethods#inspect_instance (method)">#inspect_instance</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#missing_required_fields_on-instance_method" title="Mattock::Configurable::ClassMethods#missing_required_fields_on (method)">#missing_required_fields_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nested-instance_method" title="Mattock::Configurable::ClassMethods#nested (method)">#nested</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#nil_fields-instance_method" title="Mattock::Configurable::ClassMethods#nil_fields (method)">#nil_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#required_fields-instance_method" title="Mattock::Configurable::ClassMethods#required_fields (method)">#required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_required_fields-instance_method" title="Mattock::Configurable::ClassMethods#runtime_required_fields (method)">#runtime_required_fields</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#runtime_setting-instance_method" title="Mattock::Configurable::ClassMethods#runtime_setting (method)">#runtime_setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#set_defaults_on-instance_method" title="Mattock::Configurable::ClassMethods#set_defaults_on (method)">#set_defaults_on</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#setting-instance_method" title="Mattock::Configurable::ClassMethods#setting (method)">#setting</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#settings-instance_method" title="Mattock::Configurable::ClassMethods#settings (method)">#settings</a></span>, <span class='object_link'><a href="Configurable/ClassMethods.html#to_hash-instance_method" title="Mattock::Configurable::ClassMethods#to_hash (method)">#to_hash</a></span></p>
 
   <div id="instance_attr_details" class="attr_details">
     <h2>Instance Attribute Details</h2>
@@ -403,12 +360,12 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
       <pre class="lines">
 
 
-61
-62
-63</pre>
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_base_task'>base_task</span>
   <span class='ivar'>@base_task</span>
@@ -440,19 +397,25 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
       <pre class="lines">
 
 
-52
-53
-54
-55
-56</pre>
+57
+58
+59
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_sub'>sub</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sub'>sub</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='const'>ClassMethods</span>
   <span class='const'>Configurable</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_sub'>sub</span><span class='rparen'>)</span>
+  <span class='const'>Configurable</span><span class='op'>::</span><span class='const'>DirectoryStructure</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_sub'>sub</span><span class='rparen'>)</span>
   <span class='const'>DeferredDefinition</span><span class='period'>.</span><span class='id identifier rubyid_add_settings'>add_settings</span><span class='lparen'>(</span><span class='id identifier rubyid_sub'>sub</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sub'>sub</span><span class='period'>.</span><span class='id identifier rubyid_setting'>setting</span> <span class='symbol'>:task_name</span>
+  <span class='id identifier rubyid_sub'>sub</span><span class='period'>.</span><span class='id identifier rubyid_setting'>setting</span> <span class='symbol'>:task_args</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -480,11 +443,11 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
       <pre class="lines">
 
 
-67
-68</pre>
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_action'>action</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_task_args'>task_args</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -508,12 +471,12 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
       <pre class="lines">
 
 
-70
-71
-72</pre>
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_task_args'>task_args</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>\nConfiguration:\n</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_inspect_instance'>inspect_instance</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -538,12 +501,12 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
       <pre class="lines">
 
 
-63
-64
-65</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/task.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
   <span class='kw'>super</span>
@@ -558,9 +521,9 @@ overriding Rake API methods like Task#needed? and Task#timestamp</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:41 2013 by
+  Generated on Tue Nov 26 00:40:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

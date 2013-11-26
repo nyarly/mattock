@@ -6,13 +6,13 @@
 <title>
   Module: Mattock::Configurable::DirectoryStructure
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -77,14 +77,37 @@
     
   
   
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="Struct.html" title="Mattock::Configurable::Struct (class)">Struct</a></span>, <span class='object_link'><a href="../ConfigurableTask.html" title="Mattock::ConfigurableTask (module)">Mattock::ConfigurableTask</a></span>, <span class='object_link'><a href="../TaskLib.html" title="Mattock::TaskLib (class)">TaskLib</a></span></dd>
+    
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/mattock/configurable.rb</dd>
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/mattock/configurable/directory-structure.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>XXX Consider making the actual dir/path settings r/o Very easy to say</p>
 
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_filename'>filename</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>string</span><span class='tstring_end'>&quot;</span></span></code></pre>
+
+<p>rather than</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_relative_path'>relative_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>string</span><span class='tstring_end'>&quot;</span></span></code></pre>
+
+<p>and it isn't clear which (abs/rel) you mean</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 <h2>Defined Under Namespace</h2>
 <p class="children">
   
@@ -92,6 +115,8 @@
       <strong class="modules">Modules:</strong> <span class='object_link'><a href="DirectoryStructure/ClassMethods.html" title="Mattock::Configurable::DirectoryStructure::ClassMethods (module)">ClassMethods</a></span>
     
   
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="DirectoryStructure/StructurePath.html" title="Mattock::Configurable::DirectoryStructure::StructurePath (class)">StructurePath</a></span>
     
   
 </p>
@@ -188,19 +213,35 @@
       <pre class="lines">
 
 
-468
-469
-470
-471
-472</pre>
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 468</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/directory-structure.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_sub'>sub</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sub'>sub</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='const'>ClassMethods</span>
-  <span class='id identifier rubyid_sub'>sub</span><span class='period'>.</span><span class='id identifier rubyid_path_heirarchy'>path_heirarchy</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_sub'>sub</span><span class='period'>.</span><span class='id identifier rubyid_path_fields'>path_fields</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_dir_path'>dir_path</span> <span class='op'>=</span>
+    <span class='kw'>if</span> <span class='kw'>not</span> <span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_rakefile'>rakefile</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='kw'>not</span> <span class='lparen'>(</span><span class='id identifier rubyid_dir_path'>dir_path</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_original_dir'>original_dir</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='id identifier rubyid_dir_path'>dir_path</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>=</span> <span class='id identifier rubyid_caller'>caller</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+      <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='id identifier rubyid_sub'>sub</span><span class='period'>.</span><span class='id identifier rubyid_setting'>setting</span> <span class='symbol'>:absolute_path</span><span class='comma'>,</span> <span class='id identifier rubyid_dir_path'>dir_path</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -228,51 +269,15 @@
       <pre class="lines">
 
 
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-485
-486
-487
-488
-489
-490
-491
-492
-493
-494</pre>
+155
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 474</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/directory-structure.rb', line 155</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_paths'>resolve_paths</span>
-  <span class='id identifier rubyid_missing_relatives'>missing_relatives</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_path_heirarchy'>path_heirarchy</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_parent_field'>parent_field</span><span class='comma'>,</span> <span class='id identifier rubyid_child_field'>child_field</span><span class='op'>|</span>
-    <span class='id identifier rubyid_child'>child</span> <span class='op'>=</span> <span class='id identifier rubyid_child_field'>child_field</span><span class='period'>.</span><span class='id identifier rubyid_value_on'>value_on</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
-    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_child'>child</span><span class='period'>.</span><span class='id identifier rubyid_field_unset?'>field_unset?</span><span class='lparen'>(</span><span class='symbol'>:absolute_path</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_child'>child</span><span class='period'>.</span><span class='id identifier rubyid_field_unset?'>field_unset?</span><span class='lparen'>(</span><span class='symbol'>:relative_path</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_missing_relatives'>missing_relatives</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_child_field'>child_field</span>
-      <span class='kw'>next</span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='id identifier rubyid_parent_field'>parent_field</span><span class='period'>.</span><span class='id identifier rubyid_value_on'>value_on</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_child'>child</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span><span class='comma'>,</span> <span class='id identifier rubyid_child'>child</span><span class='period'>.</span><span class='id identifier rubyid_relative_path'>relative_path</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='kw'>unless</span> <span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Required field</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>s</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_missing_relatives'>missing_relatives</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>.relative_path</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'> unset on </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_path_fields'>path_fields</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_field'>field</span><span class='op'>|</span>
-    <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_value_on'>value_on</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
-    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_field_unset?'>field_unset?</span><span class='lparen'>(</span><span class='symbol'>:relative_path</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_relative_path'>relative_path</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span>
-  <span class='kw'>end</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_resolve_paths_on'>resolve_paths_on</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -284,9 +289,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:41 2013 by
+  Generated on Tue Nov 26 00:40:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang='en'>
 <head>
   <title>RSpec results</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -269,14 +266,14 @@ a {
   </div>
 
   <div id="display-filters">
-    <input id="passed_checkbox" name="passed_checkbox" type="checkbox" checked onchange="apply_filters()" value="1"> <label for="passed_checkbox">Passed</label>
-    <input id="failed_checkbox" name="failed_checkbox" type="checkbox" checked onchange="apply_filters()" value="2"> <label for="failed_checkbox">Failed</label>
-    <input id="pending_checkbox" name="pending_checkbox" type="checkbox" checked onchange="apply_filters()" value="3"> <label for="pending_checkbox">Pending</label>
+    <input id="passed_checkbox"  name="passed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="1" /> <label for="passed_checkbox">Passed</label>
+    <input id="failed_checkbox"  name="failed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="2" /> <label for="failed_checkbox">Failed</label>
+    <input id="pending_checkbox" name="pending_checkbox" type="checkbox" checked="checked" onchange="apply_filters()" value="3" /> <label for="pending_checkbox">Pending</label>
   </div>
 
   <div id="summary">
-    <p id="totals">&nbsp;</p>
-    <p id="duration">&nbsp;</p>
+    <p id="totals">&#160;</p>
+    <p id="duration">&#160;</p>
   </div>
 </div>
 
@@ -285,45 +282,45 @@ a {
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_1" class="passed">Mattock::CommandLine</dt>
-    <script type="text/javascript">moveProgressBar('2.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should have a name set</span><span class='duration'>0.00022s</span></dd>
-    <script type="text/javascript">moveProgressBar('4.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should produce a command string</span><span class='duration'>0.00017s</span></dd>
-    <script type="text/javascript">moveProgressBar('6.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should succeed</span><span class='duration'>0.00910s</span></dd>
-    <script type="text/javascript">moveProgressBar('8.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not complain about success</span><span class='duration'>0.00610s</span></dd>
+    <script type="text/javascript">moveProgressBar('1.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have a name set</span><span class='duration'>0.00015s</span></dd>
+    <script type="text/javascript">moveProgressBar('3.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should produce a command string</span><span class='duration'>0.00012s</span></dd>
+    <script type="text/javascript">moveProgressBar('4.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should succeed</span><span class='duration'>0.05721s</span></dd>
+    <script type="text/javascript">moveProgressBar('6.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not complain about success</span><span class='duration'>0.00797s</span></dd>
   </dl>
 </div>
 <div id="div_group_2" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_2" class="passed">Mattock::CommandRunResult</dt>
-    <script type="text/javascript">moveProgressBar('10.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should have a result code</span><span class='duration'>0.00413s</span></dd>
-    <script type="text/javascript">moveProgressBar('13.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should have stdout</span><span class='duration'>0.00384s</span></dd>
+  <dt id="example_group_2" class="passed">Mattock::CommandLine::CommandRunResult</dt>
+    <script type="text/javascript">moveProgressBar('7.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have a result code</span><span class='duration'>0.00676s</span></dd>
+    <script type="text/javascript">moveProgressBar('9.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have stdout</span><span class='duration'>0.00738s</span></dd>
   </dl>
 </div>
 <div id="div_group_3" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_3" class="passed">Mattock::CommandLine setting environment variables</dt>
-    <script type="text/javascript">moveProgressBar('15.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should succeed</span><span class='duration'>0.00381s</span></dd>
-    <script type="text/javascript">moveProgressBar('17.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should alter the command's environment variables</span><span class='duration'>0.00489s</span></dd>
+    <script type="text/javascript">moveProgressBar('10.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should succeed</span><span class='duration'>0.01064s</span></dd>
+    <script type="text/javascript">moveProgressBar('12.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should alter the command's environment variables</span><span class='duration'>0.00462s</span></dd>
   </dl>
 </div>
 <div id="div_group_4" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_4" class="passed">Mattock::PipelineChain</dt>
-    <script type="text/javascript">moveProgressBar('19.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should produce the right command</span><span class='duration'>0.00028s</span></dd>
-    <script type="text/javascript">moveProgressBar('21.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should produce a runnable command with format_string</span><span class='duration'>0.00024s</span></dd>
-    <script type="text/javascript">moveProgressBar('23.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should succeed</span><span class='duration'>0.00610s</span></dd>
-    <script type="text/javascript">moveProgressBar('26.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should alter the command's environment variables</span><span class='duration'>0.00614s</span></dd>
+    <script type="text/javascript">moveProgressBar('13.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should produce the right command</span><span class='duration'>0.00020s</span></dd>
+    <script type="text/javascript">moveProgressBar('15.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should produce a runnable command with format_string</span><span class='duration'>0.00018s</span></dd>
+    <script type="text/javascript">moveProgressBar('16.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should succeed</span><span class='duration'>0.00830s</span></dd>
+    <script type="text/javascript">moveProgressBar('18.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should alter the command's environment variables</span><span class='duration'>0.00504s</span></dd>
   </dl>
 </div>
 <div id="div_group_5" class="example_group passed">
@@ -334,198 +331,291 @@ a {
 <div id="div_group_6" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_6" class="passed">using the - operator</dt>
-    <script type="text/javascript">moveProgressBar('28.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should define commands</span><span class='duration'>0.00352s</span></dd>
+    <script type="text/javascript">moveProgressBar('20.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should define commands</span><span class='duration'>0.01362s</span></dd>
   </dl>
 </div>
 <div id="div_group_7" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_7" class="passed">using the | operator</dt>
-    <script type="text/javascript">moveProgressBar('30.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should define commands</span><span class='duration'>0.00030s</span></dd>
+    <script type="text/javascript">moveProgressBar('21.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should define commands</span><span class='duration'>0.00021s</span></dd>
   </dl>
 </div>
 <div id="div_group_8" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_8" class="passed">using the &amp; operator</dt>
-    <script type="text/javascript">moveProgressBar('32.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should define commands</span><span class='duration'>0.00028s</span></dd>
+    <script type="text/javascript">moveProgressBar('23.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should define commands</span><span class='duration'>0.00020s</span></dd>
   </dl>
 </div>
 <div id="div_group_9" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_9" class="passed">Mattock::CommandLine that fails</dt>
-    <script type="text/javascript">moveProgressBar('34.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not succeed</span><span class='duration'>0.00386s</span></dd>
-    <script type="text/javascript">moveProgressBar('36.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should raise error if succeed demanded</span><span class='duration'>0.00041s</span></dd>
+    <script type="text/javascript">moveProgressBar('24.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not succeed</span><span class='duration'>0.00400s</span></dd>
+    <script type="text/javascript">moveProgressBar('26.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should raise error if succeed demanded</span><span class='duration'>0.00026s</span></dd>
   </dl>
 </div>
 <div id="div_group_10" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_10" class="passed">Mattock::RemoteCommandTask</dt>
+    <script type="text/javascript">moveProgressBar('27.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should inspect cleanly</span><span class='duration'>0.00755s</span></dd>
   </dl>
 </div>
 <div id="div_group_11" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_11" class="passed">when verification indicates command should proceed</dt>
-    <script type="text/javascript">moveProgressBar('39.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should run both commands</span><span class='duration'>0.00408s</span></dd>
+    <script type="text/javascript">moveProgressBar('29.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should run both commands</span><span class='duration'>0.00425s</span></dd>
   </dl>
 </div>
 <div id="div_group_12" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_12" class="passed">Mattock::BundleCommandTask</dt>
-    <script type="text/javascript">moveProgressBar('41.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should run command</span><span class='duration'>0.00205s</span></dd>
+    <script type="text/javascript">moveProgressBar('30.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should run command</span><span class='duration'>0.00122s</span></dd>
   </dl>
 </div>
 <div id="div_group_13" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_13" class="passed">Mattock::TemplateHost</dt>
-    <script type="text/javascript">moveProgressBar('43.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be able to do easy templating</span><span class='duration'>0.00114s</span></dd>
+  <dt id="example_group_13" class="passed">Mattock::Configurable</dt>
+    <script type="text/javascript">moveProgressBar('32.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should set defaults</span><span class='duration'>0.00028s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">#to_hash</span><span class='duration'>0.00025s</span></dd>
+    <script type="text/javascript">moveProgressBar('35.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should complain about unset required fields</span><span class='duration'>0.00054s</span></dd>
+    <script type="text/javascript">moveProgressBar('36.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should complain about unset nested required fields</span><span class='duration'>0.00070s</span></dd>
+    <script type="text/javascript">moveProgressBar('38.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not complain when required fields are set</span><span class='duration'>0.00027s</span></dd>
+    <script type="text/javascript">moveProgressBar('40.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should inspect cleanly</span><span class='duration'>0.00030s</span></dd>
   </dl>
 </div>
 <div id="div_group_14" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_14" class="passed">Mattock::ConfigurationStore</dt>
-    <script type="text/javascript">moveProgressBar('45.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should make default configs available</span><span class='duration'>0.00474s</span></dd>
-    <script type="text/javascript">moveProgressBar('47.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should make local configs available</span><span class='duration'>0.00307s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_14" class="passed">with DirectoryStructure</dt>
+    <script type="text/javascript">moveProgressBar('41.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should complain about missing fields</span><span class='duration'>0.00130s</span></dd>
+    <script type="text/javascript">moveProgressBar('43.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should inspect cleanly</span><span class='duration'>0.00095s</span></dd>
   </dl>
 </div>
 <div id="div_group_15" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_15" class="passed">Mattock::TaskLib</dt>
-    <script type="text/javascript">moveProgressBar('50.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should make root task depend on namespaced</span><span class='duration'>0.00136s</span></dd>
-    <script type="text/javascript">moveProgressBar('52.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not make namespaced task depend on root task</span><span class='duration'>0.00125s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_15" class="passed">distinctness</dt>
+    <script type="text/javascript">moveProgressBar('44.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have same values</span><span class='duration'>0.00162s</span></dd>
+    <script type="text/javascript">moveProgressBar('46.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have different actual objects</span><span class='duration'>0.00201s</span></dd>
   </dl>
 </div>
 <div id="div_group_16" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_16" class="passed">defines</dt>
-    <script type="text/javascript">moveProgressBar('54.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should have task :test</span><span class='duration'>0.00130s</span></dd>
-    <script type="text/javascript">moveProgressBar('56.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should have task &quot;test:task&quot;</span><span class='duration'>0.00139s</span></dd>
-    <script type="text/javascript">moveProgressBar('58.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not have task &quot;random:tasks&quot;</span><span class='duration'>0.00129s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_16" class="passed">with root path configured, but missing a relative path</dt>
+    <script type="text/javascript">moveProgressBar('47.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should complain about missing fields</span><span class='duration'>0.00131s</span></dd>
   </dl>
 </div>
 <div id="div_group_17" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_17" class="passed">A two-step chain of proxy settings, that target a runtime required setting</dt>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_17" class="passed">with required paths configured</dt>
+    <script type="text/javascript">moveProgressBar('49.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not complain about required fields</span><span class='duration'>0.00191s</span></dd>
   </dl>
 </div>
 <div id="div_group_18" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_18" class="passed">when the setting is left unset at runtime</dt>
-    <script type="text/javascript">moveProgressBar('60.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings at define time</span><span class='duration'>0.00041s</span></dd>
-    <script type="text/javascript">moveProgressBar('63.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should complain about unset settings on head at runtime</span><span class='duration'>0.00035s</span></dd>
-    <script type="text/javascript">moveProgressBar('65.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should complain about unset settings on middle at runtime</span><span class='duration'>0.00040s</span></dd>
-    <script type="text/javascript">moveProgressBar('67.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should complain about unset settings on tail at runtime</span><span class='duration'>0.00046s</span></dd>
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_18" class="passed">nearby.absolute_path</dt>
+    <script type="text/javascript">moveProgressBar('50.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should =~ /rainbow\/a_place\/a.file$/</span><span class='duration'>0.00124s</span></dd>
   </dl>
 </div>
 <div id="div_group_19" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_19" class="passed">when the setting is made at runtime</dt>
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_19" class="passed">nearby.absolute_path</dt>
+    <script type="text/javascript">moveProgressBar('52.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should =~ /^\/home\/judson\/ruby\/gems\/mattock/</span><span class='duration'>0.00254s</span></dd>
   </dl>
 </div>
 <div id="div_group_20" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_20" class="passed">on the head of the chain</dt>
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_20" class="passed">certificate_file.absolute_path</dt>
+    <script type="text/javascript">moveProgressBar('53.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should == &quot;/tmp/bundle_workdir/aws-creds/cert.pem&quot;</span><span class='duration'>0.00149s</span></dd>
   </dl>
 </div>
 <div id="div_group_21" class="example_group passed">
   <dl style="margin-left: 45px;">
-  <dt id="example_group_21" class="passed">it should behave like a set value</dt>
-    <script type="text/javascript">moveProgressBar('69.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings</span><span class='duration'>0.00044s</span></dd>
-    <script type="text/javascript">moveProgressBar('71.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should report the set value at the tail</span><span class='duration'>0.03013s</span></dd>
+  <dt id="example_group_21" class="passed">bundle_manifest.absolute_path</dt>
+    <script type="text/javascript">moveProgressBar('55.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should == &quot;/tmp/bundle_workdir/image.manifest.xml&quot;</span><span class='duration'>0.00149s</span></dd>
   </dl>
 </div>
 <div id="div_group_22" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_22" class="passed">on the end of the chain</dt>
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_22" class="passed">credentials_dir.absolute_path</dt>
+    <script type="text/javascript">moveProgressBar('56.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should == &quot;/tmp/bundle_workdir/aws-creds&quot;</span><span class='duration'>0.00138s</span></dd>
   </dl>
 </div>
 <div id="div_group_23" class="example_group passed">
-  <dl style="margin-left: 45px;">
-  <dt id="example_group_23" class="passed">it should behave like a set value</dt>
-    <script type="text/javascript">moveProgressBar('73.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings</span><span class='duration'>0.00048s</span></dd>
-    <script type="text/javascript">moveProgressBar('76.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should report the set value at the tail</span><span class='duration'>0.00031s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_23" class="passed">multiple instances</dt>
+    <script type="text/javascript">moveProgressBar('58.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not have any validation errors</span><span class='duration'>0.00027s</span></dd>
+    <script type="text/javascript">moveProgressBar('60.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should accurately reflect settings</span><span class='duration'>0.00023s</span></dd>
   </dl>
 </div>
 <div id="div_group_24" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_24" class="passed">when the setting is made at define time</dt>
+  <dt id="example_group_24" class="passed">copying settings</dt>
+    <script type="text/javascript">moveProgressBar('61.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should make copies not references</span><span class='duration'>0.00044s</span></dd>
+    <script type="text/javascript">moveProgressBar('63.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not copy no_copy</span><span class='duration'>0.00042s</span></dd>
+    <script type="text/javascript">moveProgressBar('64.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not proxy no_proxy</span><span class='duration'>0.00033s</span></dd>
   </dl>
 </div>
 <div id="div_group_25" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_25" class="passed">on the head of the chain</dt>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_25" class="passed">Mattock::ConfigurationStore</dt>
+    <script type="text/javascript">moveProgressBar('66.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should make default configs available</span><span class='duration'>0.01441s</span></dd>
+    <script type="text/javascript">moveProgressBar('67.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should make local configs available</span><span class='duration'>0.00819s</span></dd>
   </dl>
 </div>
 <div id="div_group_26" class="example_group passed">
-  <dl style="margin-left: 45px;">
-  <dt id="example_group_26" class="passed">it should behave like a set value</dt>
-    <script type="text/javascript">moveProgressBar('78.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings</span><span class='duration'>0.00043s</span></dd>
-    <script type="text/javascript">moveProgressBar('80.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should report the set value at the tail</span><span class='duration'>0.00031s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_26" class="passed">A two-step chain of proxy settings, that target a runtime required setting</dt>
   </dl>
 </div>
 <div id="div_group_27" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_27" class="passed">on the end of the chain</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_27" class="passed">when the setting is left unset at runtime</dt>
+    <script type="text/javascript">moveProgressBar('69.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings at define time</span><span class='duration'>0.00030s</span></dd>
+    <script type="text/javascript">moveProgressBar('70.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should complain about unset settings on head at runtime</span><span class='duration'>0.00024s</span></dd>
+    <script type="text/javascript">moveProgressBar('72.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should complain about unset settings on middle at runtime</span><span class='duration'>0.00026s</span></dd>
+    <script type="text/javascript">moveProgressBar('73.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should complain about unset settings on tail at runtime</span><span class='duration'>0.00029s</span></dd>
   </dl>
 </div>
 <div id="div_group_28" class="example_group passed">
-  <dl style="margin-left: 45px;">
-  <dt id="example_group_28" class="passed">it should behave like a set value</dt>
-    <script type="text/javascript">moveProgressBar('82.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings</span><span class='duration'>0.00039s</span></dd>
-    <script type="text/javascript">moveProgressBar('84.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should report the set value at the tail</span><span class='duration'>0.00030s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_28" class="passed">when the setting is made at runtime</dt>
   </dl>
 </div>
 <div id="div_group_29" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_29" class="passed">Mattock::Configurable</dt>
-    <script type="text/javascript">moveProgressBar('86.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should set defaults</span><span class='duration'>0.00050s</span></dd>
-    <script type="text/javascript">moveProgressBar('89.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">#to_hash</span><span class='duration'>0.00032s</span></dd>
-    <script type="text/javascript">moveProgressBar('91.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should complain about unset required fields</span><span class='duration'>0.00069s</span></dd>
-    <script type="text/javascript">moveProgressBar('93.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should complain about unset nested required fields</span><span class='duration'>0.00055s</span></dd>
-    <script type="text/javascript">moveProgressBar('95.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not complain when required fields are set</span><span class='duration'>0.00037s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_29" class="passed">on the head of the chain</dt>
   </dl>
 </div>
 <div id="div_group_30" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_30" class="passed">copying settings</dt>
-    <script type="text/javascript">moveProgressBar('97.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not copy no_copy</span><span class='duration'>0.00044s</span></dd>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should not proxy no_proxy</span><span class='duration'>0.00041s</span></dd>
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_30" class="passed">it should behave like a set value</dt>
+    <script type="text/javascript">moveProgressBar('75.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings</span><span class='duration'>0.00024s</span></dd>
+    <script type="text/javascript">moveProgressBar('76.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should report the set value at the tail</span><span class='duration'>0.00068s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.12710 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "46 examples, 0 failures";</script>
+<div id="div_group_31" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_31" class="passed">on the end of the chain</dt>
+  </dl>
+</div>
+<div id="div_group_32" class="example_group passed">
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_32" class="passed">it should behave like a set value</dt>
+    <script type="text/javascript">moveProgressBar('78.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings</span><span class='duration'>0.00023s</span></dd>
+    <script type="text/javascript">moveProgressBar('80.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should report the set value at the tail</span><span class='duration'>0.00022s</span></dd>
+  </dl>
+</div>
+<div id="div_group_33" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_33" class="passed">when the setting is made at define time</dt>
+  </dl>
+</div>
+<div id="div_group_34" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_34" class="passed">on the head of the chain</dt>
+  </dl>
+</div>
+<div id="div_group_35" class="example_group passed">
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_35" class="passed">it should behave like a set value</dt>
+    <script type="text/javascript">moveProgressBar('81.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings</span><span class='duration'>0.00024s</span></dd>
+    <script type="text/javascript">moveProgressBar('83.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should report the set value at the tail</span><span class='duration'>0.00021s</span></dd>
+  </dl>
+</div>
+<div id="div_group_36" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_36" class="passed">on the end of the chain</dt>
+  </dl>
+</div>
+<div id="div_group_37" class="example_group passed">
+  <dl style="margin-left: 45px;">
+  <dt id="example_group_37" class="passed">it should behave like a set value</dt>
+    <script type="text/javascript">moveProgressBar('84.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not complain about unset settings</span><span class='duration'>0.00023s</span></dd>
+    <script type="text/javascript">moveProgressBar('86.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should report the set value at the tail</span><span class='duration'>0.00020s</span></dd>
+  </dl>
+</div>
+<div id="div_group_38" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_38" class="passed">Mattock::TaskLib</dt>
+    <script type="text/javascript">moveProgressBar('87.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should make root task depend on namespaced</span><span class='duration'>0.00097s</span></dd>
+    <script type="text/javascript">moveProgressBar('89.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not make namespaced task depend on root task</span><span class='duration'>0.00086s</span></dd>
+  </dl>
+</div>
+<div id="div_group_39" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_39" class="passed">defines</dt>
+    <script type="text/javascript">moveProgressBar('90.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have task :test</span><span class='duration'>0.00086s</span></dd>
+    <script type="text/javascript">moveProgressBar('92.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have task &quot;test:task&quot;</span><span class='duration'>0.00082s</span></dd>
+    <script type="text/javascript">moveProgressBar('93.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should not have task &quot;random:tasks&quot;</span><span class='duration'>0.00083s</span></dd>
+  </dl>
+</div>
+<div id="div_group_40" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_40" class="passed">Mattock::TemplateHost</dt>
+    <script type="text/javascript">moveProgressBar('95.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should handle relative paths nicely</span><span class='duration'>0.00023s</span></dd>
+    <script type="text/javascript">moveProgressBar('96.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be able to do easy templating</span><span class='duration'>0.00152s</span></dd>
+  </dl>
+</div>
+<div id="div_group_41" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_41" class="passed">Mattock::TemplateTask</dt>
+    <script type="text/javascript">moveProgressBar('98.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should create a task</span><span class='duration'>0.00172s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should generate the file when invoked</span><span class='duration'>0.00327s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.21715 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "65 examples, 0 failures";</script>
 </div>
 </div>
 </body>

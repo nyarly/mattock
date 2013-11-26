@@ -6,13 +6,13 @@
 <title>
   Class: Mattock::Configurable::SettingsCopier
   
-    &mdash; mattock-0.4.0 RDoc
+    &mdash; mattock-0.7.0 RDoc
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -96,7 +96,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/mattock/configurable.rb</dd>
+    <dd class="r2 last">lib/mattock/configurable/field-processor.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -122,6 +122,28 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#can_process-instance_method" title="#can_process (instance method)">- (Object) <strong>can_process</strong>(field, target) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -194,7 +216,37 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="filter_attribute-instance_method">
+  <h3 class="signature first" id="can_process-instance_method">
+  
+    - (<tt>Object</tt>) <strong>can_process</strong>(field, target) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/field-processor.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_can_process'>can_process</span><span class='lparen'>(</span><span class='id identifier rubyid_field'>field</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
+  <span class='kw'>super</span> <span class='kw'>and</span> <span class='kw'>not</span><span class='lparen'>(</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_unset_on?'>unset_on?</span><span class='lparen'>(</span><span class='id identifier rubyid_source'>source</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_unset_on?'>unset_on?</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="filter_attribute-instance_method">
   
     - (<tt>Object</tt>) <strong>filter_attribute</strong> 
   
@@ -208,12 +260,12 @@
       <pre class="lines">
 
 
-192
-193
-194</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/field-processor.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filter_attribute'>filter_attribute</span>
   <span class='symbol'>:copiable</span>
@@ -238,15 +290,15 @@
       <pre class="lines">
 
 
-196
-197
-198</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/mattock/configurable.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'lib/mattock/configurable/field-processor.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value'>value</span><span class='lparen'>(</span><span class='id identifier rubyid_field'>field</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_immediate_value_on'>immediate_value_on</span><span class='lparen'>(</span><span class='id identifier rubyid_source'>source</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_copy_from'>copy_from</span><span class='lparen'>(</span><span class='id identifier rubyid_source'>source</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -258,9 +310,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Mar 29 18:08:44 2013 by
+  Generated on Tue Nov 26 00:40:44 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>
