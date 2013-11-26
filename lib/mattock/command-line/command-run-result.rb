@@ -74,9 +74,9 @@ module Mattock
           if !@buffered_echo.nil?
             timeout = begin_echoing - Time.now
             if timeout < 0
-              puts
-              puts "Long running command output:"
-              puts @buffered_echo.join
+              @command.report ""
+              @command.report "Long running command output:"
+              @command.report @buffered_echo.join
               @buffered_echo = nil
             end
           end
@@ -113,7 +113,7 @@ module Mattock
             begin
               while chunk = io.read_nonblock(4096)
                 if @buffered_echo.nil?
-                  print chunk
+                  @command.report chunk, false
                 else
                   @buffered_echo << chunk
                 end

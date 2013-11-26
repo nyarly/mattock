@@ -2,27 +2,32 @@ require 'mattock/command-line/command-run-result'
 
 module Mattock
   class CommandLine
-    def self.define_chain_op(opname, klass)
-      define_method(opname) do |other|
-        unless CommandLine === other
-          other = CommandLine.new(*[*other])
+    class << self
+      def define_chain_op(opname, klass)
+        define_method(opname) do |other|
+          unless CommandLine === other
+            other = CommandLine.new(*[*other])
+          end
+          chain = nil
+          if klass === self
+            chain = self
+          else
+            chain = klass.new
+            chain.add(self)
+          end
+          chain.add(other)
         end
-        chain = nil
-        if klass === self
-          chain = self
-        else
-          chain = klass.new
-          chain.add(self)
-        end
-        chain.add(other)
       end
-    end
 
-    def self.define_op(opname)
-      CommandLine.define_chain_op(opname, self)
+      def define_op(opname)
+        CommandLine.define_chain_op(opname, self)
+      end
+
+      attr_accessor :output_stream
     end
 
     def initialize(executable, *options)
+      @output_stream = self.class.output_stream || $stderr
       @executable = executable
       @options = options
       @redirections = []
@@ -30,7 +35,7 @@ module Mattock
       yield self if block_given?
     end
 
-    attr_accessor :name, :executable, :options, :env
+    attr_accessor :name, :executable, :options, :env, :output_stream
     attr_reader :redirections
 
     alias_method :command_environment, :env
@@ -87,8 +92,8 @@ module Mattock
     end
 
     def replace_us
-      puts "Ceding execution to: "
-      puts string_format
+      output_steeam.puts "Ceding execution to: "
+      output_stream.puts string_format
       Process.exec(command_environment, command)
     end
 
@@ -144,14 +149,18 @@ module Mattock
       collect_result(pid, out, err)
     end
 
+    def report(message, newline=true)
+      output_stream.print(message + (newline ? "\n" : ""))
+    end
+
     def run
-      print string_format + " "
+      report string_format + " ", false
       result = execute
-      puts "=> #{result.exit_code}"
-      puts result.format_streams if verbose
+      report "=> #{result.exit_code}"
+      report result.format_streams if verbose
       return result
     ensure
-      puts if verbose
+      report "" if verbose
     end
 
     def succeeds?

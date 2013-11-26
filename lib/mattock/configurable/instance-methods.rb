@@ -1,3 +1,5 @@
+require 'mattock/configurable/directory-structure'
+
 module Mattock
   module Configurable
     def initialize_copy(original)
@@ -75,6 +77,7 @@ module Mattock
 
     class Struct
       include Configurable
+      include Configurable::DirectoryStructure
     end
   end
 end

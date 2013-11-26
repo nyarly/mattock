@@ -10,7 +10,7 @@ module Corundum
   end
 
   tk.in_namespace do
-    sanity = GemspecSanity.new(tk)
+    GemspecFiles.new(tk)
     debug_kruft = QuestionableContent.new(tk) do |dbg|
       dbg.words = %w{p pry binding.pry debugger}
     end
