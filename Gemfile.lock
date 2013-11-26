@@ -18,11 +18,11 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    corundum (0.3)
+    corundum (0.3.2)
       bundler
       compass (>= 0.12.1)
       mailfactory (~> 1.4.0)
-      mattock (~> 0.5)
+      mattock (~> 0.7)
       nokogiri
       rdoc
       rspec (>= 2.0)
