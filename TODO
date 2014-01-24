@@ -31,3 +31,7 @@ Feature: Unpack task - depends on target files, so skipped until archive newer
 Feature: CommandLine - streaming output - connect stdout/stderr to parent's
 
 DirectoryStructure and Valise are related - would be nice e.g. to use a Valise as the "root" for a DirStrct and populate files that way
+
+Feature: Configurable#from_hash so that we can e.g. load and store to YAML
+
+Feature: runtime paths (or Task configs are all runtime...)
