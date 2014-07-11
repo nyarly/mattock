@@ -35,6 +35,13 @@ describe Mattock::Configurable do
     hash[:two][:a].should == "a"
   end
 
+  it "#from_hash" do
+    subject.from_hash({:one => 111, "two" => { :a => "aaa" }})
+
+    subject.one.should == 111
+    subject.two.a.should == "aaa"
+  end
+
   it "should complain about unset required fields" do
     expect do
       subject.check_required
@@ -115,7 +122,7 @@ describe Mattock::Configurable do
     it "should complain about missing fields" do
       expect do
         subject.check_required
-      end.to raise_error /Required field/
+      end.to raise_error(/Required field/)
     end
 
     it "should inspect cleanly" do
@@ -134,7 +141,7 @@ describe Mattock::Configurable do
       it "should complain about missing fields" do
         expect do
           subject.check_required
-        end.to raise_error /Required field/
+        end.to raise_error(/Required field/)
       end
     end
 

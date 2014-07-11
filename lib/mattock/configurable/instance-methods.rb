@@ -27,6 +27,10 @@ module Mattock
       self.class.to_hash(self)
     end
 
+    def from_hash(hash)
+      self.class.from_hash(self, hash)
+    end
+
     def unset_defaults_guard
       raise "Tried to check required settings before running setup_defaults"
     end

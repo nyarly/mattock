@@ -107,7 +107,7 @@ module Mattock
 
         attr_writer(name)
         define_method(metadata.reader_method) do
-          value = metadata.value_on(self)
+          metadata.value_on(self)
         end
 
         if existing = default_values.find{|field| field.name == name} and existing.default_value != default_value
@@ -193,6 +193,29 @@ module Mattock
         }])
       end
 
+      def from_hash(obj, hash) #XXX It'd be really nice if this could report unused fields
+        if Configurable > superclass
+          superclass.from_hash(obj, hash)
+        end
+        default_values.each do |field|
+          catch :next do
+            key = field.reader_method.to_s
+            value = hash.fetch(key.to_s) do
+              key = key.to_sym
+              hash.fetch(key) do
+                throw :next
+              end
+            end
+
+            existing_value = obj.__send__(field.reader_method)
+            if Configurable === existing_value and value.is_a? Hash
+              existing_value.from_hash(value)
+            else
+              obj.__send__(field.writer_method, value)
+            end
+          end
+        end
+      end
 
       def included(mod)
         mod.extend ClassMethods
