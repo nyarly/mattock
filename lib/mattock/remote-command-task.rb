@@ -20,21 +20,19 @@ module Mattock
         fail "Need remote server for #{self.class.name}" unless remote_server.address
 
         raise "Empty remote command" if command_on_remote.nil?
-        Mattock::WrappingChain.new do |cmd|
-          cmd.add Mattock::CommandLine.new("ssh") do |cmd|
-            cmd.options << "-i #{id_file}" if id_file
-            cmd.options << "-l #{remote_server.user}" unless remote_server.user.nil?
-            cmd.options << remote_server.address
-            cmd.options << "-p #{remote_server.port}" #ok
-            cmd.options << "-n"
-            cmd.options << "-#{'v'*verbose}" if verbose > 0
-            unless ssh_options.empty?
-              ssh_options.each do |opt|
-                cmd.options << "-o #{opt}"
-              end
+        cmd("ssh") do |cmd|
+          cmd.options << "-i #{id_file}" if id_file
+          cmd.options << "-l #{remote_server.user}" unless remote_server.user.nil?
+          cmd.options << remote_server.address
+          cmd.options << "-p #{remote_server.port}" #ok
+          cmd.options << "-n"
+          cmd.options << "-#{'v'*verbose}" if verbose > 0
+          unless ssh_options.empty?
+            ssh_options.each do |opt|
+              cmd.options << "-o #{opt}"
             end
           end
-          cmd.add Mattock::ShellEscaped.new(command_on_remote)
+          cmd - escaped_command(command_on_remote)
         end
       end
     end

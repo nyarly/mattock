@@ -1,12 +1,19 @@
 require 'mattock/task'
-require 'mattock/command-line'
+begin
+  require 'caliph'
+rescue LoadError => le
+  if le.message =~ /caliph/
+    puts "Mattock's CommandTask (and subclasses) requires a gem called 'caliph' now. Add it to your Gemfile"
+  end
+  raise
+end
 
 module Mattock
   module CommandTaskMixin
-    include CommandLineDSL
+    include Caliph::CommandLineDSL
 
     def self.included(sub)
-      sub.extend CommandLineDSL
+      sub.extend Caliph::CommandLineDSL
       sub.runtime_setting(:verify_command, nil)
       sub.runtime_setting(:command)
     end
@@ -39,12 +46,20 @@ module Mattock
       command
     end
 
+    def self.shell
+      @shell ||= Caliph.new
+    end
+
+    def shell
+      CommandTaskMixin.shell
+    end
+
     def action(args)
-      decorated(command).must_succeed!
+      shell.run(decorated(command)).must_succeed!
     end
 
     def check_verification_command
-      !decorated(verify_command).succeeds?
+      !shell.run(decorated(verify_command)).succeeds?
     end
 
     def needed?

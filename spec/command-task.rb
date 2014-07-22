@@ -1,28 +1,26 @@
 require 'mattock/remote-command-task'
 require 'mattock/bundle-command-task'
+
 require 'mattock/testing/rake-example-group'
-require 'mattock/testing/mock-command-line'
+require 'caliph/testing/mock-command-line'
 
 describe Mattock::RemoteCommandTask do
   include Mattock::RakeExampleGroup
-  include Mattock::CommandLineExampleGroup
+  include Caliph::CommandLineExampleGroup
 
   let! :remote_task do
     namespace :test do
       Mattock::Rake::RemoteCommandTask.define_task do |t|
         t.remote_server.address = "nowhere.com"
-        t.command = Mattock::PrereqChain.new do |prereq|
-          prereq.add Mattock::CommandLine.new("cd", "a_dir")
-          prereq.add Mattock::PipelineChain.new do |pipe|
-            pipe.add Mattock::CommandLine.new("ls")
-            pipe.add Mattock::CommandLine.new("grep") do |cmd|
-              cmd.options << "*.rb"
-              cmd.redirect_stderr("/dev/null")
-              cmd.redirect_stdout("/tmp/rubyfiles.txt")
-            end
-          end
+        t.command = t.cmd do |cmd|
+          cmd.from("cd", "a_dir")
+          cmd &= "ls"
+          cmd |= "grep"
+          cmd.options << "*.rb"
+          cmd.redirect_stderr("/dev/null")
+          cmd.redirect_stdout("/tmp/rubyfiles.txt")
         end
-        t.verify_command = Mattock::CommandLine.new("should_do")
+        t.verify_command = t.cmd("should_do")
       end
     end
   end
@@ -43,7 +41,7 @@ end
 
 describe Mattock::BundleCommandTask do
   include Mattock::RakeExampleGroup
-  include Mattock::CommandLineExampleGroup
+  include Caliph::CommandLineExampleGroup
 
   let! :bundle_task do
     Mattock::BundleCommandTask.define_task(:bundle_test) do |t|

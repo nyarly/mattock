@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "mattock"
-  spec.version		= "0.7.1"
+  spec.version		= "0.8.0"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -33,12 +33,9 @@ Gem::Specification.new do |spec|
     yard_templates/default/module/html/task_definition.erb
     yard_templates/default/layout/html/setup.rb
     yard_templates/default/layout/html/tasklib_list.erb
-    lib/mattock/command-line.rb
-    lib/mattock/command-line/command-run-result.rb
     lib/mattock/command-task.rb
+    lib/mattock/command-tasklib.rb
     lib/mattock/testing/rake-example-group.rb
-    lib/mattock/testing/mock-command-line.rb
-    lib/mattock/testing/record-commands.rb
     lib/mattock/template-host.rb
     lib/mattock/yard_extensions.rb
     lib/mattock/remote-command-task.rb
@@ -58,7 +55,6 @@ Gem::Specification.new do |spec|
     lib/mattock.rb
     doc/README
     doc/Specifications
-    spec/command-line.rb
     spec/command-task.rb
     spec/tasklib.rb
     spec/configurable.rb
@@ -75,7 +71,6 @@ Gem::Specification.new do |spec|
   spec.rubygems_version = "1.3.5"
 
   if spec.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     spec.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
@@ -96,6 +91,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency("rake", "~> 10.0")
   spec.add_dependency("valise", "~> 1.1.1")
   spec.add_dependency("tilt", "> 0")
+  spec.add_dependency("caliph", "~> 0.3.1")
 
   #spec.post_install_message = "Another tidy package brought to you by Judson"
 end

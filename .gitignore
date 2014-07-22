@@ -13,3 +13,4 @@ gh-pages/
 .sass-cache/
 .cadre/
 errors.err
+tmp/
