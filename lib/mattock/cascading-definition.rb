@@ -15,6 +15,8 @@ module Mattock
   #
   #    define
   #
+  #(see #setup_cascade)
+  #
   #Override those methods to adjust how a TaskLib processes its options
   #
   #The only method not defined here is {Configurable#setup_defaults}
@@ -63,7 +65,7 @@ module Mattock
     #Called after the configuration block has been called, so secondary
     #configurations can be set up.  For instance, consider:
     #
-    #    self.command ||= bin_dir + command_name
+    #    self.command = bin_dir + command_name if is_unset?(:command)
     #
     #The full path to the command could be set in the configuration block in
     #the Rakefile, or if bin_dir and command_name are set, we can put those

@@ -5,6 +5,6 @@ group :development do
   gem 'redcarpet'
   gem 'rake'
   gem 'cadre'
-  gem 'corundum', :path => "../corundum"
+  gem 'corundum'
 end
 gemspec

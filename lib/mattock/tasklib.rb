@@ -2,38 +2,49 @@ require 'rake/tasklib'
 require 'mattock/cascading-definition'
 
 module Mattock
-  #Rake::Tasklib provides a common, well known way to generalize tasks and use
-  #them in multiple projects.
+  # {Mattock::TaskLib} provides a base class to build tasklibs on so that you
+  # can get to what you care about, and get option validation as well.
   #
-  #Typically, the #initialize method for CoolTask yields itself into the block
-  #(so, 't' in the example) and then runs #define which does the heavy lifting
-  #to actually create tasks and set them up with dependencies and whatnot.
+  # The convention that's added in Mattock is that Tasklibs are passed to each
+  # other as arguments, so that behavior can be composed out of modular
+  # components.
   #
-  #Rake::Tasklib doesn't really provide much in the way of help or guidance
-  #about how to do this, though, and everyone winds up having to do a lot of
-  #the same work.
+  # To define a new task lib: subclass {TaskLib}, add some ::setting calls, and
+  # override #define to add some tasks.
   #
-  #Mattock::TaskLib provides a base class to build tasklibs on so that you can
-  #get to what you care about, and get option validation as well.
+  # To use your tasklib, instantiate with a block, optionally passing other
+  # task libs to copy configuration from.
   #
-  #The convention that's added in Mattock is that Tasklibs are passed to each
-  #other as arguments, so that behavior can be composed out of modular
-  #components.
+  # @example
+  #     class CoolTask < Mattock::TaskLib
+  #       settings :option_one, :option_two
   #
-  #@example
-  #    CoolTask.new(:args) do |t|
-  #      t.option_one = "cool"
-  #      t.option_two = "very"
-  #    end
+  #       default_namespace :be
   #
-  #@example Composition
-  #    transport = HTTPTasks.new do |t|
-  #      t.server = http://mycoolserver.com
-  #    end
+  #       def define
+  #         task :cool do
+  #           puts "I am so #{option_one} #{option_two}"
+  #         end
+  #       end
+  #     end
   #
-  #    UploadTasks.new(transport) do |t|
-  #      t.dir = "./source_dir"
-  #    end
+  #     CoolTask.new(:args) do |t|
+  #       t.option_one = "cool"
+  #       t.option_two = "very"
+  #     end
+  #
+  # @example
+  #     > rake be:cool
+  #     I am so very cool
+  #
+  # @example Composition
+  #     transport = HTTPTasks.new do |t|
+  #       t.server = http://mycoolserver.com
+  #     end
+  #
+  #     UploadTasks.new(transport) do |t|
+  #       t.dir = "./source_dir"
+  #     end
   #
   #The configuration handling is provided by {CascadingDefinition}, and
   #configuration options are built using {Configurable}
