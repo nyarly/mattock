@@ -37,7 +37,11 @@ module Mattock
         end
         alias path_name pathname
 
-        if (false)
+        def to_s
+          fail_unless_set(:absolute_path)
+          absolute_path
+        end
+
         def inspect
           "<path: #{
             if field_unset?(:absolute_path)
@@ -50,7 +54,6 @@ module Mattock
               absolute_path.inspect
             end
           }>"
-        end
         end
       end
 
@@ -77,7 +80,6 @@ module Mattock
           end
           parent_field = path(field_name, rel_path)
 
-          root_paths << parent_field
           self.path_heirarchy += args.map do |child_field|
             [parent_field, child_field]
           end
@@ -117,6 +119,7 @@ module Mattock
           end
 
           path_heirarchy.reverse.each do |parent_field, child_field|
+            next if missing_relatives.include?(parent_field)
             parent = parent_field.value_on(instance)
             resolve_path_on(instance, parent, child_field, missing_relatives)
           end
