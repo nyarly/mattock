@@ -92,6 +92,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency("valise", "~> 1.1.1")
   spec.add_dependency("tilt", "> 0")
   spec.add_dependency("caliph", "~> 0.3.1")
+  spec.add_dependency("calibrate", "~> 0.0.1")
 
   #spec.post_install_message = "Another tidy package brought to you by Judson"
 end

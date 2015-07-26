@@ -1,4 +1,4 @@
-require 'mattock/configurable'
+require 'calibrate/configurable'
 
 module Mattock
   #Collects shared configuration management behavior for TaskLibs and Tasks
@@ -23,7 +23,7 @@ module Mattock
   #
   #For an overview see {TaskLib}
   module CascadingDefinition
-    include Configurable
+    include Calibrate::Configurable
 
     def setup_cascade(*other_definitions)
       @runtime = false

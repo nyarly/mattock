@@ -1,4 +1,5 @@
 require 'mattock/cascading-definition'
+require 'calibrate'
 require 'singleton' #Rake fails to require this properly
 require 'rake/task'
 require 'rake/file_task'
@@ -10,10 +11,10 @@ module Mattock
   # configuration block to change how a common task behaves, while still
   # overriding Rake API methods like Task#needed? and Task#timestamp
   module ConfigurableTask
-    include Configurable
+    include Calibrate::Configurable
     include CascadingDefinition
     include DeferredDefinition
-    include Configurable::DirectoryStructure
+    include Calibrate::Configurable::DirectoryStructure
 
     module ClassMethods
       def default_taskname(name)
@@ -21,9 +22,9 @@ module Mattock
       end
 
       def define_task(*args)
-        configs = args.take_while{|arg| Configurable === arg}
+        configs = args.take_while{|arg| Calibrate::Configurable === arg}
         extracted_task_args = args[configs.length..-1]
-        if extracted_task_args.any?{|arg| Configurable === arg}
+        if extracted_task_args.any?{|arg| Calibrate::Configurable === arg}
           raise "Mattock::Task classes should be created with parent configs, then Rake task args"
         end
 
@@ -56,8 +57,8 @@ module Mattock
 
     def self.included(sub)
       sub.extend ClassMethods
-      Configurable.included(sub)
-      Configurable::DirectoryStructure.included(sub)
+      Calibrate::Configurable.included(sub)
+      Calibrate::Configurable::DirectoryStructure.included(sub)
       DeferredDefinition.add_settings(sub)
       sub.setting :task_name
       sub.setting :task_args

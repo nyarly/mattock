@@ -1,10 +1,9 @@
 source "https://rubygems.org"
 
-group :development do
-  gem 'fuubar'
-  gem 'redcarpet'
-  gem 'rake'
-  gem 'cadre'
-  gem 'corundum'
-end
+gem 'fuubar'
+gem 'redcarpet'
+gem 'rake'
+gem 'cadre'
+gem 'corundum'
+gem 'calibrate', :path => "../calibrate"
 gemspec

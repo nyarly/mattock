@@ -5,7 +5,7 @@ describe Mattock::TemplateTask do
 
   include Mattock::RakeExampleGroup
 
-  class StructX < Mattock::Configurable::Struct
+  class StructX < Calibrate::Configurable::Struct
     setting :planet
   end
 

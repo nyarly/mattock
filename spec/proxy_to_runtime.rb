@@ -1,8 +1,9 @@
 require 'mattock'
+require 'calibrate'
 
 describe "A two-step chain of proxy settings, that target a runtime required setting" do
   class TestRuntime
-    include Mattock::Configurable
+    include Calibrate::Configurable
 
     def initialize
       setup_defaults

@@ -50,7 +50,7 @@ module Mattock
   #configuration options are built using {Configurable}
   class TaskLib < ::Rake::TaskLib
     include CascadingDefinition
-    include Configurable::DirectoryStructure
+    include Calibrate::Configurable::DirectoryStructure
 
     attr_writer :namespace_name
 
