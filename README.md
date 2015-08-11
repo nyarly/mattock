@@ -400,5 +400,8 @@ default to true (i.e. `.is(:copiable)`), but most of those changes are handled
 by how the fields were defined in the first place.
 
 
+### Related Projects
 
-For more information, check out http://nyarly.github.com/mattock/
+Mattock's configuration interfaces (e.g. `setting`) are implemented in a
+separate gem called [Calibrate](https://git.lrdesign.com/lrd/calibrate) which
+is designed to be used as a support library in other gems.
