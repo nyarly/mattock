@@ -50,7 +50,6 @@ Gem::Specification.new do |spec|
     doc/Specifications
     spec/command-task.rb
     spec/tasklib.rb
-    spec/configurable.rb
     spec/configuration-store.rb
     spec/yard-extensions.rb
     spec/template-host.rb
