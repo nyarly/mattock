@@ -43,13 +43,6 @@ Gem::Specification.new do |spec|
     lib/mattock/tasklib.rb
     lib/mattock/task.rb
     lib/mattock/template-task.rb
-    lib/mattock/configurable.rb
-    lib/mattock/configurable/field-processor.rb
-    lib/mattock/configurable/proxy-value.rb
-    lib/mattock/configurable/instance-methods.rb
-    lib/mattock/configurable/class-methods.rb
-    lib/mattock/configurable/directory-structure.rb
-    lib/mattock/configurable/field-metadata.rb
     lib/mattock/configuration-store.rb
     lib/mattock/cascading-definition.rb
     lib/mattock.rb
