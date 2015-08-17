@@ -47,7 +47,6 @@ Gem::Specification.new do |spec|
     lib/mattock/cascading-definition.rb
     lib/mattock.rb
     doc/README
-    doc/Specifications
     spec/command-task.rb
     spec/tasklib.rb
     spec/configuration-store.rb
