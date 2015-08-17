@@ -1,5 +1,5 @@
 ci:
   script:
     - source /usr/local/share/chruby/chruby.sh
-    - chruby $(.ruby-version)
+    - chruby $(< .ruby-version)
     - ./tests.sh
