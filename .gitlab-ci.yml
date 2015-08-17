@@ -1,2 +1,5 @@
 ci:
-  script: ./tests.sh
+  script:
+    - source /usr/local/share/chruby/chruby.sh
+    - chruby $(.ruby-version)
+    - ./tests.sh
