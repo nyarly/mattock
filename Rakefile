@@ -24,12 +24,6 @@ module Corundum
     vc = Git.new(tk) do |vc|
       vc.branch = "master"
     end
-    task tk.finished_files.build => vc["is_checked_in"]
-    #yd = YARDoc.new(tk)
-
-    #docs = DocumentationAssembly.new(tk, yd, rspec, cov)
-
-    #pages = GithubPages.new(docs)
   end
 end
 
